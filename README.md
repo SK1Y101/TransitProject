@@ -22,6 +22,11 @@ Repo/
 │ ├ Literature_Review.pdf
 │ └ ProjectProposal.pdf
 ├ Source/
-│ └
+│ ├ ProjectModules/
+│ │ └ nbody.py
+│ └ multi-planetary_transit.py
 └ README.md
 ```
+
+In the `Source/` folder is all of the python scripts to be ran.
+Additionally, contained within the `Source/ProjectModules` folder is the individual code modules common across the project
