@@ -9,7 +9,12 @@
 # import python modules
 from astropy import constants as const
 from astropy import units as u
+from tqdm import trange, tqdm
 import numpy as np
+
+# graphing modules
+import matplotlib.animation as animation
+import matplotlib.pylab as plt
 
 # standard helper class for functions
 class __Helper__:
@@ -52,7 +57,48 @@ class System(__Helper__):
     def __init__(self):
         self.bodies = []
         self.propogator = self.euler
-        self.positions = {}
+        self.grav_Func = self.do_gravity
+        self.positions = {"barycentre":[]}
+        self.totalmass = 0
+        self.barycentre = []
+        self.largest_apo = 0
+
+    # start an updating plot of the system
+    def plot(self, updatefunc=None, frames=None, interval=10, keepBarycentreConstant=True):
+        # if we weren't given a function, use the inbuild
+        updatefunc = updatefunc if updatefunc else self.plotpos
+        # start a nice bar so we can see progress
+        with tqdm() as pbar:
+            # create the figure
+            fig=plt.figure()
+            # and axes
+            ax = fig.add_subplot(projection="3d")
+            # animation function
+            def animate(i):
+                # clear the graph
+                ax.clear()
+                # run our function to update the graph
+                updatefunc(ax, i, keepBarycentreConstant)
+                # and update our bar too
+                pbar.update(1)
+            # execute the animation
+            ani = animation.FuncAnimation(fig, animate, frames=frames, interval=interval)
+            plt.show()
+
+    # plot the position of each body over time
+    def plotpos(self, ax, i, keepBarycentreConstant=True):
+        # propogate one timestep
+        self.propogate(self.tstep, keepBarycentreConstant)
+        # for each body in the system
+        for body in self.bodies:
+            # plot the previous position of the body
+            ax.plot(*self.positions[body].T, c=body.colour, lw=0.5)
+            # plot the current position of the body
+            ax.scatter(*body.pos, c=body.colour)
+        # limit the axes
+        '''ax.set_xlim(-self.largest_apo, self.largest_apo)
+        ax.set_ylim(-self.largest_apo, self.largest_apo)
+        ax.set_zlim(-self.largest_apo, self.largest_apo)'''
 
     # add bodies to the system
     def addBody(self, *bodies):
@@ -64,63 +110,137 @@ class System(__Helper__):
                     pass
                 # append to our body list
                 self.bodies.append(body)
-                self.positions[body] = []
+                self.positions[body] = np.copy(body.pos)
+                self.totalmass += body.mass
+                # compute the apoapsis of this body, and add to our largest function
+                try:
+                    apo = (1 + body.ecc) * body.sma
+                    self.largest_apo = max(self.largest_apo, apo.to(u.m).value)
+                except:
+                    pass
             except:
                 raise Exception("Object given is not a body: {}.".format(body))
 
-    # propogator
-    def propogate(self, step=1):
-        # iterate on all bodies in the system
-        # compute their acceleration due to every other body
-        # move their position forward by one time step
-
-        # ensure the step is a number
-        step = self.asUnit(step, u.s)
-
+    # compute gravitational forces between bodies
+    def do_gravity(self, offset=1*u.m):
+        # ensure our offset is valid
+        offset = self.asUnit(offset, u.m)
+        a_ = []
         # iterate on all the bodies
         for body1 in self.bodies:
             # reset acceleration from previous step
-            body1.a = np.zeros(3) * u.m / u.s**2
+            a = np.zeros(3) * u.m / u.s**2
             # itterate on all the bodies again
             for body2 in self.bodies:
-                # skip self interactions
-                if body1 == body2:
-                    continue
                 # distance between
                 dist = body1.pos - body2.pos
                 dist_mag = np.linalg.norm(dist)
-                # compute total force
-                a = -const.G * body2.mass / dist_mag**2
+                # compute total force, using the offset to avoid infinities
+                F = -const.G * body2.mass * body1.mass * dist / (dist_mag + offset)**3
                 #compute force in each direction.
-                body1.a += a * dist / dist_mag
-        # update position using euler method
+                a += F / body1.mass
+            # append this bodies acceleration
+            a_.append(a)
+        # return the acceleration
+        return self.toNpArray(a_)
+
+    # compute the gravitational forces between bodies without using loops
+    def do_gravity_vectorized(self, offset=1*u.m):
+        # ensure our offset is valid
+        offset = self.asUnit(offset, u.m)
+
+        # mass and position of all bodies
+        mass = np.vstack([body.mass for body in self.bodies])
+        poss = np.vstack([body.pos for body in self.bodies])
+
+        # compute m1 * m2
+        mass_mat = (mass.reshape((1, -1, 1)) * mass.reshape((-1, 1, 1)).T).T
+
+        # compute the distances between bodies in each axis
+        dist = poss.reshape((1, -1, 3)) - poss.reshape((-1, 1, 3))
+
+        # compute the magnitude of the distance between bodies
+        dist_mag = np.linalg.norm(dist, axis=2)
+
+        # also remove any zeros
+        dist_mag[dist_mag == 0*u.m] = 1*u.m
+
+        # compute the gravitational forces for each body in each direction
+        F = const.G * mass_mat * dist / np.expand_dims(dist_mag, 2)**3
+
+        # convert to 3d-acceleration
+        a = F.sum(axis=1) / mass.reshape(-1, 1)
+
+        return a
+
+    # propogator
+    def propogate(self, step=1, keepBarycentreConstant=True):
+        # ensure the step is a number
+        step = self.asUnit(step, u.s)
+
+        # compute the gravitational acceleration between bodies
+        acc = self.grav_Func(offset = 1*u.m)
+
+        # set the barycentre position to nothing
+        self.barycentre = self.toNpArray(self.asUnit([0,0,0], u.m))
+
+        # iterate on all bodies
+        i=0
         for body in self.bodies:
-            # velocity
-            body.vel += body.a * step
-            # position
-            body.pos += body.vel * step
+            # apply the chosen propogator
+            self.propogator(body, acc[i], step)
+            i+=1
             # update historical positions
-            self.positions[body] += [np.copy(body.pos)]
+            self.positions[body] = np.vstack((self.positions[body], np.copy(body.pos)))
+            # and add our barycentre to the mix
+            self.barycentre += body.pos * (body.mass / self.totalmass)
+
+        # if we are keeping the location of the barycentre fixed
+        if keepBarycentreConstant:
+            for body in self.bodies:
+                body.pos -= self.barycentre
+            self.barycentre -= self.barycentre
 
     # propogator types
-    def euler(self):
-        pass
+
+    # euler method, applies simple suvat to compute the bodies new position and velocity
+    def euler(self, body, a, step):
+        # y_{n+1} = y_n + h f(t_n, y_n)
+        # ensure the step is a number
+        step = self.asUnit(step, u.s)
+        # compute velocity
+        body.vel += a * step
+        # compute position
+        body.pos += body.vel * step
 
 # body class
 class Body(__Helper__):
     # initialisation
-    def __init__(self, mass, position=[0,0,0], velocity=[0,0,0]):
+    def __init__(self, mass, radius=1000, name="Body", colour="black"):
         ''' Initialise the body class.
             mass: the mass of this body. This value will be converted to kilograms
-            position: the starting 3-position for this body.
-            velocity: the starting 3-velocity for this body.'''
+            name: the name of this body for graphing.
+            colour: the colour of body for graphing.'''
         self.isABody = True
+        # graphing parameters
+        self.name = name
+        self.colour = colour
+        # physical elements
         self.mass = self.asUnit(mass, u.kg)
-        self.pos = self.toNpArray(self.asUnit(position, u.m))
-        self.vel = self.toNpArray(self.asUnit(velocity, u.m/u.s))
+        self.radius = self.asUnit(radius, u.m)
+        # cartesian elements
+        self.pos = np.zeros(3) * u.m
+        self.vel = np.zeros(3) * (u.m / u.s)
+        # keplerian elements
+        self.sma = 0 * u.m
+        self.ecc = 0 * (u.m / u.m)
+        self.inc = 0 * u.degree
+        self.lan = 0 * u.degree
+        self.arg = 0 * u.degree
+        self.tru = 0 * u.degree
 
     # set a body to be orbiting another
-    def orbit(self, parent, sma, ecc, inc, lan=0, arg=0, tru=0):
+    def keplerian(self, parent, sma, ecc, inc, lan=0, arg=0, tru=0):
         ''' Take the orbital elements around the body, and store the position and velocity in the body
             parent: the body object that this orbits around.
 
@@ -128,8 +248,12 @@ class Body(__Helper__):
             sma: Semi-major axis, ecc: Eccentricity, inc: Inclination,
             lan: Longitude of ascending node, arg: Argument of periapse
             tru: True anomaly'''
+        # set the body elements
+        self.sma, self.ecc, self.inc, self.lan, self.arg, self.tru = sma, ecc, inc, lan, arg, tru
         # fetch the cartesian
         pos, vel = self.cartesian_from_kepler(parent, sma, ecc, inc, lan, arg, tru)
+        # compute some orbital properties that will be helpful
+        self.period = 2*np.pi*np.sqrt(sma**3 / (const.G * (self.mass + parent.mass))).to(u.s)
         # add to the parent position and velocity
         pos += parent.pos
         vel += parent.vel
