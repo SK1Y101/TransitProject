@@ -23,7 +23,6 @@ Repo/
 │ └ ProjectProposal.pdf
 ├ Source/
 │ ├ ProjectModules/
-│ │ ├ graph.py
 │ │ └ nbody.py
 │ └ multi-planetary_transit.py
 └ README.md
