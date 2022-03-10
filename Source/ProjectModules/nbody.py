@@ -74,6 +74,15 @@ class System(__Helper__):
         self.barycentre = []
         self.time = D(0)
 
+    # reset the positions of all bodies in the system
+    def resetPropogation(self):
+        for body in self.bodies:
+            body.pos = np.copy(body._pos)
+            body.vel = np.copy(body._vel)
+
+            self.positions[body] = [body.pos]
+        self.time = D(0)
+
     # start an updating plot of the system
     def plot(self, updatefunc=None, frames=None, interval=10, keepBarycentreConstant=True):
         # if we weren't given a function, use the inbuild
@@ -242,6 +251,8 @@ class Body(__Helper__):
         # cartesian elements
         self.pos = np.array((D(0), D(0), D(0)))
         self.vel = np.array((D(0), D(0), D(0)))
+        self._pos = np.array((D(0), D(0), D(0)))
+        self._vel = np.array((D(0), D(0), D(0)))
         # keplerian elements
         self.sma = D(0)
         self.ecc = D(0)
@@ -273,6 +284,8 @@ class Body(__Helper__):
         # and store
         self.pos = pos
         self.vel = vel
+        self._pos = np.copy(pos)
+        self._vel = np.copy(vel)
         # return for checking purposes
         return pos, vel
 
