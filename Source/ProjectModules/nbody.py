@@ -12,9 +12,15 @@ from astropy import units as u
 from tqdm import trange, tqdm
 import numpy as np
 
+from . import trig_funcs
+
+from decimal import *
+D = Decimal
+
 # graphing modules
 import matplotlib.animation as animation
 import matplotlib.pylab as plt
+from matplotlib import gridspec
 
 # standard helper class for functions
 class __Helper__:
@@ -51,17 +57,22 @@ class __Helper__:
         # and reconstruct as a np array
         return np.array(value) * unit
 
+    def indefinite(self):
+        while True:
+            yield
+
 # system class
 class System(__Helper__):
     # initialisation
     def __init__(self):
         self.bodies = []
         self.propogator = self.euler
-        self.grav_Func = self.do_gravity
+        self.grav_Func = self.do_gravity_vectorized
         self.positions = {"barycentre":[]}
-        self.totalmass = 0
+        self.totalmass = D(0)
+        self.largest_apo = D(0)
         self.barycentre = []
-        self.largest_apo = 0
+        self.time = D(0)
 
     # start an updating plot of the system
     def plot(self, updatefunc=None, frames=None, interval=10, keepBarycentreConstant=True):
@@ -70,15 +81,19 @@ class System(__Helper__):
         # start a nice bar so we can see progress
         with tqdm() as pbar:
             # create the figure
-            fig=plt.figure()
+            fig=plt.figure(figsize=(20,10))
+            fig.tight_layout()
+            spec = gridspec.GridSpec(ncols=1, nrows=2, height_ratios=[4, 1])
             # and axes
-            ax = fig.add_subplot(projection="3d")
+            ax = fig.add_subplot(spec[0], projection="3d")
+            ax2 = fig.add_subplot(spec[1])
             # animation function
             def animate(i):
                 # clear the graph
                 ax.clear()
+                ax2.clear()
                 # run our function to update the graph
-                updatefunc(ax, i, keepBarycentreConstant)
+                updatefunc([ax, ax2], i, keepBarycentreConstant)
                 # and update our bar too
                 pbar.update(1)
             # execute the animation
@@ -95,10 +110,6 @@ class System(__Helper__):
             ax.plot(*self.positions[body].T, c=body.colour, lw=0.5)
             # plot the current position of the body
             ax.scatter(*body.pos, c=body.colour)
-        # limit the axes
-        '''ax.set_xlim(-self.largest_apo, self.largest_apo)
-        ax.set_ylim(-self.largest_apo, self.largest_apo)
-        ax.set_zlim(-self.largest_apo, self.largest_apo)'''
 
     # add bodies to the system
     def addBody(self, *bodies):
@@ -113,41 +124,38 @@ class System(__Helper__):
                 self.positions[body] = np.copy(body.pos)
                 self.totalmass += body.mass
                 # compute the apoapsis of this body, and add to our largest function
-                try:
-                    apo = (1 + body.ecc) * body.sma
-                    self.largest_apo = max(self.largest_apo, apo.to(u.m).value)
-                except:
-                    pass
+                apo = (1 + body.ecc) * body.sma
+                self.largest_apo = max(self.largest_apo, apo)
             except:
                 raise Exception("Object given is not a body: {}.".format(body))
 
     # compute gravitational forces between bodies
     def do_gravity(self, offset=1*u.m):
         # ensure our offset is valid
-        offset = self.asUnit(offset, u.m)
+        offset = D(self.asUnit(offset, u.m).value)
         a_ = []
         # iterate on all the bodies
         for body1 in self.bodies:
             # reset acceleration from previous step
-            a = np.zeros(3) * u.m / u.s**2
+            a = np.array([D(0), D(0), D(0)])
             # itterate on all the bodies again
             for body2 in self.bodies:
                 # distance between
                 dist = body1.pos - body2.pos
                 dist_mag = np.linalg.norm(dist)
                 # compute total force, using the offset to avoid infinities
-                F = -const.G * body2.mass * body1.mass * dist / (dist_mag + offset)**3
+                F = -D(const.G.value) * body2.mass * body1.mass * dist / (dist_mag + offset)**3
                 #compute force in each direction.
                 a += F / body1.mass
             # append this bodies acceleration
             a_.append(a)
         # return the acceleration
-        return self.toNpArray(a_)
+        return np.array(a_)
 
     # compute the gravitational forces between bodies without using loops
     def do_gravity_vectorized(self, offset=1*u.m):
         # ensure our offset is valid
-        offset = self.asUnit(offset, u.m)
+        offset = D(self.asUnit(offset, u.m).value)
 
         # mass and position of all bodies
         mass = np.vstack([body.mass for body in self.bodies])
@@ -163,10 +171,10 @@ class System(__Helper__):
         dist_mag = np.linalg.norm(dist, axis=2)
 
         # also remove any zeros
-        dist_mag[dist_mag == 0*u.m] = 1*u.m
+        dist_mag[dist_mag == D(0)] = offset
 
         # compute the gravitational forces for each body in each direction
-        F = const.G * mass_mat * dist / np.expand_dims(dist_mag, 2)**3
+        F = D(const.G.value) * mass_mat * dist / np.expand_dims(dist_mag, 2)**3
 
         # convert to 3d-acceleration
         a = F.sum(axis=1) / mass.reshape(-1, 1)
@@ -176,13 +184,13 @@ class System(__Helper__):
     # propogator
     def propogate(self, step=1, keepBarycentreConstant=True):
         # ensure the step is a number
-        step = self.asUnit(step, u.s)
+        step = D(self.asUnit(step, u.s).value)
 
         # compute the gravitational acceleration between bodies
         acc = self.grav_Func(offset = 1*u.m)
 
         # set the barycentre position to nothing
-        self.barycentre = self.toNpArray(self.asUnit([0,0,0], u.m))
+        self.barycentre = np.array([D(0), D(0), D(0)])
 
         # iterate on all bodies
         i=0
@@ -201,13 +209,16 @@ class System(__Helper__):
                 body.pos -= self.barycentre
             self.barycentre -= self.barycentre
 
+        # increase the system time
+        self.time += step
+
     # propogator types
 
     # euler method, applies simple suvat to compute the bodies new position and velocity
     def euler(self, body, a, step):
         # y_{n+1} = y_n + h f(t_n, y_n)
         # ensure the step is a number
-        step = self.asUnit(step, u.s)
+        step = D(self.asUnit(step, u.s).value)
         # compute velocity
         body.vel += a * step
         # compute position
@@ -226,18 +237,18 @@ class Body(__Helper__):
         self.name = name
         self.colour = colour
         # physical elements
-        self.mass = self.asUnit(mass, u.kg)
-        self.radius = self.asUnit(radius, u.m)
+        self.mass = D(self.asUnit(mass, u.kg).value)
+        self.radius = D(self.asUnit(radius, u.m).value)
         # cartesian elements
-        self.pos = np.zeros(3) * u.m
-        self.vel = np.zeros(3) * (u.m / u.s)
+        self.pos = np.array((D(0), D(0), D(0)))
+        self.vel = np.array((D(0), D(0), D(0)))
         # keplerian elements
-        self.sma = 0 * u.m
-        self.ecc = 0 * (u.m / u.m)
-        self.inc = 0 * u.degree
-        self.lan = 0 * u.degree
-        self.arg = 0 * u.degree
-        self.tru = 0 * u.degree
+        self.sma = D(0)
+        self.ecc = D(0)
+        self.inc = D(0)
+        self.lan = D(0)
+        self.arg = D(0)
+        self.tru = D(0)
 
     # set a body to be orbiting another
     def keplerian(self, parent, sma, ecc, inc, lan=0, arg=0, tru=0):
@@ -249,11 +260,13 @@ class Body(__Helper__):
             lan: Longitude of ascending node, arg: Argument of periapse
             tru: True anomaly'''
         # set the body elements
-        self.sma, self.ecc, self.inc, self.lan, self.arg, self.tru = sma, ecc, inc, lan, arg, tru
+        sma = D(self.asUnit(sma, u.m).value)
+        ecc = D(self.asUnit(ecc, u.m / u.m).value)
+        inc, lan, arg, tru = [D(self.asUnit(val, u.radian).value) for val in [inc, lan, arg, tru]]
         # fetch the cartesian
         pos, vel = self.cartesian_from_kepler(parent, sma, ecc, inc, lan, arg, tru)
         # compute some orbital properties that will be helpful
-        self.period = 2*np.pi*np.sqrt(sma**3 / (const.G * (self.mass + parent.mass))).to(u.s)
+        self.period = D(2) * trig_funcs.pi() * (sma**3 / (D(const.G.value) * (self.mass + parent.mass))).sqrt()
         # add to the parent position and velocity
         pos += parent.pos
         vel += parent.vel
@@ -276,28 +289,28 @@ class Body(__Helper__):
         if parent == self:
             raise Exception("Can't assign orbit of body around itself!")
         # ensure units
-        sma = self.asUnit(sma, u.m)
-        ecc = self.asUnit(ecc, u.dimensionless_unscaled)
-        inc, lan, arg, tru = self.asUnit([inc, lan, arg, tru], u.degree)
+        sma = D(self.asUnit(sma, u.m).value)
+        ecc = D(self.asUnit(ecc, u.m / u.m).value)
+        inc, lan, arg, tru = [D(self.asUnit(val, u.radian).value) for val in [inc, lan, arg, tru]]
         # set of sine and cosine for the angular elements
-        sininc, cosinc = np.sin(inc), np.cos(inc)
-        sintru, costru = np.sin(tru), np.cos(tru)
-        sinlan, coslan = np.sin(lan), np.cos(lan)
-        sinarg, cosarg = np.sin(arg), np.cos(arg)
+        sininc, cosinc = trig_funcs.sin(inc), trig_funcs.cos(inc)
+        sintru, costru = trig_funcs.sin(tru), trig_funcs.cos(tru)
+        sinlan, coslan = trig_funcs.sin(lan), trig_funcs.cos(lan)
+        sinarg, cosarg = trig_funcs.sin(arg), trig_funcs.cos(arg)
 
         # fetch the gravitational parameter of the system
-        mu = const.G * (parent.mass + self.mass)
+        mu = D(const.G.value) * (parent.mass + self.mass)
         # sqrt(1- e^2)
-        oneminusecc = np.sqrt(1 - ecc**2)
+        oneminusecc = (1 - ecc**2).sqrt()
         # eccentric anomaly
-        eanom = np.arctan( (oneminusecc * sintru) / (ecc + costru) )
+        eanom = trig_funcs.arctan( (oneminusecc * sintru) / (ecc + costru) )
         # distance to parent
         rad = (sma * oneminusecc) / (1 + ecc * costru)
 
         # position vector in orbital plane
         pos = rad * np.array([costru, sintru, 0])
         # velocity vector in orbital plane
-        vel = (np.sqrt(mu * sma) / rad) * np.array([-np.sin(eanom), oneminusecc * np.cos(eanom), 0])
+        vel = ((mu * sma).sqrt() / rad) * np.array([-trig_funcs.sin(eanom), oneminusecc * trig_funcs.cos(eanom), 0])
 
         # rotation matrix values
         rx1 = cosarg*coslan - sinarg*cosinc*sinlan
@@ -308,13 +321,13 @@ class Body(__Helper__):
         rz2 = cosarg*sininc
 
         # transform position to bodycentric coordinate
-        pos = self.toNpArray([pos[0] * rx1 - pos[1] * rx2,
-                              pos[0] * ry1 + pos[1] * ry2,
-                              pos[0] * rz1 + pos[1] * rz2])
+        pos = np.array([pos[0] * rx1 - pos[1] * rx2,
+                        pos[0] * ry1 + pos[1] * ry2,
+                        pos[0] * rz1 + pos[1] * rz2])
         # transform velocity to bodycentric too
-        vel = self.toNpArray([vel[0] * rx1 - vel[1] * rx2,
-                              vel[0] * ry1 + vel[1] * ry2,
-                              vel[0] * rz1 + vel[1] * rz2])
+        vel = np.array([vel[0] * rx1 - vel[1] * rx2,
+                        vel[0] * ry1 + vel[1] * ry2,
+                        vel[0] * rz1 + vel[1] * rz2])
 
         # return the values
         return pos, vel
