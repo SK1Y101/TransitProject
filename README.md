@@ -25,7 +25,8 @@ Repo/
 │ ├ ProjectModules/
 │ │ ├ trig_funcs.py
 │ │ └ nbody.py
-│ └ multi-planetary_transit.py
+│ └ Transiting_simulation.py
+│ └ multi-planetary_transit_initial_test_script.py
 └ README.md
 ```
 
