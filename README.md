@@ -23,10 +23,13 @@ Repo/
 │ └ ProjectProposal.pdf
 ├ Source/
 │ ├ ProjectModules/
+│ │ ├ trig_funcs.py
 │ │ └ nbody.py
 │ └ multi-planetary_transit.py
 └ README.md
 ```
 
 In the `Source/` folder is all of the python scripts to be ran.
-Additionally, contained within the `Source/ProjectModules` folder is the individual code modules common across the project
+Additionally, contained within the `Source/ProjectModules` folder is the individual code modules common across the project.
+
+ie: `nbody.py` takes the equations of motion and allows additional code to solve them, while `trig_funcs.py` is a set of functions for handling trigonometry to arbitrary levels of precision (Using Decimal)
