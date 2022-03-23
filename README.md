@@ -7,6 +7,18 @@ A repository for my Masters Project on exoplanet transit timing variations.
 
 [![Website Link](https://img.shields.io/badge/Website-Link-aqua?labelColor=lightblue&style=for-the-badge)](https://sk1y101.github.io/projects/TransitProject/)
 
+
+![GitHub](https://img.shields.io/github/license/SK1Y101/TransitProject)
+[![CodeFactor](https://www.codefactor.io/repository/github/SK1Y101/TransitProject/badge)](https://www.codefactor.io/repository/github/SK1Y101/TransitProject)
+[![wakatime](https://wakatime.com/badge/github/SK1Y101/TransitProject.svg)](https://wakatime.com/badge/github/SK1Y101/TransitProject)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/SK1Y101/TransitProject)
+![GitHub last commit](https://img.shields.io/github/last-commit/SK1Y101/TransitProject)
+
+![GitHub language count](https://img.shields.io/github/languages/count/SK1Y101/TransitProject)
+![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
+![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
+
 # Motivation
 Transiting exoplanets are growing ever more numerous, since *Kepler* launched in 2009, we have seen an explosive growth in the number of them detected. There are thousands visible in any single patch of the sky, and that's awesome.
 
