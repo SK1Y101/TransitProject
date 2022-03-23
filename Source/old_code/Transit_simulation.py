@@ -23,6 +23,7 @@ tstep = 2.91626 / 360
 
 # ensure we collect 1000 transits
 N=520
+print(N)
 transittimes = np.zeros(N)
 p = sim.particles
 i = 0
@@ -47,18 +48,19 @@ for _ in tqdm(gen()):
         i += 1
         sim.integrate(sim.t+tstep)       # integrate 0.05 to be past the transit
 
+slices=0.5
+
 # plot the position of bodies
-fig, ax_main, ax_top, ax_right = rebound.OrbitPlot(sim, slices=0.5, xlim=[-2.,2], ylim=[-2.,2], color=True, unitlabel="[AU]")
+fig, ax_main, ax_top, ax_right = rebound.OrbitPlot(sim, slices=slices, xlim=[-2.,2], ylim=[-2.,2], color=True, unitlabel="[AU]")
 fig.suptitle("HAT-P-13")
 
 legend_elements = [Line2D([0], [0], color=(1.,0.,0.), lw=1.5, label='HAT-P-13b Orbit'),
-                   Line2D([0], [0], color=(0.,0.75,0.75), lw=1.5, label='HAT-P-13c Orbit'),
-                   Line2D([0], [0], marker="o", markersize=10, label='HAT-P-13b', markerfacecolor="black", c="White"),
-                   Line2D([0], [0], marker="*", markersize=15, label="HAT-P-13", markerfacecolor="black", c="White")]
+                   Line2D([0], [0], color=(0.,0.75,0.75), lw=1.5, label='HAT-P-13c Orbit'),]
 
-ax_main.legend(handles = legend_elements, loc="best")
+ax_main.legend(handles = legend_elements, loc=2)
+
 fig.tight_layout()
-fig.savefig("HAT-P-13 layout.png")
+fig.savefig("HAT-P-13 layout.png", transparent=True, bbox_inches='tight')
 fig.show()
 
 print(sim.cite())
@@ -96,7 +98,7 @@ ax.legend(loc="best")
 fig.suptitle("Simulated Transit Timing Variation in the HAT-P-13 System", fontsize="x-large")
 fig.tight_layout()
 plt.legend()
-plt.savefig("Simulated TTV")
+plt.savefig("Simulated TTV", transparent=True, bbox_inches='tight')
 plt.show()
 
 # fourier analysis
@@ -120,7 +122,7 @@ fig = plt.figure(figsize=(10,5))
 ax = plt.subplot()
 # remove the largest frequency
 plt.scatter(range(N), TTV, marker="x")
-plt.plot(irfft(yf), label="without {}th freq".format(i))
+plt.plot(irfft(yf))
 ax.set_xlim([0,N])
 ax.set_xlabel("Transit number")
 ax.set_ylabel("TTV [hours]")
