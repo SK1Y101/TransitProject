@@ -1,15 +1,16 @@
-,date,observer,oc,oce,source
-0,2022-03-21,Paolo Arcangelo Matassa,1.0,1.4,ExoClock observation
-1,2022-03-21,Harri Kiiskinen,0.3,0.9,ExoClock observation
-2,2022-02-25,Simon Dawes,-0.0,0.6,ExoClock observation
-3,2022-02-22,Stefano Lora,4.3,2.4,ExoClock observation
-4,2022-02-22,David Wright,0.5,0.7,ExoClock observation
-5,2022-02-07,Ian Sharp,-0.4,0.6,ExoClock observation
-6,2022-02-04,Pete Mills,-0.3,1.2,ExoClock observation
-7,2022-01-29,Paolo Arcangelo Matassa,-1.2,1.6,ExoClock observation
-8,2022-01-20,Martin Crow,-2.3,0.7,ExoClock observation
-9,2022-01-02,Giovanni Battista Casalnuovo,0.4,1.2,ExoClock observation
-10,2021-12-30,Sebastien Brouillard,1.3,2.0,ExoClock observation
-11,2021-12-23,Sebastien Brouillard,-1.1,0.9,ExoClock observation
-12,2021-12-14,Yves Jongen,-3.7,1.0,ExoClock observation
-13,2021-05-25,Mario Billiani,3.5,1.9,ExoClock observation
+date,observer,oc,oce,source
+2022-03-21,Paolo Arcangelo Matassa,1.0,1.4,ExoClock observation
+2022-03-21,Harri Kiiskinen,0.3,0.9,ExoClock observation
+2022-03-21,Massimiliano Zulian,-0.8,1.2,ExoClock observation
+2022-02-25,Simon Dawes,-0.0,0.6,ExoClock observation
+2022-02-22,Stefano Lora,4.3,2.4,ExoClock observation
+2022-02-22,David Wright,0.5,0.7,ExoClock observation
+2022-02-07,Ian Sharp,-0.4,0.6,ExoClock observation
+2022-02-04,Pete Mills,-0.3,1.2,ExoClock observation
+2022-01-29,Paolo Arcangelo Matassa,-1.2,1.6,ExoClock observation
+2022-01-20,Martin Crow,-2.3,0.7,ExoClock observation
+2022-01-02,Giovanni Battista Casalnuovo,0.4,1.2,ExoClock observation
+2021-12-30,Sebastien Brouillard,1.3,2.0,ExoClock observation
+2021-12-23,Sebastien Brouillard,-1.1,0.9,ExoClock observation
+2021-12-14,Yves Jongen,-3.7,1.0,ExoClock observation
+2021-05-25,Mario Billiani,3.5,1.9,ExoClock observation

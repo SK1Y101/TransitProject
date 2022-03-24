@@ -1,18 +1,18 @@
-,index,date,observer,oc,oce,source
-0,6,2021-08-20,Mario Morales Aimar,-2.9,7.2,ExoClock observation
-1,7,2021-08-20,Didier Laloum,-4.4,4.3,ExoClock observation
-2,8,2021-05-24,Carmelo Falco,-4.0,2.7,ExoClock observation
-3,9,2021-04-17,John Savage,6.7,2.3,ExoClock observation
-4,10,2021-02-26,David Wright,0.2,4.3,ExoClock observation
-5,13,2020-07-18,Mauro Cal\xc3\xb3,-2.7,3.3,ExoClock observation
-6,12,2020-07-18,Jacques Michelet,0.7,2.2,ExoClock observation
-7,11,2020-07-18,Dim Stouraitis,4.2,4.3,ExoClock observation
-8,14,2020-06-11,Carmelo Falco,-1.1,1.6,ExoClock observation
-9,15,2020-05-29,Manfred Raetz,1.7,5.8,ExoClock observation
-10,16,2019-07-23,Mario Morales Aimar,-2.5,3.5,ExoClock observation
-11,0,2010-03-13,Nascimbeni et al. 2011,0.6,0.4,ExoClock literature
-12,1,2009-05-16,Torres et al. 2010,-1.9,1.3,ExoClock literature
-13,2,2009-04-09,Torres et al. 2010,-0.4,1.6,ExoClock literature
-14,3,2009-03-26,Torres et al. 2010,0.7,1.2,ExoClock literature
-15,4,2009-02-12,Torres et al. 2010,-0.8,0.7,ExoClock literature
-16,5,2009-02-03,Torres et al. 2010,-2.8,3.9,ExoClock literature
+date,observer,oc,oce,source
+2021-08-20,Mario Morales Aimar,-2.9,7.2,ExoClock observation
+2021-08-20,Didier Laloum,-4.4,4.3,ExoClock observation
+2021-05-24,Carmelo Falco,-4.0,2.7,ExoClock observation
+2021-04-17,John Savage,6.7,2.3,ExoClock observation
+2021-02-26,David Wright,0.2,4.3,ExoClock observation
+2020-07-18,Mauro Cal\xc3\xb3,-2.7,3.3,ExoClock observation
+2020-07-18,Jacques Michelet,0.7,2.2,ExoClock observation
+2020-07-18,Dim Stouraitis,4.2,4.3,ExoClock observation
+2020-06-11,Carmelo Falco,-1.1,1.6,ExoClock observation
+2020-05-29,Manfred Raetz,1.7,5.8,ExoClock observation
+2019-07-23,Mario Morales Aimar,-2.5,3.5,ExoClock observation
+2010-03-13,Nascimbeni et al. 2011,0.6,0.4,ExoClock literature
+2009-05-16,Torres et al. 2010,-1.9,1.3,ExoClock literature
+2009-04-09,Torres et al. 2010,-0.4,1.6,ExoClock literature
+2009-03-26,Torres et al. 2010,0.7,1.2,ExoClock literature
+2009-02-12,Torres et al. 2010,-0.8,0.7,ExoClock literature
+2009-02-03,Torres et al. 2010,-2.8,3.9,ExoClock literature

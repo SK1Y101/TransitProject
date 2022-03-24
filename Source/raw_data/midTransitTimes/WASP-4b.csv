@@ -1,66 +1,66 @@
-,index,date,observer,oc,oce,source
-0,47,2021-12-07,Yves Jongen,-0.7,0.4,ExoClock observation
-1,48,2021-10-05,Yves Jongen,-1.0,0.4,ExoClock observation
-2,49,2021-10-01,Yves Jongen,-0.3,0.4,ExoClock observation
-3,50,2021-09-27,Yves Jongen,-0.8,0.6,ExoClock observation
-4,51,2021-09-23,Yves Jongen,-1.1,0.7,ExoClock observation
-5,52,2021-09-03,Yves Jongen,1.1,0.9,ExoClock observation
-6,53,2021-08-27,Ana\xc3\xabl W\xc3\xbcnsche,-0.4,0.6,ExoClock observation
-7,54,2021-08-11,Yves Jongen,0.7,0.6,ExoClock observation
-8,55,2021-08-03,Yves Jongen,-0.7,0.6,ExoClock observation
-9,56,2020-12-20,Yves Jongen,-0.4,0.9,ExoClock observation
-10,57,2020-12-08,Yves Jongen,-1.7,0.6,ExoClock observation
-11,58,2020-10-02,Yves Jongen,-0.5,0.6,ExoClock observation
-12,59,2020-09-16,Yves Jongen,-0.4,0.9,ExoClock observation
-13,60,2020-09-12,Yves Jongen,2.2,0.6,ExoClock observation
-14,61,2020-08-16,Phil Evans,0.1,0.6,ExoClock observation
-15,62,2020-08-16,Yves Jongen,-1.2,0.6,ExoClock observation
-16,63,2020-06-06,Yves Jongen,-0.2,0.7,ExoClock observation
-17,64,2019-12-10,Yves Jongen,1.4,0.4,ExoClock observation
-18,0,2019-06-19,Southworth et al. 2019,-0.5,0.3,ExoClock literature
-19,1,2018-08-27,Southworth et al. 2019,-0.1,0.1,ExoClock literature
-20,2,2018-08-19,Southworth et al. 2019,-0.6,0.1,ExoClock literature
-21,3,2018-08-15,Southworth et al. 2019,-0.3,0.2,ExoClock literature
-22,4,2017-08-28,Southworth et al. 2019,-0.1,0.2,ExoClock literature
-23,5,2017-08-08,Southworth et al. 2019,0.2,0.3,ExoClock literature
-24,6,2016-10-17,Southworth et al. 2019,0.2,0.3,ExoClock literature
-25,7,2016-10-13,Southworth et al. 2019,-0.4,0.2,ExoClock literature
-26,8,2016-08-25,Southworth et al. 2019,-0.2,0.1,ExoClock literature
-27,9,2016-08-21,Southworth et al. 2019,-0.3,0.2,ExoClock literature
-28,10,2016-08-13,Southworth et al. 2019,-0.1,0.1,ExoClock literature
-29,11,2015-08-31,Southworth et al. 2019,0.1,0.1,ExoClock literature
-30,12,2015-08-27,Southworth et al. 2019,-0.5,0.1,ExoClock literature
-31,13,2015-08-23,Southworth et al. 2019,-0.1,0.1,ExoClock literature
-32,14,2014-09-24,Huitson et al. 2017,0.2,0.1,ExoClock literature
-33,15,2013-10-11,Huitson et al. 2017,0.4,0.1,ExoClock literature
-34,16,2012-10-16,Huitson et al. 2017,0.3,0.1,ExoClock literature
-35,17,2011-10-10,Huitson et al. 2017,0.3,0.1,ExoClock literature
-36,18,2011-09-28,Hoyer et al. 2013,0.5,0.6,ExoClock literature
-37,19,2011-09-24,Hoyer et al. 2013,0.9,0.6,ExoClock literature
-38,20,2010-09-29,Hoyer et al. 2013,0.8,0.7,ExoClock literature
-39,21,2009-10-28,Hoyer et al. 2013,0.5,0.6,ExoClock literature
-40,22,2009-09-26,Sanchis-Ojeda et al. 2011,-0.1,0.1,ExoClock literature
-41,23,2009-09-22,Hoyer et al. 2013,1.4,0.3,ExoClock literature
-42,24,2009-08-10,Sanchis-Ojeda et al. 2011,-0.1,0.1,ExoClock literature
-43,25,2009-08-06,Sanchis-Ojeda et al. 2011,0.1,0.1,ExoClock literature
-44,26,2009-08-02,Sanchis-Ojeda et al. 2011,0.2,0.1,ExoClock literature
-45,27,2009-07-29,Hoyer et al. 2013,1.1,0.3,ExoClock literature
-46,28,2008-10-13,Dragomir et al. 2011,0.1,1.0,ExoClock literature
-47,29,2008-10-09,Winn et al. 2009,0.2,0.1,ExoClock literature
-48,31,2008-10-01,Southworth et al. 2009,-0.3,0.2,ExoClock literature
-49,30,2008-10-01,Hoyer et al. 2013,0.4,0.5,ExoClock literature
-50,32,2008-09-23,Hoyer et al. 2013,0.5,0.7,ExoClock literature
-51,33,2008-09-23,Southworth et al. 2009,-0.6,0.2,ExoClock literature
-52,34,2008-09-19,Hoyer et al. 2013,1.1,0.6,ExoClock literature
-53,35,2008-08-27,Hoyer et al. 2013,0.3,0.4,ExoClock literature
-54,37,2008-08-23,Southworth et al. 2009,-0.1,0.2,ExoClock literature
-55,36,2008-08-23,Hoyer et al. 2013,0.8,0.3,ExoClock literature
-56,40,2008-08-19,Southworth et al. 2009,-0.2,0.1,ExoClock literature
-57,39,2008-08-19,Winn et al. 2009,-0.1,0.1,ExoClock literature
-58,38,2008-08-19,Sanchis-Ojeda et al. 2011,-0.3,0.1,ExoClock literature
-59,41,2007-10-23,Gillon et al. 2009,-0.1,0.1,ExoClock literature
-60,42,2007-09-27,Gillon et al. 2009,-1.4,0.5,ExoClock literature
-61,43,2007-09-25,Gillon et al. 2009,-0.3,0.3,ExoClock literature
-62,44,2007-09-22,Wilson et al. 2008,-2.2,0.4,ExoClock literature
-63,45,2007-09-21,Gillon et al. 2009,-1.0,1.1,ExoClock literature
-64,46,2006-08-15,Gillon et al. 2009,0.2,1.1,ExoClock literature
+date,observer,oc,oce,source
+2021-12-07,Yves Jongen,-0.7,0.4,ExoClock observation
+2021-10-05,Yves Jongen,-1.0,0.4,ExoClock observation
+2021-10-01,Yves Jongen,-0.3,0.4,ExoClock observation
+2021-09-27,Yves Jongen,-0.8,0.6,ExoClock observation
+2021-09-23,Yves Jongen,-1.1,0.7,ExoClock observation
+2021-09-03,Yves Jongen,1.1,0.9,ExoClock observation
+2021-08-27,Ana\xc3\xabl W\xc3\xbcnsche,-0.4,0.6,ExoClock observation
+2021-08-11,Yves Jongen,0.7,0.6,ExoClock observation
+2021-08-03,Yves Jongen,-0.7,0.6,ExoClock observation
+2020-12-20,Yves Jongen,-0.4,0.9,ExoClock observation
+2020-12-08,Yves Jongen,-1.7,0.6,ExoClock observation
+2020-10-02,Yves Jongen,-0.5,0.6,ExoClock observation
+2020-09-16,Yves Jongen,-0.4,0.9,ExoClock observation
+2020-09-12,Yves Jongen,2.2,0.6,ExoClock observation
+2020-08-16,Phil Evans,0.1,0.6,ExoClock observation
+2020-08-16,Yves Jongen,-1.2,0.6,ExoClock observation
+2020-06-06,Yves Jongen,-0.2,0.7,ExoClock observation
+2019-12-10,Yves Jongen,1.4,0.4,ExoClock observation
+2019-06-19,Southworth et al. 2019,-0.5,0.3,ExoClock literature
+2018-08-27,Southworth et al. 2019,-0.1,0.1,ExoClock literature
+2018-08-19,Southworth et al. 2019,-0.6,0.1,ExoClock literature
+2018-08-15,Southworth et al. 2019,-0.3,0.2,ExoClock literature
+2017-08-28,Southworth et al. 2019,-0.1,0.2,ExoClock literature
+2017-08-08,Southworth et al. 2019,0.2,0.3,ExoClock literature
+2016-10-17,Southworth et al. 2019,0.2,0.3,ExoClock literature
+2016-10-13,Southworth et al. 2019,-0.4,0.2,ExoClock literature
+2016-08-25,Southworth et al. 2019,-0.2,0.1,ExoClock literature
+2016-08-21,Southworth et al. 2019,-0.3,0.2,ExoClock literature
+2016-08-13,Southworth et al. 2019,-0.1,0.1,ExoClock literature
+2015-08-31,Southworth et al. 2019,0.1,0.1,ExoClock literature
+2015-08-27,Southworth et al. 2019,-0.5,0.1,ExoClock literature
+2015-08-23,Southworth et al. 2019,-0.1,0.1,ExoClock literature
+2014-09-24,Huitson et al. 2017,0.2,0.1,ExoClock literature
+2013-10-11,Huitson et al. 2017,0.4,0.1,ExoClock literature
+2012-10-16,Huitson et al. 2017,0.3,0.1,ExoClock literature
+2011-10-10,Huitson et al. 2017,0.3,0.1,ExoClock literature
+2011-09-28,Hoyer et al. 2013,0.5,0.6,ExoClock literature
+2011-09-24,Hoyer et al. 2013,0.9,0.6,ExoClock literature
+2010-09-29,Hoyer et al. 2013,0.8,0.7,ExoClock literature
+2009-10-28,Hoyer et al. 2013,0.5,0.6,ExoClock literature
+2009-09-26,Sanchis-Ojeda et al. 2011,-0.1,0.1,ExoClock literature
+2009-09-22,Hoyer et al. 2013,1.4,0.3,ExoClock literature
+2009-08-10,Sanchis-Ojeda et al. 2011,-0.1,0.1,ExoClock literature
+2009-08-06,Sanchis-Ojeda et al. 2011,0.1,0.1,ExoClock literature
+2009-08-02,Sanchis-Ojeda et al. 2011,0.2,0.1,ExoClock literature
+2009-07-29,Hoyer et al. 2013,1.1,0.3,ExoClock literature
+2008-10-13,Dragomir et al. 2011,0.1,1.0,ExoClock literature
+2008-10-09,Winn et al. 2009,0.2,0.1,ExoClock literature
+2008-10-01,Southworth et al. 2009,-0.3,0.2,ExoClock literature
+2008-10-01,Hoyer et al. 2013,0.4,0.5,ExoClock literature
+2008-09-23,Hoyer et al. 2013,0.5,0.7,ExoClock literature
+2008-09-23,Southworth et al. 2009,-0.6,0.2,ExoClock literature
+2008-09-19,Hoyer et al. 2013,1.1,0.6,ExoClock literature
+2008-08-27,Hoyer et al. 2013,0.3,0.4,ExoClock literature
+2008-08-23,Southworth et al. 2009,-0.1,0.2,ExoClock literature
+2008-08-23,Hoyer et al. 2013,0.8,0.3,ExoClock literature
+2008-08-19,Southworth et al. 2009,-0.2,0.1,ExoClock literature
+2008-08-19,Winn et al. 2009,-0.1,0.1,ExoClock literature
+2008-08-19,Sanchis-Ojeda et al. 2011,-0.3,0.1,ExoClock literature
+2007-10-23,Gillon et al. 2009,-0.1,0.1,ExoClock literature
+2007-09-27,Gillon et al. 2009,-1.4,0.5,ExoClock literature
+2007-09-25,Gillon et al. 2009,-0.3,0.3,ExoClock literature
+2007-09-22,Wilson et al. 2008,-2.2,0.4,ExoClock literature
+2007-09-21,Gillon et al. 2009,-1.0,1.1,ExoClock literature
+2006-08-15,Gillon et al. 2009,0.2,1.1,ExoClock literature

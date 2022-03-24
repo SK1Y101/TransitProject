@@ -1,11 +1,11 @@
-,index,date,observer,oc,oce,source
-0,2,2022-02-28,Michael Irzyk,1.5,1.7,ExoClock observation
-1,3,2021-05-11,Jean-Louis NAUDIN,1.2,3.5,ExoClock observation
-2,4,2021-04-26,Yves Jongen,0.0,1.2,ExoClock observation
-3,5,2021-03-09,Yves Jongen,-1.9,0.9,ExoClock observation
-4,6,2020-04-03,Martin Fowler,0.5,3.0,ExoClock observation
-5,7,2020-03-28,Fabio Mortari,-1.0,1.7,ExoClock observation
-6,8,2020-03-28,Ana\xc3\xabl W\xc3\xbcnsche,-2.1,1.0,ExoClock observation
-7,9,2017-03-14,Ana\xc3\xabl W\xc3\xbcnsche,-2.4,1.3,ExoClock observation
-8,0,2017-01-31,Stefansson et al. 2017,0.4,0.2,ExoClock literature
-9,1,2014-07-06,Brown et al. 2014,-0.0,0.0,ExoClock literature
+date,observer,oc,oce,source
+2022-02-28,Michael Irzyk,1.5,1.7,ExoClock observation
+2021-05-11,Jean-Louis NAUDIN,1.2,3.5,ExoClock observation
+2021-04-26,Yves Jongen,0.0,1.2,ExoClock observation
+2021-03-09,Yves Jongen,-1.9,0.9,ExoClock observation
+2020-04-03,Martin Fowler,0.5,3.0,ExoClock observation
+2020-03-28,Fabio Mortari,-1.0,1.7,ExoClock observation
+2020-03-28,Ana\xc3\xabl W\xc3\xbcnsche,-2.1,1.0,ExoClock observation
+2017-03-14,Ana\xc3\xabl W\xc3\xbcnsche,-2.4,1.3,ExoClock observation
+2017-01-31,Stefansson et al. 2017,0.4,0.2,ExoClock literature
+2014-07-06,Brown et al. 2014,-0.0,0.0,ExoClock literature

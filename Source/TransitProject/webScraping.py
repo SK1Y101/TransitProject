@@ -67,9 +67,6 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
             old_df = loadDataFrame(loc+x+".csv")
             # compare with the collected data, adding any new references
             old_df = pd.concat([df, old_df], ignore_index=True)#.drop_duplicates(keep=False)
-            # remove any unnamed columns not in the original
-            old_df = old_df.loc[:, ~old_df.columns.str.contains('^Unnamed')]
-            old_df = old_df.loc[:, ~old_df.columns.str.contains('^index')]
             # and reoder by the date column
             old_df.sort_values(by="date", inplace=True, ascending=False)
             old_df.reset_index(inplace=True)
@@ -78,6 +75,9 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
                 continue
             # otherwise, update our df reference to store
             df = old_df
+        # remove unnamed columns, and any of the index columns
+        df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+        df = df.loc[:, ~df.columns.str.contains('index')]
         # store the dataframe
         saveDataFrame(df, loc+x+".csv")
 

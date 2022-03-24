@@ -1,24 +1,24 @@
-,index,date,observer,oc,oce,source
-0,12,2022-03-19,Martin Crow,6.0,2.7,ExoClock observation
-1,13,2022-03-14,Paolo Arcangelo Matassa,3.4,4.3,ExoClock observation
-2,15,2021-03-23,Alberto Tomatis,-5.0,3.6,ExoClock observation
-3,14,2021-03-23,Mauro Cal\xc3\xb3,2.5,1.7,ExoClock observation
-4,16,2021-03-02,T\xc3\xb5nis Eenm\xc3\xa4e,-0.8,1.4,ExoClock observation
-5,17,2021-02-22,Taewoo Kim,-1.3,1.2,ExoClock observation
-6,18,2021-02-10,Manfred Raetz,0.3,1.0,ExoClock observation
-7,19,2020-03-11,Ana\xc3\xabl W\xc3\xbcnsche,-2.0,1.2,ExoClock observation
-8,20,2020-02-20,Ana\xc3\xabl W\xc3\xbcnsche,0.1,1.6,ExoClock observation
-9,21,2019-02-24,Yves Jongen,2.2,1.2,ExoClock observation
-10,22,2009-04-03,Filip Walter,1.4,1.6,ExoClock observation
-11,0,2008-03-27,P\xc3\xa1l et al. 2009,-0.5,0.6,ExoClock literature
-12,1,2008-03-02,Burke et al. 2008,-4.4,4.3,ExoClock literature
-13,3,2008-02-10,P\xc3\xa1l et al. 2009,-2.6,0.8,ExoClock literature
-14,2,2008-02-10,Burke et al. 2008,-0.4,4.3,ExoClock literature
-15,6,2008-01-20,Burke et al. 2008,0.7,4.3,ExoClock literature
-16,5,2008-01-20,P\xc3\xa1l et al. 2009,2.3,0.8,ExoClock literature
-17,4,2008-01-20,Burke et al. 2008,7.9,4.3,ExoClock literature
-18,7,2008-01-03,P\xc3\xa1l et al. 2009,1.7,2.6,ExoClock literature
-19,9,2007-12-30,Burke et al. 2008,-2.5,4.3,ExoClock literature
-20,8,2007-12-30,Burke et al. 2008,6.2,4.3,ExoClock literature
-21,10,2007-12-05,Burke et al. 2008,-0.3,4.3,ExoClock literature
-22,11,2007-01-29,Burke et al. 2008,1.1,4.3,ExoClock literature
+date,observer,oc,oce,source
+2022-03-19,Martin Crow,6.0,2.7,ExoClock observation
+2022-03-14,Paolo Arcangelo Matassa,3.4,4.3,ExoClock observation
+2021-03-23,Alberto Tomatis,-5.0,3.6,ExoClock observation
+2021-03-23,Mauro Cal\xc3\xb3,2.5,1.7,ExoClock observation
+2021-03-02,T\xc3\xb5nis Eenm\xc3\xa4e,-0.8,1.4,ExoClock observation
+2021-02-22,Taewoo Kim,-1.3,1.2,ExoClock observation
+2021-02-10,Manfred Raetz,0.3,1.0,ExoClock observation
+2020-03-11,Ana\xc3\xabl W\xc3\xbcnsche,-2.0,1.2,ExoClock observation
+2020-02-20,Ana\xc3\xabl W\xc3\xbcnsche,0.1,1.6,ExoClock observation
+2019-02-24,Yves Jongen,2.2,1.2,ExoClock observation
+2009-04-03,Filip Walter,1.4,1.6,ExoClock observation
+2008-03-27,P\xc3\xa1l et al. 2009,-0.5,0.6,ExoClock literature
+2008-03-02,Burke et al. 2008,-4.4,4.3,ExoClock literature
+2008-02-10,P\xc3\xa1l et al. 2009,-2.6,0.8,ExoClock literature
+2008-02-10,Burke et al. 2008,-0.4,4.3,ExoClock literature
+2008-01-20,Burke et al. 2008,0.7,4.3,ExoClock literature
+2008-01-20,P\xc3\xa1l et al. 2009,2.3,0.8,ExoClock literature
+2008-01-20,Burke et al. 2008,7.9,4.3,ExoClock literature
+2008-01-03,P\xc3\xa1l et al. 2009,1.7,2.6,ExoClock literature
+2007-12-30,Burke et al. 2008,-2.5,4.3,ExoClock literature
+2007-12-30,Burke et al. 2008,6.2,4.3,ExoClock literature
+2007-12-05,Burke et al. 2008,-0.3,4.3,ExoClock literature
+2007-01-29,Burke et al. 2008,1.1,4.3,ExoClock literature

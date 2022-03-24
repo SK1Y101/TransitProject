@@ -1,5 +1,5 @@
-,index,date,observer,oc,oce,source
-0,1,2021-10-03,Taewoo Kim,-2.2,4.3,ExoClock observation
-1,2,2020-07-23,Nick Sioulas,-1.6,2.3,ExoClock observation
-2,3,2020-05-07,Adrian Jones,5.0,4.3,ExoClock observation
-3,0,2009-05-03,Holczer et al. 2016,0.0,0.1,ExoClock literature
+date,observer,oc,oce,source
+2021-10-03,Taewoo Kim,-2.2,4.3,ExoClock observation
+2020-07-23,Nick Sioulas,-1.6,2.3,ExoClock observation
+2020-05-07,Adrian Jones,5.0,4.3,ExoClock observation
+2009-05-03,Holczer et al. 2016,0.0,0.1,ExoClock literature

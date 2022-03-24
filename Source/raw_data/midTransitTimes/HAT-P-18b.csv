@@ -1,14 +1,14 @@
-,index,date,observer,oc,oce,source
-0,8,2021-08-19,T\xc3\xb5nis Eenm\xc3\xa4e,-0.5,1.4,ExoClock observation
-1,9,2021-07-28,Nello Ruocco,-0.2,1.0,ExoClock observation
-2,10,2021-05-18,Billy Edwards,-1.0,1.4,ExoClock observation
-3,11,2019-02-23,Yves Jongen,-0.9,1.9,ExoClock observation
-4,0,2016-04-29,Kirk et al. 2017,0.1,0.1,ExoClock literature
-5,1,2016-04-29,Kirk et al. 2017,-1.1,0.3,ExoClock literature
-6,12,2015-05-07,Marc Deldem,-4.0,1.2,ExoClock observation
-7,2,2013-04-28,Seeliger et al. 2015,0.9,1.2,ExoClock literature
-8,3,2012-06-08,Seeliger et al. 2015,-4.9,1.8,ExoClock literature
-9,4,2012-05-05,Seeliger et al. 2015,-1.5,1.2,ExoClock literature
-10,5,2011-05-24,Seeliger et al. 2015,2.9,1.2,ExoClock literature
-11,6,2011-04-21,Seeliger et al. 2015,-0.1,1.8,ExoClock literature
-12,7,2008-09-05,Hartman et al. 2011,-0.0,0.3,ExoClock literature
+date,observer,oc,oce,source
+2021-08-19,T\xc3\xb5nis Eenm\xc3\xa4e,-0.5,1.4,ExoClock observation
+2021-07-28,Nello Ruocco,-0.2,1.0,ExoClock observation
+2021-05-18,Billy Edwards,-1.0,1.4,ExoClock observation
+2019-02-23,Yves Jongen,-0.9,1.9,ExoClock observation
+2016-04-29,Kirk et al. 2017,0.1,0.1,ExoClock literature
+2016-04-29,Kirk et al. 2017,-1.1,0.3,ExoClock literature
+2015-05-07,Marc Deldem,-4.0,1.2,ExoClock observation
+2013-04-28,Seeliger et al. 2015,0.9,1.2,ExoClock literature
+2012-06-08,Seeliger et al. 2015,-4.9,1.8,ExoClock literature
+2012-05-05,Seeliger et al. 2015,-1.5,1.2,ExoClock literature
+2011-05-24,Seeliger et al. 2015,2.9,1.2,ExoClock literature
+2011-04-21,Seeliger et al. 2015,-0.1,1.8,ExoClock literature
+2008-09-05,Hartman et al. 2011,-0.0,0.3,ExoClock literature
