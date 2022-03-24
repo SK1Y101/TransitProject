@@ -1,49 +1,49 @@
-,index,date,observer,oc,oce,source
-0,1,2022-03-19,Simon Dawes,-0.1,2.3,ExoClock observation
-1,2,2022-02-28,Michael Irzyk,1.0,0.7,ExoClock observation
-2,3,2022-02-28,Yannic Delisle,-0.3,0.9,ExoClock observation
-3,4,2022-02-28,Marc Deldem,-0.7,1.4,ExoClock observation
-4,5,2022-02-28,Val\xc3\xa8re Perroud,-0.7,2.0,ExoClock observation
-5,6,2022-02-09,Paolo Arcangelo Matassa,5.0,1.9,ExoClock observation
-6,7,2022-02-09,Fran Campos,0.5,1.2,ExoClock observation
-7,8,2022-02-09,Alessandro Marchini,-0.8,1.3,ExoClock observation
-8,9,2022-01-21,Cyrille AUMASSON,0.2,0.6,ExoClock observation
-9,10,2021-12-11,David Arnot,4.2,1.0,ExoClock observation
-10,11,2021-12-07,Yves Jongen,-1.9,0.9,ExoClock observation
-11,12,2021-11-18,Yves Jongen,0.5,1.0,ExoClock observation
-12,13,2021-03-23,Ana\xc3\xabl W\xc3\xbcnsche,4.2,1.3,ExoClock observation
-13,14,2021-03-23,Mario Morales Aimar,-2.0,2.4,ExoClock observation
-14,15,2021-03-20,Paul Benni,-0.4,1.0,ExoClock observation
-15,16,2021-03-04,Antonio Marino,3.5,3.5,ExoClock observation
-16,17,2021-03-01,Yves Jongen,2.8,1.0,ExoClock observation
-17,18,2021-02-10,Yves Jongen,1.3,0.7,ExoClock observation
-18,19,2021-01-22,Yves Jongen,2.5,2.3,ExoClock observation
-19,20,2021-01-14,Taewoo Kim,1.2,0.4,ExoClock observation
-20,21,2021-01-06,Yves Jongen,2.0,0.9,ExoClock observation
-21,22,2020-12-11,Yves Jongen,1.1,0.7,ExoClock observation
-22,23,2020-11-22,Yves Jongen,-0.9,0.6,ExoClock observation
-23,24,2020-11-07,Manfred Raetz,-0.4,0.7,ExoClock observation
-24,25,2020-10-26,Taewoo Kim,0.1,0.4,ExoClock observation
-25,26,2020-10-19,Yves Jongen,0.8,0.7,ExoClock observation
-26,27,2020-03-27,John Savage,2.4,1.0,ExoClock observation
-27,28,2020-03-27,Geoffrey Thurston,-1.2,1.3,ExoClock observation
-28,29,2020-03-27,Danilo Sedita,-2.5,1.6,ExoClock observation
-29,30,2020-03-08,Alberto Tomatis,-4.4,2.4,ExoClock observation
-30,31,2020-02-26,Wonseok Kang,-1.2,0.6,ExoClock observation
-31,32,2020-02-22,Vikrant Kumar Agnihotri,-0.4,1.0,ExoClock observation
-32,34,2020-02-18,Alessandro Nastasi,-0.1,0.7,ExoClock observation
-33,33,2020-02-18,Yves Jongen,0.3,1.0,ExoClock observation
-34,35,2020-01-30,Dim Stouraitis,0.1,1.4,ExoClock observation
-35,36,2020-01-27,Yves Jongen,4.2,0.9,ExoClock observation
-36,37,2020-01-11,Claudio Lopresti,0.5,3.2,ExoClock observation
-37,38,2020-01-04,Martin Fowler,-5.6,4.3,ExoClock observation
-38,39,2019-12-23,Alessandro Marchini,0.4,1.3,ExoClock observation
-39,40,2019-10-05,Yves Jongen,2.6,0.7,ExoClock observation
-40,41,2019-02-22,Yves Jongen,0.4,0.7,ExoClock observation
-41,42,2019-02-03,Yves Jongen,2.7,0.9,ExoClock observation
-42,44,2019-01-15,Ana\xc3\xabl W\xc3\xbcnsche,-3.4,0.4,ExoClock observation
-43,43,2019-01-15,Yves Jongen,0.3,0.9,ExoClock observation
-44,45,2019-01-12,Yves Jongen,1.1,1.0,ExoClock observation
-45,46,2018-12-27,Yves Jongen,0.5,0.6,ExoClock observation
-46,47,2018-12-05,Yves Jongen,2.4,1.0,ExoClock observation
-47,0,2013-01-06,Bakos et al. 2015,0.2,0.3,ExoClock literature
+date,observer,oc,oce,source
+2022-03-19,Simon Dawes,-0.1,2.3,ExoClock observation
+2022-02-28,Michael Irzyk,1.0,0.7,ExoClock observation
+2022-02-28,Yannic Delisle,-0.3,0.9,ExoClock observation
+2022-02-28,Val\xc3\xa8re Perroud,-0.7,2.0,ExoClock observation
+2022-02-28,Marc Deldem,-0.7,1.4,ExoClock observation
+2022-02-09,Paolo Arcangelo Matassa,5.0,1.9,ExoClock observation
+2022-02-09,Fran Campos,0.5,1.2,ExoClock observation
+2022-02-09,Alessandro Marchini,-0.8,1.3,ExoClock observation
+2022-01-21,Cyrille AUMASSON,0.2,0.6,ExoClock observation
+2021-12-11,David Arnot,4.2,1.0,ExoClock observation
+2021-12-07,Yves Jongen,-1.9,0.9,ExoClock observation
+2021-11-18,Yves Jongen,0.5,1.0,ExoClock observation
+2021-03-23,Ana\xc3\xabl W\xc3\xbcnsche,4.2,1.3,ExoClock observation
+2021-03-23,Mario Morales Aimar,-2.0,2.4,ExoClock observation
+2021-03-20,Paul Benni,-0.4,1.0,ExoClock observation
+2021-03-04,Antonio Marino,3.5,3.5,ExoClock observation
+2021-03-01,Yves Jongen,2.8,1.0,ExoClock observation
+2021-02-10,Yves Jongen,1.3,0.7,ExoClock observation
+2021-01-22,Yves Jongen,2.5,2.3,ExoClock observation
+2021-01-14,Taewoo Kim,1.2,0.4,ExoClock observation
+2021-01-06,Yves Jongen,2.0,0.9,ExoClock observation
+2020-12-11,Yves Jongen,1.1,0.7,ExoClock observation
+2020-11-22,Yves Jongen,-0.9,0.6,ExoClock observation
+2020-11-07,Manfred Raetz,-0.4,0.7,ExoClock observation
+2020-10-26,Taewoo Kim,0.1,0.4,ExoClock observation
+2020-10-19,Yves Jongen,0.8,0.7,ExoClock observation
+2020-03-27,John Savage,2.4,1.0,ExoClock observation
+2020-03-27,Geoffrey Thurston,-1.2,1.3,ExoClock observation
+2020-03-27,Danilo Sedita,-2.5,1.6,ExoClock observation
+2020-03-08,Alberto Tomatis,-4.4,2.4,ExoClock observation
+2020-02-26,Wonseok Kang,-1.2,0.6,ExoClock observation
+2020-02-22,Vikrant Kumar Agnihotri,-0.4,1.0,ExoClock observation
+2020-02-18,Alessandro Nastasi,-0.1,0.7,ExoClock observation
+2020-02-18,Yves Jongen,0.3,1.0,ExoClock observation
+2020-01-30,Dim Stouraitis,0.1,1.4,ExoClock observation
+2020-01-27,Yves Jongen,4.2,0.9,ExoClock observation
+2020-01-11,Claudio Lopresti,0.5,3.2,ExoClock observation
+2020-01-04,Martin Fowler,-5.6,4.3,ExoClock observation
+2019-12-23,Alessandro Marchini,0.4,1.3,ExoClock observation
+2019-10-05,Yves Jongen,2.6,0.7,ExoClock observation
+2019-02-22,Yves Jongen,0.4,0.7,ExoClock observation
+2019-02-03,Yves Jongen,2.7,0.9,ExoClock observation
+2019-01-15,Ana\xc3\xabl W\xc3\xbcnsche,-3.4,0.4,ExoClock observation
+2019-01-15,Yves Jongen,0.3,0.9,ExoClock observation
+2019-01-12,Yves Jongen,1.1,1.0,ExoClock observation
+2018-12-27,Yves Jongen,0.5,0.6,ExoClock observation
+2018-12-05,Yves Jongen,2.4,1.0,ExoClock observation
+2013-01-06,Bakos et al. 2015,0.2,0.3,ExoClock literature

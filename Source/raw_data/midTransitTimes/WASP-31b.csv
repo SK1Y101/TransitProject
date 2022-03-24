@@ -1,13 +1,13 @@
-,index,date,observer,oc,oce,source
-0,7,2021-06-13,Yves Jongen,7.1,1.0,ExoClock observation
-1,8,2021-03-30,Yves Jongen,6.6,1.2,ExoClock observation
-2,9,2021-03-23,Yves Jongen,6.1,1.2,ExoClock observation
-3,10,2020-05-07,Phil Evans,-3.1,1.2,ExoClock observation
-4,11,2020-04-03,Phil Evans,1.2,1.0,ExoClock observation
-5,0,2013-03-19,Sing et al. 2015,1.0,0.6,ExoClock literature
-6,1,2013-03-09,Sing et al. 2015,0.4,0.5,ExoClock literature
-7,2,2012-07-10,Sing et al. 2015,-0.5,0.6,ExoClock literature
-8,3,2012-06-26,Sing et al. 2015,0.1,0.5,ExoClock literature
-9,4,2012-05-13,Sing et al. 2015,0.2,0.7,ExoClock literature
-10,5,2011-01-26,Dragomir et al. 2011,-0.7,2.0,ExoClock literature
-11,6,2009-12-27,Anderson et al. 2011,-0.4,0.4,ExoClock literature
+date,observer,oc,oce,source
+2021-06-13,Yves Jongen,7.1,1.0,ExoClock observation
+2021-03-30,Yves Jongen,6.6,1.2,ExoClock observation
+2021-03-23,Yves Jongen,6.1,1.2,ExoClock observation
+2020-05-07,Phil Evans,-3.1,1.2,ExoClock observation
+2020-04-03,Phil Evans,1.2,1.0,ExoClock observation
+2013-03-19,Sing et al. 2015,1.0,0.6,ExoClock literature
+2013-03-09,Sing et al. 2015,0.4,0.5,ExoClock literature
+2012-07-10,Sing et al. 2015,-0.5,0.6,ExoClock literature
+2012-06-26,Sing et al. 2015,0.1,0.5,ExoClock literature
+2012-05-13,Sing et al. 2015,0.2,0.7,ExoClock literature
+2011-01-26,Dragomir et al. 2011,-0.7,2.0,ExoClock literature
+2009-12-27,Anderson et al. 2011,-0.4,0.4,ExoClock literature

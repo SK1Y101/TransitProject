@@ -1,32 +1,32 @@
-,index,date,observer,oc,oce,source
-0,6,2022-01-20,Andre Kovacs,-4.1,3.6,ExoClock observation
-1,7,2022-01-18,Paolo Arcangelo Matassa,0.4,1.0,ExoClock observation
-2,8,2022-01-05,Andre Kovacs,2.0,2.9,ExoClock observation
-3,9,2021-12-19,Paolo Arcangelo Matassa,5.1,2.6,ExoClock observation
-4,10,2021-11-04,Dominique DANIEL,5.3,2.0,ExoClock observation
-5,11,2021-10-06,aziz kaeouach,-2.6,1.4,ExoClock observation
-6,12,2021-09-29,Andre Kovacs,-3.6,2.0,ExoClock observation
-7,13,2021-08-30,Yves Jongen,-0.1,0.7,ExoClock observation
-8,14,2020-11-25,Martin Smith,-0.0,3.2,ExoClock observation
-9,15,2020-11-06,Claudio Lopresti,0.7,1.2,ExoClock observation
-10,16,2020-10-31,Francois Regembal,2.2,1.3,ExoClock observation
-11,17,2020-10-26,Martin Crow,-2.9,1.9,ExoClock observation
-12,18,2020-10-22,Nikolaos Paschalis,0.7,2.4,ExoClock observation
-13,19,2020-10-16,Yves Jongen,1.1,1.3,ExoClock observation
-14,20,2020-10-09,Yves Jongen,-3.6,1.0,ExoClock observation
-15,21,2020-08-06,Yves Jongen,-0.6,0.7,ExoClock observation
-16,22,2020-01-07,Martin Fowler,2.3,2.0,ExoClock observation
-17,23,2020-01-01,Pavel Pintr,-0.5,1.3,ExoClock observation
-18,24,2019-12-17,Dimitrios Deligeorgopoulos,-1.5,1.2,ExoClock observation
-19,25,2019-12-02,Alessandro Nastasi,-1.2,2.6,ExoClock observation
-20,26,2019-11-02,Alessandro Nastasi,2.5,1.0,ExoClock observation
-21,27,2019-02-14,Lionel Rousselot,2.5,1.4,ExoClock observation
-22,28,2018-11-08,Lorenzo Betti,-3.0,0.4,ExoClock observation
-23,29,2016-11-09,Marc Deldem,1.7,2.0,ExoClock observation
-24,0,2016-10-08,Cort\xc3\xa9s-Zuleta et al. 2020,1.9,2.8,ExoClock literature
-25,1,2016-09-27,Cort\xc3\xa9s-Zuleta et al. 2020,-2.2,4.3,ExoClock literature
-26,30,2015-12-20,Antonio Marino,4.7,2.6,ExoClock observation
-27,2,2015-10-04,Cort\xc3\xa9s-Zuleta et al. 2020,-0.1,2.3,ExoClock literature
-28,3,2015-09-30,Cort\xc3\xa9s-Zuleta et al. 2020,2.1,2.5,ExoClock literature
-29,4,2012-12-10,Turner et al. 2016,-0.5,0.5,ExoClock literature
-30,5,2011-11-04,Maxted et al. 2013,0.0,0.2,ExoClock literature
+date,observer,oc,oce,source
+2022-01-20,Andre Kovacs,-4.1,3.6,ExoClock observation
+2022-01-18,Paolo Arcangelo Matassa,0.4,1.0,ExoClock observation
+2022-01-05,Andre Kovacs,2.0,2.9,ExoClock observation
+2021-12-19,Paolo Arcangelo Matassa,5.1,2.6,ExoClock observation
+2021-11-04,Dominique DANIEL,5.3,2.0,ExoClock observation
+2021-10-06,aziz kaeouach,-2.6,1.4,ExoClock observation
+2021-09-29,Andre Kovacs,-3.6,2.0,ExoClock observation
+2021-08-30,Yves Jongen,-0.1,0.7,ExoClock observation
+2020-11-25,Martin Smith,-0.0,3.2,ExoClock observation
+2020-11-06,Claudio Lopresti,0.7,1.2,ExoClock observation
+2020-10-31,Francois Regembal,2.2,1.3,ExoClock observation
+2020-10-26,Martin Crow,-2.9,1.9,ExoClock observation
+2020-10-22,Nikolaos Paschalis,0.7,2.4,ExoClock observation
+2020-10-16,Yves Jongen,1.1,1.3,ExoClock observation
+2020-10-09,Yves Jongen,-3.6,1.0,ExoClock observation
+2020-08-06,Yves Jongen,-0.6,0.7,ExoClock observation
+2020-01-07,Martin Fowler,2.3,2.0,ExoClock observation
+2020-01-01,Pavel Pintr,-0.5,1.3,ExoClock observation
+2019-12-17,Dimitrios Deligeorgopoulos,-1.5,1.2,ExoClock observation
+2019-12-02,Alessandro Nastasi,-1.2,2.6,ExoClock observation
+2019-11-02,Alessandro Nastasi,2.5,1.0,ExoClock observation
+2019-02-14,Lionel Rousselot,2.5,1.4,ExoClock observation
+2018-11-08,Lorenzo Betti,-3.0,0.4,ExoClock observation
+2016-11-09,Marc Deldem,1.7,2.0,ExoClock observation
+2016-10-08,Cort\xc3\xa9s-Zuleta et al. 2020,1.9,2.8,ExoClock literature
+2016-09-27,Cort\xc3\xa9s-Zuleta et al. 2020,-2.2,4.3,ExoClock literature
+2015-12-20,Antonio Marino,4.7,2.6,ExoClock observation
+2015-10-04,Cort\xc3\xa9s-Zuleta et al. 2020,-0.1,2.3,ExoClock literature
+2015-09-30,Cort\xc3\xa9s-Zuleta et al. 2020,2.1,2.5,ExoClock literature
+2012-12-10,Turner et al. 2016,-0.5,0.5,ExoClock literature
+2011-11-04,Maxted et al. 2013,0.0,0.2,ExoClock literature

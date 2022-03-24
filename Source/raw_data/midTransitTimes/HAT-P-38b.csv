@@ -1,10 +1,10 @@
-,index,date,observer,oc,oce,source
-0,4,2021-11-05,Ana\xc3\xabl W\xc3\xbcnsche,-1.9,1.6,ExoClock observation
-1,5,2021-10-08,Manfred Raetz,-1.8,0.9,ExoClock observation
-2,6,2020-10-25,Danilo Sedita,0.8,2.0,ExoClock observation
-3,7,2020-10-25,Carmelo Falco,-0.7,1.7,ExoClock observation
-4,0,2017-09-29,Mallonn et al. 2019,-1.4,2.1,ExoClock literature
-5,8,2016-10-29,Ana\xc3\xabl W\xc3\xbcnsche,-3.3,0.9,ExoClock observation
-6,1,2016-08-25,Bruno et al. 2018,0.0,0.1,ExoClock literature
-7,2,2016-03-02,Bruno et al. 2018,1.3,0.6,ExoClock literature
-8,3,2011-10-28,Sato et al. 2012,-0.1,0.5,ExoClock literature
+date,observer,oc,oce,source
+2021-11-05,Ana\xc3\xabl W\xc3\xbcnsche,-1.9,1.6,ExoClock observation
+2021-10-08,Manfred Raetz,-1.8,0.9,ExoClock observation
+2020-10-25,Danilo Sedita,0.8,2.0,ExoClock observation
+2020-10-25,Carmelo Falco,-0.7,1.7,ExoClock observation
+2017-09-29,Mallonn et al. 2019,-1.4,2.1,ExoClock literature
+2016-10-29,Ana\xc3\xabl W\xc3\xbcnsche,-3.3,0.9,ExoClock observation
+2016-08-25,Bruno et al. 2018,0.0,0.1,ExoClock literature
+2016-03-02,Bruno et al. 2018,1.3,0.6,ExoClock literature
+2011-10-28,Sato et al. 2012,-0.1,0.5,ExoClock literature

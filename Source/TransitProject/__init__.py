@@ -53,7 +53,7 @@ def saveDataFrame(df, fpath):
     # check for extension
     if ext in exts:
         # load the dataframe into the file
-        exts[ext](fpath)
+        exts[ext](fpath, index=False)
 
 def readFromFile(fileName):
     ''' Read the contenmt of a file using the standard python functions.

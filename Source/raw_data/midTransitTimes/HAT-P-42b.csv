@@ -1,6 +1,6 @@
-,date,observer,oc,oce,source
-0,2022-02-22,Fran Campos,5.3,5.8,ExoClock observation
-1,2022-02-22,Martin Crow,-5.4,3.0,ExoClock observation
-2,2022-02-22,Adrian Jones,-10.6,3.5,ExoClock observation
-3,2021-11-22,Adrian Jones,-6.6,5.8,ExoClock observation
-4,2021-03-21,Yves Jongen,0.8,2.7,ExoClock observation
+date,observer,oc,oce,source
+2022-02-22,Fran Campos,5.3,5.8,ExoClock observation
+2022-02-22,Martin Crow,-5.4,3.0,ExoClock observation
+2022-02-22,Adrian Jones,-10.6,3.5,ExoClock observation
+2021-11-22,Adrian Jones,-6.6,5.8,ExoClock observation
+2021-03-21,Yves Jongen,0.8,2.7,ExoClock observation

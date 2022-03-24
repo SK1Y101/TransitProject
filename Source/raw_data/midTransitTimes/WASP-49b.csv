@@ -1,16 +1,16 @@
-,index,date,observer,oc,oce,source
-0,6,2022-01-17,Paolo Arcangelo Matassa,2.1,4.3,ExoClock observation
-1,7,2021-12-23,Bruno Monteleone,0.2,1.6,ExoClock observation
-2,8,2021-11-23,Yves Jongen,-0.8,1.4,ExoClock observation
-3,9,2021-09-20,Yves Jongen,-1.2,1.3,ExoClock observation
-4,10,2021-01-10,Yves Jongen,-0.4,0.9,ExoClock observation
-5,11,2020-12-27,Yves Jongen,-0.8,0.9,ExoClock observation
-6,12,2020-03-24,Phil Evans,2.1,1.2,ExoClock observation
-7,13,2020-02-14,Martin Fowler,-6.1,8.6,ExoClock observation
-8,14,2016-01-17,Ana\xc3\xabl W\xc3\xbcnsche,-2.2,1.4,ExoClock observation
-9,0,2012-12-06,Lendl et al. 2016,0.0,0.2,ExoClock literature
-10,1,2011-10-24,Lendl et al. 2012,-0.3,0.7,ExoClock literature
-11,2,2011-03-24,Lendl et al. 2012,0.4,0.5,ExoClock literature
-12,3,2011-01-19,Lendl et al. 2012,0.4,1.1,ExoClock literature
-13,4,2011-01-19,Lendl et al. 2012,0.3,0.4,ExoClock literature
-14,5,2011-01-19,Lendl et al. 2012,-1.2,0.6,ExoClock literature
+date,observer,oc,oce,source
+2022-01-17,Paolo Arcangelo Matassa,2.1,4.3,ExoClock observation
+2021-12-23,Bruno Monteleone,0.2,1.6,ExoClock observation
+2021-11-23,Yves Jongen,-0.8,1.4,ExoClock observation
+2021-09-20,Yves Jongen,-1.2,1.3,ExoClock observation
+2021-01-10,Yves Jongen,-0.4,0.9,ExoClock observation
+2020-12-27,Yves Jongen,-0.8,0.9,ExoClock observation
+2020-03-24,Phil Evans,2.1,1.2,ExoClock observation
+2020-02-14,Martin Fowler,-6.1,8.6,ExoClock observation
+2016-01-17,Ana\xc3\xabl W\xc3\xbcnsche,-2.2,1.4,ExoClock observation
+2012-12-06,Lendl et al. 2016,0.0,0.2,ExoClock literature
+2011-10-24,Lendl et al. 2012,-0.3,0.7,ExoClock literature
+2011-03-24,Lendl et al. 2012,0.4,0.5,ExoClock literature
+2011-01-19,Lendl et al. 2012,0.4,1.1,ExoClock literature
+2011-01-19,Lendl et al. 2012,0.3,0.4,ExoClock literature
+2011-01-19,Lendl et al. 2012,-1.2,0.6,ExoClock literature

@@ -1,19 +1,19 @@
-,index,date,observer,oc,oce,source
-0,10,2021-12-20,Andras Dan,-1.6,1.6,ExoClock observation
-1,11,2021-12-16,David Arnot,2.1,1.0,ExoClock observation
-2,12,2021-02-28,Manfred Raetz,2.3,1.3,ExoClock observation
-3,13,2021-02-28,Fabio Mortari,0.2,1.0,ExoClock observation
-4,15,2021-02-24,Fabio Mortari,-5.0,4.3,ExoClock observation
-5,14,2021-02-24,Manfred Raetz,0.0,1.9,ExoClock observation
-6,16,2018-03-25,Ana\xc3\xabl W\xc3\xbcnsche,0.5,1.6,ExoClock observation
-7,0,2017-02-26,Wang et al. 2019,2.0,1.4,ExoClock literature
-8,1,2017-01-06,Wang et al. 2019,-4.1,1.2,ExoClock literature
-9,2,2016-12-29,Wang et al. 2019,-0.4,1.7,ExoClock literature
-10,3,2016-11-08,Wang et al. 2019,3.0,1.3,ExoClock literature
-11,4,2016-03-10,Wang et al. 2019,-2.2,1.7,ExoClock literature
-12,17,2016-02-19,Ana\xc3\xabl W\xc3\xbcnsche,-1.3,2.0,ExoClock observation
-13,5,2016-01-11,Wang et al. 2019,1.4,2.0,ExoClock literature
-14,6,2010-04-06,Dittmann et al. 2012,1.0,0.5,ExoClock literature
-15,7,2010-02-18,Dittmann et al. 2012,0.1,1.4,ExoClock literature
-16,8,2010-02-14,Dittmann et al. 2012,-0.0,0.5,ExoClock literature
-17,9,2007-11-13,Shporer et al. 2009,-0.6,0.4,ExoClock literature
+date,observer,oc,oce,source
+2021-12-20,Andras Dan,-1.6,1.6,ExoClock observation
+2021-12-16,David Arnot,2.1,1.0,ExoClock observation
+2021-02-28,Manfred Raetz,2.3,1.3,ExoClock observation
+2021-02-28,Fabio Mortari,0.2,1.0,ExoClock observation
+2021-02-24,Fabio Mortari,-5.0,4.3,ExoClock observation
+2021-02-24,Manfred Raetz,0.0,1.9,ExoClock observation
+2018-03-25,Ana\xc3\xabl W\xc3\xbcnsche,0.5,1.6,ExoClock observation
+2017-02-26,Wang et al. 2019,2.0,1.4,ExoClock literature
+2017-01-06,Wang et al. 2019,-4.1,1.2,ExoClock literature
+2016-12-29,Wang et al. 2019,-0.4,1.7,ExoClock literature
+2016-11-08,Wang et al. 2019,3.0,1.3,ExoClock literature
+2016-03-10,Wang et al. 2019,-2.2,1.7,ExoClock literature
+2016-02-19,Ana\xc3\xabl W\xc3\xbcnsche,-1.3,2.0,ExoClock observation
+2016-01-11,Wang et al. 2019,1.4,2.0,ExoClock literature
+2010-04-06,Dittmann et al. 2012,1.0,0.5,ExoClock literature
+2010-02-18,Dittmann et al. 2012,0.1,1.4,ExoClock literature
+2010-02-14,Dittmann et al. 2012,-0.0,0.5,ExoClock literature
+2007-11-13,Shporer et al. 2009,-0.6,0.4,ExoClock literature

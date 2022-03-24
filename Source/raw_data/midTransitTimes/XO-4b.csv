@@ -1,30 +1,30 @@
-,index,date,observer,oc,oce,source
-0,16,2022-02-11,Kevin Johnson,-1.2,2.3,ExoClock observation
-1,17,2022-02-02,Paolo Arcangelo Matassa,0.0,2.2,ExoClock observation
-2,18,2021-12-31,Fran Campos,3.7,1.3,ExoClock observation
-3,19,2021-01-11,Yves Jongen,-3.0,1.6,ExoClock observation
-4,20,2020-11-06,Adrian Jones,-4.5,4.3,ExoClock observation
-5,21,2020-11-02,Alberto Tomatis,1.5,3.2,ExoClock observation
-6,22,2020-10-28,Martin Crow,-1.4,4.3,ExoClock observation
-7,24,2020-03-11,Danilo Sedita,-1.3,1.4,ExoClock observation
-8,23,2020-03-11,Alessandro Nastasi,0.0,2.2,ExoClock observation
-9,25,2020-02-07,Mauro Cal\xc3\xb3,-3.8,4.3,ExoClock observation
-10,26,2020-02-03,T\xc3\xb5nis Eenm\xc3\xa4e,0.3,0.9,ExoClock observation
-11,28,2020-01-05,Pere Guerra,-1.2,1.9,ExoClock observation
-12,27,2020-01-05,Yves Jongen,-0.7,2.3,ExoClock observation
-13,0,2012-01-07,Villanueva et al. 2016,2.5,1.3,ExoClock literature
-14,1,2010-03-18,Villanueva et al. 2016,4.7,1.7,ExoClock literature
-15,3,2010-02-09,Villanueva et al. 2016,-1.5,1.1,ExoClock literature
-16,2,2010-02-09,Narita et al. 2010,1.4,0.9,ExoClock literature
-17,4,2009-12-05,Villanueva et al. 2016,-4.3,2.2,ExoClock literature
-18,5,2009-11-10,Villanueva et al. 2016,1.3,1.4,ExoClock literature
-19,6,2009-09-05,Narita et al. 2010,3.9,1.6,ExoClock literature
-20,7,2009-02-11,Villanueva et al. 2016,-2.7,2.7,ExoClock literature
-21,8,2009-01-17,Villanueva et al. 2016,-2.7,4.0,ExoClock literature
-22,9,2009-01-13,Todorov et al. 2012,1.9,0.9,ExoClock literature
-23,10,2009-01-09,Todorov et al. 2012,-0.3,1.2,ExoClock literature
-24,11,2008-12-11,Todorov et al. 2012,-3.1,1.0,ExoClock literature
-25,12,2008-11-12,Villanueva et al. 2016,4.2,1.7,ExoClock literature
-26,13,2008-10-10,Narita et al. 2010,1.6,1.6,ExoClock literature
-27,14,2008-10-06,Narita et al. 2010,2.1,1.5,ExoClock literature
-28,15,2008-01-20,McCullough et al. 2008,-1.7,0.6,ExoClock literature
+date,observer,oc,oce,source
+2022-02-11,Kevin Johnson,-1.2,2.3,ExoClock observation
+2022-02-02,Paolo Arcangelo Matassa,0.0,2.2,ExoClock observation
+2021-12-31,Fran Campos,3.7,1.3,ExoClock observation
+2021-01-11,Yves Jongen,-3.0,1.6,ExoClock observation
+2020-11-06,Adrian Jones,-4.5,4.3,ExoClock observation
+2020-11-02,Alberto Tomatis,1.5,3.2,ExoClock observation
+2020-10-28,Martin Crow,-1.4,4.3,ExoClock observation
+2020-03-11,Danilo Sedita,-1.3,1.4,ExoClock observation
+2020-03-11,Alessandro Nastasi,0.0,2.2,ExoClock observation
+2020-02-07,Mauro Cal\xc3\xb3,-3.8,4.3,ExoClock observation
+2020-02-03,T\xc3\xb5nis Eenm\xc3\xa4e,0.3,0.9,ExoClock observation
+2020-01-05,Pere Guerra,-1.2,1.9,ExoClock observation
+2020-01-05,Yves Jongen,-0.7,2.3,ExoClock observation
+2012-01-07,Villanueva et al. 2016,2.5,1.3,ExoClock literature
+2010-03-18,Villanueva et al. 2016,4.7,1.7,ExoClock literature
+2010-02-09,Villanueva et al. 2016,-1.5,1.1,ExoClock literature
+2010-02-09,Narita et al. 2010,1.4,0.9,ExoClock literature
+2009-12-05,Villanueva et al. 2016,-4.3,2.2,ExoClock literature
+2009-11-10,Villanueva et al. 2016,1.3,1.4,ExoClock literature
+2009-09-05,Narita et al. 2010,3.9,1.6,ExoClock literature
+2009-02-11,Villanueva et al. 2016,-2.7,2.7,ExoClock literature
+2009-01-17,Villanueva et al. 2016,-2.7,4.0,ExoClock literature
+2009-01-13,Todorov et al. 2012,1.9,0.9,ExoClock literature
+2009-01-09,Todorov et al. 2012,-0.3,1.2,ExoClock literature
+2008-12-11,Todorov et al. 2012,-3.1,1.0,ExoClock literature
+2008-11-12,Villanueva et al. 2016,4.2,1.7,ExoClock literature
+2008-10-10,Narita et al. 2010,1.6,1.6,ExoClock literature
+2008-10-06,Narita et al. 2010,2.1,1.5,ExoClock literature
+2008-01-20,McCullough et al. 2008,-1.7,0.6,ExoClock literature
