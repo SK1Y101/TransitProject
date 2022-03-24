@@ -1,0 +1,37 @@
+,index,date,observer,oc,oce,source
+0,11,2021-12-20,Paolo Arcangelo Matassa,0.1,2.0,ExoClock observation
+1,12,2021-12-16,Paolo Arcangelo Matassa,1.0,3.2,ExoClock observation
+2,15,2021-12-12,Dominique DANIEL,-4.2,2.2,ExoClock observation
+3,14,2021-12-12,Andras Dan,-3.4,1.2,ExoClock observation
+4,13,2021-12-12,Paolo Arcangelo Matassa,-1.3,2.3,ExoClock observation
+5,16,2021-11-10,Vikrant Kumar Agnihotri,0.1,2.4,ExoClock observation
+6,17,2020-11-10,Yves Jongen,0.8,0.9,ExoClock observation
+7,18,2020-11-06,Manfred Raetz,-1.8,1.0,ExoClock observation
+8,19,2020-10-17,Jean-Bernard PIOPPA,2.1,1.3,ExoClock observation
+9,20,2020-10-17,Yves Jongen,-0.6,0.9,ExoClock observation
+10,21,2020-10-17,Francois Regembal,-1.5,1.3,ExoClock observation
+11,22,2020-10-13,Fabio Mortari,-1.4,0.4,ExoClock observation
+12,23,2020-10-01,Nikolaos Paschalis,2.0,3.2,ExoClock observation
+13,24,2019-10-11,Yves Jongen,-1.3,0.9,ExoClock observation
+14,25,2019-09-17,Yves Jongen,1.1,0.7,ExoClock observation
+15,26,2019-09-13,Marc Deldem,0.8,1.0,ExoClock observation
+16,27,2019-08-31,Pavel Pintr,0.0,1.0,ExoClock observation
+17,28,2019-08-15,Yves Jongen,2.5,0.9,ExoClock observation
+18,29,2016-12-22,Ana\xc3\xabl W\xc3\xbcnsche,-0.2,0.4,ExoClock observation
+19,30,2016-12-10,Ana\xc3\xabl W\xc3\xbcnsche,3.0,0.7,ExoClock observation
+20,31,2016-12-06,Ana\xc3\xabl W\xc3\xbcnsche,1.9,1.0,ExoClock observation
+21,32,2016-12-02,Ana\xc3\xabl W\xc3\xbcnsche,1.1,0.3,ExoClock observation
+22,33,2015-11-29,Ana\xc3\xabl W\xc3\xbcnsche,3.1,1.4,ExoClock observation
+23,34,2015-11-09,Ana\xc3\xabl W\xc3\xbcnsche,1.9,0.9,ExoClock observation
+24,0,2015-11-05,Ba\xc8\x99t\xc3\xbcrk et al. 2020,-1.2,0.4,ExoClock literature
+25,35,2015-11-01,Ana\xc3\xabl W\xc3\xbcnsche,-0.3,0.7,ExoClock observation
+26,1,2015-10-28,Ba\xc8\x99t\xc3\xbcrk et al. 2020,-1.2,0.7,ExoClock literature
+27,2,2015-10-04,Ba\xc8\x99t\xc3\xbcrk et al. 2020,0.2,0.4,ExoClock literature
+28,3,2015-09-14,Ba\xc8\x99t\xc3\xbcrk et al. 2020,-1.2,0.3,ExoClock literature
+29,4,2014-10-05,Seeliger et al. 2015,-0.1,0.8,ExoClock literature
+30,5,2014-08-21,Ba\xc8\x99t\xc3\xbcrk et al. 2020,1.2,0.3,ExoClock literature
+31,6,2014-07-28,Ba\xc8\x99t\xc3\xbcrk et al. 2020,-0.8,0.3,ExoClock literature
+32,7,2012-01-10,Mallonn et al. 2015,-0.1,0.1,ExoClock literature
+33,8,2011-12-17,Seeliger et al. 2015,0.1,0.5,ExoClock literature
+34,9,2011-12-09,Seeliger et al. 2015,0.0,0.6,ExoClock literature
+35,10,2009-09-17,Hartman et al. 2011,0.0,0.5,ExoClock literature

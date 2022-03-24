@@ -1,6 +1,59 @@
-import os, time
+# python modules
+import pandas as pd
+import os, time, re
 
 # -----< Methods >-----
+
+def loadDataFrame(fpath):
+    ''' Load a pandas.DataFrame object to a given file.
+        fpath: The file path to load the dataframe from.
+        *Note*  This will infer the load type from any given extension,
+                else will default to loading with csv.
+
+        Compatible extensions:
+        .csv .h5 .html .json .pkl .xlsx'''
+    # if the path begins with a slash, append the current working directory
+    if fpath[0] == "/":
+        fpath = os.getcwd()+fpath
+    # fetch the extension
+    ext = os.path.splitext(fpath)[1]
+    # if there isn't one, assume csv
+    if not ext:
+        ext, fpath = ".csv", fpath+".csv"
+    # table of allowed extensions
+    exts = {".csv":pd.read_csv, ".h5":pd.read_hdf, ".html":pd.read_html,
+            ".json":pd.read_json, ".pkl":pd.read_pickle, ".xlsx":pd.read_excel}
+    # check for extension
+    if ext in exts:
+        # load the dataframe from the file
+        df = exts[ext](fpath)
+        # and return
+        return df
+
+def saveDataFrame(df, fpath):
+    ''' Save a pandas.DataFrame object to a given file.
+    df: The dataframe to store.
+        fpath: The file path to store the dataframe as.
+        *Note*  If a compatible file extension is given (ie: h5, json) this will
+                store in that format, else will default to csv.
+
+        Compatible extensions:
+        .csv .h5 .html .json .pkl .xlsx'''
+    # if the path begins with a slash, append the current working directory
+    if fpath[0] == "/":
+        fpath = os.getcwd()+fpath
+    # fetch the extension
+    ext = os.path.splitext(fpath)[1]
+    # if there isn't one, assume csv
+    if not ext:
+        ext, fpath = ".csv", fpath+".csv"
+    # table of allowed extensions
+    exts = {".csv":df.to_csv, ".h5":lambda a : df.to_hdf(a, key="df", mode="w"),
+            ".html":df.to_html, ".json":df.to_json, ".pkl":df.to_pickle, ".xlsx":df.to_excel}
+    # check for extension
+    if ext in exts:
+        # load the dataframe into the file
+        exts[ext](fpath)
 
 def readFromFile(fileName):
     ''' Read the contenmt of a file using the standard python functions.
@@ -69,3 +122,10 @@ def makeFolder(loc):
                 pass
     # return the folder existing
     return os.path.exists(os.path.split(loc)[0])
+
+''' An absolutely magical regex function to get all floats in a string. '''
+def findFloats(txt=""):
+    return re.findall(r"[+-]? *(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", txt)
+    # Do I understand how this works? Vaguely.
+    # But it was sourced from an excellent stackoverflow answer that does explain it anyway
+    # https://stackoverflow.com/a/45001796

@@ -1,0 +1,102 @@
+,index,date,observer,oc,oce,source
+0,76,2021-08-28,Giuseppe Marino,1.8,1.2,ExoClock observation
+1,77,2021-08-02,Paolo Arcangelo Matassa,-1.8,1.7,ExoClock observation
+2,78,2021-06-28,Attilio Bruzzone,-2.7,1.4,ExoClock observation
+3,79,2021-06-15,Martin Crow,2.0,1.6,ExoClock observation
+4,80,2021-05-11,Adam Popowicz,4.2,2.2,ExoClock observation
+5,81,2021-05-11,\xc3\x9cllar Kivila,-4.1,2.3,ExoClock observation
+6,82,2020-07-13,Manfred Raetz,-0.4,0.6,ExoClock observation
+7,83,2020-06-18,Ana\xc3\xabl W\xc3\xbcnsche,0.8,1.3,ExoClock observation
+8,84,2020-06-07,Nikolaos Paschalis,5.0,2.0,ExoClock observation
+9,88,2020-05-25,Patrick Brandebourg,-3.1,3.0,ExoClock observation
+10,85,2020-05-25,Mauro Cal\xc3\xb3,-0.5,0.9,ExoClock observation
+11,86,2020-05-25,Alberto Tomatis,-1.1,1.0,ExoClock observation
+12,87,2020-05-25,Adrian Jones,-1.4,1.4,ExoClock observation
+13,89,2020-04-19,Adrian Jones,-3.1,1.3,ExoClock observation
+14,90,2020-03-26,T\xc3\xb5nis Eenm\xc3\xa4e,-0.0,1.6,ExoClock observation
+15,91,2019-09-04,Fabio Salvaggio,1.1,1.2,ExoClock observation
+16,92,2019-07-05,Ana\xc3\xabl W\xc3\xbcnsche,-2.4,1.2,ExoClock observation
+17,93,2019-06-23,Ana\xc3\xabl W\xc3\xbcnsche,-0.8,0.4,ExoClock observation
+18,94,2019-05-05,Ana\xc3\xabl W\xc3\xbcnsche,-1.2,1.2,ExoClock observation
+19,95,2018-09-20,Ana\xc3\xabl W\xc3\xbcnsche,4.6,1.4,ExoClock observation
+20,96,2018-09-07,Ana\xc3\xabl W\xc3\xbcnsche,1.8,0.4,ExoClock observation
+21,97,2018-08-25,Ana\xc3\xabl W\xc3\xbcnsche,1.5,0.7,ExoClock observation
+22,98,2017-06-17,Ana\xc3\xabl W\xc3\xbcnsche,1.9,1.4,ExoClock observation
+23,99,2017-05-24,Ana\xc3\xabl W\xc3\xbcnsche,3.6,1.0,ExoClock observation
+24,100,2013-05-14,Alessandro Marchini,0.1,1.2,ExoClock observation
+25,0,2011-10-15,Maciejewski et al. 2013,0.3,1.4,ExoClock literature
+26,1,2011-10-02,Maciejewski et al. 2013,-0.3,0.6,ExoClock literature
+27,2,2011-09-08,Maciejewski et al. 2013,-1.4,2.2,ExoClock literature
+28,3,2011-09-08,Montalto et al. 2012,-3.1,1.4,ExoClock literature
+29,4,2011-08-26,Maciejewski et al. 2013,-1.3,0.8,ExoClock literature
+30,5,2011-08-26,Montalto et al. 2012,-1.6,2.4,ExoClock literature
+31,6,2011-08-14,Maciejewski et al. 2013,2.1,0.8,ExoClock literature
+32,7,2011-08-14,Montalto et al. 2012,-0.9,1.2,ExoClock literature
+33,8,2011-08-02,Maciejewski et al. 2013,1.6,1.3,ExoClock literature
+34,9,2011-08-02,Nascimbeni et al. 2013,-2.1,1.3,ExoClock literature
+35,10,2011-07-22,Maciejewski et al. 2013,-0.8,2.0,ExoClock literature
+36,12,2011-07-21,Nascimbeni et al. 2013,-0.6,0.4,ExoClock literature
+37,11,2011-07-21,Montalto et al. 2012,-0.1,1.0,ExoClock literature
+38,13,2011-07-06,Maciejewski et al. 2013,-0.2,1.6,ExoClock literature
+39,14,2011-06-27,Maciejewski et al. 2013,1.0,0.9,ExoClock literature
+40,15,2011-06-27,Nascimbeni et al. 2013,-0.7,0.2,ExoClock literature
+41,16,2011-06-15,Maciejewski et al. 2013,0.6,0.7,ExoClock literature
+42,17,2011-06-03,Nascimbeni et al. 2013,1.4,0.8,ExoClock literature
+43,18,2011-06-03,Maciejewski et al. 2013,0.6,1.0,ExoClock literature
+44,19,2011-06-03,Montalto et al. 2012,-2.5,1.1,ExoClock literature
+45,20,2011-05-21,Nascimbeni et al. 2013,0.8,0.4,ExoClock literature
+46,21,2011-05-17,Maciejewski et al. 2013,0.1,0.4,ExoClock literature
+47,22,2011-05-17,Sada et al. 2012,-3.9,0.9,ExoClock literature
+48,23,2011-05-09,Maciejewski et al. 2013,0.6,1.2,ExoClock literature
+49,24,2011-05-08,Nascimbeni et al. 2013,0.7,0.2,ExoClock literature
+50,25,2011-04-27,Montalto et al. 2012,-0.7,1.5,ExoClock literature
+51,26,2011-04-14,Montalto et al. 2012,4.3,1.0,ExoClock literature
+52,27,2011-04-03,Maciejewski et al. 2013,-0.7,2.0,ExoClock literature
+53,28,2010-09-11,Maciejewski et al. 2013,-0.4,0.6,ExoClock literature
+54,29,2010-08-29,Maciejewski et al. 2013,0.2,0.9,ExoClock literature
+55,30,2010-08-28,Maciejewski et al. 2013,-1.0,1.4,ExoClock literature
+56,31,2010-08-15,Nascimbeni et al. 2013,1.5,0.7,ExoClock literature
+57,32,2010-08-05,Maciejewski et al. 2013,-0.0,1.1,ExoClock literature
+58,33,2010-08-05,Eibe et al. 2012,0.2,0.7,ExoClock literature
+59,34,2010-07-24,Maciejewski et al. 2013,-0.3,0.5,ExoClock literature
+60,35,2010-07-09,Maciejewski et al. 2013,-1.7,2.9,ExoClock literature
+61,36,2010-06-26,Maciejewski et al. 2013,-1.5,1.2,ExoClock literature
+62,37,2010-06-18,Maciejewski et al. 2013,0.0,1.4,ExoClock literature
+63,38,2010-06-15,Maciejewski et al. 2013,-0.0,0.6,ExoClock literature
+64,39,2010-06-07,Maciejewski et al. 2013,-1.1,0.8,ExoClock literature
+65,40,2010-06-02,Sada et al. 2012,0.1,0.6,ExoClock literature
+66,41,2010-06-02,Sada et al. 2012,-3.8,0.6,ExoClock literature
+67,42,2010-05-25,Maciejewski et al. 2013,-0.2,1.7,ExoClock literature
+68,43,2010-05-09,Baluev et al. 2019,-0.3,0.1,ExoClock literature
+69,44,2010-04-30,Eibe et al. 2012,0.5,1.2,ExoClock literature
+70,45,2010-04-19,Maciejewski et al. 2010,0.6,0.6,ExoClock literature
+71,46,2009-11-03,Maciejewski et al. 2010,2.7,0.7,ExoClock literature
+72,47,2009-09-27,Maciejewski et al. 2010,1.1,0.8,ExoClock literature
+73,48,2009-09-24,Maciejewski et al. 2013,-1.2,0.6,ExoClock literature
+74,49,2009-09-03,Maciejewski et al. 2010,-1.4,0.8,ExoClock literature
+75,50,2009-09-02,Eibe et al. 2012,-5.2,1.7,ExoClock literature
+76,51,2009-08-21,Maciejewski et al. 2010,-2.8,0.8,ExoClock literature
+77,52,2009-08-05,Nascimbeni et al. 2013,0.4,1.5,ExoClock literature
+78,53,2009-07-28,Maciejewski et al. 2010,-0.4,0.7,ExoClock literature
+79,54,2009-07-25,Nascimbeni et al. 2013,-0.8,1.2,ExoClock literature
+80,55,2009-06-05,Nascimbeni et al. 2013,-3.2,1.3,ExoClock literature
+81,56,2009-05-25,Tripathi et al. 2010,-0.2,0.7,ExoClock literature
+82,57,2009-05-16,Montalto et al. 2012,-4.5,1.2,ExoClock literature
+83,58,2009-05-12,Sada et al. 2012,-0.4,0.8,ExoClock literature
+84,59,2009-05-12,Tripathi et al. 2010,-2.2,1.0,ExoClock literature
+85,60,2008-09-05,Gibson et al. 2008,-0.5,0.5,ExoClock literature
+86,61,2008-09-03,Nascimbeni et al. 2013,0.1,0.9,ExoClock literature
+87,62,2008-08-15,Christiansen et al. 2011,-0.2,0.6,ExoClock literature
+88,63,2008-08-13,Christiansen et al. 2011,1.1,0.6,ExoClock literature
+89,64,2008-08-12,Christiansen et al. 2011,0.3,0.8,ExoClock literature
+90,65,2008-08-08,Christiansen et al. 2011,0.9,0.8,ExoClock literature
+91,66,2008-08-06,Christiansen et al. 2011,2.6,0.4,ExoClock literature
+92,67,2008-08-04,Christiansen et al. 2011,1.7,0.5,ExoClock literature
+93,68,2008-08-02,Christiansen et al. 2011,-0.4,0.6,ExoClock literature
+94,69,2008-07-31,Christiansen et al. 2011,0.1,0.7,ExoClock literature
+95,70,2008-07-13,Tripathi et al. 2010,0.2,0.3,ExoClock literature
+96,71,2008-06-21,Tripathi et al. 2010,1.6,0.4,ExoClock literature
+97,72,2008-06-10,Tripathi et al. 2010,-0.3,0.4,ExoClock literature
+98,73,2008-05-19,Gibson et al. 2008,0.6,0.5,ExoClock literature
+99,74,2008-05-15,Tripathi et al. 2010,-0.5,0.4,ExoClock literature
+100,75,2007-02-12,Pollacco et al. 2008,-0.1,0.6,ExoClock literature

@@ -1,0 +1,43 @@
+,index,date,observer,oc,oce,source
+0,21,2021-12-21,Manfred Raetz,2.3,0.9,ExoClock observation
+1,22,2021-12-21,Mark Salisbury,1.8,1.2,ExoClock observation
+2,23,2021-10-28,Paolo Arcangelo Matassa,-4.5,5.8,ExoClock observation
+3,24,2021-10-25,Taewoo Kim,2.2,0.7,ExoClock observation
+4,25,2021-10-21,Martin Crow,0.6,2.6,ExoClock observation
+5,26,2021-10-06,David Wright,-10.5,4.3,ExoClock observation
+6,27,2021-09-12,Yves Jongen,4.9,1.9,ExoClock observation
+7,28,2021-07-28,Taewoo Kim,0.4,0.7,ExoClock observation
+8,29,2020-11-08,Alessandro Nastasi,-2.2,3.0,ExoClock observation
+9,30,2020-11-02,Simon Dawes,-1.0,2.6,ExoClock observation
+10,31,2020-09-13,David Wright,-3.3,2.4,ExoClock observation
+11,32,2020-08-12,Carmelo Falco,-0.2,1.2,ExoClock observation
+12,33,2020-08-12,Yves Jongen,-0.3,1.9,ExoClock observation
+13,34,2020-08-05,Adam Popowicz,1.6,3.2,ExoClock observation
+14,35,2020-07-26,Fabio Mortari,3.7,1.6,ExoClock observation
+15,36,2020-07-19,Antonio Marino,-3.5,4.3,ExoClock observation
+16,37,2020-07-15,Francois Regembal,0.6,1.6,ExoClock observation
+17,38,2020-01-10,Dimitrios Deligeorgopoulos,4.5,4.3,ExoClock observation
+18,39,2019-12-30,Martin Crow,-2.5,1.6,ExoClock observation
+19,40,2019-08-07,Ana\xc3\xabl W\xc3\xbcnsche,-0.4,1.6,ExoClock observation
+20,0,2018-11-05,Maciejewski et al. 2018,-0.7,1.6,ExoClock literature
+21,1,2018-09-05,Maciejewski et al. 2018,-0.6,2.0,ExoClock literature
+22,2,2018-01-07,Maciejewski et al. 2018,-0.7,1.2,ExoClock literature
+23,3,2017-11-23,Maciejewski et al. 2018,-0.5,1.2,ExoClock literature
+24,4,2017-09-30,Maciejewski et al. 2018,2.4,1.1,ExoClock literature
+25,5,2017-09-23,Maciejewski et al. 2018,-0.6,0.8,ExoClock literature
+26,6,2017-09-19,Maciejewski et al. 2018,-0.4,0.7,ExoClock literature
+27,7,2017-08-15,Maciejewski et al. 2018,-0.0,1.1,ExoClock literature
+28,8,2017-07-25,Maciejewski et al. 2018,-0.3,0.8,ExoClock literature
+29,10,2015-10-11,Beatty et al. 2019,-0.1,0.4,ExoClock literature
+30,9,2015-10-11,Beatty et al. 2020,0.3,0.4,ExoClock literature
+31,41,2015-09-26,Ana\xc3\xabl W\xc3\xbcnsche,2.0,1.6,ExoClock observation
+32,11,2013-10-18,Beatty et al. 2017,0.7,0.9,ExoClock literature
+33,12,2012-09-11,Beatty et al. 2014,3.7,3.3,ExoClock literature
+34,13,2012-09-10,Beatty et al. 2014,4.0,3.2,ExoClock literature
+35,14,2012-01-07,Siverd et al. 2012,0.5,0.6,ExoClock literature
+36,15,2012-01-01,Siverd et al. 2012,0.5,0.6,ExoClock literature
+37,16,2011-12-16,Siverd et al. 2012,-3.5,0.6,ExoClock literature
+38,17,2011-12-13,Maciejewski et al. 2018,-0.1,0.4,ExoClock literature
+39,18,2011-12-10,Siverd et al. 2012,-2.7,1.2,ExoClock literature
+40,20,2011-12-04,Siverd et al. 2012,1.5,0.6,ExoClock literature
+41,19,2011-12-04,Siverd et al. 2012,2.9,1.4,ExoClock literature
