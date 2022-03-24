@@ -1,0 +1,15 @@
+,index,date,observer,oc,oce,source
+0,7,2020-09-17,John Savage,1.8,2.3,ExoClock observation
+1,8,2020-05-23,Taewoo Kim,-3.0,1.4,ExoClock observation
+2,9,2020-04-11,Alberto Tomatis,5.1,4.3,ExoClock observation
+3,10,2019-03-17,Yves Jongen,-4.6,2.6,ExoClock observation
+4,11,2018-06-19,Yves Jongen,2.2,1.2,ExoClock observation
+5,12,2018-05-19,Yves Jongen,-4.5,2.2,ExoClock observation
+6,13,2016-07-26,Ana\xc3\xabl W\xc3\xbcnsche,2.4,1.4,ExoClock observation
+7,0,2010-04-28,Chan et al. 2011,1.1,0.9,ExoClock literature
+8,1,2009-04-02,Chan et al. 2011,-0.8,0.7,ExoClock literature
+9,2,2007-05-10,Sozzetti et al. 2009,0.7,1.6,ExoClock literature
+10,3,2007-05-10,Mandushev et al. 2007,0.3,0.7,ExoClock literature
+11,4,2007-05-10,Chan et al. 2011,0.1,0.9,ExoClock literature
+12,5,2007-05-10,Sozzetti et al. 2009,-0.4,0.9,ExoClock literature
+13,6,2007-05-03,Sozzetti et al. 2009,-0.1,1.2,ExoClock literature

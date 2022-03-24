@@ -1,0 +1,26 @@
+,index,date,observer,oc,oce,source
+0,11,2021-12-18,Paolo Arcangelo Matassa,-6.6,2.7,ExoClock observation
+1,12,2021-10-26,Dominique DANIEL,-3.5,1.9,ExoClock observation
+2,13,2020-10-13,Mauro Cal\xc3\xb3,-3.6,2.7,ExoClock observation
+3,15,2020-09-01,Francois Regembal,-3.3,3.3,ExoClock observation
+4,14,2020-09-01,Yves Jongen,-0.6,1.3,ExoClock observation
+5,16,2020-08-26,Danilo Sedita,2.0,1.2,ExoClock observation
+6,19,2020-08-21,Martin Crow,0.1,2.0,ExoClock observation
+7,18,2020-08-21,Yves Jongen,0.4,1.7,ExoClock observation
+8,17,2020-08-21,Nikolaos Paschalis,2.3,2.4,ExoClock observation
+9,20,2019-10-11,Ana\xc3\xabl W\xc3\xbcnsche,2.7,0.9,ExoClock observation
+10,21,2018-11-15,Ana\xc3\xabl W\xc3\xbcnsche,0.8,2.7,ExoClock observation
+11,22,2018-10-03,Ana\xc3\xabl W\xc3\xbcnsche,-0.9,0.7,ExoClock observation
+12,23,2016-12-27,Ana\xc3\xabl W\xc3\xbcnsche,5.3,1.0,ExoClock observation
+13,24,2016-09-08,Marc Deldem,-2.0,1.3,ExoClock observation
+14,1,2013-10-23,Turner et al. 2016,-1.8,1.2,ExoClock literature
+15,0,2013-10-23,Turner et al. 2016,-1.1,1.3,ExoClock literature
+16,2,2010-11-29,Granata et al. 2014,-0.8,0.3,ExoClock literature
+17,4,2007-12-27,Simpson et al. 2011,-1.6,0.3,ExoClock literature
+18,3,2007-12-27,Albrecht et al. 2011,0.2,0.3,ExoClock literature
+19,7,2006-10-04,Shporer et al. 2007,-0.1,0.7,ExoClock literature
+20,6,2006-10-04,Shporer et al. 2007,1.8,0.7,ExoClock literature
+21,5,2006-10-04,Shporer et al. 2007,2.4,0.9,ExoClock literature
+22,8,2006-09-27,Charbonneau et al. 2007,0.5,0.6,ExoClock literature
+23,10,2006-06-26,Collier Cameron et al. 2007,0.9,1.4,ExoClock literature
+24,9,2006-06-26,Turner et al. 2016,2.1,0.5,ExoClock literature

@@ -1,0 +1,23 @@
+,index,date,observer,oc,oce,source
+0,1,2022-01-26,Roger Dymock,2.7,3.0,ExoClock observation
+1,2,2022-01-26,Andre Kovacs,1.6,2.9,ExoClock observation
+2,3,2021-12-29,Paolo Arcangelo Matassa,0.1,2.6,ExoClock observation
+3,4,2021-12-16,Yves Jongen,0.1,0.6,ExoClock observation
+4,5,2021-11-08,christian PANTACCHINI,-0.3,4.3,ExoClock observation
+5,6,2021-10-04,Taewoo Kim,0.7,0.6,ExoClock observation
+6,7,2021-09-21,Dominique DANIEL,0.9,3.0,ExoClock observation
+7,8,2021-07-26,Yves Jongen,1.5,0.6,ExoClock observation
+8,9,2020-12-01,Carmelo Falco,2.7,1.0,ExoClock observation
+9,10,2020-11-20,Yves Jongen,-1.1,0.7,ExoClock observation
+10,11,2020-11-12,Martin Fowler,5.6,2.0,ExoClock observation
+11,12,2020-09-30,Yves Jongen,0.6,0.6,ExoClock observation
+12,13,2020-09-28,Yves Jongen,0.2,0.7,ExoClock observation
+13,14,2020-09-26,Yves Jongen,2.3,1.0,ExoClock observation
+14,15,2020-01-20,Yves Jongen,-0.4,0.9,ExoClock observation
+15,16,2019-12-08,Yves Jongen,-1.1,0.4,ExoClock observation
+16,17,2019-10-29,Ana\xc3\xabl W\xc3\xbcnsche,2.7,2.6,ExoClock observation
+17,18,2019-10-29,Yves Jongen,-1.5,0.9,ExoClock observation
+18,19,2019-01-03,Ana\xc3\xabl W\xc3\xbcnsche,-1.5,1.6,ExoClock observation
+19,20,2018-11-14,Ana\xc3\xabl W\xc3\xbcnsche,0.3,0.6,ExoClock observation
+20,21,2014-12-11,Ana\xc3\xabl W\xc3\xbcnsche,1.9,0.7,ExoClock observation
+21,0,2010-12-28,Gillon et al. 2011,-0.2,0.3,ExoClock literature
