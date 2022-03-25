@@ -55,6 +55,11 @@ def bs4(url="", features="html5lib", stale_time=7):
     return page_source
 
 def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourceName=""):
+    ''' Scrape the ExoClock website for exoplanet o-c data, and store as locally accesible csv data.
+        url: The webpage to scrape.
+        loc: the local location to store the data
+        stale_time: the time in days to use a locally stored copy of the page instead.
+        sourceName: The title to log in the source column of the data. '''
     # check for local storage file
     makeFolder(loc)
     # fetch data
@@ -87,6 +92,9 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
         saveDataFrame(df, loc+x+".csv")
 
 def fetch_from_ExoClock(url="", stale_time=7):
+    ''' Scrape the ExoClock website for exoplanet o-c data.
+        url: The webpage to scrape.
+        stale_time: the time in days to use a locally stored copy of the page instead. '''
     # fetch the page source code
     page = bs4(url, stale_time=stale_time)
     # locate the exoplanet rows from the main table
@@ -121,3 +129,21 @@ def fetch_from_ExoClock(url="", stale_time=7):
             this_data.append(thiscol)
     # return the dictionary
     return exoplanets
+
+def saveDataDict(data, loc, stale_time=7):
+    ''' Take a dictionary of data and save as a pandas dataframe for future usage.
+        data: a dictionary of data to store, or a json url to source the dictionary data from.
+        loc: the filepath within which to store the data.'''
+    # ensure the location exists
+    makeFolder(loc)
+    # continue if we don't have stored data available
+    if checkForFile(loc, stale_time):
+        return
+    # if we were given a url string
+    if isinstance(data, str):
+        # source the data
+        data = loadJsonURL(data)
+    # convert to a pandas dataframe
+    df = pd.DataFrame.from_dict(data, orient="index")
+    # and store at the given location
+    saveDataFrame(df, loc)
