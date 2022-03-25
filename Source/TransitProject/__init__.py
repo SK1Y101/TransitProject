@@ -47,6 +47,8 @@ def saveDataFrame(df, fpath):
     # if there isn't one, assume csv
     if not ext:
         ext, fpath = ".csv", fpath+".csv"
+    # don't store duplaicates
+    df = df.loc[df.astype(str).drop_duplicates().index]
     # table of allowed extensions
     exts = {".csv":df.to_csv, ".h5":lambda a : df.to_hdf(a, key="df", mode="w"),
             ".html":df.to_html, ".json":df.to_json, ".pkl":df.to_pickle, ".xlsx":df.to_excel}
@@ -73,8 +75,13 @@ def writeToFile(fileName, data):
     if fileName[0] == "/":
         fileName = os.getcwd()+fileName
     # write to the file
-    with open(fileName, "w") as f:
-        f.write(data)
+    try:
+        with open(fileName, "w") as f:
+            f.write(data)
+    except:
+        # if it failed, attempt to write bytes
+        with open(fileName, "wb") as f:
+            f.write(data)
     # and return the written data
     return data
 
