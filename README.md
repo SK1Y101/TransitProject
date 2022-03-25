@@ -73,9 +73,9 @@ This is a general overview of the "Write Code" step above, and is of course subj
 
 - [ ] Collect all required data
   - [ ] ETD Lightcurves or mid-transit times
-  - [ ] Exoclock
+  - [x] Exoclock
     - [x] Lightcurves or mid-transit times
-    - [ ] system info
+    - [x] ephemerides
   - [ ] Exoplanet Archive System info
   - [ ] Exoplanet Catalogue
     - [ ] System info

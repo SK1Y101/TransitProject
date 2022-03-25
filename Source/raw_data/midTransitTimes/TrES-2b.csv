@@ -1,0 +1,100 @@
+date,observer,oc,oce,source
+2021-11-17,Geoffrey Thurston,-0.1,2.2,ExoClock observation
+2021-11-17,Cyrille AUMASSON,0.3,1.4,ExoClock observation
+2021-10-01,Nello Ruocco,1.6,1.9,ExoClock observation
+2021-09-26,Thomas MOLLIER,-3.7,1.7,ExoClock observation
+2021-08-20,Ozguc Bayrak,1.2,3.2,ExoClock observation
+2021-08-15,Paolo Arcangelo Matassa,0.7,1.3,ExoClock observation
+2021-08-10,Ivo Peretto,0.4,0.9,ExoClock observation
+2021-08-06,Bernhard Wenzel,-2.3,0.9,ExoClock observation
+2021-07-04,Giorgio Baj,1.4,2.0,ExoClock observation
+2021-06-25,Alberto Garc\xc3\xada S\xc3\xa1nchez,-0.4,1.2,ExoClock observation
+2021-06-25,Enrique Arce,-1.4,1.3,ExoClock observation
+2021-06-25,GONZALO FORNAS,-4.5,1.7,ExoClock observation
+2021-05-09,Martin Crow,0.6,1.0,ExoClock observation
+2021-05-09,Giorgio Baj,-3.6,1.3,ExoClock observation
+2021-04-09,Andre Kovacs,-1.3,4.3,ExoClock observation
+2021-03-28,Yves Jongen,0.8,1.0,ExoClock observation
+2020-09-13,Simon Dawes,0.0,1.3,ExoClock observation
+2020-09-13,Yves Jongen,-0.7,0.7,ExoClock observation
+2020-09-13,Geoffrey Thurston,0.0,0.9,ExoClock observation
+2020-09-13,Andrea Tomacelli,-2.0,2.2,ExoClock observation
+2020-09-13,John Savage,3.5,0.7,ExoClock observation
+2020-09-13,Jean-Baptiste Marquette,-4.9,4.3,ExoClock observation
+2020-09-04,Yves Jongen,-3.1,1.6,ExoClock observation
+2020-07-28,Constantinos Aggelis,2.7,2.0,ExoClock observation
+2020-07-28,Adrian Jones,-0.2,1.4,ExoClock observation
+2020-05-05,Martin Crow,0.7,1.6,ExoClock observation
+2020-05-05,Simon Dawes,-1.5,2.2,ExoClock observation
+2020-05-05,Adrian Jones,-1.5,1.4,ExoClock observation
+2020-03-20,Yves Jongen,-0.7,1.6,ExoClock observation
+2019-10-13,Ana\xc3\xabl W\xc3\xbcnsche,-2.6,0.9,ExoClock observation
+2019-10-04,Yves Jongen,0.2,1.0,ExoClock observation
+2019-08-23,Yves Jongen,1.4,1.0,ExoClock observation
+2019-07-16,Yves Jongen,0.7,0.7,ExoClock observation
+2019-06-04,Ana\xc3\xabl W\xc3\xbcnsche,-0.3,0.9,ExoClock observation
+2019-06-04,Yves Jongen,-0.4,1.6,ExoClock observation
+2019-04-14,Yves Jongen,-2.1,0.9,ExoClock observation
+2019-04-09,Yves Jongen,-0.1,0.9,ExoClock observation
+2018-09-30,Mario Morales Aimar,2.3,1.0,ExoClock observation
+2018-09-30,Yves Jongen,-1.5,0.9,ExoClock observation
+2018-09-25,Ana\xc3\xabl W\xc3\xbcnsche,-0.5,0.4,ExoClock observation
+2018-09-21,Yves Jongen,-0.5,1.7,ExoClock observation
+2018-05-27,Nikolaos Paschalis,-1.7,2.7,ExoClock observation
+2018-05-18,Ana\xc3\xabl W\xc3\xbcnsche,-2.5,0.6,ExoClock observation
+2017-09-12,\xc3\x96zt\xc3\xbcrk et al. 2019,-4.0,1.0,ExoClock literature
+2017-07-27,Ana\xc3\xabl W\xc3\xbcnsche,1.1,0.4,ExoClock observation
+2017-05-09,Alessandro Marchini,-1.3,1.4,ExoClock observation
+2017-05-04,\xc3\x96zt\xc3\xbcrk et al. 2019,-1.9,0.6,ExoClock literature
+2017-03-23,\xc3\x96zt\xc3\xbcrk et al. 2019,1.0,0.6,ExoClock literature
+2016-10-21,Ana\xc3\xabl W\xc3\xbcnsche,1.9,0.4,ExoClock observation
+2016-08-30,\xc3\x96zt\xc3\xbcrk et al. 2019,-0.7,0.4,ExoClock literature
+2016-07-19,Ana\xc3\xabl W\xc3\xbcnsche,2.1,0.9,ExoClock observation
+2016-06-12,\xc3\x96zt\xc3\xbcrk et al. 2019,1.0,0.3,ExoClock literature
+2016-06-02,Nikolaos Paschalis,-1.8,1.9,ExoClock observation
+2015-08-18,Ana\xc3\xabl W\xc3\xbcnsche,1.0,0.9,ExoClock observation
+2015-07-12,Antonio Marino,0.8,1.3,ExoClock observation
+2015-05-31,Ana\xc3\xabl W\xc3\xbcnsche,2.4,0.9,ExoClock observation
+2015-05-31,Antonio Marino,-2.1,4.3,ExoClock observation
+2012-10-30,Turner et al. 2016,-1.7,0.9,ExoClock literature
+2012-05-20,Filip Walter,1.0,1.0,ExoClock observation
+2009-05-28,Mislis et al. 2010,-2.8,1.2,ExoClock literature
+2009-05-28,Mislis et al. 2010,-1.1,1.3,ExoClock literature
+2009-05-28,Mislis et al. 2010,-0.6,1.4,ExoClock literature
+2009-05-28,Mislis et al. 2010,-1.7,1.0,ExoClock literature
+2009-04-12,Mislis et al. 2010,0.6,1.1,ExoClock literature
+2009-04-07,Filip Walter,1.4,1.6,ExoClock observation
+2008-10-03,Raetz et al. 2009,-0.2,2.6,ExoClock literature
+2008-09-28,Raetz et al. 2009,5.3,2.9,ExoClock literature
+2008-09-18,Mislis et al. 2010,-3.0,1.0,ExoClock literature
+2008-07-29,Christiansen et al. 2011,-0.9,0.7,ExoClock literature
+2008-07-26,Christiansen et al. 2011,0.8,0.5,ExoClock literature
+2008-07-24,Christiansen et al. 2011,-1.2,0.4,ExoClock literature
+2008-07-21,Christiansen et al. 2011,0.3,0.4,ExoClock literature
+2008-07-16,Christiansen et al. 2011,0.9,0.7,ExoClock literature
+2008-07-14,Christiansen et al. 2011,0.8,0.6,ExoClock literature
+2008-07-11,Christiansen et al. 2011,-0.3,0.6,ExoClock literature
+2008-07-09,Christiansen et al. 2011,0.7,0.5,ExoClock literature
+2008-06-29,Christiansen et al. 2011,2.2,0.5,ExoClock literature
+2008-06-26,Raetz et al. 2009,1.2,2.0,ExoClock literature
+2008-05-20,Mislis et al. 2010,-3.5,1.0,ExoClock literature
+2007-10-14,Raetz et al. 2009,1.1,2.2,ExoClock literature
+2007-09-21,Raetz et al. 2009,2.3,3.0,ExoClock literature
+2007-09-21,Raetz et al. 2014,-1.4,5.5,ExoClock literature
+2007-09-16,Raetz et al. 2009,1.2,1.6,ExoClock literature
+2007-09-16,Raetz et al. 2014,3.6,5.5,ExoClock literature
+2007-09-16,Raetz et al. 2014,0.4,1.8,ExoClock literature
+2007-07-26,Raetz et al. 2009,3.9,1.9,ExoClock literature
+2007-07-26,Raetz et al. 2014,6.1,3.0,ExoClock literature
+2007-07-17,Raetz et al. 2009,-0.7,3.5,ExoClock literature
+2007-07-17,Raetz et al. 2014,-4.3,4.4,ExoClock literature
+2007-05-03,Raetz et al. 2009,1.2,3.6,ExoClock literature
+2007-03-13,Raetz et al. 2014,-1.1,5.2,ExoClock literature
+2007-03-13,Raetz et al. 2009,-1.8,2.3,ExoClock literature
+2006-11-02,Holman et al. 2007,0.8,0.4,ExoClock literature
+2006-11-02,Mislis et al. 2010,0.4,1.0,ExoClock literature
+2006-09-16,Holman et al. 2007,0.2,0.4,ExoClock literature
+2006-09-16,Mislis et al. 2010,0.1,1.0,ExoClock literature
+2006-09-11,Holman et al. 2007,0.4,0.3,ExoClock literature
+2006-09-11,Mislis et al. 2010,0.4,1.0,ExoClock literature
+2006-08-10,O\'Donovan et al. 2006,2.4,1.4,ExoClock literature
