@@ -72,7 +72,7 @@ The (Current) High-level plan for this project is (as everything else is) subjec
 This is a general overview of the "Write Code" step above, and is of course subject to change. Next to each item is a tickbox that marks its completion status.
 
 - [ ] Collect all required data
-  - [ ] ETD Lightcurves
+  - [ ] ETD Lightcurves or mid-transit times
   - [ ] Exoclock
     - [x] Lightcurves or mid-transit times
     - [ ] system info

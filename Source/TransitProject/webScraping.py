@@ -1,11 +1,16 @@
 # import python modules
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+import json
 
 # import my modules
 from . import *
 
 # -----< Methods >-----
+
+def loadJsonURL(url="", stale_time=7):
+    source = fetchUrlSource(url, stale_time)
+    return json.loads(source)
 
 def fetchUrlSource(url="", stale_time=7):
     ''' Will fetch the source code from a given URL.
@@ -18,7 +23,7 @@ def fetchUrlSource(url="", stale_time=7):
         # then return the contents of that
         return readFromFile(file_dir)
     # otherwise, fetch the source
-    source = str(urlopen(url).read())
+    source = urlopen(url).read()
     # ensure the folder for the file exists
     makeFolder(file_dir)
     # store the fetched source, and return it
