@@ -5,20 +5,20 @@ date,observer,oc,oce,source
 2021-11-10,Snaevarr gudmundsson,-1.44,0.4896,ETD
 2020-10-10,Yves jongen,1.872,0.8208,ETD
 2019-12-30,Mario Morales Aimar,3.6,3.3,ExoClock observation
-2019-12-30,Mario morales,3.312,0.9792,ETD
 2019-12-30,Yves jongen,1.008,0.5616,ETD
+2019-12-30,Mario morales,3.312,0.9792,ETD
 2019-09-18,Anaël wünsche,0.0,0.7632,ETD
 2019-09-10,Alberto tomatis,52.992,5.4576,ETD
-2019-09-10,Alberto tomatis,17.424,2.7648,ETD
-2019-09-10,"Francesco scaggiante, danilo zardin,marco fiaschi",7.2,0.7344,ETD
 2019-09-10,Alessandro marchini,3.456,1.2672,ETD
+2019-09-10,"Francesco scaggiante, danilo zardin,marco fiaschi",7.2,0.7344,ETD
+2019-09-10,Alberto tomatis,17.424,2.7648,ETD
 2019-09-02,Yves jongen,4.608,0.6768,ETD
-2019-09-02,Anael wunsche,3.456,0.72,ETD
 2019-09-02,Esseiva nicolas,9.216,0.5616,ETD
+2019-09-02,Anael wunsche,3.456,0.72,ETD
 2018-08-10,Gianluca rossi,-2.016,1.1232,ETD
 2017-10-13,František lomoz,-5.472,2.1312,ETD
-2017-10-13,Matthieu bachschmidt,-0.432,0.9072,ETD
 2017-10-13,František lomoz,-0.432,3.0384,ETD
+2017-10-13,Matthieu bachschmidt,-0.432,0.9072,ETD
 2016-09-28,Velimir popov,8.208,0.8928,ETD
 2016-09-12,Trnka j.,4.464,1.3824,ETD
 2015-08-29,"Dittler, ullrich",-23.04,4.6944,ETD
@@ -27,8 +27,8 @@ date,observer,oc,oce,source
 2014-01-04,Benni p.,2.736,0.864,ETD
 2013-10-17,Ruocco n.,6.48,2.4336,ETD
 2013-10-17,Salisbury m.,2.016,0.9504,ETD
-2013-10-09,René r.,2.448,1.1232,ETD
 2013-10-09,Gonzalez j.,2.16,0.6912,ETD
+2013-10-09,René r.,2.448,1.1232,ETD
 2013-09-23,Benni p.,2.016,0.7488,ETD
 2013-09-23,Carreño a.,-4.464,1.3392,ETD
 2013-09-07,"Morris t. a., durig d. t.",2.016,1.296,ETD

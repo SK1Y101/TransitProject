@@ -1,28 +1,28 @@
 date,observer,oc,oce,source
 2021-06-08,Mohammad talafha,13.824,,ETD
-2021-05-31,Carmelo Falco,1.3,0.9,ExoClock observation
+2021-05-31,Andras Dan,-5.8,1.4,ExoClock observation
+2021-05-31,Tommaso dittadi,2.304,19.9296,ETD
 2021-05-31,Yves jongen,-2.016,0.9072,ETD
 2021-05-31,Jean plazas,0.72,1.9584,ETD
-2021-05-31,Andras Dan,-5.8,1.4,ExoClock observation
 2021-05-31,Fabio Mortari,-4.4,2.6,ExoClock observation
 2021-05-31,Carmelo Falco,0.2,0.6,ExoClock observation
-2021-05-31,Tommaso dittadi,2.304,19.9296,ETD
+2021-05-31,Carmelo Falco,1.3,0.9,ExoClock observation
 2021-05-27,Martin Crow,1.3,1.3,ExoClock observation
-2021-05-27,Yves Jongen,-0.3,1.0,ExoClock observation
 2021-05-27,Yves jongen,-0.72,0.7344,ETD
+2021-05-27,Yves Jongen,-0.3,1.0,ExoClock observation
 2021-05-24,Adam Popowicz,-1.8,1.0,ExoClock observation
-2021-03-13,Fran campos,-1.008,0.576,ETD
 2021-03-13,Aniceto porcel rosales,-2.592,1.9296,ETD
 2021-03-13,Ferran grau horta,0.576,0.9792,ETD
+2021-03-13,Fran campos,-1.008,0.576,ETD
 2020-07-04,"D. bertesteanu, i.c.tudor, l. demetz",3.168,1.7424,ETD
 2020-06-30,Stephen m. brincat,-3.6,1.1376,ETD
 2020-06-30,Maurizio cervoni,-3.024,1.2528,ETD
-2020-06-26,Mauro Caló,-0.7,1.0,ExoClock observation
 2020-06-26,Arena claudio,-2.448,1.0368,ETD
+2020-06-26,Mauro Caló,-0.7,1.0,ExoClock observation
 2020-05-02,Vikrant Kumar Agnihotri,1.7,1.3,ExoClock observation
-2020-04-20,Martin Crow,-2.3,1.0,ExoClock observation
-2020-04-20,Adrian Jones,-0.5,2.2,ExoClock observation
 2020-04-20,Mark Phillips,3.0,1.6,ExoClock observation
+2020-04-20,Adrian Jones,-0.5,2.2,ExoClock observation
+2020-04-20,Martin Crow,-2.3,1.0,ExoClock observation
 2020-04-17,Manfred Raetz,-1.2,0.9,ExoClock observation
 2020-04-16,Manfred raetz,-1.872,0.7056,ETD
 2019-07-23,"Alfa crucis - colesanti c, de carvalho aguiar p, kulh d, napoleao t, olim e, rodrigues ma, treü r",0.864,1.6272,ETD
@@ -37,10 +37,10 @@ date,observer,oc,oce,source
 2017-05-02,František lomoz,24.48,7.8192,ETD
 2017-04-12,Michael fleenor,0.72,0.9936,ETD
 2017-02-20,Collège antoine courrière,2.88,1.7856,ETD
-2016-06-05,František lomoz,1.152,1.1952,ETD
 2016-06-05,František lomoz,-1.728,1.4544,ETD
-2016-03-30,Alessandro Marchini,1.1,1.2,ExoClock observation
+2016-06-05,František lomoz,1.152,1.1952,ETD
 2016-03-30,Alessandro marchini,0.144,1.1664,ETD
+2016-03-30,Alessandro Marchini,1.1,1.2,ExoClock observation
 2016-03-06,Kenneth menzies,-1.872,1.8,ETD
 2015-08-22,Oleg mazurenko,1.872,1.872,ETD
 2015-07-06,Trnka j.,-1.872,1.3968,ETD
@@ -51,37 +51,37 @@ date,observer,oc,oce,source
 2014-05-22,Caat,2.736,1.0512,ETD
 2014-03-20,Trnka j.,-4.32,1.2384,ETD
 2014-03-12,Zibar m.,1.296,0.5616,ETD
-2014-03-12,"Mravik j., grnja j.",-14.4,3.0096,ETD
 2014-03-12,"Janko mravik, jaroslav grnja",-14.4,3.0096,ETD
+2014-03-12,"Mravik j., grnja j.",-14.4,3.0096,ETD
 2014-03-08,Zibar m.,-3.024,0.9648,ETD
 2014-03-08,"Dittler, ullrich",-2.592,0.8784,ETD
 2013-06-21,"Mravik j., grnja j.",5.472,2.0016,ETD
 2012-07-21,Emering f.,-3.168,2.664,ETD
-2012-06-27,Mitchell d.,-0.72,1.8288,ETD
 2012-06-27,Curry s.,-5.76,1.512,ETD
+2012-06-27,Mitchell d.,-0.72,1.8288,ETD
 2012-05-19,Poddaný s.,-0.144,0.8784,ETD
 2012-05-19,Filip Walter,1.2,0.6,ExoClock observation
 2012-05-15,Horta f. g.,-4.608,1.5552,ETD
 2012-05-15,Carreño a.,0.72,0.9072,ETD
-2012-05-12,Southworth et al. 2018,0.6,0.2,ExoClock literature
-2012-05-12,Southworth et al. 2018,-0.8,0.2,ExoClock literature
 2012-05-12,Southworth et al. 2018,-0.6,0.4,ExoClock literature
+2012-05-12,Southworth et al. 2018,-0.8,0.2,ExoClock literature
+2012-05-12,Southworth et al. 2018,0.6,0.2,ExoClock literature
 2012-05-11,Ramon naves,2.016,0.8208,ETD
 2012-05-11,Naves r.,1.296,0.7776,ETD
 2012-05-08,Southworth et al. 2018,0.7,0.2,ExoClock literature
-2012-05-08,Southworth et al. 2018,-0.5,0.2,ExoClock literature
 2012-05-08,Southworth et al. 2018,-0.5,0.3,ExoClock literature
+2012-05-08,Southworth et al. 2018,-0.5,0.2,ExoClock literature
 2012-04-25,"Harrison s., michaels y., weiler n.",-1.296,0.8784,ETD
 2012-02-26,Trnka j.,-2.448,0.8784,ETD
 2011-09-30,Deming et al. 2013,0.7,0.2,ExoClock literature
 2011-06-15,"Világi j., kornoš l.",-1.44,0.9936,ETD
 2011-05-30,Dvorak s.,-1.728,1.1088,ETD
 2011-05-18,"Shadic s., shiels ch.",-0.144,0.7632,ETD
-2011-04-01,Nicolas e.,-1.44,1.2528,ETD
 2011-04-01,Naves r.,-0.432,0.8064,ETD
+2011-04-01,Nicolas e.,-1.44,1.2528,ETD
 2011-03-08,Shadic s.,-1.728,0.5904,ETD
-2010-06-21,Gary b.,-1.44,1.008,ETD
 2010-06-21,Gary b.,0.864,1.008,ETD
+2010-06-21,Gary b.,-1.44,1.008,ETD
 2010-06-17,Gary b.,-1.296,0.72,ETD
 2010-04-28,Southworth et al. 2018,0.3,0.2,ExoClock literature
 2010-04-27,Trnka j.,-0.576,1.3968,ETD
@@ -92,8 +92,8 @@ date,observer,oc,oce,source
 2009-09-26,Gary b.,-1.152,1.152,ETD
 2009-08-18,Srdoc,-7.056,1.152,ETD
 2009-08-14,Srdoc,1.728,1.44,ETD
-2009-07-13,Littlefield,-0.864,1.872,ETD
 2009-07-13,Wiggins,-2.592,2.016,ETD
+2009-07-13,Littlefield,-0.864,1.872,ETD
 2009-06-12,Srdoc,-0.432,1.008,ETD
 2009-06-08,Srdoc,-0.72,4.176,ETD
 2009-06-04,Ayoinemas,-0.288,1.152,ETD
@@ -144,14 +144,14 @@ date,observer,oc,oce,source
 2006-06-01,Burke et al. 2010,-0.2,0.2,ExoClock literature
 2006-06-01,Holman et al. 2006,-0.5,0.2,ExoClock literature
 2006-05-31,Foote,-0.288,2.016,ETD
-2006-05-31,Holman et al 2007,-1.584,0.2304,ETD
 2006-05-31,Foote,-1.008,2.448,ETD
+2006-05-31,Holman et al 2007,-1.584,0.2304,ETD
 2006-05-31,Gary b.,-1.296,0.864,ETD
 2006-05-28,Holman et al. 2006,0.0,0.3,ExoClock literature
 2006-05-27,Holman et al 2007,-1.008,0.2736,ETD
 2006-05-24,Holman et al. 2006,-0.2,1.6,ExoClock literature
-2006-05-23,Holman et al 2007,-1.296,1.584,ETD
 2006-05-23,Gary & healy,-1.872,1.584,ETD
+2006-05-23,Holman et al 2007,-1.296,1.584,ETD
 2006-05-20,Holman et al. 2006,0.6,0.5,ExoClock literature
 2006-05-19,Holman et al 2007,-0.432,0.5184,ETD
 2006-04-06,Vanmunster,1.44,2.88,ETD

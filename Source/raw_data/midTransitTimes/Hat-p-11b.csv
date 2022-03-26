@@ -16,9 +16,9 @@ date,observer,oc,oce,source
 2015-09-18,Marc bretton,0.432,1.1376,ETD
 2014-09-26,Benni p.,1.44,2.4048,ETD
 2014-03-24,Benni p.,-2.448,2.088,ETD
-2013-09-05,Salisbury m.,-7.92,2.1456,ETD
 2013-09-05,Trnka j.,-3.312,1.1952,ETD
 2013-09-05,Naves r.,0.72,2.3616,ETD
+2013-09-05,Salisbury m.,-7.92,2.1456,ETD
 2013-05-30,Paul benni,-6.768,6.696,ETD
 2012-10-18,Tsiaras et al. 2018,-0.3,0.1,ExoClock literature
 2011-08-29,Brát l.,-3.168,2.5488,ETD
@@ -37,8 +37,8 @@ date,observer,oc,oce,source
 2009-08-21,Deming at el. 2011,0.144,0.1584,ETD
 2009-08-16,Deming at el. 2011,-0.0,0.1728,ETD
 2009-08-11,Deming at el. 2011,-0.0,0.1296,ETD
-2009-08-06,Norby,-1.584,4.032,ETD
 2009-08-06,Deming at el. 2011,-0.288,0.1008,ETD
+2009-08-06,Norby,-1.584,4.032,ETD
 2009-08-01,Deming at el. 2011,0.0,0.1008,ETD
 2009-07-27,Deming at el. 2011,0.144,0.1728,ETD
 2009-07-18,Deming at el. 2011,0.144,0.2016,ETD
@@ -55,8 +55,8 @@ date,observer,oc,oce,source
 2009-05-30,Deming at el. 2011,-0.144,0.144,ETD
 2009-05-25,Deming at el. 2011,0.0,0.1008,ETD
 2009-05-20,Trnka j.,-4.464,1.8864,ETD
-2009-05-20,Kučáková h.,-3.888,2.5776,ETD
 2009-05-20,Deming at el. 2011,0.0,0.1872,ETD
+2009-05-20,Kučáková h.,-3.888,2.5776,ETD
 2009-05-15,Deming at el. 2011,0.144,0.1008,ETD
 2009-05-10,Deming at el. 2011,0.144,0.144,ETD
 2009-05-05,Deming at el. 2011,-0.144,0.1008,ETD

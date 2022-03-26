@@ -3,8 +3,8 @@ date,observer,oc,oce,source
 2021-12-31,Matthieu Bachschmidt,1.1,0.4,ExoClock observation
 2021-12-02,aziz kaeouach,0.1,1.4,ExoClock observation
 2021-11-28,Andre Kovacs,0.4,2.0,ExoClock observation
-2021-11-20,Paolo Arcangelo Matassa,3.0,2.9,ExoClock observation
 2021-11-20,Dominique DANIEL,-6.0,2.7,ExoClock observation
+2021-11-20,Paolo Arcangelo Matassa,3.0,2.9,ExoClock observation
 2021-11-13,Andre Kovacs,0.4,3.2,ExoClock observation
 2021-11-05,Giovanni Battista Casalnuovo,-0.7,0.7,ExoClock observation
 2021-11-05,Giorgio Baj,0.5,0.9,ExoClock observation
@@ -13,15 +13,15 @@ date,observer,oc,oce,source
 2020-12-31,Martin Smith,1.1,1.0,ExoClock observation
 2020-11-21,Leon Bewersdorff,-1.5,1.2,ExoClock observation
 2020-11-06,Manfred Raetz,-1.5,0.7,ExoClock observation
-2020-09-15,Adrian Jones,1.5,0.9,ExoClock observation
 2020-09-15,Simon Dawes,-0.9,1.0,ExoClock observation
+2020-09-15,Adrian Jones,1.5,0.9,ExoClock observation
 2020-09-11,Yves Jongen,2.5,0.7,ExoClock observation
-2020-08-19,Iakovos Strikis,-2.7,1.7,ExoClock observation
 2020-08-19,Krzysztof Bernacki,-1.8,3.6,ExoClock observation
+2020-08-19,Iakovos Strikis,-2.7,1.7,ExoClock observation
 2019-12-18,Martin Fowler,2.9,4.3,ExoClock observation
 2019-12-10,Anaël Wünsche,-1.9,1.3,ExoClock observation
-2018-12-14,Yves Jongen,0.5,0.9,ExoClock observation
 2018-12-14,Anaël Wünsche,0.8,0.4,ExoClock observation
+2018-12-14,Yves Jongen,0.5,0.9,ExoClock observation
 2018-09-08,Anaël Wünsche,2.8,1.6,ExoClock observation
 2016-09-27,Marc Deldem,4.3,1.3,ExoClock observation
 2015-01-07,Anaël Wünsche,0.5,0.9,ExoClock observation
