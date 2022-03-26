@@ -79,6 +79,30 @@ def bs4(url="", features="html5lib", stale_time=7, loc="/raw_data/webpage_source
     # and return
     return page_source
 
+def saveTransitTimes(df, loc="/raw_data/midTransitTimes/", name="", stale_time=7):
+    ''' Save the midtransit time for an exoplanet.
+        loc: The location to save the exoplanet details at.
+        stale_time: how long to consider any stored data as accesible.
+        df: the dataframe of information to store '''
+    # append the exoplanet name
+    if "/" in name:
+        name = name[name.index("/"):]
+    loc += name.capitalize().replace(" ", "")+".csv"
+    # ensure the location exists
+    makeFolder(loc)
+    # check for any old data
+    if checkForFile(loc):
+        old = loadDataFrame(loc)
+        old = pd.concat([df, old], ignore_index=True)
+        old.sort_values(by="date", inplace=True, ascending=False)
+        old.reset_index(inplace=True)
+        if df.equals(old):
+            return
+        # otherwise, update our df reference to store
+        df = old
+    # save the data
+    saveDataFrame(df, loc)
+
 def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourceName=""):
     ''' Scrape the ExoClock website for exoplanet o-c data, and store as locally accesible csv data.
         url: The webpage to scrape.
@@ -93,24 +117,8 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
     for x in tqdm(data_dict, desc="Fetching {}".format(sourceName), miniters=0):
         # convert to a DataFrame
         df = pd.DataFrame(data_dict[x])
-        # add the source name to every value
-        df["source"]=sourceName
-        # check if one has been stored locally already
-        if checkForFile(loc+x+".csv"):
-            # fetch the old data
-            old_df = loadDataFrame(loc+x+".csv")
-            # compare with the collected data, adding any new references
-            old_df = pd.concat([df, old_df], ignore_index=True)#.drop_duplicates(keep=False)
-            # and reoder by the date column
-            old_df.sort_values(by="date", inplace=True, ascending=False)
-            old_df.reset_index(inplace=True)
-            # if the dataframe hasn't changed, skip to the next reference
-            if df.equals(old_df):
-                continue
-            # otherwise, update our df reference to store
-            df = old_df
-        # store the dataframe
-        saveDataFrame(df, loc+x+".csv")
+        # and save
+        saveTransitTimes(df)
 
 def fetch_from_ExoClock(url="", sttransit_dateale_time=7):
     ''' Scrape the ExoClock website for exoplanet o-c data.
@@ -124,7 +132,7 @@ def fetch_from_ExoClock(url="", sttransit_dateale_time=7):
     observer_col = -3 if "literature" in url else 1
     # search the table for each exoplanet
     exoplanets, this_data, this_exoplanet = {}, [], ""
-    for x in rows:
+    for x in tqdm(rows):
         # if the row has an id tag, its the title of an exoplanet
         if x.has_attr("id"):
             # if we had data from the previous exoplanet
@@ -155,12 +163,7 @@ def rowToData(elem):
     ''' fetch the data from a table row, ensuring it is capitalised correctly,
         and anything after a close bracket is ignored. Also remove latinate non-
         breaking spaces if any are included. '''
-    return [# capitalise and remove space if ")" not in the string
-            ele.text.capitalize().replace(u'\xa0', u' ') if ")" not in ele.text else \
-            # otherwise, do the same but only include up to the first closing bracket
-            ele.text.capitalize()[:ele.text.index(")")+1].replace(u'\xa0', u'') \
-            # for all of the columns in this table row
-            for ele in elem.find_all("td")]
+    return [x.text.capitalize().replace(u'\xa0', u' ') for x in elem.find_all("td")]
 
 def decomposeTable(source, selection_target=0):
     # find the table element
@@ -195,26 +198,71 @@ def fetchETDData(url, sourceName="", stale_time=7):
         exoUrl = suburl+row.find_all("td")[1].find("a")["href"]
         # navigate to that page
         subpage = bs4(exoUrl, stale_time=stale_time, loc="/raw_data/webpage_source/ETD/")
-        # and source the tabular data from the ascii file
-        dataUrl = suburl+subpage.find("a", string="Show data as ASCII table separated by semicolon")["href"]
-        # go to the data url
-        data = bs4(dataUrl, stale_time=stale_time, loc="/raw_data/webpage_source/ETD/").find("body").text
-        # the data begins at the octothorp
-        data = data[data.index("#"):]#.replace(";", ",")
-        # convert to a dataframe
-        data = pd.read_csv(io.StringIO(data), sep=";")
+        # source the tabular data
+        transit_data = sourceFromETDTable(subpage)
+        if transit_data.empty:
+            continue
+        #transit_data = sourceFromETDAscii(subpage, suburl)
         # add the source name
-        data["source"]=sourceName
-        # pull out the useful information
-        transit_data = data.loc[:, ["HJDmid", "Observer", "O-C", "HJDmid Error", "source"]]
-        # rename the columns
-        transit_data.columns = ["date","observer","oc","oce","source"]
+        transit_data["source"]=sourceName
         # convert the date from HJD to YYYY-MM-DD, and the OC from days to minutes
         transit_data["date"] = pd.to_datetime(transit_data["date"], unit="D", \
-                               origin=pd.Timestamp("1858-11-16 12:00")).dt.date
-        transit_data["oc"] *= 1440
-        transit_data["oce"] *= 1440
+                               origin=pd.Timestamp("1858-11-16 12:00")).dt.strftime('%Y-%m-%d')
+        transit_data["oc"] = round(pd.to_numeric(transit_data["oc"])*1440,4)
+        transit_data["oce"] = round(pd.to_numeric(transit_data["oce"])*1440,4)
+        # save the data
+        saveTransitTimes(transit_data, name=thisExoplanet[1])
     # remove the index column from ETD
     df.drop(" ", axis=1, inplace=True)
     # save the dataframe
     saveDataFrame(df, "/raw_data/{}Ephemerides".format(sourceName))
+
+def sourceFromETDTable(page):
+    ''' Fetch midtransit times from the main ETD Table on the page.
+        page: the bs4 page source.'''
+    # fetch the table
+    replace_breaks(page)
+    table = decomposeTable(page, -1)
+    # if we have no data, return nothing
+    if len(table) <= 1:
+        return pd.DataFrame(columns=["date","observer","oc","oce"])
+    table = pd.DataFrame(table[1:], columns=table[0])
+    # split the HJDMid time into its two parts
+    try:
+        table[["Hjd mid (2400000 +)", "pm", "HJDmid Error"]] = table["Hjd mid (2400000 +)"].str.split(expand=True)
+    except:
+        # if there is not an error value given
+        table[["Hjd mid (2400000 +)", "pm"]] = table["Hjd mid (2400000 +)"].str.split(expand=True)
+        table["HJDmid Error"]=""
+    # split the author and reference
+    table[["Author", "reference"]] = table["Author & reference"].str.split("\n", expand=True)
+    # and fetch only the useful columns
+    table = table.loc[:, ["Hjd mid (2400000 +)", "Author", "O-c (d)", "HJDmid Error"]]
+    # rename the columns
+    table.columns = ["date","observer","oc","oce"]
+    # lower any clearly wrong dates and convert to floats
+    table["date"] = pd.to_numeric(table["date"])
+    if (table["date"]>2400000).any():
+        table = table[table["date"] < 2400000]
+    # and return
+    return table
+
+def sourceFromETDAscii(subpage, suburl, stale_time=7):
+    ''' Fetch midtransit data from the ETD ASCII table service.
+        suburl: The url of the homepage.
+        subpage: the bs4 element of the current page.
+        stale_time: as everything else. '''
+    # fetch the url of the ascii page
+    dataUrl = suburl+subpage.find("a", string="Show data as ASCII table separated by semicolon")["href"]
+    # go to the data url
+    data = bs4(dataUrl, stale_time=stale_time, loc="/raw_data/webpage_source/ETD/").find("body").text
+    # the data begins at the octothorp
+    data = data[data.index("#"):-1]#.replace(";", ",")
+    # convert to a dataframe
+    data = pd.read_csv(io.StringIO(data), sep=";")
+    # pull out the useful information
+    transit_data = data.loc[:, ["HJDmid", "Observer", "O-C", "HJDmid Error"]]
+    # rename the columns
+    transit_data.columns = ["date","observer","oc","oce"]
+    # return the data
+    return transit_data
