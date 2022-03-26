@@ -1,30 +1,34 @@
 date,observer,oc,oce,source
+2021-01-18,Claudio Lopresti,20.1,2.9,ExoClock observation
 2014-11-22,Marc bretton,-13.968,5.8464,ETD
 2014-09-19,Benni p.,5.76,1.5408,ETD
 2012-12-01,Ohshima o.,1.44,2.7504,ETD
 2011-12-06,Jordi lopesino,70.128,944.1792,ETD
-2011-09-12,Zíbar m.,9.072,3.2544,ETD
-2011-09-12,Trnka j.,7.344,1.9008,ETD
+2011-09-13,Alessandro Marchini,4.5,1.4,ExoClock observation
 2011-09-12,Brát l.,-3.744,3.3408,ETD
+2011-09-12,Trnka j.,7.344,1.9008,ETD
+2011-09-12,Zíbar m.,9.072,3.2544,ETD
 2011-05-29,Brát l.,2.88,4.2912,ETD
 2010-11-19,Naves r.,-3.168,2.1024,ETD
+2010-10-29,Alessandro Marchini,8.7,1.7,ExoClock observation
 2010-10-29,Lopresti c.,10.224,2.7936,ETD
 2009-11-02,Justin tieman,4.752,2.088,ETD
 2009-10-12,Gregorio j.,4.32,3.888,ETD
-2009-07-19,Srdoc,-1.152,3.312,ETD
 2009-07-19,Naves,-7.92,2.592,ETD
+2009-07-19,Srdoc,-1.152,3.312,ETD
 2009-02-21,Nutzman et al 2010,-0.144,0.1483,ETD
 2008-12-19,Nutzman et. al 2010,-0.144,0.1555,ETD
 2008-12-19,Gregorio,-0.288,2.016,ETD
 2008-11-06,Gary,0.72,3.312,ETD
-2008-11-06,Nutzman et. al 2010,0.288,0.1166,ETD
 2008-11-06,Foote,-2.592,4.752,ETD
+2008-11-06,Nutzman et. al 2010,0.288,0.1166,ETD
 2008-10-16,Gary,-6.336,2.592,ETD
-2008-09-25,Gregorio,1.44,3.168,ETD
 2008-09-25,Dubovský p. a.,-8.496,6.5376,ETD
+2008-09-25,Gregorio,1.44,3.168,ETD
 2007-12-24,Flwo telescope,0.288,1.08,ETD
 2007-12-24,Apt telescope,-0.72,0.936,ETD
 2007-12-24,Gary,-3.744,1.728,ETD
+2007-12-03,Alessandro Marchini,7.8,5.8,ExoClock observation
 2007-12-03,Gillon et al 2008,-1.584,1.1088,ETD
 2007-11-12,Narita et al 2007,-4.176,3.024,ETD
 2007-09-30,Irwin et al 2008,-1.152,2.88,ETD

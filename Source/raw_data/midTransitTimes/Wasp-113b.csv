@@ -1,8 +1,18 @@
 date,observer,oc,oce,source
+2022-03-24,Paolo Arcangelo Matassa,0.7,4.3,ExoClock observation
+2022-03-24,Yves Jongen,1.1,1.9,ExoClock observation
+2021-05-01,Adam Popowicz,1.1,4.3,ExoClock observation
+2021-05-01,Martin Crow,0.5,3.3,ExoClock observation
+2021-03-12,Ferran Grau Horta,-3.5,1.4,ExoClock observation
 2021-03-12,Ferran grau horta,-3.888,1.44,ETD
+2020-06-18,Anaël Wünsche,-1.5,2.2,ExoClock observation
 2020-06-17,Anaël wünsche,-9.36,1.7568,ETD
+2020-04-10,Nikolaos Paschalis,-0.3,3.5,ExoClock observation
+2020-02-29,Nikolaos Paschalis,-0.8,3.5,ExoClock observation
 2019-04-17,Manfred raetz,-7.488,3.1248,ETD
 2019-02-26,Manfred raetz,-5.328,1.8288,ETD
 2018-02-14,"Francesco scaggiante, danilo zardin",11.808,1.8,ETD
 2017-03-15,Marc bretton,1.008,1.8864,ETD
+2017-03-15,Anaël Wünsche,4.9,2.2,ExoClock observation
+2015-06-23,Barros et al. 2016,-0.0,0.1,ExoClock literature
 2015-06-23,Barros et al. (2016),-1.008,0.0576,ETD

@@ -1,11 +1,29 @@
 date,observer,oc,oce,source
+2021-12-08,Fernando Martínez,-2.5,2.7,ExoClock observation
 2021-12-07,Fernando martínez,-4.464,2.664,ETD
+2021-09-10,Yves Jongen,2.2,0.4,ExoClock observation
 2021-09-09,Yves jongen,4.32,0.5328,ETD
+2020-11-09,Yves Jongen,1.2,0.4,ExoClock observation
 2020-11-08,Yves jongen,3.6,0.504,ETD
+2020-11-06,Yves Jongen,-0.4,0.4,ExoClock observation
 2020-11-05,Yves jongen,1.728,0.5472,ETD
+2020-11-03,Yves Jongen,-0.6,0.6,ExoClock observation
 2020-11-02,Yves jongen,1.44,0.5472,ETD
 2020-10-13,Gavin boyle,1.872,0.4176,ETD
+2020-08-18,Yves Jongen,1.8,0.9,ExoClock observation
 2020-08-17,Yves jongen,3.456,0.6624,ETD
+2020-08-15,Yves Jongen,0.3,0.7,ExoClock observation
 2020-08-14,Yves jongen,2.016,0.792,ETD
+2015-10-09,Kozłowski et al. 2017,2.0,0.7,ExoClock literature
+2015-01-07,Mancini et al. 2016,0.1,0.2,ExoClock literature
+2015-01-07,Mancini et al. 2016,-0.6,0.2,ExoClock literature
+2015-01-07,Mancini et al. 2016,-0.3,0.2,ExoClock literature
+2015-01-07,Mancini et al. 2016,-0.2,0.2,ExoClock literature
+2014-10-13,Mancini et al. 2016,-0.2,0.3,ExoClock literature
+2014-10-13,Mancini et al. 2016,-0.1,0.3,ExoClock literature
+2014-10-13,Mancini et al. 2016,-0.0,0.3,ExoClock literature
+2014-10-13,Mancini et al. 2016,0.0,0.3,ExoClock literature
 2014-10-06,"Calazo c., tapia l.",5.472,0.3168,ETD
 2014-09-21,Evans p.,-5.184,4.32,ETD
+2013-02-09,Hellier et al. 2014,0.1,0.1,ExoClock literature
+2013-02-09,Mancini et al. 2016,0.2,0.1,ExoClock literature

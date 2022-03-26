@@ -111,19 +111,6 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
         sourceName: The title to log in the source column of the data. '''
     # check for local storage file
     makeFolder(loc)
-    # fetch data
-    data_dict = fetch_from_ExoClock(url, stale_time)
-    # itterate on data
-    for x in tqdm(data_dict, desc="Fetching {}".format(sourceName), miniters=0):
-        # convert to a DataFrame
-        df = pd.DataFrame(data_dict[x])
-        # and save
-        saveTransitTimes(df)
-
-def fetch_from_ExoClock(url="", sttransit_dateale_time=7):
-    ''' Scrape the ExoClock website for exoplanet o-c data.
-        url: The webpage to scrape.
-        stale_time: the time in days to use a locally stored copy of the page instead. '''
     # fetch the page source code
     page = bs4(url, stale_time=stale_time)
     # locate the exoplanet rows from the main table
@@ -132,13 +119,17 @@ def fetch_from_ExoClock(url="", sttransit_dateale_time=7):
     observer_col = -3 if "literature" in url else 1
     # search the table for each exoplanet
     exoplanets, this_data, this_exoplanet = {}, [], ""
-    for x in tqdm(rows):
+    for x in tqdm(rows, desc="Fetching {}".format(sourceName), miniters=0):
         # if the row has an id tag, its the title of an exoplanet
         if x.has_attr("id"):
             # if we had data from the previous exoplanet
             if this_data:
-                # store it
-                exoplanets[this_exoplanet] = this_data
+            # convert to a dataframe
+                this_data = pd.DataFrame(this_data)
+                # add the source name
+                this_data["source"] = sourceName
+                # and store the midtransit times
+                saveTransitTimes(this_data, name = this_exoplanet)
             # clear the temporary exoplanet data, and fetch the new name
             this_data, this_exoplanet = [], x.find("button").text
             continue
@@ -156,8 +147,6 @@ def fetch_from_ExoClock(url="", sttransit_dateale_time=7):
             thiscol["oc"], thiscol["oce"] = [x.strip() for x in findFloats(cols[-2].text)]
             # add this data to our exoplanet list
             this_data.append(thiscol)
-    # return the dictionary
-    return exoplanets
 
 def rowToData(elem):
     ''' fetch the data from a table row, ensuring it is capitalised correctly,

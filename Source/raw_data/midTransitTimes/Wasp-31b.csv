@@ -1,16 +1,28 @@
 date,observer,oc,oce,source
+2021-06-13,Yves Jongen,7.1,1.0,ExoClock observation
 2021-06-12,Yves jongen,-37.008,1.0368,ETD
+2021-03-30,Yves Jongen,6.6,1.2,ExoClock observation
 2021-03-29,Yves jongen,-36.864,1.1664,ETD
+2021-03-23,Yves Jongen,6.1,1.2,ExoClock observation
 2021-03-22,Yves jongen,-36.288,1.1088,ETD
-2020-04-09,F. lomoz,7.344,4.4928,ETD
+2020-05-07,Phil Evans,-3.1,1.2,ExoClock observation
 2020-04-09,F. lomoz,-1.44,6.1632,ETD
+2020-04-09,F. lomoz,7.344,4.4928,ETD
+2020-04-03,Phil Evans,1.2,1.0,ExoClock observation
 2016-03-16,František lomoz,-4.32,2.6496,ETD
 2016-03-16,František lomoz,-19.008,3.4128,ETD
 2015-03-17,Phil evans,-6.192,2.448,ETD
 2014-05-18,Evans p.,-17.424,1.9872,ETD
-2014-02-12,František lomoz,-8.64,16.8192,ETD
 2014-02-12,František lomoz,-13.968,6.3216,ETD
+2014-02-12,František lomoz,-8.64,16.8192,ETD
+2013-03-19,Sing et al. 2015,1.0,0.6,ExoClock literature
+2013-03-09,Sing et al. 2015,0.4,0.5,ExoClock literature
+2012-07-10,Sing et al. 2015,-0.5,0.6,ExoClock literature
+2012-06-26,Sing et al. 2015,0.1,0.5,ExoClock literature
+2012-05-13,Sing et al. 2015,0.2,0.7,ExoClock literature
 2012-04-15,Evans p.,-9.216,1.3104,ETD
 2011-03-28,Curtis i.,-7.92,4.1184,ETD
+2011-01-26,Dragomir et al. 2011,-0.7,2.0,ExoClock literature
 2011-01-25,"Dragomir et al., 2011",-3.312,2.016,ETD
+2009-12-27,Anderson et al. 2011,-0.4,0.4,ExoClock literature
 2009-12-23,"D. r. anderson et al., 2010",0.0,0.432,ETD
