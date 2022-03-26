@@ -19,9 +19,9 @@ date,observer,oc,oce,source
 2020-11-06,Yves jongen,-4.176,1.7136,ETD
 2020-11-03,Simon Dawes,1.5,3.0,ExoClock observation
 2020-11-03,Martin Smith,-3.4,7.2,ExoClock observation
-2020-11-03,Jean plazas,3.744,42.6096,ETD
-2020-11-03,Adrian Jones,-1.9,4.3,ExoClock observation
 2020-11-03,Martin Crow,0.5,3.2,ExoClock observation
+2020-11-03,Adrian Jones,-1.9,4.3,ExoClock observation
+2020-11-03,Jean plazas,3.744,42.6096,ETD
 2020-10-22,Carmelo Falco,-1.5,2.2,ExoClock observation
 2020-10-22,Adrian Jones,2.5,2.7,ExoClock observation
 2020-09-16,Jean plazas,6.336,,ETD
@@ -32,9 +32,9 @@ date,observer,oc,oce,source
 2020-02-28,Alberto Tomatis,2.2,2.0,ExoClock observation
 2020-02-28,Alessandro Nastasi,3.0,2.3,ExoClock observation
 2020-01-24,Alessandro Nastasi,-2.5,1.2,ExoClock observation
-2020-01-08,Anaël wünsche,-3.888,1.4256,ETD
-2020-01-08,Josep gaitan,0.0,1.296,ETD
 2020-01-08,Anaël Wünsche,-1.0,1.7,ExoClock observation
+2020-01-08,Josep gaitan,0.0,1.296,ETD
+2020-01-08,Anaël wünsche,-3.888,1.4256,ETD
 2019-01-25,Anael wunsche,4.176,3.1392,ETD
 2019-01-06,Fontaine bruno,-11.088,3.528,ETD
 2019-01-06,"Francesco scaggiante, danilo zardin",-1.584,1.6992,ETD

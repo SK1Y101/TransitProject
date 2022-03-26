@@ -25,18 +25,18 @@ date,observer,oc,oce,source
 2020-05-28,Alberto Tomatis,2.7,1.2,ExoClock observation
 2020-05-27,Guy brabant,-166.752,42.5664,ETD
 2020-05-10,Taewoo Kim,0.3,0.6,ExoClock observation
-2020-04-02,Mark Phillips,-0.8,1.9,ExoClock observation
-2020-04-02,Fabio Mortari,3.6,2.2,ExoClock observation
-2020-04-02,Ehrenberger r.,0.432,1.3968,ETD
-2020-04-02,Alberto tomatis,0.288,3.9744,ETD
-2020-04-02,Jens hennig,41.472,6.4944,ETD
-2020-04-02,Manfred raetz,7.344,0.7344,ETD
-2020-04-02,Nosáľ p.,4.464,1.296,ETD
-2020-04-02,Manfred Raetz,3.3,0.9,ExoClock observation
-2020-04-02,Mauro Caló,-1.1,1.4,ExoClock observation
-2020-04-02,Martin tylšar,5.184,1.1664,ETD
-2020-04-02,"Francesco scaggiante, danilo zardin,marco fiaschi",3.6,0.7632,ETD
 2020-04-02,Jean plazas,3.024,1.1808,ETD
+2020-04-02,"Francesco scaggiante, danilo zardin,marco fiaschi",3.6,0.7632,ETD
+2020-04-02,Ehrenberger r.,0.432,1.3968,ETD
+2020-04-02,Fabio Mortari,3.6,2.2,ExoClock observation
+2020-04-02,Jens hennig,41.472,6.4944,ETD
+2020-04-02,Martin tylšar,5.184,1.1664,ETD
+2020-04-02,Nosáľ p.,4.464,1.296,ETD
+2020-04-02,Mark Phillips,-0.8,1.9,ExoClock observation
+2020-04-02,Mauro Caló,-1.1,1.4,ExoClock observation
+2020-04-02,Alberto tomatis,0.288,3.9744,ETD
+2020-04-02,Manfred raetz,7.344,0.7344,ETD
+2020-04-02,Manfred Raetz,3.3,0.9,ExoClock observation
 2020-03-30,Nosáľ p.,0.144,6.4656,ETD
 2020-03-30,Michael theusner,6.768,1.2384,ETD
 2020-03-30,Veli-pekka hentunen,-1.008,0.6192,ETD
@@ -112,9 +112,9 @@ date,observer,oc,oce,source
 2015-04-08,Marc bretton,-3.888,1.1664,ETD
 2015-03-30,Stan shadick,2.016,1.4112,ETD
 2015-03-10,Aaav astrofili valdera,-0.288,,ETD
+2015-03-07,Marc bretton,-0.72,0.6192,ETD
 2015-03-07,Martin vrašťák,2.88,0.8064,ETD
 2015-03-07,Anaël Wünsche,-1.3,1.3,ExoClock observation
-2015-03-07,Marc bretton,-0.72,0.6192,ETD
 2015-01-05,"Francesco scaggiante, danilo zardin",3.024,2.3616,ETD
 2014-05-24,Corfini g.,1.296,0.72,ETD
 2014-04-13,J garlitz,5.328,1.3392,ETD
