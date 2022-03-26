@@ -1,11 +1,19 @@
 date,observer,oc,oce,source
+2021-09-19,Yves Jongen,1.2,0.9,ExoClock observation
 2021-09-18,Yves jongen,0.288,0.792,ETD
+2021-07-23,Yves Jongen,3.4,0.7,ExoClock observation
 2021-07-22,Yves jongen,1.728,0.792,ETD
+2021-04-14,Yves Jongen,1.8,0.6,ExoClock observation
 2021-04-13,Yves jongen,0.864,0.5904,ETD
+2020-09-01,Yves Jongen,-2.4,0.7,ExoClock observation
 2020-08-31,Yves jongen,-3.888,0.6912,ETD
 2020-07-24,Yves jongen,-0.144,1.152,ETD
+2020-05-08,Yves Jongen,0.8,1.0,ExoClock observation
 2020-05-07,Yves jongen,0.864,0.9648,ETD
+2020-04-19,Phil Evans,0.8,0.9,ExoClock observation
+2020-02-25,Yves Jongen,3.2,1.0,ExoClock observation
 2020-02-24,Yves jongen,2.448,0.9216,ETD
 2019-05-27,Don radford,2.592,2.1456,ETD
 2016-08-07,Phil evans,-0.72,1.3824,ETD
+2015-01-15,Bento et al. 2017,-0.2,0.5,ExoClock literature
 2015-01-15,Bento et al. (2016),-1.296,0.5472,ETD

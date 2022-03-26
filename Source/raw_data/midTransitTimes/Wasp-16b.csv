@@ -1,8 +1,14 @@
 date,observer,oc,oce,source
+2021-05-15,Yves Jongen,-1.2,0.9,ExoClock observation
 2021-05-14,Yves jongen,-2.448,0.8352,ETD
+2021-03-26,Yves Jongen,-0.1,1.4,ExoClock observation
 2021-03-25,Yves jongen,-2.304,1.1376,ETD
+2020-06-06,Yves Jongen,3.1,1.3,ExoClock observation
 2020-06-05,Yves jongen,1.44,1.0368,ETD
+2020-05-12,Yves Jongen,1.4,1.0,ExoClock observation
 2020-05-11,Yves jongen,0.0,1.008,ETD
+2020-04-17,Phil Evans,-0.8,0.9,ExoClock observation
+2020-03-23,Phil Evans,-2.9,1.4,ExoClock observation
 2019-06-22,José da silva,-1.008,0.8352,ETD
 2016-05-31,Phil evans,5.472,1.1952,ETD
 2015-05-17,Josep gaitan,-0.144,4.2048,ETD
@@ -10,13 +16,18 @@ date,observer,oc,oce,source
 2012-05-08,Lomoz f.,-4.752,5.0544,ETD
 2012-05-08,Lomoz f.,-15.408,3.4992,ETD
 2012-04-19,"Schneiter m., colazo c., guzzo p.",2.16,0.3456,ETD
-2011-05-06,Bozza v.,8.928,4.4496,ETD
+2011-07-02,Southworth et al. 2013,0.3,0.3,ExoClock literature
+2011-05-13,Southworth et al. 2013,-1.0,0.3,ExoClock literature
 2011-05-06,Vrašťák m.,0.72,2.5488,ETD
+2011-05-06,Bozza v.,8.928,4.4496,ETD
 2011-04-27,Curtis i.,0.432,1.5696,ETD
 2010-07-11,Curtis i.,-1.44,3.528,ETD
 2010-07-07,Curtis i.,2.592,1.4544,ETD
+2010-06-29,Southworth et al. 2013,-0.7,0.7,ExoClock literature
+2010-05-10,Southworth et al. 2013,0.8,0.3,ExoClock literature
 2010-04-27,Tan tg,0.432,1.44,ETD
 2010-04-24,Tan tg,5.616,2.664,ETD
 2010-03-30,Curtis i.,-0.144,9.432,ETD
 2010-03-20,"Fernandez-lajus e., miguel y., fortier a., di sisto r. ",-1.44,0.5184,ETD
+2008-04-27,Lister et al. 2009,-0.2,0.5,ExoClock literature
 2008-04-27,"T. a. lister et al., 2009",-1.296,0.504,ETD

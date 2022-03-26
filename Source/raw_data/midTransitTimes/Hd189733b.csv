@@ -1,53 +1,69 @@
 date,observer,oc,oce,source
 2021-08-28,Yves jongen,5.328,0.5328,ETD
-2021-08-08,Josep gaitan,5.904,0.3168,ETD
+2021-08-28,Yves Jongen,-1.0,0.6,ExoClock observation
 2021-08-08,Josep gaitan,5.616,0.3456,ETD
+2021-08-08,Josep gaitan,5.904,0.3168,ETD
+2021-07-22,Yves Jongen,0.8,0.7,ExoClock observation
 2021-07-21,Yves jongen,7.2,0.7344,ETD
+2021-07-19,Claudio Lopresti,0.3,0.6,ExoClock observation
 2021-07-19,Claudio lopresti,6.912,0.5184,ETD
 2021-06-29,Jean plazas,-1.44,3.9312,ETD
 2021-06-09,Javier de elias,6.048,0.8352,ETD
+2021-04-11,Carmelo Falco,0.0,0.6,ExoClock observation
 2020-10-17,Juanjo salamero,11.376,0.288,ETD
 2020-10-08,Jean plazas,1.152,5.0688,ETD
 2020-09-18,F. lomoz,-2.016,2.9952,ETD
 2020-09-18,F. lomoz,-14.544,4.0176,ETD
 2020-09-07,Walter f.,6.192,0.864,ETD
 2020-08-09,"Tomáš plšek, roman ponča",-5.328,2.1744,ETD
+2020-07-29,Patrick Brandebourg,-2.2,1.4,ExoClock observation
+2020-07-29,Didier Laloum,0.4,0.6,ExoClock observation
+2020-07-09,Mauro Caló,-1.2,0.9,ExoClock observation
 2020-07-09,Aaav astrofili valdera,0.432,,ETD
+2020-06-28,Constantinos Aggelis,-1.8,2.2,ExoClock observation
 2019-09-18,Ciprian vintdevara,12.96,3.0384,ETD
 2019-08-29,Alberto tomatis,3.168,1.3392,ETD
+2019-08-29,Alberto Tomatis,2.2,2.3,ExoClock observation
 2019-08-18,Daniel bertesteanu,189.648,1.1808,ETD
 2019-08-18,Berthold andreas,2.16,3.0672,ETD
 2019-07-29,Evgeny krotkov,-0.432,,ETD
 2019-07-20,Ramon naves,5.184,0.504,ETD
 2019-07-20,"Alfa crucis – colesanti c, de carvalho aguiar p, kulh d, napoleao t, olim e, rodrigues ma, treü r ",0.72,1.4688,ETD
 2019-07-11,Yves jongen,5.184,1.2816,ETD
+2019-07-09,Yves Jongen,-1.5,0.4,ExoClock observation
 2019-07-09,Yves jongen,6.048,0.4608,ETD
 2019-06-30,Arena c. - gruppo astrofili catanesi,6.336,0.36,ETD
 2018-10-27,Lionel rousselot,6.192,0.576,ETD
+2018-10-27,Lionel Rousselot,1.7,0.6,ExoClock observation
 2018-09-17,Kyriaki iosifidou,2.16,2.4624,ETD
 2018-08-28,Jan schilhab,9.936,1.728,ETD
-2018-08-19,Yves jongen,6.912,1.1088,ETD
+2018-08-20,Yves Jongen,1.6,1.2,ExoClock observation
 2018-08-19,Pere guerra,4.896,0.7056,ETD
+2018-08-19,Yves jongen,6.912,1.1088,ETD
 2018-08-08,Anael wunsche,5.904,0.3888,ETD
 2018-08-08,Gabriel murawski,2.88,0.6336,ETD
+2018-07-19,Yves Jongen,0.7,1.0,ExoClock observation
 2018-07-19,Yves jongen,11.952,0.9648,ETD
-2018-06-29,Yves jongen,9.648,0.8928,ETD
+2018-06-29,Yves Jongen,-1.4,1.0,ExoClock observation
 2018-06-29,Marc bretton,4.752,0.3456,ETD
-2017-11-26,Mattia spagnol,6.192,1.8,ETD
+2018-06-29,Yves jongen,9.648,0.8928,ETD
 2017-11-26,Plazas,-0.576,3.5568,ETD
+2017-11-26,Mattia spagnol,6.192,1.8,ETD
 2017-08-20,Serge bergeron,7.488,1.656,ETD
+2017-08-18,Alessandro Marchini,-0.7,0.4,ExoClock observation
 2017-07-18,Medulka t.,10.8,0.6912,ETD
+2017-07-18,Alessandro Marchini,-0.7,0.3,ExoClock observation
 2017-07-09,Gabriel murawski,2.88,1.1376,ETD
 2017-06-08,M. hoecherl,2.88,0.936,ETD
 2016-09-10,Oleg mazurenko,3.456,0.2592,ETD
-2016-09-06,Gabriel murawski,10.08,0.216,ETD
 2016-09-06,Gabriel murawski,4.608,1.44,ETD
+2016-09-06,Gabriel murawski,10.08,0.216,ETD
 2016-08-28,Gabriel murawski,8.784,1.1376,ETD
-2016-08-17,Ladislav červinka,0.864,2.5056,ETD
 2016-08-17,Marian urbaník,-0.144,,ETD
+2016-08-17,Ladislav červinka,0.864,2.5056,ETD
 2016-07-28,Opc - damiano trisciani,4.752,0.4032,ETD
-2016-07-28,Opc - damiano trisciani,4.176,0.3744,ETD
 2016-07-28,Opc - damiano trisciani,4.032,0.432,ETD
+2016-07-28,Opc - damiano trisciani,4.176,0.3744,ETD
 2016-07-19,Emmanuel conseil,5.04,0.9504,ETD
 2016-07-08,Marc bretton,3.6,0.5904,ETD
 2015-11-16,Marc bretton,5.328,0.3456,ETD
@@ -58,6 +74,7 @@ date,observer,oc,oce,source
 2015-08-28,Francesco maio,0.432,,ETD
 2015-08-17,Javad jafarzade,-0.576,1.5264,ETD
 2015-08-01,Stan shadick,5.328,0.3888,ETD
+2015-07-19,Marc Deldem,-1.4,0.6,ExoClock observation
 2015-07-19,Mark salisbury,4.608,1.368,ETD
 2015-07-19,Marc deldem,3.6,0.7632,ETD
 2014-10-19,Stan shadick,2.304,0.5328,ETD
@@ -69,9 +86,10 @@ date,observer,oc,oce,source
 2014-08-31,Shadic s.,1.44,0.5328,ETD
 2014-08-27,Aaav astrofili valdera,-0.144,,ETD
 2014-08-09,Benni p.,4.176,0.504,ETD
+2014-08-07,Claudio Lopresti,-0.4,0.6,ExoClock observation
 2014-08-07,Aaav astrofili valdera,-0.72,,ETD
-2014-07-18,Martineli f.,5.04,0.6624,ETD
 2014-07-18,Aaav astrofili valdera,2.736,0.36,ETD
+2014-07-18,Martineli f.,5.04,0.6624,ETD
 2014-07-11,Shadic s.,3.168,0.576,ETD
 2014-06-08,Walter f.,17.856,0.9072,ETD
 2014-06-08,Zibar m.,-0.288,3.0096,ETD
@@ -90,10 +108,10 @@ date,observer,oc,oce,source
 2013-07-19,"Mravik j., grnja j.",8.064,1.3968,ETD
 2013-07-19,Gonzalez j.,4.896,0.504,ETD
 2013-07-10,Kalvin o. ogbuefi,1.728,1.4976,ETD
-2013-07-08,Conseil e.,4.176,1.5552,ETD
-2013-07-08,Salisbury m.,3.456,0.3312,ETD
-2013-07-08,Koch  b.,3.168,1.6128,ETD
 2013-07-08,Koch  b.,0.0,1.5264,ETD
+2013-07-08,Conseil e.,4.176,1.5552,ETD
+2013-07-08,Koch  b.,3.168,1.6128,ETD
+2013-07-08,Salisbury m.,3.456,0.3312,ETD
 2013-07-01,Shadic s.,-0.576,0.504,ETD
 2013-06-18,"Scaggiante f., zardin d.",3.456,0.4032,ETD
 2013-06-18,Carreño a.,1.44,0.5472,ETD
@@ -108,35 +126,35 @@ date,observer,oc,oce,source
 2012-09-07,Arnaud c.,2.736,3.8016,ETD
 2012-08-27,Mašek m.,4.176,1.584,ETD
 2012-08-20,Shadic s.,2.016,0.3456,ETD
-2012-08-07,Naves r.,4.032,0.36,ETD
-2012-08-07,Herrero e.,4.032,0.288,ETD
 2012-08-07,Nougayrede j. p,3.456,1.4688,ETD
+2012-08-07,Herrero e.,4.032,0.288,ETD
+2012-08-07,Naves r.,4.032,0.36,ETD
 2012-07-31,"Strickland w., doyle d.",-0.144,0.576,ETD
-2012-07-18,Arena c.,1.584,0.4032,ETD
-2012-07-18,Scarmato t.,-1.584,0.7488,ETD
 2012-07-18,Scarmato t.,-2.448,1.5696,ETD
+2012-07-18,Scarmato t.,-1.584,0.7488,ETD
+2012-07-18,Arena c.,1.584,0.4032,ETD
 2012-07-07,Lopresti c.,3.456,0.4464,ETD
 2012-07-07,Lopresti c.,2.448,0.4608,ETD
 2012-07-07,Ayiomamitis a.,2.016,0.5184,ETD
-2012-06-28,Martineli f.,2.16,0.5904,ETD
 2012-06-28,Martineli f.,2.016,0.576,ETD
+2012-06-28,Martineli f.,2.16,0.5904,ETD
 2012-06-21,Rea d.,3.312,0.6768,ETD
 2012-06-17,Naves r.,6.48,0.576,ETD
 2012-06-17,Scarmato t.,1.44,0.6768,ETD
 2011-10-26,Romanyuk y.,0.432,1.5408,ETD
 2011-10-17,Liška j.,2.88,1.6272,ETD
 2011-10-10,Shadic s.,1.872,1.1952,ETD
-2011-09-27,Dalouzy j. ch.,9.792,1.4256,ETD
 2011-09-27,Conseil e.,5.472,1.6416,ETD
 2011-09-27,Guildford astronomical society,3.024,1.008,ETD
+2011-09-27,Dalouzy j. ch.,9.792,1.4256,ETD
 2011-09-20,Shadic s.,4.464,0.648,ETD
 2011-08-20,Shadic s.,2.592,0.3744,ETD
 2011-08-09,Morris b.,5.472,5.2128,ETD
-2011-07-31,Hall g.,3.456,0.4032,ETD
 2011-07-31,Shadic s.,-0.288,0.6336,ETD
+2011-07-31,Hall g.,3.456,0.4032,ETD
 2011-07-20,Morris b.,2.304,0.5616,ETD
-2011-07-11,"Shadic s., shiels ch.",2.88,0.36,ETD
 2011-07-11,Shadic s.,1.44,0.4032,ETD
+2011-07-11,"Shadic s., shiels ch.",2.88,0.36,ETD
 2011-07-07,Brosio a.,2.016,3.6864,ETD
 2011-06-28,Pecharromán f. c.,6.192,0.7056,ETD
 2011-06-28,Perroud v.,2.016,1.44,ETD
@@ -160,27 +178,29 @@ date,observer,oc,oce,source
 2010-05-29,"Gené a., lópez l. & oliver p.",4.464,0.2448,ETD
 2009-10-19,Stan shadick,1.152,0.6912,ETD
 2009-10-06,Marchini a.,1.728,0.8352,ETD
+2009-10-06,Alessandro Marchini,-0.1,0.9,ExoClock observation
 2009-09-25,Srdoc,3.024,1.296,ETD
 2009-09-25,Vrašťák m.,1.152,1.2816,ETD
-2009-09-18,Littlefield,6.912,1.296,ETD
-2009-09-18,"W. dauberman, s. irwin, e. schwieterman, b. addison",6.336,0.6624,ETD
-2009-09-18,Littlefield,5.904,1.152,ETD
 2009-09-18,Shadick s.,1.296,0.9504,ETD
 2009-09-18,Littlefield,0.576,1.44,ETD
+2009-09-18,"W. dauberman, s. irwin, e. schwieterman, b. addison",6.336,0.6624,ETD
+2009-09-18,Littlefield,6.912,1.296,ETD
+2009-09-18,Littlefield,5.904,1.152,ETD
 2009-08-29,Gary,1.296,0.864,ETD
 2009-08-29,Gary,0.432,1.008,ETD
 2009-08-27,Gregorio,-0.144,0.72,ETD
 2009-08-16,Srdoc,1.296,0.576,ETD
 2009-08-16,Kocián r.,1.152,0.9648,ETD
+2009-07-27,Jeřábková t.,-3.168,2.0016,ETD
 2009-07-27,Hynek t.,2.592,1.2816,ETD
 2009-07-27,Srdoc,1.44,0.576,ETD
-2009-07-27,Jeřábková t.,-3.168,2.0016,ETD
-2009-07-18,Branco r.,6.624,1.5552,ETD
 2009-07-18,Naves,3.744,0.432,ETD
 2009-07-18,Srdoc,2.592,1.152,ETD
 2009-07-18,Buil c.,0.864,0.6048,ETD
-2009-07-07,Marchini a.,2.736,0.8496,ETD
+2009-07-18,Branco r.,6.624,1.5552,ETD
 2009-07-07,Salvaggio f.,-0.72,0.7488,ETD
+2009-07-07,Marchini a.,2.736,0.8496,ETD
+2009-07-07,Alessandro Marchini,1.3,0.9,ExoClock observation
 2009-06-26,Scarnato,-1.728,1.728,ETD
 2009-06-17,Arena,1.728,0.576,ETD
 2009-06-17,Branco r.,-3.744,3.5136,ETD
@@ -192,51 +212,74 @@ date,observer,oc,oce,source
 2008-09-17,Roe j,-3.6,1.584,ETD
 2008-09-15,Naves,2.016,0.576,ETD
 2008-09-15,Hrudkova  et al 2010,1.296,0.7632,ETD
-2008-08-26,Hrudkova  et al 2010,1.152,0.2736,ETD
+2008-09-15,Hrudková et al. 2010,0.4,0.8,ExoClock literature
+2008-08-26,Hrudková et al. 2010,0.2,0.3,ExoClock literature
 2008-08-26,Aaav astrofili valdera,0.576,,ETD
+2008-08-26,Hrudkova  et al 2010,1.152,0.2736,ETD
 2008-08-26,Corfini g.,0.432,0.6912,ETD
+2008-08-26,Filip Walter,-0.9,0.6,ExoClock observation
 2008-08-26,Poddaný s.,-0.288,0.72,ETD
 2008-08-26,Sem,-3.888,0.4608,ETD
 2008-08-17,Naves,2.304,0.864,ETD
 2008-08-17,Lomoz f.,-0.72,1.296,ETD
 2008-08-08,Rodriguez,-6.768,1.872,ETD
-2008-08-06,Salvaggio f.,5.184,0.5616,ETD
-2008-08-06,R. dreveny,2.16,0.9216,ETD
-2008-08-06,Svoboda p.,2.016,0.7776,ETD
 2008-08-06,Brát l.,0.864,0.648,ETD
+2008-08-06,Svoboda p.,2.016,0.7776,ETD
+2008-08-06,R. dreveny,2.16,0.9216,ETD
 2008-08-06,Marek p.,-0.432,0.6192,ETD
 2008-08-06,Trnka j.,-1.728,2.2464,ETD
+2008-08-06,Salvaggio f.,5.184,0.5616,ETD
+2008-07-29,Hrudková et al. 2010,0.2,0.3,ExoClock literature
 2008-07-28,Hrudkova et al 2010,1.152,0.1728,ETD
+2008-07-17,Marino,-2.88,1.584,ETD
 2008-07-17,Hrudkova et al 2010,1.872,0.4176,ETD
 2008-07-17,Marino g.,1.152,0.6768,ETD
-2008-07-17,Marino,-2.88,1.584,ETD
+2008-07-17,Hrudková et al. 2010,1.0,0.4,ExoClock literature
+2008-07-09,Hrudková et al. 2010,-0.0,0.2,ExoClock literature
 2008-07-08,Hrudkova et al 2010,0.864,0.1728,ETD
 2008-07-06,Salvagio,-1.008,1.008,ETD
-2008-06-27,Poddaný s.,2.88,0.576,ETD
 2008-06-27,Ayiomamitis,2.016,1.584,ETD
+2008-06-27,Poddaný s.,2.88,0.576,ETD
+2008-06-27,Filip Walter,2.9,0.4,ExoClock observation
+2008-06-19,Hrudková et al. 2010,0.5,0.3,ExoClock literature
 2008-06-18,Hrudkova et al 2010,1.296,0.2592,ETD
-2008-06-16,Marino g.,-2.016,1.5696,ETD
-2008-06-16,Marino,-2.304,2.592,ETD
 2008-06-16,Salvagio,-3.168,1.584,ETD
+2008-06-16,Marino,-2.304,2.592,ETD
+2008-06-16,Marino g.,-2.016,1.5696,ETD
+2008-06-14,Agol et al. 2010,-0.1,0.1,ExoClock literature
+2008-06-12,Agol et al. 2010,0.1,0.0,ExoClock literature
+2008-06-08,Hrudková et al. 2010,-0.6,0.5,ExoClock literature
 2008-06-07,Hrudkova et al 2010,0.144,0.5472,ETD
 2008-05-20,Roe,-4.464,1.872,ETD
+2007-11-14,Agol et al. 2010,0.0,0.1,ExoClock literature
 2007-11-05,Srdoc,-0.144,2.448,ETD
+2007-10-21,Agol et al. 2010,0.1,0.0,ExoClock literature
 2007-09-28,Cruz,-0.0,3.6,ETD
+2007-09-18,Hrudková et al. 2010,-0.7,0.6,ExoClock literature
 2007-09-17,Hrudkova et al 2010,-0.288,0.6336,ETD
 2007-09-15,Ohlert j.,2.88,1.4976,ETD
 2007-08-28,Orlando,2.16,6.48,ETD
 2007-08-17,Hrudkova et al 2010,-0.864,0.6048,ETD
+2007-08-17,Hrudková et al. 2010,-1.3,0.6,ExoClock literature
+2007-07-28,Alessandro Marchini,0.9,0.7,ExoClock observation
 2007-07-28,Naves,0.72,5.04,ETD
+2007-07-02,Agol et al. 2010,-0.0,0.1,ExoClock literature
+2007-06-30,Agol et al. 2010,-0.0,0.0,ExoClock literature
 2007-04-21,Levin,-2.304,3.6,ETD
-2006-09-16,Joao gregorio,3.888,5.04,ETD
+2006-10-29,Agol et al. 2010,-0.2,0.0,ExoClock literature
 2006-09-16,Hentunen,-0.288,0.864,ETD
-2006-09-09,Winn et al. 2007,0.0,,ETD
+2006-09-16,Joao gregorio,3.888,5.04,ETD
 2006-09-09,Winn et al. 2007,-0.0,3.888,ETD
+2006-09-09,Winn et al. 2007,0.0,,ETD
 2006-09-05,Winn et al. 2007,-0.432,1.872,ETD
+2006-08-27,Hrudková et al. 2010,-0.0,0.3,ExoClock literature
 2006-08-27,Hrudkova et al 2010,0.0,0.3024,ETD
 2006-08-20,Winn et al. 2007,1.296,1.872,ETD
+2006-08-08,Hrudková et al. 2010,0.5,0.2,ExoClock literature
+2006-08-08,Baluev et al. 2015,0.0,0.1,ExoClock literature
 2006-08-07,Hrudkova et al 2010,0.432,0.2016,ETD
 2006-07-20,Winn et al. 2007,-0.432,0.6336,ETD
+2006-07-19,Hrudková et al. 2010,0.7,0.4,ExoClock literature
 2006-07-18,Wht,0.576,0.4032,ETD
 2006-06-10,Winn et al. 2007,3.744,2.016,ETD
 2006-05-21,Winn et al. 2007,1.872,1.3536,ETD

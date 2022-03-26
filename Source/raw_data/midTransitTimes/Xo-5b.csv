@@ -1,23 +1,33 @@
 date,observer,oc,oce,source
-2021-03-23,Enrique arce mansego,56.304,2.3328,ETD
-2021-03-23,"Francesco scaggiante, danilo zardin,marco fiaschi",4.752,2.8368,ETD
+2022-03-19,Martin Crow,6.0,2.7,ExoClock observation
+2022-03-14,Paolo Arcangelo Matassa,3.4,4.3,ExoClock observation
 2021-03-23,Alberto tomatis,-6.912,3.2688,ETD
+2021-03-23,Mauro Caló,2.5,1.7,ExoClock observation
+2021-03-23,Alberto Tomatis,-5.0,3.6,ExoClock observation
+2021-03-23,"Francesco scaggiante, danilo zardin,marco fiaschi",4.752,2.8368,ETD
+2021-03-23,Enrique arce mansego,56.304,2.3328,ETD
+2021-03-02,Tõnis Eenmäe,-0.8,1.4,ExoClock observation
 2021-02-22,Wonseok kang,6.048,1.1952,ETD
+2021-02-22,Taewoo Kim,-1.3,1.2,ExoClock observation
+2021-02-10,Manfred Raetz,0.3,1.0,ExoClock observation
 2021-02-09,Manfred raetz,8.208,0.8928,ETD
-2020-04-01,Lomoz f.,5.04,2.2464,ETD
 2020-04-01,F. lomoz,3.456,2.6352,ETD
-2020-03-11,Jean plazas,16.848,2.3328,ETD
+2020-04-01,Lomoz f.,5.04,2.2464,ETD
 2020-03-11,Marc bretton,-3.312,0.8496,ETD
+2020-03-11,Jean plazas,16.848,2.3328,ETD
+2020-03-11,Anaël Wünsche,-2.0,1.2,ExoClock observation
+2020-02-20,Anaël Wünsche,0.1,1.6,ExoClock observation
 2020-02-19,Anaël wünsche,7.344,1.728,ETD
 2019-12-31,Veli-pekka hentunen,4.896,1.5408,ETD
 2019-02-24,Yves jongen,8.64,1.0368,ETD
-2018-01-22,Pere guerra,5.904,1.2096,ETD
+2019-02-24,Yves Jongen,2.2,1.2,ExoClock observation
 2018-01-22,David molina,1.44,1.8576,ETD
+2018-01-22,Pere guerra,5.904,1.2096,ETD
 2018-01-18,"Francesco scaggiante, danilo zardin",5.616,1.4112,ETD
 2017-11-16,"Francesco scaggiante, danilo zardin",-5.76,1.9152,ETD
 2017-03-18,Serge bergeron,11.808,3.8304,ETD
-2017-02-17,David molina,3.744,1.7424,ETD
 2017-02-17,Nikola petrov,-1.152,0.5184,ETD
+2017-02-17,David molina,3.744,1.7424,ETD
 2017-01-06,David molina,4.032,1.2816,ETD
 2016-01-16,Aaav astrofili valdera,-0.144,,ETD
 2015-12-26,David molina,10.368,1.8576,ETD
@@ -33,8 +43,8 @@ date,observer,oc,oce,source
 2014-02-20,Lomoz f.,4.464,2.4048,ETD
 2014-02-20,Lomoz f.,1.728,2.16,ETD
 2014-01-17,Garlitz j.,5.904,1.6128,ETD
-2013-11-28,René r.,10.224,2.3904,ETD
 2013-11-28,Horta f. g.,-62.928,3.3984,ETD
+2013-11-28,René r.,10.224,2.3904,ETD
 2013-10-21,"Logan v., lewis k.",6.768,1.5552,ETD
 2013-03-26,Nicolaj haarup,-8.064,10.0944,ETD
 2012-12-28,Schteinman g. m.,-1.872,1.4688,ETD
@@ -48,9 +58,9 @@ date,observer,oc,oce,source
 2012-01-24,Naves r.,-1.44,2.0016,ETD
 2012-01-11,Shadic s.,-4.32,2.3472,ETD
 2012-01-07,Dax t.,5.472,1.7136,ETD
-2012-01-03,Lopesino j.,4.608,2.3904,ETD
 2012-01-03,Gaitan j.,-1.584,2.1024,ETD
 2012-01-03,Naves r.,-4.464,1.6128,ETD
+2012-01-03,Lopesino j.,4.608,2.3904,ETD
 2011-10-15,Shadic s.,2.016,1.7712,ETD
 2011-03-24,Shadic s.,3.6,1.512,ETD
 2011-02-23,Vrašťák m.,5.04,2.3904,ETD
@@ -62,25 +72,38 @@ date,observer,oc,oce,source
 2010-03-04,Qvam j.,3.6,2.0304,ETD
 2010-01-21,Maciejewski et al. 2011,-3.888,1.872,ETD
 2009-12-14,Shadick s.,5.616,3.4992,ETD
-2009-04-03,Mendez,6.336,3.024,ETD
 2009-04-03,Poddaný s.,5.904,1.6128,ETD
+2009-04-03,Filip Walter,1.4,1.6,ExoClock observation
+2009-04-03,Mendez,6.336,3.024,ETD
 2009-03-13,Salas,14.544,3.744,ETD
 2009-03-13,Naves,4.608,2.448,ETD
 2009-03-13,Mendez,-2.16,3.6,ETD
 2009-02-03,Gary,4.752,1.152,ETD
 2009-01-13,Foot,5.472,2.592,ETD
+2008-03-27,Pál et al. 2009,-0.5,0.6,ExoClock literature
 2008-03-26,Pál et. al 2009,3.312,0.5904,ETD
+2008-03-02,Burke et al. 2008,-4.4,4.3,ExoClock literature
 2008-03-01,Gregorio by burke et al 2008,-0.0,4.32,ETD
-2008-02-09,Foote,10.512,6.192,ETD
+2008-02-10,Pál et al. 2009,-2.6,0.8,ExoClock literature
+2008-02-10,Burke et al. 2008,-0.4,4.3,ExoClock literature
 2008-02-09,Foote by burke et al 2008,3.024,4.32,ETD
 2008-02-09,Pál et. al 2009,1.152,0.8208,ETD
+2008-02-09,Foote,10.512,6.192,ETD
+2008-01-20,Burke et al. 2008,7.9,4.3,ExoClock literature
+2008-01-20,Pál et al. 2009,2.3,0.8,ExoClock literature
+2008-01-20,Burke et al. 2008,0.7,4.3,ExoClock literature
 2008-01-19,Gregorio j.,10.368,2.88,ETD
 2008-01-19,Pál et. al 2009,5.904,0.8352,ETD
+2008-01-03,Pál et al. 2009,1.7,2.6,ExoClock literature
 2008-01-02,Pál et. al 2009,6.48,2.6064,ETD
+2007-12-30,Burke et al. 2008,6.2,4.3,ExoClock literature
+2007-12-30,Burke et al. 2008,-2.5,4.3,ExoClock literature
 2007-12-29,Foote by burke et al 2008,9.648,4.32,ETD
 2007-12-29,Foote,6.336,1.872,ETD
 2007-12-29,Foote,-1.152,4.32,ETD
+2007-12-05,Burke et al. 2008,-0.3,4.3,ExoClock literature
 2007-12-04,Egm,3.312,4.32,ETD
+2007-01-29,Burke et al. 2008,1.1,4.3,ExoClock literature
 2007-01-28,Mf,3.888,4.32,ETD
 2005-03-12,Xo,7.2,28.8,ETD
 2005-03-08,Xo,15.696,28.8,ETD

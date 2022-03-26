@@ -1,7 +1,11 @@
 date,observer,oc,oce,source
+2022-02-11,Yves Jongen,1.7,0.6,ExoClock observation
 2022-02-10,Yves jongen,-0.144,0.6048,ETD
+2021-02-21,Yves Jongen,1.9,1.2,ExoClock observation
 2021-02-20,Yves jongen,-1.008,0.9072,ETD
+2020-05-11,Yves Jongen,2.1,1.4,ExoClock observation
 2020-05-10,Yves jongen,-1.296,0.9504,ETD
+2020-04-10,Yves Jongen,-0.4,0.7,ExoClock observation
 2020-04-09,Yves jongen,-1.872,0.7344,ETD
 2020-01-31,Yves jongen,3.312,0.7632,ETD
 2015-04-20,Josep gaitan,-14.976,1.6848,ETD
@@ -9,4 +13,5 @@ date,observer,oc,oce,source
 2013-04-05,Evans p.,-3.024,1.0944,ETD
 2013-03-19,"Logan v., lewis k.",1.296,1.4688,ETD
 2013-03-19,Vanessa logan and karen lewis,1.296,1.4688,ETD
+2010-02-13,Penev et al. 2013,0.1,1.0,ExoClock literature
 2010-02-13,"K. penev et al., 2012",-1.008,1.0224,ETD

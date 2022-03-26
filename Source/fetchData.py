@@ -18,7 +18,6 @@ ws.saveDataDict("https://www.exoclock.space/database/planets_json", "/raw_data/e
 
 # fetch midtransit data
 ws.fetchExoClockData("https://www.exoclock.space/database/observations", sourceName="ExoClock observation")
-wait(1000)
 ws.fetchExoClockData("https://www.exoclock.space/database/literature", sourceName="ExoClock literature")
 ws.fetchExoClockData("https://www.exoclock.space/database/etd", sourceName="ExoClock ETD")
 
