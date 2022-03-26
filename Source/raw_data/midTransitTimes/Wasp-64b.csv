@@ -4,8 +4,8 @@ date,observer,oc,oce,source
 2022-02-08,Yves jongen,-7.488,0.6624,ETD
 2022-01-18,Yves Jongen,0.0,0.7,ExoClock observation
 2022-01-17,Yves jongen,-6.48,0.7344,ETD
-2021-12-07,"Martini m., scavuzzo a., anzola m., amilibia g., ruiz c., balanzino l., morero s, artola r, tapia l.",-6.624,0.8496,ETD
 2021-12-07,Martini m; scavuzzo a.; anzola m.; amilibia g.; ruiz c.; balanzino l.; morero s; artola r; tapia l.,-4.464,0.9792,ETD
+2021-12-07,"Martini m., scavuzzo a., anzola m., amilibia g., ruiz c., balanzino l., morero s, artola r, tapia l.",-6.624,0.8496,ETD
 2021-03-22,Yves Jongen,0.7,0.6,ExoClock observation
 2021-03-21,Yves jongen,-5.184,0.6192,ETD
 2021-03-03,Yves Jongen,0.5,0.9,ExoClock observation
@@ -41,8 +41,8 @@ date,observer,oc,oce,source
 2011-11-30,Gillon et al. 2013,-0.0,0.4,ExoClock literature
 2011-11-22,Gillon et al. 2013,0.3,0.5,ExoClock literature
 2011-10-31,Gillon et al. 2013,0.6,0.4,ExoClock literature
-2011-10-20,Gillon et al. 2013,-0.3,0.5,ExoClock literature
 2011-10-20,Gillon et al. 2013,1.6,0.4,ExoClock literature
+2011-10-20,Gillon et al. 2013,-0.3,0.5,ExoClock literature
 2011-04-05,Gillon et al. 2013,-0.1,0.5,ExoClock literature
 2011-02-23,Gillon et al. 2013,-0.7,0.8,ExoClock literature
 2011-01-21,Gillon et al. 2013,-1.8,0.7,ExoClock literature

@@ -17,10 +17,10 @@ date,observer,oc,oce,source
 2019-01-03,Yves jongen,8.064,1.8576,ETD
 2019-01-03,"Francesco scaggiante, danilo zardin",2.88,3.4416,ETD
 2018-11-17,F. lomoz,0.864,3.9168,ETD
-2018-11-06,F. lomoz,6.624,3.3264,ETD
-2018-11-06,Pere guerra,4.032,1.1232,ETD
 2018-11-06,F. lomoz,-14.112,2.4624,ETD
+2018-11-06,Pere guerra,4.032,1.1232,ETD
 2018-11-06,Ferran grau horta,0.432,1.8288,ETD
+2018-11-06,F. lomoz,6.624,3.3264,ETD
 2018-10-15,Adam nowak,4.464,7.6032,ETD
 2018-09-20,Pere guerra,17.28,50.832,ETD
 2018-09-12,Tomasz popajewski,5.04,3.2544,ETD
@@ -31,14 +31,14 @@ date,observer,oc,oce,source
 2017-11-02,Anaël Wünsche,-4.0,2.0,ExoClock observation
 2016-12-26,Marc bretton,-2.736,1.7424,ETD
 2016-12-26,Anaël Wünsche,1.6,2.4,ExoClock observation
-2016-12-04,Anaël Wünsche,0.6,0.9,ExoClock observation
 2016-12-04,Marc bretton,2.304,0.7344,ETD
+2016-12-04,Anaël Wünsche,0.6,0.9,ExoClock observation
 2016-12-01,Ramon naves,5.904,1.8864,ETD
-2016-01-25,Marc bretton,1.44,7.5024,ETD
 2016-01-25,Marc bretton,1.728,1.3392,ETD
+2016-01-25,Marc bretton,1.44,7.5024,ETD
 2016-01-11,Paul benni,-1.152,1.6992,ETD
 2015-11-09,Marc bretton,2.448,2.6064,ETD
 2015-10-26,"Dittler, ullrich",-22.032,4.1616,ETD
 2015-10-15,"P. farissier, s. combe, l. bret-morel, c. gillier, r. montaigut",1.44,1.584,ETD
-2011-10-17,Hartman et al. 2015,-0.1,0.6,ExoClock literature
 2011-10-17,Hartman et al. 2015,0.0,0.5904,ETD
+2011-10-17,Hartman et al. 2015,-0.1,0.6,ExoClock literature

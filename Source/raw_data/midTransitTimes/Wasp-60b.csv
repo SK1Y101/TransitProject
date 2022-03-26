@@ -8,12 +8,12 @@ date,observer,oc,oce,source
 2020-09-21,Adrian Jones,2.0,4.3,ExoClock observation
 2020-09-20,Manfred raetz,6.768,1.3104,ETD
 2020-09-08,Francois Regembal,2.0,5.8,ExoClock observation
-2020-09-07,Francois regembal,15.12,3.1536,ETD
 2020-09-07,Francois regembal,11.088,2.6064,ETD
+2020-09-07,Francois regembal,15.12,3.1536,ETD
 2020-08-08,F. lomoz,19.296,5.2272,ETD
 2020-08-08,F. lomoz,15.984,3.3552,ETD
-2019-10-16,F. lomoz,28.368,3.9168,ETD
 2019-10-16,F. lomoz,15.552,2.2896,ETD
+2019-10-16,F. lomoz,28.368,3.9168,ETD
 2019-09-03,Alexandre belinski,0.144,,ETD
 2018-11-27,Jacqueline zhu; peter kim,5.328,2.1456,ETD
 2018-09-02,Tomasz popajewski,6.48,4.3632,ETD
@@ -28,7 +28,7 @@ date,observer,oc,oce,source
 2014-09-25,Bachschmidt m.,-3.888,2.5056,ETD
 2013-11-19,Benni p.,6.192,3.4272,ETD
 2013-10-20,Benishek v.,14.256,2.304,ETD
-2013-09-07,Zibar m.,2.016,2.4048,ETD
-2013-09-07,Lomoz f.,-9.504,1.9584,ETD
 2013-09-07,Lomoz f.,11.232,2.5776,ETD
+2013-09-07,Lomoz f.,-9.504,1.9584,ETD
+2013-09-07,Zibar m.,2.016,2.4048,ETD
 2011-07-04,Hébrard et al. 2013,0.2,3.2,ExoClock literature

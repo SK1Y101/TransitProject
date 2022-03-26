@@ -1,9 +1,9 @@
 date,observer,oc,oce,source
 2021-07-29,Dim Stouraitis,8.0,3.5,ExoClock observation
-2021-07-29,Paolo Arcangelo Matassa,-6.1,4.3,ExoClock observation
-2021-07-29,Carmelo Falco,-2.8,1.6,ExoClock observation
-2021-07-29,Carmelo Falco,0.3,2.6,ExoClock observation
 2021-07-29,Adam Popowicz,3.4,1.9,ExoClock observation
+2021-07-29,Carmelo Falco,0.3,2.6,ExoClock observation
+2021-07-29,Carmelo Falco,-2.8,1.6,ExoClock observation
+2021-07-29,Paolo Arcangelo Matassa,-6.1,4.3,ExoClock observation
 2021-07-29,Lionel Rousselot,13.4,2.9,ExoClock observation
 2021-07-27,Yves Jongen,2.8,1.0,ExoClock observation
 2021-07-10,Adam Popowicz,-3.6,2.7,ExoClock observation
@@ -13,6 +13,6 @@ date,observer,oc,oce,source
 2020-08-08,Yves Jongen,-1.0,1.0,ExoClock observation
 2020-08-08,Phil Evans,1.3,1.3,ExoClock observation
 2020-07-28,Yves Jongen,0.4,1.2,ExoClock observation
-2020-07-11,Danilo Sedita,-1.0,1.9,ExoClock observation
 2020-07-11,Yves Jongen,0.2,1.2,ExoClock observation
+2020-07-11,Danilo Sedita,-1.0,1.9,ExoClock observation
 2012-09-25,Triaud et al. 2017,0.0,0.3,ExoClock literature

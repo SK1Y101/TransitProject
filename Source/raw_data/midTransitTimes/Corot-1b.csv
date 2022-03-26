@@ -1,8 +1,8 @@
 date,observer,oc,oce,source
 2022-01-28,Miguel angel alava,-4.464,4.5936,ETD
 2021-03-05,Jens jacobsen,-3.024,1.1232,ETD
-2021-03-02,Jens jacobsen,4.32,2.16,ETD
 2021-03-02,Michal powalko,-0.576,3.4992,ETD
+2021-03-02,Jens jacobsen,4.32,2.16,ETD
 2021-01-14,Yves jongen,-2.592,0.8784,ETD
 2020-10-29,Ferran grau horta,1.728,1.7424,ETD
 2020-02-20,Yves jongen,-2.016,0.864,ETD
@@ -17,8 +17,8 @@ date,observer,oc,oce,source
 2019-02-08,Marc bretton,-4.608,2.016,ETD
 2019-02-05,"Francesco scaggiante, danilo zardin",-10.224,1.8,ETD
 2018-12-11,Yves jongen,2.448,1.584,ETD
-2017-02-14,Wonseok kang,-1.728,0.5472,ETD
 2017-02-14,Wonseok kang,-1.872,0.6336,ETD
+2017-02-14,Wonseok kang,-1.728,0.5472,ETD
 2017-02-11,Wonseok kang,-2.736,0.648,ETD
 2016-02-10,Aaav astrofili valdera,0.0,,ETD
 2016-02-04,David molina,5.616,2.232,ETD
@@ -26,9 +26,9 @@ date,observer,oc,oce,source
 2015-12-19,Matthieu bachschmidt,-20.592,1.6848,ETD
 2015-12-10,Smolka m.,-3.888,2.1024,ETD
 2015-03-12,Jens jacobsen,5.76,4.9248,ETD
+2015-03-06,Marc bretton,-4.896,1.9296,ETD
 2015-03-06,Aaav astrofili valdera,0.432,,ETD
 2015-03-06,Marc bretton,-1.152,1.4112,ETD
-2015-03-06,Marc bretton,-4.896,1.9296,ETD
 2015-02-28,Aaav astrofili valdera,-0.432,,ETD
 2014-12-31,Luistremosa,4.176,2.3904,ETD
 2014-12-31,Luis tremosa,4.176,2.3904,ETD
@@ -39,8 +39,8 @@ date,observer,oc,oce,source
 2013-12-28,"Sokov e. n., rusov s.",-2.016,1.224,ETD
 2013-12-11,Benni p.,-1.584,2.5056,ETD
 2013-12-11,Dittler u.,-22.32,3.3984,ETD
-2013-12-02,Gonzalez j.,-2.016,2.1312,ETD
 2013-12-02,Bachschmidt m.,-2.016,2.1312,ETD
+2013-12-02,Gonzalez j.,-2.016,2.1312,ETD
 2013-11-17,"Sokov e. n., ivanov a.",1.008,1.0512,ETD
 2013-10-30,"Sokov e. n., rusov s.",-1.872,1.0944,ETD
 2013-01-19,"Doyle d., strickland w",8.64,1.8288,ETD
@@ -54,8 +54,8 @@ date,observer,oc,oce,source
 2011-12-07,Parijat singh,-3.888,2.16,ETD
 2011-03-09,"De pree, makely",-3.744,2.6208,ETD
 2011-01-20,Muler g.,2.88,1.0368,ETD
-2010-11-28,Naves r.,0.288,1.1376,ETD
 2010-11-28,Ramon naves,0.144,1.0656,ETD
+2010-11-28,Naves r.,0.288,1.1376,ETD
 2010-11-22,Husar d.,5.904,4.536,ETD
 2010-11-19,Lorenz e. r.,-1.296,5.544,ETD
 2010-02-19,Salisbury m. ,0.144,1.3248,ETD
@@ -67,8 +67,8 @@ date,observer,oc,oce,source
 2009-11-11,Tieman j.,2.16,3.1824,ETD
 2009-02-05,Littlefield,-1.152,1.728,ETD
 2008-12-28,Lomoz f.,1.008,4.464,ETD
-2008-11-05,Kučáková h.,-0.864,6.6528,ETD
 2008-11-05,Hentunen,-2.592,1.008,ETD
+2008-11-05,Kučáková h.,-0.864,6.6528,ETD
 2007-03-31,Jacob l. bean a&a 2009,-0.144,0.3744,ETD
 2007-03-29,Jacob l. bean a&a 2009,-0.432,0.5472,ETD
 2007-03-28,Jacob l. bean a&a 2009,-0.432,0.72,ETD
@@ -90,6 +90,7 @@ date,observer,oc,oce,source
 2007-03-02,Jacob l. bean a&a 2009,-0.72,0.648,ETD
 2007-02-28,Jacob l. bean a&a 2009,0.432,0.4176,ETD
 2007-02-27,Jacob l. bean a&a 2009,0.144,0.72,ETD
+2007-02-27,,0.0,,ETD
 2007-02-27,,0.0,,ETD
 2007-02-25,Jacob l. bean a&a 2009,0.864,1.0512,ETD
 2007-02-24,Jacob l. bean a&a 2009,-0.0,0.3744,ETD

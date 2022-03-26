@@ -2,8 +2,8 @@ date,observer,oc,oce,source
 2022-03-14,Üllar Kivila,-2.5,2.7,ExoClock observation
 2022-03-11,Leon Bewersdorff,-5.9,1.9,ExoClock observation
 2022-02-27,Efrem Frigeni,-3.1,1.6,ExoClock observation
-2022-02-27,Manfred raetz,3.6,0.9936,ETD
 2022-02-27,Manfred Raetz,2.7,1.2,ExoClock observation
+2022-02-27,Manfred raetz,3.6,0.9936,ETD
 2022-02-08,Etienne bertrand,-2.736,0.9792,ETD
 2022-02-08,Etienne bertrand,-2.016,0.864,ETD
 2021-12-22,Manfred Raetz,-3.2,0.6,ExoClock observation
@@ -23,9 +23,9 @@ date,observer,oc,oce,source
 2021-01-05,Alberto garcía sánchez,-4.896,1.4976,ETD
 2020-11-21,Bernhard Wenzel,3.0,4.3,ExoClock observation
 2020-11-21,Bernhard wenzel,4.176,5.8752,ETD
+2020-11-17,Snaevarr gudmundsson,1.728,1.4688,ETD
 2020-11-17,Anaël Wünsche,4.6,1.3,ExoClock observation
 2020-11-17,Anaël wünsche,1.584,1.0512,ETD
-2020-11-17,Snaevarr gudmundsson,1.728,1.4688,ETD
 2020-10-18,Claudio Lopresti,5.0,1.6,ExoClock observation
 2020-09-14,Jean plazas,19.728,3.7008,ETD
 2020-06-27,Bernhard Wenzel,2.7,7.2,ExoClock observation
@@ -34,25 +34,25 @@ date,observer,oc,oce,source
 2020-04-24,Alberto Tomatis,-0.1,2.7,ExoClock observation
 2020-04-24,Jacques Michelet,2.3,1.4,ExoClock observation
 2020-04-09,Alessandro Marchini,0.8,1.0,ExoClock observation
-2020-04-09,Yves jongen,-0.432,1.2384,ETD
-2020-04-09,Danilo Sedita,-0.8,2.3,ExoClock observation
 2020-04-09,"Francesco scaggiante, danilo zardin,marco fiaschi",-0.288,1.6128,ETD
+2020-04-09,Danilo Sedita,-0.8,2.3,ExoClock observation
+2020-04-09,Yves jongen,-0.432,1.2384,ETD
 2020-04-09,Nosáľ p.,5.04,4.3488,ETD
 2020-03-22,Manfred Raetz,3.9,1.9,ExoClock observation
-2020-03-21,Veli-pekka hentunen,-7.632,0.7488,ETD
 2020-03-21,Manfred raetz,6.48,1.44,ETD
 2020-03-21,Michael theusner,-0.576,1.8864,ETD
+2020-03-21,Veli-pekka hentunen,-7.632,0.7488,ETD
 2020-03-06,Yves jongen,1.44,1.6416,ETD
+2020-02-20,Yves jongen,2.592,1.0944,ETD
 2020-02-20,Nosáľ p.,-1.872,5.3424,ETD
 2020-02-20,Anaël wünsche,-2.448,1.44,ETD
-2020-02-20,Yves jongen,2.592,1.0944,ETD
 2020-01-21,Dimitrios Deligeorgopoulos,-2.1,1.9,ExoClock observation
 2020-01-21,Manfred raetz,3.312,1.2672,ETD
 2019-12-14,Ferran grau horta,-7.632,0.8784,ETD
 2019-09-26,Pere guerra,-3.744,0.7776,ETD
 2019-09-12,Anaël Wünsche,-0.7,1.0,ExoClock observation
-2019-09-11,Yves jongen,4.176,1.0944,ETD
 2019-09-11,Jean plazas,2.304,1.872,ETD
+2019-09-11,Yves jongen,4.176,1.0944,ETD
 2019-09-11,Anaël wünsche,-5.04,1.2096,ETD
 2019-04-21,Manfred raetz,1.296,0.8064,ETD
 2019-04-06,Veli-pekka hentunen,-1.728,0.936,ETD

@@ -4,12 +4,12 @@ date,observer,oc,oce,source
 2021-09-03,Dim Stouraitis,-6.8,4.3,ExoClock observation
 2021-09-03,Tõnis Eenmäe,-4.1,2.4,ExoClock observation
 2020-09-14,Manfred Raetz,-1.4,1.7,ExoClock observation
-2020-09-13,Jean plazas,-26.208,3.6144,ETD
 2020-09-13,Manfred raetz,170.208,1.512,ETD
+2020-09-13,Jean plazas,-26.208,3.6144,ETD
 2020-08-27,Carmelo Falco,-1.9,1.6,ExoClock observation
 2020-08-27,Danilo Sedita,-0.8,2.2,ExoClock observation
-2019-12-02,Mark salisbury,167.04,19.0368,ETD
 2019-12-02,Rudi bjørn rasmussen,43.056,2.2896,ETD
+2019-12-02,Mark salisbury,167.04,19.0368,ETD
 2019-09-07,Kim lang,-17.712,16.56,ETD
 2015-01-06,Wang et al. 2018,2.5,1.0,ExoClock literature
 2014-11-21,Wang et al. 2018,-4.5,6.1,ExoClock literature
@@ -22,10 +22,10 @@ date,observer,oc,oce,source
 2013-11-14,Wang et al. 2018,-0.6,2.0,ExoClock literature
 2012-12-11,Fernand emering,54.0,6.5232,ETD
 2012-12-11,Emering f.,55.872,2.9232,ETD
-2012-09-22,Trnka j.,24.624,2.4048,ETD
 2012-09-22,Scarmato t.,2.88,10.6272,ETD
-2011-12-28,Ramon naves,37.584,2.0304,ETD
+2012-09-22,Trnka j.,24.624,2.4048,ETD
 2011-12-28,Lopesino j.,-33.408,1.8432,ETD
+2011-12-28,Ramon naves,37.584,2.0304,ETD
 2011-10-03,Vanhuysse m.,39.024,3.6,ETD
 2011-09-27,"Makely n., hutcheson m.",27.36,3.7872,ETD
 2011-08-24,Vrašťák m.,23.904,2.736,ETD

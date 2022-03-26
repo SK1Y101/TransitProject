@@ -7,13 +7,13 @@ date,observer,oc,oce,source
 2019-09-03,"Kemme, linus",-43.056,47.7936,ETD
 2019-08-20,Jean plazas,-0.576,,ETD
 2019-08-13,Sjoerd dufoer,-0.0,3.1104,ETD
-2018-10-21,Pere guerra,0.576,1.2816,ETD
 2018-10-21,Josep gaitan ,-26.208,5.5152,ETD
+2018-10-21,Pere guerra,0.576,1.2816,ETD
+2018-08-29,Marc bretton,1.728,0.8064,ETD
 2018-08-29,Anael wunsche,2.88,0.6048,ETD
-2018-08-29,Yves jongen,-3.168,1.728,ETD
 2018-08-29,Anaël Wünsche,2.0,1.0,ExoClock observation
 2018-08-29,Yves Jongen,-0.3,1.6,ExoClock observation
-2018-08-29,Marc bretton,1.728,0.8064,ETD
+2018-08-29,Yves jongen,-3.168,1.728,ETD
 2018-08-22,Gabriel murawski,-0.576,0.6048,ETD
 2017-10-30,Didier walliang,-1.008,1.1952,ETD
 2016-09-02,Gabriel murawski,4.896,3.4272,ETD
@@ -29,19 +29,19 @@ date,observer,oc,oce,source
 2011-09-03,"T napoleao,c jacques, a oliveira",10.944,1.5552,ETD
 2010-10-28,Husar d.,4.032,2.2896,ETD
 2010-10-21,Corfini g.,0.432,1.0656,ETD
-2010-10-21,Ruocco n.,4.32,1.3824,ETD
 2010-10-21,"Világi j., gajdoš š.",7.92,1.2816,ETD
+2010-10-21,Ruocco n.,4.32,1.3824,ETD
 2010-09-05,Naves r.,-1.728,0.7056,ETD
 2010-08-29,Ruocco n.,-0.144,2.2032,ETD
+2010-08-22,Zambelli r.,2.592,0.7056,ETD
 2010-08-22,Hynek t.,-4.32,1.2384,ETD
 2010-08-22,Saral g.,-3.024,0.7776,ETD
-2010-08-22,Zambelli r.,2.592,0.7056,ETD
 2010-08-18,Evans p.,-0.864,5.2992,ETD
 2010-08-15,Scarmato t.,-8.208,2.8368,ETD
+2009-10-30,Filip Walter,-2.9,1.6,ExoClock observation
 2009-10-30,Stanislav poddaný,-1.728,1.2672,ETD
 2009-10-30,Trnka j.,5.76,1.1232,ETD
 2009-10-30,Poddaný s.,-0.72,1.9872,ETD
-2009-10-30,Filip Walter,-2.9,1.6,ExoClock observation
 2009-09-07,Brát l.,-1.584,1.9872,ETD
 2009-08-31,Srdoc,-1.728,1.152,ETD
 2009-08-24,Srdoc,5.184,2.88,ETD
@@ -64,12 +64,12 @@ date,observer,oc,oce,source
 2005-09-02,Miller-ricci et al 2008,-0.864,0.8928,ETD
 2005-08-30,Miller-Ricci et al. 2008,-0.5,0.8,ExoClock literature
 2005-08-29,Miller-ricci et al 2008,-0.864,0.8064,ETD
-2005-08-26,Miller-ricci et al 2008,-0.864,0.8064,ETD
 2005-08-26,Miller-Ricci et al. 2008,-0.5,0.8,ExoClock literature
+2005-08-26,Miller-ricci et al 2008,-0.864,0.8064,ETD
 2005-08-23,Miller-Ricci et al. 2008,0.5,0.8,ExoClock literature
 2005-08-22,  miller-ricci et al 2008,0.144,0.792,ETD
-2005-08-19,Miller-Ricci et al. 2008,-0.6,0.9,ExoClock literature
 2005-08-19,Miller-ricci et al 2008,-1.008,0.8928,ETD
+2005-08-19,Miller-Ricci et al. 2008,-0.6,0.9,ExoClock literature
 2005-08-16,Miller-Ricci et al. 2008,1.6,0.8,ExoClock literature
 2005-08-15,Miller-ricci et al 2008,1.152,0.7632,ETD
 2005-08-12,Miller-Ricci et al. 2008,0.2,0.9,ExoClock literature
@@ -78,12 +78,12 @@ date,observer,oc,oce,source
 2005-08-08,Miller-ricci et al 2008,0.864,0.7344,ETD
 2005-08-05,Miller-Ricci et al. 2008,1.2,1.1,ExoClock literature
 2005-08-04,Miller-ricci et al 2008,0.864,1.0656,ETD
-2004-08-28,Miller-ricci et al 2008,0.144,0.8784,ETD
 2004-08-28,Miller-Ricci et al. 2008,0.6,0.9,ExoClock literature
+2004-08-28,Miller-ricci et al 2008,0.144,0.8784,ETD
 2004-08-25,Miller-Ricci et al. 2008,-0.5,0.7,ExoClock literature
 2004-08-24,Miller-ricci et al 2008,-1.152,0.7056,ETD
-2004-08-17,Miller-ricci et al 2008,-1.152,0.9792,ETD
 2004-08-17,Miller-Ricci et al. 2008,-0.6,1.0,ExoClock literature
+2004-08-17,Miller-ricci et al 2008,-1.152,0.9792,ETD
 2004-07-13,Ohshima o.,-5.904,1.7712,ETD
 2003-10-26,Nyholm a.,6.768,2.9664,ETD
 2003-10-19,"Kouprianov v.v., gorshanov d. l., sokov e. n.",7.488,5.2272,ETD
