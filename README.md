@@ -81,30 +81,37 @@ This is a general overview of the "Write Code" step above, and is of course subj
     - [ ] System info
     - [x] digital renders for pretty graphs (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
   - [ ] other data sources
+  - [ ] Refactor code
 - [ ] Combine data
   - [ ] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
   - [ ] Merger Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
     - [ ] Figure out how to deal with conflicting information
+  - [ ] Refactor code
 - [ ] Simulation
   - [ ] Write a shared library for simulation
   - [ ] Setup a pipeline with multithreading instances
   - [ ] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
   - [ ] Determine a standardised output
+  - [ ] Refactor code
 - [ ] Processing & Fitting
   - [ ] Determine a standardised input for data
   - [ ] Convert all data to standardised form & storage (ie: JSON)
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [ ] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
+  - [ ] Refactor code
 - [ ] Analysis
   - [ ] Determine accuracy of fit to known data.
   - [ ] Probably run Fourier analysis.
   - [ ] Determine a way of pulling out key frequency terms.
   - [ ] Map key information to system parameters. ie: frequency to orbital period mapping.
+  - [ ] Refactor code
 - [ ] Re-simulate
   - [ ] Use analysis to construct a range of possible system layouts
   - [ ] Simulate each system layout (See Simulation step)
   - [ ] Re-perform analysis of simulation, determine which, if any, simulated system layouts fit the data.
+  - [ ] Refactor code
 - [ ] Pretty outputs
   - [ ] Graphical representations of all system layouts.
   - [ ] Annotated charts of any fit data.
   - [ ] Nice system parameter layout à la [wikipedia](https://en.wikipedia.org/wiki/Earth).
+  - [ ] Refactor code
