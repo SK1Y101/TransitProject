@@ -18,14 +18,14 @@ date,observer,oc,oce,source
 2020-11-06,Snaevarr gudmundsson,-0.864,0.7776,ETD
 2020-11-06,Manfred Raetz,-1.8,1.0,ExoClock observation
 2020-11-06,"Francesco scaggiante, danilo zardin,marco fiaschi",-4.464,2.0736,ETD
-2020-10-17,Jean-Bernard PIOPPA,2.1,1.3,ExoClock observation
-2020-10-17,Francois Regembal,-1.5,1.3,ExoClock observation
-2020-10-17,Jean plazas,-9.936,,ETD
-2020-10-17,Francois regembal,-3.744,1.6272,ETD
-2020-10-17,Yves jongen,5.76,0.6768,ETD
-2020-10-17,Vicenç ferrando (aas),-3.024,0.864,ETD
 2020-10-17,Yves Jongen,-0.6,0.9,ExoClock observation
 2020-10-17,Pedro martorell,-2.448,0.7344,ETD
+2020-10-17,Jean plazas,-9.936,,ETD
+2020-10-17,Francois regembal,-3.744,1.6272,ETD
+2020-10-17,Jean-Bernard PIOPPA,2.1,1.3,ExoClock observation
+2020-10-17,Francois Regembal,-1.5,1.3,ExoClock observation
+2020-10-17,Yves jongen,5.76,0.6768,ETD
+2020-10-17,Vicenç ferrando (aas),-3.024,0.864,ETD
 2020-10-13,Fabio Mortari,-1.4,0.4,ExoClock observation
 2020-10-13,L.betti f.mortari,-2.736,0.504,ETD
 2020-10-01,Nikolaos Paschalis,2.0,3.2,ExoClock observation
@@ -77,9 +77,9 @@ date,observer,oc,oce,source
 2015-11-29,Anaël Wünsche,3.1,1.4,ExoClock observation
 2015-11-13,David molina,-2.16,0.9648,ETD
 2015-11-09,"Juan fabregat llueca, antoni vives sureda ",-54.576,2.232,ETD
+2015-11-09,David molina,0.144,0.792,ETD
 2015-11-09,"Juan fabregat llueca, antoni vives sureda",1.44,2.232,ETD
 2015-11-09,Marc bretton,-1.008,0.8208,ETD
-2015-11-09,David molina,0.144,0.792,ETD
 2015-11-09,Anaël Wünsche,1.9,0.9,ExoClock observation
 2015-11-05,Baștürk et al. 2020,-1.2,0.4,ExoClock literature
 2015-11-01,Aaav astrofili valdera,-6.624,,ETD
@@ -113,9 +113,9 @@ date,observer,oc,oce,source
 2012-01-14,Emering f.,-2.88,0.5616,ETD
 2012-01-10,Naves r.,-6.48,2.1024,ETD
 2012-01-10,Mallonn et al. 2015,-0.1,0.1,ExoClock literature
-2011-12-25,Corfini g.,-2.16,1.08,ETD
-2011-12-25,Gaitan j.,3.456,3.7152,ETD
 2011-12-25,Naves r.,-4.608,1.2528,ETD
+2011-12-25,Gaitan j.,3.456,3.7152,ETD
+2011-12-25,Corfini g.,-2.16,1.08,ETD
 2011-12-17,Seeliger et al. 2015,0.1,0.5,ExoClock literature
 2011-12-09,Seeliger et al. 2015,0.0,0.6,ExoClock literature
 2011-12-05,"Vyvlečka m., mikulecká b., henych t.",3.744,1.872,ETD

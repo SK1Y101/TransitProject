@@ -40,9 +40,9 @@ date,observer,oc,oce,source
 2019-08-03,Massimo banfi,23.184,38.1168,ETD
 2019-08-03,F. lomoz,-1.44,2.4048,ETD
 2019-06-01,František lomoz,5.76,3.2832,ETD
+2019-06-01,Pavel pintr,5.184,1.2672,ETD
 2019-06-01,Anaël Wünsche,0.9,1.2,ExoClock observation
 2019-06-01,Anael wunsche,-3.024,0.9936,ETD
-2019-06-01,Pavel pintr,5.184,1.2672,ETD
 2019-05-06,Yves jongen,3.024,0.8784,ETD
 2019-03-29,Manfred raetz,1.44,1.8576,ETD
 2018-08-09,Maciejewski et al. 2018,-0.5,0.7,ExoClock literature
@@ -90,10 +90,10 @@ date,observer,oc,oce,source
 2014-08-25,"Eduardo fernández-lajús, romina p. di sisto",3.744,0.7776,ETD
 2014-08-13,Southworth et al. 2015,1.5,0.7,ExoClock literature
 2014-07-19,Southworth et al. 2015,-0.2,0.2,ExoClock literature
+2014-07-19,Southworth et al. 2015,0.4,0.4,ExoClock literature
 2014-07-19,Southworth et al. 2015,-0.1,0.3,ExoClock literature
 2014-07-19,Southworth et al. 2015,0.1,0.2,ExoClock literature
 2014-07-19,Southworth et al. 2015,0.1,0.4,ExoClock literature
-2014-07-19,Southworth et al. 2015,0.4,0.4,ExoClock literature
 2014-07-18,Southworth et al. 2015,-0.0,0.3,ExoClock literature
 2014-07-07,Horta f. g.,-2.016,1.9872,ETD
 2014-07-06,Southworth et al. 2015,0.2,0.5,ExoClock literature
