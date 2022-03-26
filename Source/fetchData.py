@@ -10,7 +10,9 @@ import TransitProject.webScraping as ws
 # Examples for fetching
 
 # ETD (Lightcurves)
+ws.fetchETDData("http://var2.astro.cz/ETD/index.php?lang=en", sourceName="ETD")
 
+wait(1000)
 # Exoclock (Lightcurves & system info)
 # Access system information
 ws.saveDataDict("https://www.exoclock.space/database/planets_json", "/raw_data/exoClockEphemerides.csv")
