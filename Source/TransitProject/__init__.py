@@ -1,4 +1,5 @@
 # python modules
+from datetime import datetime
 import pandas as pd
 import os, time, re
 
@@ -47,6 +48,9 @@ def saveDataFrame(df, fpath):
     # if there isn't one, assume csv
     if not ext:
         ext, fpath = ".csv", fpath+".csv"
+    # remove unnamed columns, and any of the index columns
+    df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
+    df = df.loc[:, ~df.columns.str.contains('index')]
     # don't store duplaicates
     df = df.loc[df.astype(str).drop_duplicates().index]
     # table of allowed extensions
@@ -64,8 +68,12 @@ def readFromFile(fileName):
     if fileName[0] == "/":
         fileName = os.getcwd()+fileName
     # opne the file and return the contents
-    with open(fileName, "r") as f:
-        return f.read()
+    try:
+        with open(fileName, "r") as f:
+            return f.read()
+    except:
+        with open(fileName, "rb") as f:
+            return f.read()
 
 def writeToFile(fileName, data):
     ''' Write the specified data to a file using the standard python functions.
