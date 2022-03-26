@@ -83,13 +83,13 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [ ] other data sources
   - [ ] Refactor code
 - [ ] Combine data
-  - [ ] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
+  - [x] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
   - [ ] Merger Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
     - [ ] Figure out how to deal with conflicting information
   - [ ] Refactor code
 - [ ] Simulation
   - [ ] Write a shared library for simulation
-  - [ ] Setup a pipeline with multithreading instances
+  - [ ] Setup a pipeline with multithreading instances for many simulations in parallel
   - [ ] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
   - [ ] Determine a standardised output
   - [ ] Refactor code
