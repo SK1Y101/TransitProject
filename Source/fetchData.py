@@ -16,6 +16,7 @@ ws.fetchETDData("http://var2.astro.cz/ETD/index.php?lang=en", sourceName="ETD")
 # Exoclock (Lightcurves & system info)
 # Access system information
 ws.saveDataDict("https://www.exoclock.space/database/planets_json", "/raw_data/exoClockEphemerides.csv")
+
 # fetch midtransit data
 ws.fetchExoClockData("https://www.exoclock.space/database/observations", sourceName="ExoClock observation")
 ws.fetchExoClockData("https://www.exoclock.space/database/literature", sourceName="ExoClock literature")
