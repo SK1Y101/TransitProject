@@ -35,10 +35,10 @@ def simulateSystem(*objects):
         if x!=noneVal:
             return x
 
-    TTV=[]
+    TTV, N = [], 1000
 
     # construct a simulation for each possibility
-    for x in _out:
+    for x in tqdm(_out):
         sim = rebound.Simulation()
         i = 0
         for obj in objects:
@@ -50,14 +50,11 @@ def simulateSystem(*objects):
             i+=5
         sim.move_to_com()
         # simulate till TTV
-        TTV100 = simulateTTV(sim)
-        TTV.append(TTV100)
-    TTV = np.array(TTV)
-    plt.scatter(0*TTV, TTV)
+        TTV100 = simulateTTV(sim, N)
+        plt.scatter(np.arange(N), TTV100)
     plt.show()
 
-def simulateTTV(sim):
-    N=1000
+def simulateTTV(sim, N):
     tstep = 1 / 360
     transittimes = np.zeros(N)
     p = sim.particles
@@ -83,7 +80,12 @@ def simulateTTV(sim):
             i += 1
             sim.integrate(sim.t+tstep)       # integrate 0.05 to be past the transit
 
-    return transittimes[-1]
+    A = np.vstack([np.ones(N), range(N)]).T
+    c, m = np.linalg.lstsq(A, transittimes, rcond=-1)[0]
+
+    TTV = (transittimes-m*np.array(range(N))-c)*(24.*365./2./np.pi)
+
+    return TTV
 
 
 simulateSystem({"name":"HAT-P-13",
@@ -99,7 +101,7 @@ simulateSystem({"name":"HAT-P-13",
                {"name":"HAT-P-13c",
                 "mass":14.61E-5, "mass_e":0,#[0.46E-5, 0.48E-5],
                 "period":445.82, "period_e":0.11,
-                "eccentricity":0.6554, "eccentricity_e":[0.0021, 0.0020],
+                "eccentricity":0.6554, "eccentricity_e":0,#[0.0021, 0.0020],
                 "omega":175.4, "omega_e":0,#0.22,
                 })
 
