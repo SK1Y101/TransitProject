@@ -18,9 +18,9 @@ date,observer,oc,oce,source
 2017-09-10,Alderson et al. 2020,0.4,0.3,ExoClock literature
 2016-10-20,Anaël Wünsche,1.0,1.6,ExoClock observation
 2016-10-20,Marc bretton,1.152,1.3968,ETD
-2016-09-11,František lomoz,-2.88,1.512,ETD
-2016-09-11,František lomoz,-7.056,2.664,ETD
 2016-09-11,David molina,-1.296,1.656,ETD
+2016-09-11,František lomoz,-7.056,2.664,ETD
+2016-09-11,František lomoz,-2.88,1.512,ETD
 2015-10-14,Hannah frame,0.576,1.9584,ETD
 2015-08-06,Marc bretton,2.592,,ETD
 2014-09-07,Benni p.,-1.872,1.1664,ETD
@@ -30,8 +30,8 @@ date,observer,oc,oce,source
 2012-11-28,"Ivanov a. v., sokov e. n.",-2.736,0.6336,ETD
 2012-10-20,Scarmato t.,7.056,5.2704,ETD
 2012-09-11,Ciceri et al. 2013,1.4,1.1,ExoClock literature
-2012-09-11,Ciceri et al. 2013,0.4,0.5,ExoClock literature
 2012-09-11,Chen et al. 2020,-0.2,1.0,ExoClock literature
+2012-09-11,Ciceri et al. 2013,0.4,0.5,ExoClock literature
 2012-09-11,"Mravik j., grnja j.",1.296,2.16,ETD
 2012-08-29,Gajdoš š.,2.016,2.232,ETD
 2012-08-20,Stan shadick,3.024,2.7792,ETD

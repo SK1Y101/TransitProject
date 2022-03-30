@@ -17,8 +17,8 @@ date,observer,oc,oce,source
 2018-12-14,Yves jongen,23.472,0.6192,ETD
 2018-12-14,Marc bretton,15.84,0.576,ETD
 2018-12-11,Pietro aceti,1215.36,1.5264,ETD
-2018-10-19,Fertil jonathan,12.96,1.6128,ETD
 2018-10-19,Remi mere,18.72,2.592,ETD
+2018-10-19,Fertil jonathan,12.96,1.6128,ETD
 2018-10-04,Ramon naves,16.992,1.2816,ETD
 2018-09-08,Gerald rousseau,12.672,1.3392,ETD
 2018-09-08,Anael wunsche,14.688,3.8304,ETD
@@ -30,14 +30,14 @@ date,observer,oc,oce,source
 2016-11-11,Wonseok kang,13.536,0.4896,ETD
 2016-10-19,Martin fowler,8.208,1.5552,ETD
 2016-10-08,David molina,12.24,0.7344,ETD
+2016-09-27,Marc deldem,13.824,0.8784,ETD
 2016-09-27,Trnka j.,12.96,0.9072,ETD
 2016-09-27,František lomoz,9.648,1.2672,ETD
 2016-09-27,František lomoz,8.208,0.9504,ETD
-2016-09-27,Marc deldem,13.824,0.8784,ETD
 2016-09-27,Pavel pintr,0.576,,ETD
 2015-11-23,Marc bretton,12.528,0.8352,ETD
-2015-11-08,Antoni vives sureda,-4.752,2.808,ETD
 2015-11-08,"Juan fabregat, antoni vives ",1.008,1.9152,ETD
+2015-11-08,Antoni vives sureda,-4.752,2.808,ETD
 2015-08-22,"Erika pakstiene, rimvydas janulis",9.936,0.3888,ETD
 2015-02-17,Jens jacobsen,2.304,1.2672,ETD
 2015-01-07,Marc bretton,10.656,0.6192,ETD
@@ -59,8 +59,8 @@ date,observer,oc,oce,source
 2014-01-22,Jacques m.,7.92,1.0368,ETD
 2014-01-11,Salisbury m.,8.064,0.6912,ETD
 2013-12-27,Trnka j.,7.488,1.2384,ETD
-2013-12-27,Zibar m.,7.92,0.72,ETD
 2013-12-27,Lomoz f.,8.352,1.9008,ETD
+2013-12-27,Zibar m.,7.92,0.72,ETD
 2013-12-16,"Scaggiante f., zardin d.",3.6,1.08,ETD
 2013-12-01,Nicolas e.,8.64,0.6624,ETD
 2013-12-01,Bachschmidt m.,8.208,0.792,ETD
@@ -81,8 +81,8 @@ date,observer,oc,oce,source
 2012-01-31,Nickel o.,3.456,1.5696,ETD
 2011-12-10,Bourdanov a.,8.496,1.9296,ETD
 2011-12-10,Bourdanov a.,0.288,2.808,ETD
-2011-12-02,Garlitz j.,2.16,0.6048,ETD
 2011-12-02,Dvorak s.,3.744,1.872,ETD
+2011-12-02,Garlitz j.,2.16,0.6048,ETD
 2011-11-25,Lopesino j.,-1.152,2.4048,ETD
 2011-10-22,Shadic s.,5.616,0.5472,ETD
 2011-10-15,Harris d.,4.896,0.6768,ETD

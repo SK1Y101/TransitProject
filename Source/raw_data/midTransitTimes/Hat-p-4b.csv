@@ -5,16 +5,16 @@ date,observer,oc,oce,source
 2021-04-05,John Savage,-6.7,1.2,ExoClock observation
 2021-04-05,Martin Crow,-2.4,2.3,ExoClock observation
 2021-03-05,Laurie sibbald,-5.904,2.7072,ETD
-2020-07-07,Anaël Wünsche,-3.6,3.2,ExoClock observation
 2020-07-07,Anaël wünsche,-9.792,1.7424,ETD
+2020-07-07,Anaël Wünsche,-3.6,3.2,ExoClock observation
 2020-05-19,Alberto garcía sánchez,-1.728,1.8432,ETD
 2020-03-26,Manfred Raetz,1.0,1.9,ExoClock observation
 2020-03-26,John Savage,-3.0,3.0,ExoClock observation
 2020-03-25,Manfred raetz,2.592,2.1312,ETD
 2019-04-30,Veli-pekka hentunen,-5.184,11.4048,ETD
 2019-03-16,Anaël Wünsche,3.4,3.2,ExoClock observation
-2019-03-15,Jean plazas,26.208,,ETD
 2019-03-15,Anael wunsche,3.888,2.232,ETD
+2019-03-15,Jean plazas,26.208,,ETD
 2018-07-17,Wonseok kang,1.872,24.8832,ETD
 2018-04-22,Marc bretton,-1.728,1.368,ETD
 2018-04-19,Yves jongen,3.744,2.0448,ETD
@@ -24,8 +24,8 @@ date,observer,oc,oce,source
 2017-05-30,Mark salisbury,-1.584,1.4112,ETD
 2017-04-11,David molina,-5.904,4.6944,ETD
 2017-04-08,Marc bretton,1.296,0.8352,ETD
-2016-05-16,Marc bretton,-3.456,1.3824,ETD
 2016-05-16,Marc bretton,-1.584,0.9936,ETD
+2016-05-16,Marc bretton,-3.456,1.3824,ETD
 2016-03-25,David molina,12.384,2.3472,ETD
 2016-03-19,Veli-pekka hentunen,5.616,1.2672,ETD
 2016-02-05,David molina,7.056,2.6784,ETD
@@ -35,8 +35,8 @@ date,observer,oc,oce,source
 2015-05-21,Stan shadick,-1.872,3.528,ETD
 2015-03-09,Jaroslav trnka,-7.344,2.5056,ETD
 2014-04-16,Claudio Lopresti,5.1,5.8,ExoClock observation
-2013-04-02,Hentunen v. p.,-4.752,1.5984,ETD
 2013-04-02,Veli-pekka hentunen,12.672,,ETD
+2013-04-02,Hentunen v. p.,-4.752,1.5984,ETD
 2012-06-03,Shadic s.,16.416,1.9728,ETD
 2012-05-19,Trnka j.,-2.592,3.6576,ETD
 2012-04-09,Shadic s.,-3.456,2.448,ETD

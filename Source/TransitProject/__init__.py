@@ -61,6 +61,30 @@ def saveDataFrame(df, fpath):
         # load the dataframe into the file
         exts[ext](fpath, index=False)
 
+def appendDataFrame(df, loc, sortby=None, ascending=False):
+    ''' Save a pandas.DataFrame object to a given file.
+        df: The dataframe to store.
+        loc: The location of the saved dataFrame to append to.
+        sortby: The column name to sort the dataset by. will use the first column by default'''
+    if not sortby:
+        sortby = df.columns[0]
+    # check for any old data
+    if checkForFile(loc):
+        old = loadDataFrame(loc)
+        # concatenate the new and old dataframe
+        old = pd.concat([df, old], ignore_index=True)
+        # sort the dataset and remove duplicates
+        old.sort_values(by=sortby, inplace=True, ascending=ascending)
+        old.reset_index(inplace=True)
+        old = old.loc[old.astype(str).drop_duplicates().index]
+        # if the dataframe hasn't changed, we're fine
+        if df.equals(old):
+            return
+        # otherwise, update our df reference to store
+        df = old
+    # save the data
+    saveDataFrame(df, loc)
+
 def readFromFile(fileName):
     ''' Read the contenmt of a file using the standard python functions.
         fileName: the file to read from. '''
