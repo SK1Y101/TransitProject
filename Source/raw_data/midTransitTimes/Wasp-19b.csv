@@ -32,8 +32,8 @@ date,observer,oc,oce,source
 2020-12-23,Yves jongen,-0.432,0.5616,ETD
 2020-12-17,Yves Jongen,-0.8,0.4,ExoClock observation
 2020-12-16,Yves jongen,-1.872,0.432,ETD
-2020-05-07,Yves jongen,-0.432,0.5328,ETD
 2020-05-07,Yves Jongen,-0.1,0.6,ExoClock observation
+2020-05-07,Yves jongen,-0.432,0.5328,ETD
 2020-05-04,Yves Jongen,-0.3,0.6,ExoClock observation
 2020-05-03,Yves jongen,-1.584,0.5328,ETD
 2020-03-31,Phil Evans,0.3,0.6,ExoClock observation
@@ -61,8 +61,8 @@ date,observer,oc,oce,source
 2019-12-08,Yves jongen,-1.008,0.4176,ETD
 2019-05-16,Don radford,-1.584,2.376,ETD
 2019-04-11,Petrucci et al. 2020,-1.2,0.4,ExoClock literature
-2019-03-06,Anaël Wünsche,0.5,0.7,ExoClock observation
 2019-03-06,Anael wunsche,-0.72,0.7488,ETD
+2019-03-06,Anaël Wünsche,0.5,0.7,ExoClock observation
 2019-02-13,Petrucci et al. 2020,-0.5,0.7,ExoClock literature
 2018-05-08,Carl r knight,-4.176,0.4896,ETD
 2018-04-04,Carl r knight,-1.728,0.2592,ETD
@@ -127,8 +127,8 @@ date,observer,oc,oce,source
 2011-02-12,Mancini et al. 2013,-4.0,2.6,ExoClock literature
 2011-02-12,Tan tg,-2.592,0.9216,ETD
 2011-02-10,Lendl et al. 2013,1.5,0.7,ExoClock literature
-2011-02-08,Tan tg,-1.728,0.5184,ETD
 2011-02-08,Mancini et al. 2013,-1.5,1.0,ExoClock literature
+2011-02-08,Tan tg,-1.728,0.5184,ETD
 2011-02-01,Mancini et al. 2013,-1.8,2.4,ExoClock literature
 2011-02-01,Tan tg,-2.304,0.792,ETD
 2011-01-21,Curtis i.,-0.576,1.2816,ETD

@@ -86,22 +86,16 @@ def saveTransitTimes(df, loc="/raw_data/midTransitTimes/", name="", stale_time=7
         df: the dataframe of information to store '''
     # append the exoplanet name
     if "/" in name:
-        name = name[name.index("/"):]
-    loc += name.capitalize().replace(" ", "")+".csv"
+        name = name[name.index("/")+1:]
+    # ensure the name has no spaces, and add to the location string
+    name = name.capitalize().replace(" ", "")
+    loc += "/"+name+".csv"
     # ensure the location exists
     makeFolder(loc)
-    # check for any old data
-    if checkForFile(loc):
-        old = loadDataFrame(loc)
-        old = pd.concat([df, old], ignore_index=True)
-        old.sort_values(by="date", inplace=True, ascending=False)
-        old.reset_index(inplace=True)
-        if df.equals(old):
-            return
-        # otherwise, update our df reference to store
-        df = old
-    # save the data
-    saveDataFrame(df, loc)
+    # add the given data to the old dataframe
+    appendDataFrame(df, loc, sortby="date")
+    # add the exoplanet name to the list of exoplanets we're keeping track of
+    appendDataFrame(pd.DataFrame({"name":name}, index=[0]), "/raw_data/ExoplanetList.csv", ascending=True)
 
 def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourceName=""):
     ''' Scrape the ExoClock website for exoplanet o-c data, and store as locally accesible csv data.

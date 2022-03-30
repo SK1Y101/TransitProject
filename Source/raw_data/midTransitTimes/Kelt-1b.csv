@@ -34,8 +34,8 @@ date,observer,oc,oce,source
 2019-10-07,F. lomoz,1.152,1.44,ETD
 2019-10-07,F. lomoz,-6.192,1.0368,ETD
 2019-09-26,Josep gaitan,16.992,1.44,ETD
-2019-09-21,Manfred raetz,4.752,1.3968,ETD
 2019-09-21,F. lomoz,50.4,2.952,ETD
+2019-09-21,Manfred raetz,4.752,1.3968,ETD
 2019-09-04,F. lomoz,46.368,2.1024,ETD
 2019-08-29,Veli-pekka hentunen,2.88,1.656,ETD
 2019-08-24,Manfred raetz,1.728,1.656,ETD
@@ -65,8 +65,8 @@ date,observer,oc,oce,source
 2016-09-07,Marc bretton,-0.432,1.4976,ETD
 2016-09-02,David molina,-1.728,1.6992,ETD
 2016-08-27,Gianluca rossi,41.04,,ETD
-2016-08-16,Marc bretton,-6.768,,ETD
 2016-08-16,Marc bretton,-3.168,1.3824,ETD
+2016-08-16,Marc bretton,-6.768,,ETD
 2016-08-11,David molina,-2.448,2.1744,ETD
 2015-12-30,Miroslav smolka,-2.592,1.728,ETD
 2015-11-10,"Dittler, ullrich",20.88,3.7296,ETD
@@ -109,13 +109,13 @@ date,observer,oc,oce,source
 2013-09-12,Horta f. g.,14.688,2.7504,ETD
 2013-09-06,Benishek v.,8.64,1.8288,ETD
 2013-08-26,Hentunen v. p.,8.208,1.4832,ETD
-2013-08-15,Gonzalez j.,14.976,2.1168,ETD
 2013-08-15,Bachschmidt m.,26.352,1.8144,ETD
+2013-08-15,Gonzalez j.,14.976,2.1168,ETD
 2013-07-31,Shadic s.,-0.144,1.224,ETD
 2013-07-14,Shadic s.,12.24,1.6416,ETD
 2012-12-28,Faustino ,-19.152,4.8528,ETD
-2012-11-19,Naves r.,-6.336,1.5264,ETD
 2012-11-19,Horta f. g.,-9.504,2.7072,ETD
+2012-11-19,Naves r.,-6.336,1.5264,ETD
 2012-11-13,Blois sologne astronomie,8.208,,ETD
 2012-09-11,Beatty et al. 2014,3.7,3.3,ExoClock literature
 2012-09-10,Beatty et al. 2014,4.0,3.2,ExoClock literature
