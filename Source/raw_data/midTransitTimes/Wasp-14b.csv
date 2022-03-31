@@ -12,11 +12,11 @@ date,observer,oc,oce,source
 2020-05-30,Adrian Jones,2.6,2.7,ExoClock observation
 2020-05-30,Simon Dawes,3.3,2.0,ExoClock observation
 2020-05-30,Martin Crow,0.2,1.0,ExoClock observation
-2020-05-21,Anaël Wünsche,0.1,1.6,ExoClock observation
+2020-05-21,Marc deldem,1.152,1.6848,ETD
 2020-05-21,"Martinelli fabio, bachini mauro ",0.576,2615.112,ETD
 2020-05-21,Marc Deldem,-1.2,1.4,ExoClock observation
+2020-05-21,Anaël Wünsche,0.1,1.6,ExoClock observation
 2020-05-21,Anaël wünsche,5.184,1.8432,ETD
-2020-05-21,Marc deldem,1.152,1.6848,ETD
 2020-04-25,Fabio Mortari,3.6,2.7,ExoClock observation
 2020-04-16,Adrian Jones,-1.4,5.8,ExoClock observation
 2020-02-28,Veli-pekka hentunen,23.04,3.816,ETD
@@ -41,8 +41,8 @@ date,observer,oc,oce,source
 2014-03-10,Haro j. l.,-8.208,2.0304,ETD
 2013-04-30,Raetz et al. 2015,0.2,2.3,ExoClock literature
 2013-02-26,Marino g.,-13.68,1.6704,ETD
-2013-02-17,Emering f.,19.872,2.0448,ETD
 2013-02-17,Fernand emering,19.872,2.0448,ETD
+2013-02-17,Emering f.,19.872,2.0448,ETD
 2012-04-25,Wong et al. 2015,-0.7,0.4,ExoClock literature
 2012-04-16,Wong et al. 2015,-0.3,0.4,ExoClock literature
 2012-04-02,Shadic s.,-5.184,1.6992,ETD
@@ -58,9 +58,9 @@ date,observer,oc,oce,source
 2011-03-31,"Shadic s., shiels ch.",3.456,1.944,ETD
 2011-03-30,Raetz et al. 2015,0.8,0.8,ExoClock literature
 2011-03-29,Brát l.,3.456,2.5344,ETD
+2011-03-29,Vrašťák m.,-0.576,1.0944,ETD
 2011-03-29,Trnka j.,-3.744,0.9648,ETD
 2011-03-29,Jaroslav trnka,-4.464,1.008,ETD
-2011-03-29,Vrašťák m.,-0.576,1.0944,ETD
 2011-03-11,"Naumov k. n., sokov e. n.",3.6,1.512,ETD
 2010-05-01,Ayiomamitis a.,-0.144,1.224,ETD
 2010-04-15,Shadick s.,2.448,1.4976,ETD
@@ -70,14 +70,14 @@ date,observer,oc,oce,source
 2009-05-27,Wiggins,1.152,4.32,ETD
 2009-05-16,Srdoc,2.736,1.44,ETD
 2009-05-12,Johnson et al. 2009,1.1,0.4,ExoClock literature
-2009-04-28,Marek p.,-1.152,2.0304,ETD
-2009-04-28,Jesionkiewicz,13.68,3.024,ETD
 2009-04-28,Axa,-0.72,3.024,ETD
-2009-04-28,Brát l.,1.44,1.9872,ETD
+2009-04-28,Marek p.,-1.152,2.0304,ETD
 2009-04-28,Kučáková h.,1.296,2.5776,ETD
+2009-04-28,Jesionkiewicz,13.68,3.024,ETD
+2009-04-28,Brát l.,1.44,1.9872,ETD
 2009-04-21,Dvorak,0.576,0.864,ETD
-2009-04-19,Trnka j.,-0.864,1.1664,ETD
 2009-04-19,Lomoz f.,-9.936,2.7648,ETD
+2009-04-19,Trnka j.,-0.864,1.1664,ETD
 2009-04-12,Gary,-3.024,1.44,ETD
 2009-04-10,Trnka j.,-1.872,1.8864,ETD
 2009-04-10,Dřevěný r.,1.584,1.9728,ETD

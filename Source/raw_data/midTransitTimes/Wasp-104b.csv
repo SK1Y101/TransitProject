@@ -1,6 +1,6 @@
 date,observer,oc,oce,source
-2022-03-23,Paolo Arcangelo Matassa,-2.9,1.7,ExoClock observation
 2022-03-23,Claudio Lopresti,-0.2,1.3,ExoClock observation
+2022-03-23,Paolo Arcangelo Matassa,-2.9,1.7,ExoClock observation
 2022-03-23,Dominique DANIEL,2.0,3.0,ExoClock observation
 2022-03-11,Chiahui Wang,1.7,1.4,ExoClock observation
 2022-03-09,Marc SERRAU,-4.6,2.2,ExoClock observation
@@ -14,35 +14,35 @@ date,observer,oc,oce,source
 2021-03-20,Yves Jongen,0.3,1.3,ExoClock observation
 2021-03-19,Yves jongen,-1.008,1.3824,ETD
 2021-02-28,Ivo Peretto,-3.0,0.9,ExoClock observation
-2021-02-28,Didier Laloum,-1.6,1.7,ExoClock observation
 2021-02-28,"Francesco scaggiante, danilo zardin,marco fiaschi",-5.328,1.9296,ETD
+2021-02-28,Didier Laloum,-1.6,1.7,ExoClock observation
 2021-02-21,Giuseppe marino et al. (4^ i liceo galilei catania),-4.176,1.224,ETD
 2021-02-14,"Nico montigiani, massimiliano mannucci",-3.6,1.0224,ETD
 2021-02-14,Massimiliano Mannucci,-0.5,1.2,ExoClock observation
 2021-01-15,Aaav astrofili valdera,17.136,,ETD
 2020-11-19,Adam Popowicz,-2.4,2.7,ExoClock observation
-2020-04-11,Anaël wünsche,-1.152,0.8496,ETD
-2020-04-11,Mauro Caló,-1.6,1.2,ExoClock observation
-2020-04-11,Alberto Tomatis,-2.3,2.6,ExoClock observation
 2020-04-11,"K. hoňková, m. tylšar",0.288,2.952,ETD
+2020-04-11,Alberto Tomatis,-2.3,2.6,ExoClock observation
 2020-04-11,Anaël Wünsche,-0.3,1.0,ExoClock observation
+2020-04-11,Mauro Caló,-1.6,1.2,ExoClock observation
+2020-04-11,Anaël wünsche,-1.152,0.8496,ETD
 2020-04-11,Martin Crow,0.4,1.7,ExoClock observation
 2020-04-11,John Savage,2.1,1.0,ExoClock observation
-2020-04-04,Jean plazas,25.2,3.528,ETD
 2020-04-04,Nosáľ p.,-5.904,3.384,ETD
-2020-03-28,F. lomoz,-7.632,2.4336,ETD
+2020-04-04,Jean plazas,25.2,3.528,ETD
 2020-03-28,Yves jongen,-1.152,0.8784,ETD
+2020-03-28,F. lomoz,-7.632,2.4336,ETD
 2020-03-28,F. lomoz,-6.48,1.4832,ETD
-2020-03-21,Yves jongen,-3.024,1.0512,ETD
 2020-03-21,Jean plazas,1.008,4.0032,ETD
-2020-03-14,Mario morales,-0.576,1.512,ETD
-2020-03-14,Anaël Wünsche,4.2,1.3,ExoClock observation
-2020-03-14,Manfred raetz,-2.448,0.9072,ETD
+2020-03-21,Yves jongen,-3.024,1.0512,ETD
 2020-03-14,Mario Morales Aimar,2.3,1.7,ExoClock observation
+2020-03-14,Anaël Wünsche,4.2,1.3,ExoClock observation
+2020-03-14,Anaël wünsche,7.344,1.1376,ETD
+2020-03-14,Anaël wünsche,3.168,1.3824,ETD
+2020-03-14,Mario morales,-0.576,1.512,ETD
+2020-03-14,Manfred raetz,-2.448,0.9072,ETD
 2020-03-14,Danilo Sedita,-0.2,1.0,ExoClock observation
 2020-03-14,Nosáľ p.,-3.312,2.6928,ETD
-2020-03-14,Anaël wünsche,3.168,1.3824,ETD
-2020-03-14,Anaël wünsche,7.344,1.1376,ETD
 2020-02-28,Richard Lee,2.6,1.7,ExoClock observation
 2020-02-25,Yves jongen,-0.72,0.8928,ETD
 2020-02-15,Vikrant Kumar Agnihotri,1.0,0.9,ExoClock observation
@@ -59,9 +59,9 @@ date,observer,oc,oce,source
 2019-03-28,Anaël Wünsche,-0.7,0.6,ExoClock observation
 2019-03-27,Anael wunsche,-2.016,0.6336,ETD
 2019-03-20,Pere guerra,-1.728,1.0368,ETD
+2019-03-20,Anaël Wünsche,-0.8,0.7,ExoClock observation
 2019-03-20,Marc bretton,-1.872,0.7344,ETD
 2019-03-20,F. lomoz,1.152,2.8944,ETD
-2019-03-20,Anaël Wünsche,-0.8,0.7,ExoClock observation
 2019-03-18,Joe garlitz,-1.152,2.0592,ETD
 2019-02-27,Bruno dauchet saml,-3.6,1.0224,ETD
 2019-02-13,David oelmann,-3.168,2.088,ETD

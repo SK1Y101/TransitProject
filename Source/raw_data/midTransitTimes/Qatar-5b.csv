@@ -4,16 +4,16 @@ date,observer,oc,oce,source
 2021-08-17,Yves Jongen,-1.1,1.2,ExoClock observation
 2021-08-17,Yves jongen,-1.872,1.2528,ETD
 2021-08-15,Vojtěch Školník,-0.8,1.2,ExoClock observation
-2021-08-14,Školník v.,-1.872,1.1952,ETD
 2021-08-14,Lomoz f.,-11.376,2.1456,ETD
-2020-11-05,John Savage,3.1,2.0,ExoClock observation
+2021-08-14,Školník v.,-1.872,1.1952,ETD
 2020-11-05,Veli-pekka hentunen,-3.6,1.512,ETD
+2020-11-05,John Savage,3.1,2.0,ExoClock observation
 2020-10-31,Pere Guerra,1.7,1.7,ExoClock observation
-2020-10-30,Pere guerra,3.744,1.8,ETD
 2020-10-30,Yves jongen,2.16,1.8,ETD
+2020-10-30,Pere guerra,3.744,1.8,ETD
 2020-10-10,Carmelo Falco,-1.2,0.6,ExoClock observation
-2020-09-17,Danilo Sedita,-2.3,1.6,ExoClock observation
 2020-09-17,"Sven de vrieze, bernd koch",0.576,2.1024,ETD
+2020-09-17,Danilo Sedita,-2.3,1.6,ExoClock observation
 2020-07-27,Gianluca rossi,-31.104,8.64,ETD
 2019-12-30,Sven de vrieze,-1.008,1.44,ETD
 2019-10-13,Yves jongen,1.296,1.7712,ETD
@@ -24,21 +24,21 @@ date,observer,oc,oce,source
 2018-11-19,Snaevarr gudmundsson,-6.912,2.1168,ETD
 2018-10-24,Sjoerd dufoer,-10.224,4.3776,ETD
 2018-10-24,Pere guerra,-1.728,1.9728,ETD
+2018-09-28,Yves jongen,12.24,1.3536,ETD
 2018-09-28,Pere guerra,2.448,1.008,ETD
 2018-09-28,Pietro aceti,39.744,2.9232,ETD
-2018-09-28,Yves jongen,12.24,1.3536,ETD
-2018-09-08,F. lomoz,-5.616,6.3504,ETD
 2018-09-08,Yves jongen,1.584,1.5552,ETD
+2018-09-08,F. lomoz,-5.616,6.3504,ETD
 2018-08-13,Mishevskiy nikolay,-153.216,794.6784,ETD
-2018-08-11,Mallonn et al. 2019,3.6,2.2,ExoClock literature
 2018-08-11,Mallonn et al. 2019,5.4,1.8,ExoClock literature
+2018-08-11,Mallonn et al. 2019,3.6,2.2,ExoClock literature
 2018-07-21,Yves jongen,-17.136,1.8288,ETD
 2017-10-03,Karl fenzl and peter soens,4.608,1.1952,ETD
 2017-08-24,Gabriel murawski,-7.632,4.8384,ETD
 2017-08-21,Marc bretton,1.872,0.7344,ETD
 2017-08-21,Mario Morales Aimar,-1.2,2.9,ExoClock observation
-2017-08-21,Anaël Wünsche,3.1,0.9,ExoClock observation
 2017-08-21,Mario morales,-10.08,1.008,ETD
+2017-08-21,Anaël Wünsche,3.1,0.9,ExoClock observation
 2016-12-28,Matthieu bachschmidt,-1.296,2.8512,ETD
 2016-12-28,Marc bretton,7.776,1.7856,ETD
 2016-12-28,Marc bretton,14.256,0.792,ETD

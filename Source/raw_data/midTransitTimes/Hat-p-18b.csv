@@ -11,8 +11,8 @@ date,observer,oc,oce,source
 2019-02-23,Yves Jongen,-0.9,1.9,ExoClock observation
 2019-02-22,Yves jongen,1.872,2.0592,ETD
 2017-03-30,"Francesco scaggiante, danilo zardin",0.288,1.4112,ETD
-2016-04-29,Kirk et al. 2017,0.1,0.1,ExoClock literature
 2016-04-29,Kirk et al. 2017,-1.1,0.3,ExoClock literature
+2016-04-29,Kirk et al. 2017,0.1,0.1,ExoClock literature
 2016-04-06,David molina,0.576,0.8784,ETD
 2016-04-06,"David molina, antoni vives sureda",-0.288,1.0224,ETD
 2016-03-26,František lomoz,6.048,1.5264,ETD
@@ -36,8 +36,8 @@ date,observer,oc,oce,source
 2012-06-18,Scarmato t.,-4.032,1.0368,ETD
 2012-06-08,Seeliger et al. 2015,-4.9,1.8,ExoClock literature
 2012-05-27,Emering f.,-0.864,3.312,ETD
-2012-05-16,Audejean m.,-1.584,1.6704,ETD
 2012-05-16,Michelet j.,0.144,0.864,ETD
+2012-05-16,Audejean m.,-1.584,1.6704,ETD
 2012-05-05,Seeliger et al. 2015,-1.5,1.2,ExoClock literature
 2012-04-24,Horta f. g.,-5.904,1.368,ETD
 2011-06-26,Pecharromán f. c.,3.312,1.0512,ETD
@@ -45,8 +45,8 @@ date,observer,oc,oce,source
 2011-06-04,Zibar m.,2.88,3.4704,ETD
 2011-06-04,Marrero a. l.,-5.328,2.5344,ETD
 2011-05-24,Lopresti c.,-6.624,1.2384,ETD
-2011-05-24,Seeliger et al. 2015,2.9,1.2,ExoClock literature
 2011-05-24,Zibar m.,3.168,2.592,ETD
+2011-05-24,Seeliger et al. 2015,2.9,1.2,ExoClock literature
 2011-05-13,Ayiomamitis a.,-3.024,1.08,ETD
 2011-05-13,Brosio a.,-7.2,4.3488,ETD
 2011-05-13,Lomoz f.,-1.008,1.872,ETD

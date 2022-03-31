@@ -7,8 +7,8 @@ date,observer,oc,oce,source
 2021-09-30,F. lomoz,-7.488,2.0736,ETD
 2021-09-30,F. lomoz,-4.464,1.5696,ETD
 2020-11-05,Jean plazas,3.6,,ETD
-2020-11-05,Yves Jongen,-1.6,1.0,ExoClock observation
 2020-11-05,Yves jongen,-5.04,0.8784,ETD
+2020-11-05,Yves Jongen,-1.6,1.0,ExoClock observation
 2020-09-28,Snaevarr gudmundsson,-3.024,1.1376,ETD
 2020-09-12,Yves Jongen,0.2,1.2,ExoClock observation
 2020-09-11,Yves jongen,-1.44,0.9216,ETD
@@ -17,10 +17,10 @@ date,observer,oc,oce,source
 2019-11-25,Alberto tomatis,-7.92,3.2544,ETD
 2019-11-04,Veli-pekka hentunen,-9.36,1.2528,ETD
 2019-10-22,Truman state observer,-3.024,0.9504,ETD
-2018-12-27,Marc bretton,-3.6,1.0944,ETD
-2018-12-27,Yves jongen,0.432,1.2096,ETD
-2018-12-27,Anaël Wünsche,-0.1,1.4,ExoClock observation
 2018-12-27,Yves Jongen,0.8,1.2,ExoClock observation
+2018-12-27,Anaël Wünsche,-0.1,1.4,ExoClock observation
+2018-12-27,Yves jongen,0.432,1.2096,ETD
+2018-12-27,Marc bretton,-3.6,1.0944,ETD
 2018-12-10,Yves Jongen,0.4,1.0,ExoClock observation
 2018-12-10,Yves jongen,0.432,0.9072,ETD
 2018-08-18,Anael wunsche,-4.032,1.152,ETD
@@ -29,10 +29,10 @@ date,observer,oc,oce,source
 2017-10-10,Marc bretton,-3.312,1.0224,ETD
 2016-12-02,Trnka j.,-2.736,2.6928,ETD
 2016-10-08,Soulignac-dauriac-couderc-sinopoli,-1.728,1.512,ETD
-2016-10-08,Marc bretton,-0.144,1.3392,ETD
-2016-10-08,Anaël Wünsche,3.2,1.6,ExoClock observation
-2016-10-08,Soulignac-dauriac-couderc-sinopoli,-3.168,1.2672,ETD
 2016-10-08,Marc bretton,-0.0,1.3248,ETD
+2016-10-08,Soulignac-dauriac-couderc-sinopoli,-3.168,1.2672,ETD
+2016-10-08,Anaël Wünsche,3.2,1.6,ExoClock observation
+2016-10-08,Marc bretton,-0.144,1.3392,ETD
 2016-08-31,Pierre le cam,-0.144,2.7504,ETD
 2015-11-14,David molina,-6.768,1.9296,ETD
 2015-11-14,Dauchet coulon charrier,-0.72,1.8432,ETD

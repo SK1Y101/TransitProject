@@ -12,35 +12,35 @@ date,observer,oc,oce,source
 2021-01-20,Yves jongen,-3.168,1.5408,ETD
 2021-01-14,Yves Jongen,-3.2,1.2,ExoClock observation
 2021-01-13,Yves jongen,-9.36,0.9792,ETD
-2021-01-11,Anaël wünsche,-11.376,8.0352,ETD
 2021-01-11,Anaël Wünsche,-4.3,1.0,ExoClock observation
-2021-01-11,Yves jongen,-6.624,0.936,ETD
 2021-01-11,Adam Popowicz,-5.2,1.9,ExoClock observation
+2021-01-11,Anaël wünsche,-11.376,8.0352,ETD
+2021-01-11,Yves jongen,-6.624,0.936,ETD
 2021-01-11,Yves Jongen,1.4,1.0,ExoClock observation
 2020-11-22,Anaël Wünsche,-2.1,1.3,ExoClock observation
 2020-11-21,Anaël wünsche,-7.056,1.224,ETD
 2020-03-29,Phil Evans,-3.3,0.9,ExoClock observation
+2020-03-12,Nikolaos Paschalis,-1.8,1.4,ExoClock observation
+2020-03-12,Giuseppe marino,-7.344,1.4112,ETD
 2020-03-12,Danilo Sedita,-0.6,1.0,ExoClock observation
 2020-03-12,Iakovos Strikis,-4.1,2.2,ExoClock observation
 2020-03-12,Dimitrios Deligeorgopoulos,-3.2,2.3,ExoClock observation
-2020-03-12,Giuseppe marino,-7.344,1.4112,ETD
-2020-03-12,Nikolaos Paschalis,-1.8,1.4,ExoClock observation
 2020-03-05,Alessandro Nastasi,1.2,1.4,ExoClock observation
-2019-03-29,Anael wunsche,-2.448,0.9792,ETD
-2019-03-29,Anaël Wünsche,0.5,1.9,ExoClock observation
 2019-03-29,Yves jongen,-6.048,0.6624,ETD
+2019-03-29,Anaël Wünsche,0.5,1.9,ExoClock observation
+2019-03-29,Anael wunsche,-2.448,0.9792,ETD
 2019-03-22,F. lomoz,-2.304,2.7792,ETD
-2019-03-22,F. lomoz,-8.928,2.8944,ETD
-2019-03-22,Xavier rubia,-19.728,1.3104,ETD
 2019-03-22,Anael wunsche,-6.048,1.2672,ETD
 2019-03-22,Yves jongen,-4.464,1.008,ETD
+2019-03-22,Xavier rubia,-19.728,1.3104,ETD
+2019-03-22,F. lomoz,-8.928,2.8944,ETD
 2019-03-22,Anaël Wünsche,-1.9,1.4,ExoClock observation
 2019-03-08,Paul c leyland,-4.32,2.7648,ETD
-2019-02-20,Lycee notre dame esperance ,-29.808,2.2464,ETD
-2019-02-20,Josep gaitan,-15.12,2.7648,ETD
-2019-02-20,Anael wunsche,-5.904,0.8064,ETD
-2019-02-20,Anaël Wünsche,2.1,0.9,ExoClock observation
 2019-02-20,Yves jongen,-3.024,0.9648,ETD
+2019-02-20,Anael wunsche,-5.904,0.8064,ETD
+2019-02-20,Lycee notre dame esperance ,-29.808,2.2464,ETD
+2019-02-20,Anaël Wünsche,2.1,0.9,ExoClock observation
+2019-02-20,Josep gaitan,-15.12,2.7648,ETD
 2019-01-07,Medulka t.,-7.632,1.5552,ETD
 2018-12-31,Ramon naves,-3.6,1.6416,ETD
 2018-12-31,Jean plazas,-1.584,3.8592,ETD
@@ -53,13 +53,13 @@ date,observer,oc,oce,source
 2017-02-08,Josep gaitan ,-3.888,2.3472,ETD
 2016-12-19,Manfred raetz,1.296,2.6784,ETD
 2016-12-12,"Š. gajdoš, j. šubjak",-7.92,0.576,ETD
-2016-03-26,Anaël Wünsche,1.9,0.4,ExoClock observation
 2016-03-26,Marc bretton,-1.44,0.504,ETD
+2016-03-26,Anaël Wünsche,1.9,0.4,ExoClock observation
 2015-12-22,David molina,-2.592,1.1232,ETD
 2015-04-12,Anaël Wünsche,-1.1,0.9,ExoClock observation
-2015-04-12,Anaël Wünsche,1.7,0.7,ExoClock observation
 2015-04-12,Marc bretton,-3.744,0.72,ETD
 2015-04-12,Marc bretton,-1.008,0.6192,ETD
+2015-04-12,Anaël Wünsche,1.7,0.7,ExoClock observation
 2015-04-12,Cyprien pouzenc,0.0,,ETD
 2015-03-22,Daniel whitehurst,-1.872,2.7216,ETD
 2015-03-13,"Francesco scaggiante, danilo zardin",-14.4,1.0368,ETD

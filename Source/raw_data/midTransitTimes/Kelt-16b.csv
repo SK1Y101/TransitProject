@@ -6,17 +6,17 @@ date,observer,oc,oce,source
 2021-10-05,David Wright,-6.1,1.7,ExoClock observation
 2021-09-02,"Francesco scaggiante, danilo zardin,marco fiaschi",-9.36,1.3392,ETD
 2021-09-02,F. lomoz,-7.056,1.3536,ETD
-2021-09-01,Yves jongen,-3.312,1.2528,ETD
 2021-09-01,"Francesco scaggiante, danilo zardin,marco fiaschi",-24.192,1.3392,ETD
+2021-09-01,Yves jongen,-3.312,1.2528,ETD
 2021-08-31,Paolo Arcangelo Matassa,2.9,2.4,ExoClock observation
 2021-08-01,Samuel diaz lopez,7.056,1.9584,ETD
 2021-07-30,Samuel diaz lopez,-0.288,1.3968,ETD
-2021-06-30,Didier Laloum,1.5,1.3,ExoClock observation
 2021-06-30,Anaël Wünsche,-1.6,0.7,ExoClock observation
 2021-06-30,Anaël wünsche,-2.592,0.6336,ETD
+2021-06-30,Didier Laloum,1.5,1.3,ExoClock observation
 2021-06-29,Javier de elias,4.608,2.304,ETD
-2021-05-30,Carmelo Falco,-2.6,1.6,ExoClock observation
 2021-05-30,Carmelo Falco,-2.1,1.4,ExoClock observation
+2021-05-30,Carmelo Falco,-2.6,1.6,ExoClock observation
 2020-11-28,Lionel Rousselot,-0.4,2.3,ExoClock observation
 2020-10-28,"Francesco scaggiante, danilo zardin,marco fiaschi",2.88,1.8432,ETD
 2020-10-27,Josep gaitan,5.616,2.1888,ETD
@@ -28,13 +28,13 @@ date,observer,oc,oce,source
 2020-08-20,F. lomoz,1.584,0.9072,ETD
 2020-08-20,jean pascal vignes,-0.0,1.4,ExoClock observation
 2020-07-24,Claudio Lopresti,6.6,1.3,ExoClock observation
-2020-07-23,Pierros Papadeas,1.3,2.4,ExoClock observation
 2020-07-23,Claudio arena,-2.448,2.3904,ETD
+2020-07-23,Pierros Papadeas,1.3,2.4,ExoClock observation
 2020-07-22,Arena claudio,0.864,1.8864,ETD
-2020-07-21,Stephen M. Brincat,-0.6,1.3,ExoClock observation
+2020-07-21,Nikolaos Paschalis,3.6,1.7,ExoClock observation
 2020-07-21,Adrian Jones,-2.2,1.2,ExoClock observation
 2020-07-21,John Savage,1.6,1.2,ExoClock observation
-2020-07-21,Nikolaos Paschalis,3.6,1.7,ExoClock observation
+2020-07-21,Stephen M. Brincat,-0.6,1.3,ExoClock observation
 2020-06-21,Alberto Tomatis,-1.5,1.4,ExoClock observation
 2020-06-21,Mauro Caló,-0.7,1.4,ExoClock observation
 2020-06-20,Mauro Caló,0.8,1.9,ExoClock observation
@@ -44,64 +44,64 @@ date,observer,oc,oce,source
 2019-11-18,Martin Crow,-0.3,2.2,ExoClock observation
 2019-10-20,Dim Stouraitis,4.7,1.4,ExoClock observation
 2019-10-17,Alberto Tomatis,-3.4,1.2,ExoClock observation
-2019-09-17,Martin Crow,-3.4,2.4,ExoClock observation
 2019-09-17,Yves jongen,-1.44,1.296,ETD
+2019-09-17,Martin Crow,-3.4,2.4,ExoClock observation
 2019-09-17,Yves Jongen,-0.1,1.0,ExoClock observation
 2019-09-16,Nikolaos Paschalis,2.4,2.3,ExoClock observation
 2019-09-16,Anael wunsche,-1.584,1.1952,ETD
 2019-09-16,Anaël Wünsche,0.6,1.0,ExoClock observation
-2019-09-15,F. lomoz,7.488,2.7504,ETD
 2019-09-15,"Francesco scaggiante, danilo zardin,marco fiaschi",-2.016,0.936,ETD
-2019-09-14,Mark salisbury,-1.296,0.8928,ETD
-2019-09-14,Veli-pekka hentunen,-1.584,1.296,ETD
+2019-09-15,F. lomoz,7.488,2.7504,ETD
 2019-09-14,Š. gajdoš,-2.448,0.8064,ETD
+2019-09-14,Veli-pekka hentunen,-1.584,1.296,ETD
+2019-09-14,Mark salisbury,-1.296,0.8928,ETD
 2019-09-13,Martin Crow,-0.5,3.5,ExoClock observation
 2019-09-12,Pere Guerra,-1.9,1.0,ExoClock observation
-2019-09-11,Pere guerra,-2.88,1.0368,ETD
-2019-09-11,Alberto tomatis,-2.736,1.872,ETD
-2019-09-11,Alberto tomatis,-2.448,2.952,ETD
 2019-09-11,Pau bosch,0.0,1.3104,ETD
+2019-09-11,Alberto tomatis,-2.448,2.952,ETD
+2019-09-11,Alberto tomatis,-2.736,1.872,ETD
+2019-09-11,Pere guerra,-2.88,1.0368,ETD
 2019-09-10,Manfred raetz,1.152,2.0592,ETD
 2019-08-15,Roland casali,-0.144,3.4272,ETD
 2019-08-15,Roland casali,1.008,2.808,ETD
-2019-08-14,Pedro martorell,-2.304,1.08,ETD
 2019-08-14,Alberto garcia sanchez,-5.328,1.44,ETD
+2019-08-14,Pedro martorell,-2.304,1.08,ETD
 2019-08-13,Yves Jongen,-0.3,0.7,ExoClock observation
 2019-08-13,Yves jongen,-1.44,0.8352,ETD
 2019-08-12,Yves Jongen,0.9,0.7,ExoClock observation
 2019-08-12,Yves jongen,0.0,0.936,ETD
 2019-07-14,Luis tremosa,4.752,0.9792,ETD
 2019-07-14,Adam nowak,-4.752,4.2048,ETD
-2019-07-13,Anaël wünsche,-2.16,1.1376,ETD
-2019-07-13,Riccardo papini,-5.904,1.0944,ETD
 2019-07-13,Anaël Wünsche,-0.3,1.3,ExoClock observation
-2019-07-12,Anael wunsche,-0.144,0.8928,ETD
+2019-07-13,Riccardo papini,-5.904,1.0944,ETD
+2019-07-13,Anaël wünsche,-2.16,1.1376,ETD
 2019-07-12,Anaël Wünsche,0.4,0.7,ExoClock observation
+2019-07-12,Anael wunsche,-0.144,0.8928,ETD
 2018-10-10,Veli-pekka hentunen,-1.728,1.224,ETD
 2018-10-09,Maciejewski et al. 2018,-0.1,0.4,ExoClock literature
-2018-10-05,F. lomoz,-4.896,1.3248,ETD
 2018-10-05,F. lomoz,7.488,1.6848,ETD
+2018-10-05,F. lomoz,-4.896,1.3248,ETD
 2018-09-06,Maciejewski et al. 2018,-1.1,0.7,ExoClock literature
-2018-09-05,Anaël Wünsche,-0.8,1.6,ExoClock observation
 2018-09-05,Anael wunsche,-0.72,0.5472,ETD
+2018-09-05,Anaël Wünsche,-0.8,1.6,ExoClock observation
 2018-09-04,Yves Jongen,-0.2,1.6,ExoClock observation
 2018-09-04,Yves jongen,-2.592,1.224,ETD
 2018-09-03,Maciejewski et al. 2018,-0.4,0.9,ExoClock literature
-2018-09-03,Yves jongen,-0.576,1.368,ETD
 2018-09-03,Yves Jongen,2.3,1.3,ExoClock observation
+2018-09-03,Yves jongen,-0.576,1.368,ETD
 2018-08-04,Yves Jongen,-1.7,1.7,ExoClock observation
 2018-08-04,Yves jongen,-3.744,2.1312,ETD
 2018-08-04,David molina ,-1.008,1.9296,ETD
 2018-08-03,Maciejewski et al. 2018,0.4,0.9,ExoClock literature
 2018-08-03,Lionel Rousselot,4.0,1.7,ExoClock observation
-2018-08-03,David molina ,0.288,2.52,ETD
 2018-08-03,Lionel rousselot,4.032,1.3248,ETD
+2018-08-03,David molina ,0.288,2.52,ETD
 2018-08-02,David molina ,-8.928,1.3536,ETD
-2018-08-01,F. lomoz,1.584,2.0448,ETD
 2018-08-01,F. lomoz,-7.344,1.7568,ETD
+2018-08-01,F. lomoz,1.584,2.0448,ETD
 2018-07-03,Nikolaos Paschalis,3.3,2.3,ExoClock observation
-2018-07-03,Manfred raetz,0.288,1.8864,ETD
 2018-07-03,F. lomoz,-2.16,1.1808,ETD
+2018-07-03,Manfred raetz,0.288,1.8864,ETD
 2018-07-02,Yves Jongen,-3.0,2.4,ExoClock observation
 2018-07-01,Yves jongen,-4.752,1.3824,ETD
 2018-06-02,F. lomoz,2.736,2.4192,ETD
@@ -132,8 +132,8 @@ date,observer,oc,oce,source
 2016-11-21,Maciejewski et al. 2018,-0.8,1.0,ExoClock literature
 2016-10-11,Michael fleenor,-1.008,0.864,ETD
 2016-10-09,Michael fleenor,0.432,1.872,ETD
-2016-09-14,František lomoz,-0.144,2.4048,ETD
 2016-09-14,Juan lozano de haro,-2.736,1.8576,ETD
+2016-09-14,František lomoz,-0.144,2.4048,ETD
 2016-09-13,Manfred raetz,3.312,3.4992,ETD
 2015-12-07,Oberst et al. 2017,1.1,2.0,ExoClock literature
 2015-12-07,Oberst et al. 2017,-0.8,1.6,ExoClock literature

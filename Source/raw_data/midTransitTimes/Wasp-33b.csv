@@ -14,8 +14,8 @@ date,observer,oc,oce,source
 2020-01-25,Pavel pintr,22.896,0.936,ETD
 2020-01-14,"Francesco scaggiante, danilo zardin,marco fiaschi",27.072,1.2528,ETD
 2020-01-03,Yves jongen,23.904,1.368,ETD
-2019-12-28,Manfred raetz,24.48,0.5184,ETD
 2019-12-28,Manfred Raetz,24.3,0.9,ExoClock observation
+2019-12-28,Manfred raetz,24.48,0.5184,ETD
 2019-11-30,Jens jacobsen,22.752,2.2896,ETD
 2019-11-25,Snaevarr gudmundsson,24.768,1.6272,ETD
 2019-10-30,Manfred Raetz,22.1,1.0,ExoClock observation
@@ -53,10 +53,10 @@ date,observer,oc,oce,source
 2016-11-28,Pierre le cam,16.272,1.3536,ETD
 2016-10-30,Clausse jean-christophe,-5.904,2.7504,ETD
 2016-10-30,Matthieu bachschmidt,-13.68,26.0928,ETD
+2016-10-03,Pierre le cam,1.152,1.2096,ETD
 2016-10-03,Riat valentin,-29.664,1.3968,ETD
 2016-10-03,Jerome proust,21.888,1.4544,ETD
 2016-10-03,Marc deldem,15.264,1.1808,ETD
-2016-10-03,Pierre le cam,1.152,1.2096,ETD
 2016-09-27,Pavel pintr,5.76,3.4704,ETD
 2016-09-12,Manfred Raetz,16.5,0.9,ExoClock observation
 2016-09-11,Ramon naves,18.0,0.936,ETD
@@ -131,10 +131,10 @@ date,observer,oc,oce,source
 2011-12-20,"Gorshanov d. l., sokov e. n.",8.064,0.4176,ETD
 2011-12-15,Gaitan j.,6.336,0.7488,ETD
 2011-12-10,Trnka j.,5.904,1.0224,ETD
-2011-12-10,"Ivanov k., bourdanov a.",7.2,4.0464,ETD
 2011-12-10,"Romas e., sokov e.",9.648,0.9216,ETD
 2011-12-10,Garcia f.,1.296,1.2384,ETD
 2011-12-10,Bourdanov a.,4.32,1.2528,ETD
+2011-12-10,"Ivanov k., bourdanov a.",7.2,4.0464,ETD
 2011-12-06,Dvorak s.,6.048,1.296,ETD
 2011-12-06,Joe garlitz,2.736,0.8496,ETD
 2011-12-05,"Romas e., sokov e.",4.752,1.1376,ETD
@@ -143,8 +143,8 @@ date,observer,oc,oce,source
 2011-11-24,Naves r.,14.976,0.864,ETD
 2011-11-23,Gaitan j.,-19.872,1.5264,ETD
 2011-11-23,Naves r.,7.92,1.224,ETD
-2011-11-22,Bourdanov a.,9.792,1.6128,ETD
 2011-11-22,Bourdanov a.,4.464,1.224,ETD
+2011-11-22,Bourdanov a.,9.792,1.6128,ETD
 2011-11-13,Dvorak s.,1.296,1.2096,ETD
 2011-11-12,František lomoz,-9.504,2.232,ETD
 2011-11-12,Corfini g.,6.768,1.1088,ETD
@@ -156,8 +156,8 @@ date,observer,oc,oce,source
 2011-10-22,Tremosa l.,3.312,1.8576,ETD
 2011-10-21,Perroud v.,-0.576,4.032,ETD
 2011-10-06,Morris b.,14.112,2.2752,ETD
-2011-10-05,"Vereshchagina i. a., sokov e. n",17.136,1.6992,ETD
 2011-10-05,Naves r.,10.368,1.2816,ETD
+2011-10-05,"Vereshchagina i. a., sokov e. n",17.136,1.6992,ETD
 2011-09-30,Shadic s.,6.048,1.0512,ETD
 2011-09-29,Trnka j.,6.48,1.9296,ETD
 2011-09-29,Naves r.,-6.192,4.5648,ETD
@@ -183,9 +183,9 @@ date,observer,oc,oce,source
 2010-12-05,Shadic s.,6.912,1.4112,ETD
 2010-12-03,Husar d.,4.32,1.6128,ETD
 2010-11-27,Brát l.,9.648,1.1808,ETD
-2010-11-18,Shawn dvorak,5.904,0.864,ETD
-2010-11-18,Dvorak s.,6.048,0.8064,ETD
 2010-11-18,Garlitz i.,-0.432,1.6992,ETD
+2010-11-18,Dvorak s.,6.048,0.8064,ETD
+2010-11-18,Shawn dvorak,5.904,0.864,ETD
 2010-11-11,Ruocco n.,8.496,1.3392,ETD
 2010-11-06,Francisco jiménez alvarado,6.624,1.0656,ETD
 2010-11-06,Ruocco n.,9.36,4.464,ETD

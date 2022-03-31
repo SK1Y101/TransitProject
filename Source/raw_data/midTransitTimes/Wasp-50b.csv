@@ -4,8 +4,8 @@ date,observer,oc,oce,source
 2021-12-29,Paolo Arcangelo Matassa,0.1,2.6,ExoClock observation
 2021-12-16,Yves Jongen,0.1,0.6,ExoClock observation
 2021-12-15,Yves jongen,-1.008,0.6624,ETD
-2021-11-08,christian PANTACCHINI,-0.3,4.3,ExoClock observation
 2021-11-08,Christian pantacchini,-1.728,3.5568,ETD
+2021-11-08,christian PANTACCHINI,-0.3,4.3,ExoClock observation
 2021-11-06,F. lomoz,5.328,1.8288,ETD
 2021-10-04,Wonseok kang,0.288,0.5184,ETD
 2021-10-04,Taewoo Kim,0.7,0.6,ExoClock observation
@@ -33,15 +33,15 @@ date,observer,oc,oce,source
 2020-01-19,Yves jongen,-1.584,0.864,ETD
 2019-12-08,Yves Jongen,-1.1,0.4,ExoClock observation
 2019-12-07,Yves jongen,-0.288,0.6624,ETD
+2019-10-29,Yves jongen,-2.736,0.792,ETD
+2019-10-29,Anael wunsche,9.216,1.296,ETD
 2019-10-29,Anaël Wünsche,2.7,2.6,ExoClock observation
 2019-10-29,Yves Jongen,-1.5,0.9,ExoClock observation
-2019-10-29,Anael wunsche,9.216,1.296,ETD
-2019-10-29,Yves jongen,-2.736,0.792,ETD
 2019-10-21,Roberto r koropecki,6.768,2.9088,ETD
-2019-01-03,Josep gaitan,-2.448,1.9296,ETD
-2019-01-03,Anael wunsche,-3.024,1.6992,ETD
-2019-01-03,Fran campos,-4.32,0.792,ETD
 2019-01-03,Anaël Wünsche,-1.5,1.6,ExoClock observation
+2019-01-03,Anael wunsche,-3.024,1.6992,ETD
+2019-01-03,Josep gaitan,-2.448,1.9296,ETD
+2019-01-03,Fran campos,-4.32,0.792,ETD
 2019-01-03,Josep gaitan,2.88,1.656,ETD
 2019-01-01,Fontaine bruno,4.752,1.4112,ETD
 2018-12-01,Don radford,1.296,1.4544,ETD
@@ -50,8 +50,8 @@ date,observer,oc,oce,source
 2017-11-26,"C. colazo, r. melia, m. starck",0.144,0.6624,ETD
 2017-10-16,Claudio arena,-1.152,0.9504,ETD
 2017-10-04,Horace dale,-3.168,1.0368,ETD
-2016-12-27,Matthieu bachschmidt,1.152,4.4064,ETD
 2016-12-27,Fontaine bruno,-3.168,1.2384,ETD
+2016-12-27,Matthieu bachschmidt,1.152,4.4064,ETD
 2016-12-23,Josep gaitan ,3.744,3.8304,ETD
 2016-12-15,Barbara g. harris,4.032,1.3536,ETD
 2016-12-05,Christoper michael,-3.168,0.8208,ETD
@@ -62,8 +62,8 @@ date,observer,oc,oce,source
 2016-10-23,Andrew stewart,3.024,0.8496,ETD
 2016-02-12,Horace dale,-7.776,1.7136,ETD
 2015-11-26,Miroslav smolka,5.184,2.4336,ETD
-2015-11-12,Andrew stewart,-0.576,0.6768,ETD
 2015-11-12,Gino elia,-0.576,0.6768,ETD
+2015-11-12,Andrew stewart,-0.576,0.6768,ETD
 2015-11-10,Nicholas cuccia,-2.448,1.1664,ETD
 2015-11-10,Andrew stewart,0.576,3.24,ETD
 2015-11-04,Phil evans,-3.6,0.9072,ETD

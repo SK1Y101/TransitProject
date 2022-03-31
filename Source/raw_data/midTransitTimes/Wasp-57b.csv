@@ -13,11 +13,11 @@ date,observer,oc,oce,source
 2019-05-12,Mathieu guinot - stéphane ferratfiat ,7.2,1.0368,ETD
 2019-03-16,Pere guerra,-3.744,1.0656,ETD
 2018-06-11,Tomasz popajewski,3.6,3.6144,ETD
-2018-05-05,F. lomoz,7.776,1.9296,ETD
 2018-05-05,F. lomoz,2.88,1.3824,ETD
-2018-04-18,F. lomoz,-0.432,2.0592,ETD
+2018-05-05,F. lomoz,7.776,1.9296,ETD
 2018-04-18,"Nico montigiani, massimiliano mannucci",-1.44,1.656,ETD
 2018-04-18,Yves jongen,8.784,3.2688,ETD
+2018-04-18,F. lomoz,-0.432,2.0592,ETD
 2018-04-18,F. lomoz,-4.896,2.088,ETD
 2016-07-21,"Melia r., colazo c., villarreal c., tapia l.",-1.584,0.5616,ETD
 2015-06-25,Oleg mazurenko,39.024,,ETD
@@ -35,10 +35,10 @@ date,observer,oc,oce,source
 2014-06-10,Southworth et al. 2015,2.7,1.4,ExoClock literature
 2014-05-19,Southworth et al. 2015,-0.4,0.3,ExoClock literature
 2014-03-11,Dittler u.,9.072,2.4624,ETD
-2012-05-11,Southworth et al. 2015,-0.3,0.6,ExoClock literature
-2012-05-11,Southworth et al. 2015,0.0,0.6,ExoClock literature
-2012-05-11,Southworth et al. 2015,0.7,0.3,ExoClock literature
 2012-05-11,Southworth et al. 2015,-0.9,2.1,ExoClock literature
+2012-05-11,Southworth et al. 2015,0.7,0.3,ExoClock literature
+2012-05-11,Southworth et al. 2015,0.0,0.6,ExoClock literature
+2012-05-11,Southworth et al. 2015,-0.3,0.6,ExoClock literature
 2012-04-01,Southworth et al. 2015,-1.6,0.6,ExoClock literature
 2012-04-01,Southworth et al. 2015,0.4,0.2,ExoClock literature
 2012-03-15,Southworth et al. 2015,-1.8,0.5,ExoClock literature
