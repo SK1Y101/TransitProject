@@ -12,22 +12,22 @@ date,observer,oc,oce,source
 2022-02-03,Antonio Marino,53.4,2.4,ExoClock observation
 2022-01-21,Yves Jongen,56.7,0.9,ExoClock observation
 2022-01-20,Yves jongen,12.096,0.7776,ETD
-2022-01-17,Mark Salisbury,56.8,0.7,ExoClock observation
+2022-01-17,Enrique Arce,60.1,4.3,ExoClock observation
 2022-01-17,Adam Popowicz,55.3,1.3,ExoClock observation
 2022-01-17,GONZALO FORNAS,55.7,4.3,ExoClock observation
 2022-01-17,Kevin Johnson,56.2,2.0,ExoClock observation
-2022-01-17,Enrique Arce,60.1,4.3,ExoClock observation
+2022-01-17,Mark Salisbury,56.8,0.7,ExoClock observation
 2022-01-14,Stéphane Montchaud,59.3,2.9,ExoClock observation
 2022-01-14,Pierre Barroy,55.7,0.9,ExoClock observation
+2022-01-14,Stéphane montchaud,10.08,2.3184,ETD
 2022-01-14,Alessandro Marchini,54.5,1.3,ExoClock observation
 2022-01-14,Yves jongen,12.24,0.6192,ETD
-2022-01-14,Alessandro marchini,9.216,1.2816,ETD
-2022-01-14,Cyrille AUMASSON,57.7,0.4,ExoClock observation
 2022-01-14,Anaël Wünsche,57.7,0.4,ExoClock observation
-2022-01-14,Antonio Marino,66.5,4.3,ExoClock observation
-2022-01-14,Stéphane montchaud,10.08,2.3184,ETD
-2022-01-14,Yves Jongen,57.7,0.6,ExoClock observation
+2022-01-14,Cyrille AUMASSON,57.7,0.4,ExoClock observation
 2022-01-14,Paolo Arcangelo Matassa,56.1,2.4,ExoClock observation
+2022-01-14,Yves Jongen,57.7,0.6,ExoClock observation
+2022-01-14,Antonio Marino,66.5,4.3,ExoClock observation
+2022-01-14,Alessandro marchini,9.216,1.2816,ETD
 2022-01-07,Robert Roth,56.3,0.9,ExoClock observation
 2022-01-04,Adam Popowicz,53.7,1.3,ExoClock observation
 2022-01-01,Matthieu Bachschmidt,56.8,1.3,ExoClock observation
@@ -41,15 +41,15 @@ date,observer,oc,oce,source
 2021-12-15,Fabio Mortari,56.4,2.0,ExoClock observation
 2021-12-15,Adam Popowicz,55.7,1.2,ExoClock observation
 2021-12-11,Robert Roth,55.1,0.9,ExoClock observation
-2021-12-11,Robert Roth,55.2,0.9,ExoClock observation
-2021-12-11,Jean-Bernard PIOPPA,53.8,1.6,ExoClock observation
 2021-12-11,Yves jongen,10.944,0.8928,ETD
 2021-12-11,Yves Jongen,56.0,1.0,ExoClock observation
-2021-11-28,Robert Roth,53.9,0.4,ExoClock observation
+2021-12-11,Jean-Bernard PIOPPA,53.8,1.6,ExoClock observation
+2021-12-11,Robert Roth,55.2,0.9,ExoClock observation
 2021-11-28,Robert Roth,53.6,1.0,ExoClock observation
+2021-11-28,Robert Roth,53.9,0.4,ExoClock observation
 2021-11-25,Adam Popowicz,55.1,4.3,ExoClock observation
-2021-05-11,Yves jongen,2.016,0.8784,ETD
 2021-05-11,Cosmin olinici ,-60.048,51.696,ETD
+2021-05-11,Yves jongen,2.016,0.8784,ETD
 2021-04-27,Manfred Raetz,42.0,0.7,ExoClock observation
 2021-04-27,Manfred raetz,-3.6,0.7488,ETD
 2021-04-19,Joe garlitz,1.152,1.1808,ETD

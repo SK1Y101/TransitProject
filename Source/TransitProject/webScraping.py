@@ -1,4 +1,5 @@
 # import python modules
+from astroquery.ipac.nexsci.nasa_exoplanet_archive import NasaExoplanetArchive as archive
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from tqdm import tqdm
@@ -99,9 +100,9 @@ def saveTransitTimes(df, loc="/raw_data/midTransitTimes/", name="", stale_time=7
 
 def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourceName=""):
     ''' Scrape the ExoClock website for exoplanet o-c data, and store as locally accesible csv data.
-        url: The webpage to scrape.
-        loc: the local location to store the data
-        stale_time: the time in days to use a locally stored copy of the page instead.
+        url:        The webpage to scrape.
+        loc:        The local location to store the data
+        stale_time: The time in days to use a locally stored copy of the page instead.
         sourceName: The title to log in the source column of the data. '''
     # check for local storage file
     makeFolder(loc)
@@ -202,7 +203,7 @@ def fetchETDData(url, sourceName="", stale_time=7):
 
 def sourceFromETDTable(page):
     ''' Fetch midtransit times from the main ETD Table on the page.
-        page: the bs4 page source.'''
+        page:   the bs4 page source.'''
     # fetch the table
     replace_breaks(page)
     table = decomposeTable(page, -1)
@@ -232,9 +233,9 @@ def sourceFromETDTable(page):
 
 def sourceFromETDAscii(subpage, suburl, stale_time=7):
     ''' Fetch midtransit data from the ETD ASCII table service.
-        suburl: The url of the homepage.
-        subpage: the bs4 element of the current page.
-        stale_time: as everything else. '''
+        suburl:     The url of the homepage.
+        subpage:    the bs4 element of the current page.
+        stale_time: As everything else. '''
     # fetch the url of the ascii page
     dataUrl = suburl+subpage.find("a", string="Show data as ASCII table separated by semicolon")["href"]
     # go to the data url
@@ -249,3 +250,21 @@ def sourceFromETDAscii(subpage, suburl, stale_time=7):
     transit_data.columns = ["date","observer","oc","oce"]
     # return the data
     return transit_data
+
+def fetchExoplanetArchive(table="pscomppars", loc="/raw_data/", stale_time=7):
+    ''' Fetch exoplanet data from the Exoplanet Archive.
+        table:      specifies which of the archive tables to use (Defaults to pscomppars)
+        loc:        The directory to store the table.
+        stale_time: How long to consider the local data fit for use. '''
+    # fetch the location to search
+    loc += table+".csv"
+    # if we don't have any local data,
+    if not checkForFile(loc, stale_time):
+        # fetch the tabular data
+        rtable = animated_loading_function(archive.query_criteria, table, name="Fetching Exoplanet Archive Data")
+        # convert to dataframe
+        rtable = rtable.to_pandas()
+        # and sort by planet name
+        rtable.sort_values(by="pl_name", inplace=True, ascending=ascending)
+        # store locally
+        saveDataFrame(rtable, loc)

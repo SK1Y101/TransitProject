@@ -27,14 +27,14 @@ date,observer,oc,oce,source
 2020-08-12,Adam Popowicz,5.4,5.8,ExoClock observation
 2020-08-12,Mauro Caló,-2.3,2.6,ExoClock observation
 2020-08-12,Roman ehrenberger,10.8,2.5344,ETD
-2020-08-01,Mark Roberts,7.1,4.3,ExoClock observation
 2020-08-01,Henzl z.,13.968,3.0816,ETD
 2020-08-01,David Wright,1.3,3.5,ExoClock observation
 2020-08-01,Roman ehrenberger,-29.376,2.5776,ETD
-2019-12-02,Anaël wünsche,12.816,2.0736,ETD
+2020-08-01,Mark Roberts,7.1,4.3,ExoClock observation
 2019-12-02,Anaël Wünsche,-0.6,4.3,ExoClock observation
-2019-10-11,Lionel rousselot,6.48,1.728,ETD
+2019-12-02,Anaël wünsche,12.816,2.0736,ETD
 2019-10-11,Lionel Rousselot,-0.7,2.7,ExoClock observation
+2019-10-11,Lionel rousselot,6.48,1.728,ETD
 2019-09-30,Yves jongen,7.488,1.2816,ETD
 2019-09-30,Yves Jongen,2.8,1.2,ExoClock observation
 2019-09-19,Veli-pekka hentunen,-0.144,,ETD
@@ -52,8 +52,8 @@ date,observer,oc,oce,source
 2018-12-20,"Francesco scaggiante, danilo zardin",7.776,2.2896,ETD
 2018-11-28,Jean plazas,7.056,14.6736,ETD
 2018-11-20,Veli-pekka hentunen,33.552,1.3824,ETD
-2018-09-07,Caetano david,57.312,,ETD
 2018-09-07,Caetano david,-0.288,,ETD
+2018-09-07,Caetano david,57.312,,ETD
 2018-08-16,Pere guerra,6.048,2.3472,ETD
 2018-07-28,Gabriel murawski,16.992,3.024,ETD
 2017-12-27,Snaevarr gudmundsson,2.016,3.4704,ETD
@@ -65,17 +65,17 @@ date,observer,oc,oce,source
 2017-09-03,Juanjo gonzalez,4.176,1.7424,ETD
 2017-08-15,Adam popowicz,-1.44,3.2688,ETD
 2017-08-04,Stephane ferratfiat ,5.328,1.3824,ETD
-2017-06-24,Medulka t.,4.608,3.6864,ETD
 2017-06-24,Medulka t.,7.2,5.5296,ETD
-2017-01-03,Eric girardin,2.592,1.3104,ETD
+2017-06-24,Medulka t.,4.608,3.6864,ETD
 2017-01-03,Snaevarr gudmundsson,4.464,2.4192,ETD
+2017-01-03,Eric girardin,2.592,1.3104,ETD
 2016-12-23,Fran campos,7.632,2.6496,ETD
 2016-12-12,Marc bretton,20.736,1.728,ETD
 2016-12-04,Manfred raetz,3.6,1.728,ETD
-2016-10-02,Marc deldem,3.312,1.728,ETD
+2016-10-02,Marc Deldem,-1.4,1.9,ExoClock observation
 2016-10-02,Mark salisbury,0.72,1.4976,ETD
 2016-10-02,David molina,6.768,1.7856,ETD
-2016-10-02,Marc Deldem,-1.4,1.9,ExoClock observation
+2016-10-02,Marc deldem,3.312,1.728,ETD
 2016-09-21,Ramon naves,16.416,2.8512,ETD
 2016-09-21,David molina,5.184,1.5984,ETD
 2016-09-13,Veli-pekka hentunen,4.464,15.3936,ETD

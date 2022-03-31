@@ -21,13 +21,13 @@ date,observer,oc,oce,source
 2020-07-14,Yves jongen,1.296,0.8352,ETD
 2019-10-29,Olivier gerteis,-35.28,4.176,ETD
 2019-09-30,Laloum didier,2.448,2.3184,ETD
-2018-09-29,Yves jongen,13.68,3.2832,ETD
-2018-09-29,F. lomoz,13.968,4.176,ETD
 2018-09-29,F. lomoz,-0.864,3.2832,ETD
+2018-09-29,F. lomoz,13.968,4.176,ETD
+2018-09-29,Yves jongen,13.68,3.2832,ETD
 2018-08-07,Addison et al. 2019,-0.1,0.5,ExoClock literature
 2017-10-22,"Eduardo fernández-lajús, romina p. di sisto",-6.912,0.576,ETD
-2016-12-04,František lomoz,-6.624,3.1248,ETD
 2016-12-04,František lomoz,-1.872,1.8,ETD
+2016-12-04,František lomoz,-6.624,3.1248,ETD
 2016-10-31,Bernasconi laurent,-3.168,1.512,ETD
 2015-12-11,Rob trudel,-7.2,2.808,ETD
 2015-10-31,"Dittler, ullrich",0.72,2.232,ETD
@@ -39,13 +39,13 @@ date,observer,oc,oce,source
 2013-08-01,Moyano et al. 2017,-1.5,0.4,ExoClock literature
 2012-08-17,Moyano et al. 2017,-4.3,2.0,ExoClock literature
 2012-08-12,Moyano et al. 2017,-1.1,1.4,ExoClock literature
-2012-08-12,Moyano et al. 2017,1.2,0.9,ExoClock literature
 2012-08-12,Moyano et al. 2017,1.2,0.7,ExoClock literature
+2012-08-12,Moyano et al. 2017,1.2,0.9,ExoClock literature
 2012-07-18,Sauer t.,-1.728,0.6912,ETD
 2011-10-14,Turner et al. 2016,-0.0,1.9,ExoClock literature
+2011-10-07,Mancini et al. 2013,0.3,0.5,ExoClock literature
 2011-10-07,Mancini et al. 2013,1.0,0.4,ExoClock literature
 2011-10-07,Mancini et al. 2013,0.8,0.7,ExoClock literature
-2011-10-07,Mancini et al. 2013,0.3,0.5,ExoClock literature
 2011-10-02,Mancini et al. 2013,-0.5,0.3,ExoClock literature
 2011-10-02,Mancini et al. 2013,-0.1,0.2,ExoClock literature
 2011-10-02,Mancini et al. 2013,0.6,0.4,ExoClock literature
@@ -53,6 +53,6 @@ date,observer,oc,oce,source
 2011-09-24,Lomoz f.,-5.472,3.528,ETD
 2011-09-09,Evans p.,1.008,2.16,ETD
 2011-09-03,Mancini et al. 2013,0.1,0.2,ExoClock literature
-2010-08-25,Anderson et al. 2012,-0.0,0.6,ExoClock literature
 2010-08-25,"D. r. anderson et al., 2011",-1.152,0.576,ETD
+2010-08-25,Anderson et al. 2012,-0.0,0.6,ExoClock literature
 2010-08-25,Turner et al. 2016,0.7,0.3,ExoClock literature

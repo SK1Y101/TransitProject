@@ -168,3 +168,26 @@ def findFloats(txt=""):
     # Do I understand how this works? Vaguely.
     # But it was sourced from an excellent stackoverflow answer that does explain it anyway
     # https://stackoverflow.com/a/45001796
+
+def animated_loading_function(func, *args, name="Waiting"):
+    ''' Execute a function with an animation showing the loading progress.
+        Usefull for long execution that does not have an output of it's own.
+        func:   The function to execute, passed as a lambda. '''
+    # import threading and Queue
+    from multiprocessing import Pool
+    from time import sleep as wait
+    from itertools import cycle
+    # start the pool
+    with Pool(1) as p:
+        # execute the function
+        r = p.apply_async(func, args)
+        # wait until it is complete
+        elapsed, wt = 0, .1
+        while not r.ready():
+            # show a loading animation
+            for x in cycle(["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]):
+                wait(wt)
+                elapsed +=wt
+                print("{}: {:02.0f}:{:02.0f} {}".format(name, *divmod(elapsed, 60), x), end="\r")
+    # return any of the outputs
+    return r.get()

@@ -9,13 +9,13 @@ date,observer,oc,oce,source
 2020-07-29,Francois regembal,15.408,2.0736,ETD
 2018-10-17,F. lomoz,-22.464,4.7376,ETD
 2018-10-17,F. lomoz,16.56,6.3072,ETD
-2018-09-30,F. lomoz,26.064,2.0448,ETD
 2018-09-30,F. lomoz,6.912,1.5408,ETD
+2018-09-30,F. lomoz,26.064,2.0448,ETD
 2018-09-06,Pere guerra,61.2,22.5936,ETD
-2017-11-10,Serge bergeron,-0.576,2.9376,ETD
 2017-11-10,Danylo shapovalov,7.344,0.936,ETD
-2017-10-14,František lomoz,-3.024,4.0464,ETD
+2017-11-10,Serge bergeron,-0.576,2.9376,ETD
 2017-10-14,František lomoz,5.76,2.736,ETD
+2017-10-14,František lomoz,-3.024,4.0464,ETD
 2016-10-04,František lomoz,-3.168,2.88,ETD
 2016-09-10,František lomoz,9.216,2.7792,ETD
 2016-09-10,František lomoz,9.936,1.8,ETD
@@ -38,7 +38,7 @@ date,observer,oc,oce,source
 2010-10-18,Curtis i.,2.448,2.3904,ETD
 2010-09-17,Maciejewski et al. 2016,-2.9,2.0,ExoClock literature
 2010-09-17,Saral g.,-1.008,1.3536,ETD
-2010-08-07,Naves r.,2.16,1.6416,ETD
 2010-08-07,Lorenz e. r.,-1.152,2.4048,ETD
+2010-08-07,Naves r.,2.16,1.6416,ETD
 2010-04-03,Anderson et al. 2015,-0.9,0.4,ExoClock literature
 2009-10-11,"R. g. west et al., 2010",3.456,0.72,ETD
