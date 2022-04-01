@@ -1,8 +1,8 @@
 date,observer,oc,oce,source
 2021-07-19,J.g.,-3.888,4.0464,ETD
 2021-06-30,Adam Popowicz,-1.5,4.3,ExoClock observation
-2021-06-11,Mario Morales Aimar,2.7,1.6,ExoClock observation
 2021-06-11,Mario morales,0.144,1.0224,ETD
+2021-06-11,Mario Morales Aimar,2.7,1.6,ExoClock observation
 2021-05-12,Jean plazas,9.648,4.2912,ETD
 2021-03-23,Paul Benni,2.3,0.4,ExoClock observation
 2021-03-22,Paul benni,-3.024,0.504,ETD
@@ -29,19 +29,19 @@ date,observer,oc,oce,source
 2017-06-17,Mallonn et al. 2019,0.2,0.3,ExoClock literature
 2017-06-11,Mallonn et al. 2019,0.1,0.3,ExoClock literature
 2017-06-07,M. hoecherl,18.576,3.6576,ETD
-2017-06-07,Mallonn et al. 2019,-0.1,0.3,ExoClock literature
 2017-06-07,Mallonn et al. 2019,0.2,0.3,ExoClock literature
+2017-06-07,Mallonn et al. 2019,-0.1,0.3,ExoClock literature
 2017-06-01,Mallonn et al. 2019,-0.3,0.3,ExoClock literature
 2017-05-30,Mallonn et al. 2019,-0.0,0.2,ExoClock literature
 2017-05-23,Mallonn et al. 2019,0.0,0.2,ExoClock literature
 2017-05-19,Mallonn et al. 2019,-0.2,0.3,ExoClock literature
-2017-05-19,Mallonn et al. 2019,0.5,0.3,ExoClock literature
 2017-05-19,Mallonn et al. 2019,0.1,0.2,ExoClock literature
+2017-05-19,Mallonn et al. 2019,0.5,0.3,ExoClock literature
 2017-05-17,Thomas schaefer,17.424,1.0512,ETD
 2017-05-05,Mallonn et al. 2019,-0.1,0.3,ExoClock literature
 2017-05-04,Mallonn et al. 2019,0.1,0.2,ExoClock literature
-2017-04-23,Mallonn et al. 2019,0.6,0.3,ExoClock literature
 2017-04-23,Mallonn et al. 2019,0.0,0.2,ExoClock literature
+2017-04-23,Mallonn et al. 2019,0.6,0.3,ExoClock literature
 2017-04-18,Mallonn et al. 2019,-0.6,0.6,ExoClock literature
 2017-04-04,Mallonn et al. 2019,-0.1,0.2,ExoClock literature
 2017-04-04,Mallonn et al. 2019,0.6,0.3,ExoClock literature
@@ -50,15 +50,15 @@ date,observer,oc,oce,source
 2016-05-03,David molina,0.576,0.7056,ETD
 2015-07-19,Antonio Marino,0.8,3.0,ExoClock observation
 2015-07-19,A. marino,-2.448,2.1024,ETD
-2015-07-11,Fran campos,-3.312,0.5472,ETD
 2015-07-11,Matthieu bachschmidt,-1.296,1.5408,ETD
+2015-07-11,Fran campos,-3.312,0.5472,ETD
 2015-06-03,Ramon naves,-6.768,1.152,ETD
 2015-05-31,Yenal öğmen,-2.592,0.6768,ETD
 2015-05-23,Matthieu bachschmidt,-1.152,2.6496,ETD
 2015-03-19,Martin zíbar,-2.736,1.08,ETD
 2014-04-02,Benni p.,-0.576,1.1232,ETD
-2013-09-09,Horta f. g.,-7.056,3.6144,ETD
 2013-09-09,Gaitan j.,6.768,1.152,ETD
+2013-09-09,Horta f. g.,-7.056,3.6144,ETD
 2013-06-25,"Nayra rodríguez eugenio (peter, iac)",-1.584,0.288,ETD
 2013-06-25,"María guillermo cabrera (peter, iac)",-1.872,0.3312,ETD
 2013-06-25,Jose pablo navarro pina .,-2.88,0.7776,ETD
@@ -79,8 +79,8 @@ date,observer,oc,oce,source
 2011-11-08,Fraine et al. 2013,-0.1,0.1,ExoClock literature
 2011-11-06,Fraine et al. 2013,-0.2,0.1,ExoClock literature
 2011-08-25,Harpsøe et al. 2013,0.6,0.4,ExoClock literature
-2011-08-25,Harpsøe et al. 2013,-0.7,0.7,ExoClock literature
 2011-08-25,Harpsøe et al. 2013,0.3,0.4,ExoClock literature
+2011-08-25,Harpsøe et al. 2013,-0.7,0.7,ExoClock literature
 2011-08-10,Cáceres et al. 2014,1.0,0.3,ExoClock literature
 2011-06-29,Pecharromán f. c.,-1.44,1.368,ETD
 2011-06-26,Scarmato t.,-3.024,1.6128,ETD
@@ -118,12 +118,12 @@ date,observer,oc,oce,source
 2010-08-06,Harpsøe et al. 2013,0.2,0.3,ExoClock literature
 2010-08-02,Harpsøe et al. 2013,0.2,0.1,ExoClock literature
 2010-07-29,Toni scarmato,-13.248,6.4368,ETD
-2010-07-18,Ohlert j.,-0.864,0.2304,ETD
 2010-07-18,Harpsøe et al. 2013,0.4,0.3,ExoClock literature
+2010-07-18,Ohlert j.,-0.864,0.2304,ETD
 2010-07-14,Harpsøe et al. 2013,0.2,0.2,ExoClock literature
 2010-07-13,Joshua a. carter et al 2010,0.144,0.085,ETD
-2010-07-10,Vrašťák m.,-3.744,0.9216,ETD
 2010-07-10,Scarmato t.,-3.024,3.0816,ETD
+2010-07-10,Vrašťák m.,-3.744,0.9216,ETD
 2010-07-07,Harpsøe et al. 2013,-0.3,0.9,ExoClock literature
 2010-07-07,Sauer t.,-1.872,0.4176,ETD
 2010-07-06,Harpsøe et al. 2013,-0.4,0.2,ExoClock literature
@@ -140,8 +140,8 @@ date,observer,oc,oce,source
 2010-06-16,Sada et al. 2010,-0.72,0.4176,ETD
 2010-06-16,Joshua a. carter et al 2010,-0.288,0.216,ETD
 2010-06-08,Joshua a. carter et al 2010,-0.288,0.216,ETD
-2010-06-05,Sada et al. 2010,-1.44,0.5184,ETD
 2010-06-05,Joshua a. carter et al 2010,-0.72,0.2592,ETD
+2010-06-05,Sada et al. 2010,-1.44,0.5184,ETD
 2010-05-28,Sada et al. 2010,-1.44,0.5328,ETD
 2010-05-28,Sada et al. 2010,-1.584,0.2016,ETD
 2010-05-18,Berta et al. 2011,-0.0,0.1,ExoClock literature
@@ -171,12 +171,12 @@ date,observer,oc,oce,source
 2009-06-16,Zachory k. berta et al 2010,-0.288,0.2232,ETD
 2009-06-05,Joshua a. carter et al 2010,-0.0,0.0706,ETD
 2009-06-01,Berta et al. 2011,-0.0,0.1,ExoClock literature
-2009-05-31,Charbonneau et al. 2009,-1.152,0.1297,ETD
-2009-05-31,Joshua a. carter et al 2010,0.288,0.2304,ETD
 2009-05-31,Zachory k. berta et al 2010,-0.144,0.1296,ETD
+2009-05-31,Joshua a. carter et al 2010,0.288,0.2304,ETD
+2009-05-31,Charbonneau et al. 2009,-1.152,0.1297,ETD
 2009-05-29,Berta et al. 2011,-0.1,0.1,ExoClock literature
-2009-05-28,Charbonneau et al. 2009,-1.152,0.13,ETD
 2009-05-28,Zachory k. berta et al 2010,-0.144,0.1498,ETD
+2009-05-28,Charbonneau et al. 2009,-1.152,0.13,ETD
 2009-05-28,Joshua a. carter et al 2010,-0.288,0.216,ETD
 2009-05-15,Berta et al. 2011,-0.1,0.1,ExoClock literature
 2009-05-15,Berta et al. 2011,0.2,0.5,ExoClock literature

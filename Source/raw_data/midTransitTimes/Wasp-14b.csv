@@ -9,13 +9,13 @@ date,observer,oc,oce,source
 2021-03-29,Koorosh rokni,-0.576,,ETD
 2021-03-29,Koorosh rokni,15.408,1.6128,ETD
 2021-01-25,Jean plazas,0.72,,ETD
+2020-05-30,Martin Crow,0.2,1.0,ExoClock observation
 2020-05-30,Simon Dawes,3.3,2.0,ExoClock observation
 2020-05-30,Adrian Jones,2.6,2.7,ExoClock observation
-2020-05-30,Martin Crow,0.2,1.0,ExoClock observation
 2020-05-21,Marc Deldem,-1.2,1.4,ExoClock observation
 2020-05-21,"Martinelli fabio, bachini mauro ",0.576,2615.112,ETD
-2020-05-21,Anaël wünsche,5.184,1.8432,ETD
 2020-05-21,Anaël Wünsche,0.1,1.6,ExoClock observation
+2020-05-21,Anaël wünsche,5.184,1.8432,ETD
 2020-05-21,Marc deldem,1.152,1.6848,ETD
 2020-04-25,Fabio Mortari,3.6,2.7,ExoClock observation
 2020-04-16,Adrian Jones,-1.4,5.8,ExoClock observation
@@ -71,9 +71,9 @@ date,observer,oc,oce,source
 2009-05-16,Srdoc,2.736,1.44,ETD
 2009-05-12,Johnson et al. 2009,1.1,0.4,ExoClock literature
 2009-04-28,Marek p.,-1.152,2.0304,ETD
-2009-04-28,Kučáková h.,1.296,2.5776,ETD
-2009-04-28,Axa,-0.72,3.024,ETD
 2009-04-28,Jesionkiewicz,13.68,3.024,ETD
+2009-04-28,Axa,-0.72,3.024,ETD
+2009-04-28,Kučáková h.,1.296,2.5776,ETD
 2009-04-28,Brát l.,1.44,1.9872,ETD
 2009-04-21,Dvorak,0.576,0.864,ETD
 2009-04-19,Trnka j.,-0.864,1.1664,ETD

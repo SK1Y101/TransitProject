@@ -1,5 +1,5 @@
 date,observer,oc,oce,source
-2021-11-23,Volker wickert,1353.6,313161.12,ETD
+2021-11-23,Volker wickert,1353.6,3.62455,ETD
 2021-11-22,Volker wickert,-47.088,28.512,ETD
 2020-10-09,Martin Smith,-1.9,4.3,ExoClock observation
 2020-08-10,Carmelo Falco,2.2,0.9,ExoClock observation
@@ -7,13 +7,13 @@ date,observer,oc,oce,source
 2019-09-03,"Kemme, linus",-43.056,47.7936,ETD
 2019-08-20,Jean plazas,-0.576,,ETD
 2019-08-13,Sjoerd dufoer,-0.0,3.1104,ETD
-2018-10-21,Josep gaitan ,-26.208,5.5152,ETD
 2018-10-21,Pere guerra,0.576,1.2816,ETD
+2018-10-21,Josep gaitan ,-26.208,5.5152,ETD
 2018-08-29,Anael wunsche,2.88,0.6048,ETD
-2018-08-29,Yves jongen,-3.168,1.728,ETD
+2018-08-29,Marc bretton,1.728,0.8064,ETD
 2018-08-29,Anaël Wünsche,2.0,1.0,ExoClock observation
 2018-08-29,Yves Jongen,-0.3,1.6,ExoClock observation
-2018-08-29,Marc bretton,1.728,0.8064,ETD
+2018-08-29,Yves jongen,-3.168,1.728,ETD
 2018-08-22,Gabriel murawski,-0.576,0.6048,ETD
 2017-10-30,Didier walliang,-1.008,1.1952,ETD
 2016-09-02,Gabriel murawski,4.896,3.4272,ETD
@@ -24,8 +24,8 @@ date,observer,oc,oce,source
 2013-08-01,Trnka j.,3.888,1.1376,ETD
 2013-08-01,Koch  b.,-0.288,0.9648,ETD
 2012-09-25,Deming et al. 2013,-0.5,0.3,ExoClock literature
-2012-08-17,Naves r.,2.592,0.6048,ETD
 2012-08-17,Salvaggio f.,1.008,0.8496,ETD
+2012-08-17,Naves r.,2.592,0.6048,ETD
 2011-09-03,"T napoleao,c jacques, a oliveira",10.944,1.5552,ETD
 2010-10-28,Husar d.,4.032,2.2896,ETD
 2010-10-21,Ruocco n.,4.32,1.3824,ETD
@@ -68,8 +68,8 @@ date,observer,oc,oce,source
 2005-08-26,Miller-ricci et al 2008,-0.864,0.8064,ETD
 2005-08-23,Miller-Ricci et al. 2008,0.5,0.8,ExoClock literature
 2005-08-22,  miller-ricci et al 2008,0.144,0.792,ETD
-2005-08-19,Miller-ricci et al 2008,-1.008,0.8928,ETD
 2005-08-19,Miller-Ricci et al. 2008,-0.6,0.9,ExoClock literature
+2005-08-19,Miller-ricci et al 2008,-1.008,0.8928,ETD
 2005-08-16,Miller-Ricci et al. 2008,1.6,0.8,ExoClock literature
 2005-08-15,Miller-ricci et al 2008,1.152,0.7632,ETD
 2005-08-12,Miller-Ricci et al. 2008,0.2,0.9,ExoClock literature

@@ -10,8 +10,8 @@ date,observer,oc,oce,source
 2020-11-19,Riccardo Ciantini,0.4,0.6,ExoClock observation
 2020-11-19,Yves Jongen,0.2,1.4,ExoClock observation
 2020-11-18,Vicenç ferrando (aas),-0.288,1.4688,ETD
-2020-11-18,Yves jongen,5.472,1.3392,ETD
 2020-11-18,Anaël wünsche,17.856,1.9728,ETD
+2020-11-18,Yves jongen,5.472,1.3392,ETD
 2020-11-18,Manfred raetz,4.608,2.4192,ETD
 2020-03-13,Anaël wünsche,3.312,1.8432,ETD
 2019-12-24,Mario jean-claude,-0.0,,ETD
@@ -21,8 +21,8 @@ date,observer,oc,oce,source
 2018-02-25,David molina,1.152,3.168,ETD
 2016-12-28,Eric girardin,5.184,1.5408,ETD
 2016-01-09,Wang et al. 2017,-0.7,1.0,ExoClock literature
-2015-03-09,Martin zíbar,21.888,1.7712,ETD
 2015-03-09,Marc bretton,3.6,2.7216,ETD
+2015-03-09,Martin zíbar,21.888,1.7712,ETD
 2015-03-02,Mark salisbury,3.744,2.5488,ETD
 2015-02-13,Wang et al. 2017,0.7,0.6,ExoClock literature
 2015-02-09,Marc bretton,10.8,3.4848,ETD
@@ -30,8 +30,8 @@ date,observer,oc,oce,source
 2015-01-23,Wang et al. 2017,-0.5,0.7,ExoClock literature
 2015-01-16,Wang et al. 2017,0.6,0.7,ExoClock literature
 2014-03-30,Zibar m.,-2.88,1.8864,ETD
-2014-03-06,Wang et al. 2017,0.5,0.8,ExoClock literature
 2014-03-06,Wang et al. 2017,-0.4,0.7,ExoClock literature
+2014-03-06,Wang et al. 2017,0.5,0.8,ExoClock literature
 2014-02-27,Wang et al. 2017,-0.3,1.0,ExoClock literature
 2014-02-27,Wang et al. 2017,0.2,0.9,ExoClock literature
 2014-01-09,Salisbury m.,0.864,0.9648,ETD

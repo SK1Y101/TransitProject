@@ -76,15 +76,15 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [x] Exoclock
     - [x] Lightcurves or mid-transit times
     - [x] ephemerides
-  - [ ] Exoplanet Archive System info
-  - [ ] Exoplanet Catalogue
-    - [ ] System info
+  - [x] Exoplanet Archive System info
+  - [x] Exoplanet Catalogue
+    - [x] System info (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
     - [x] digital renders for pretty graphs (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
   - [ ] other data sources
   - [ ] Refactor code
 - [ ] Combine data
   - [x] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
-  - [ ] Merger Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
+  - [ ] Merge Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
     - [ ] Figure out how to deal with conflicting information
   - [ ] Refactor code
 - [ ] Simulation

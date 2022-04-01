@@ -31,16 +31,16 @@ date,observer,oc,oce,source
 2019-12-30,Martin Crow,-2.5,1.6,ExoClock observation
 2019-12-30,Jean plazas,8.352,2.376,ETD
 2019-10-13,Manfred raetz,7.488,1.3248,ETD
-2019-10-07,F. lomoz,1.152,1.44,ETD
 2019-10-07,F. lomoz,-6.192,1.0368,ETD
+2019-10-07,F. lomoz,1.152,1.44,ETD
 2019-09-26,Josep gaitan,16.992,1.44,ETD
-2019-09-21,F. lomoz,50.4,2.952,ETD
 2019-09-21,Manfred raetz,4.752,1.3968,ETD
+2019-09-21,F. lomoz,50.4,2.952,ETD
 2019-09-04,F. lomoz,46.368,2.1024,ETD
 2019-08-29,Veli-pekka hentunen,2.88,1.656,ETD
 2019-08-24,Manfred raetz,1.728,1.656,ETD
-2019-08-07,Anaël wünsche,-5.904,,ETD
 2019-08-07,Anaël Wünsche,-0.4,1.6,ExoClock observation
+2019-08-07,Anaël wünsche,-5.904,,ETD
 2018-12-31,Yves jongen,59.328,6.624,ETD
 2018-12-20,Josep gaitan,-44.496,103.8816,ETD
 2018-11-11,Pere guerra,-11.232,3.1968,ETD
@@ -60,8 +60,8 @@ date,observer,oc,oce,source
 2017-08-15,Maciejewski et al. 2018,-0.0,1.1,ExoClock literature
 2017-07-25,Maciejewski et al. 2018,-0.3,0.8,ExoClock literature
 2016-11-13,František lomoz,-1.44,1.3104,ETD
-2016-09-07,František lomoz,-0.288,1.4832,ETD
 2016-09-07,František lomoz,-1.152,1.9872,ETD
+2016-09-07,František lomoz,-0.288,1.4832,ETD
 2016-09-07,Marc bretton,-0.432,1.4976,ETD
 2016-09-02,David molina,-1.728,1.6992,ETD
 2016-08-27,Gianluca rossi,41.04,,ETD
@@ -74,8 +74,8 @@ date,observer,oc,oce,source
 2015-10-20,Stan shadick,2.304,1.512,ETD
 2015-10-11,Beatty et al. 2020,0.3,0.4,ExoClock literature
 2015-10-11,Beatty et al. 2019,-0.1,0.4,ExoClock literature
-2015-09-26,Marc bretton,1.296,1.3248,ETD
 2015-09-26,Anaël Wünsche,2.0,1.6,ExoClock observation
+2015-09-26,Marc bretton,1.296,1.3248,ETD
 2015-09-21,David molina,-5.76,2.5488,ETD
 2015-08-07,Gianluca rossi,2.88,4.1328,ETD
 2015-07-27,Marc bretton,2.88,1.3392,ETD
@@ -85,8 +85,8 @@ date,observer,oc,oce,source
 2014-11-28,Marc bretton,44.496,2.9232,ETD
 2014-11-13,Stan shadick and ryan cooney and taylor bell,-4.752,1.9584,ETD
 2014-11-05,Ivan sergey,1.728,5.4432,ETD
-2014-10-31,Hentunen v. p.,-1.296,2.3616,ETD
 2014-10-31,Bretton m.,-4.752,1.9728,ETD
+2014-10-31,Hentunen v. p.,-1.296,2.3616,ETD
 2014-10-31,Salisbury m.,-0.72,1.0656,ETD
 2014-10-08,Aaav astrofili valdera,24.624,,ETD
 2014-10-03,Aaav astrofili valdera,24.624,,ETD
@@ -109,8 +109,8 @@ date,observer,oc,oce,source
 2013-09-12,Horta f. g.,14.688,2.7504,ETD
 2013-09-06,Benishek v.,8.64,1.8288,ETD
 2013-08-26,Hentunen v. p.,8.208,1.4832,ETD
-2013-08-15,Bachschmidt m.,26.352,1.8144,ETD
 2013-08-15,Gonzalez j.,14.976,2.1168,ETD
+2013-08-15,Bachschmidt m.,26.352,1.8144,ETD
 2013-07-31,Shadic s.,-0.144,1.224,ETD
 2013-07-14,Shadic s.,12.24,1.6416,ETD
 2012-12-28,Faustino ,-19.152,4.8528,ETD
@@ -130,5 +130,5 @@ date,observer,oc,oce,source
 2011-12-09,Hao,-2.736,1.1952,ETD
 2011-12-04,Siverd et al. 2012,1.5,0.6,ExoClock literature
 2011-12-04,Siverd et al. 2012,2.9,1.4,ExoClock literature
-2011-12-03,Ulmo,1.584,0.6048,ETD
 2011-12-03,Pvdko,2.88,1.44,ETD
+2011-12-03,Ulmo,1.584,0.6048,ETD
