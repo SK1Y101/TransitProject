@@ -174,20 +174,26 @@ def animated_loading_function(func, *args, name="Waiting"):
         Usefull for long execution that does not have an output of it's own.
         func:   The function to execute, passed as a lambda. '''
     # import threading and Queue
-    from multiprocessing import Pool
+    from multiprocessing.pool import ThreadPool as Pool
     from time import sleep as wait
     from itertools import cycle
+    # function to print the current output.
+    def __showElapsed__(name, elapsed, spinner=" ", fin=False):
+        print("{}: {:02.0f}:{:02.0f} {}".format(name, *divmod(elapsed, 60), spinner),
+              end="\n"*fin+"\r"*(not fin))
     # start the pool
     with Pool(1) as p:
+        # setup the counting variables
+        el, wt, cyc = 0, .1, cycle(["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"])
         # execute the function
         r = p.apply_async(func, args)
         # wait until it is complete
-        elapsed, wt = 0, .1
         while not r.ready():
-            # show a loading animation
-            for x in cycle(["⢿", "⣻", "⣽", "⣾", "⣷", "⣯", "⣟", "⡿"]):
-                wait(wt)
-                elapsed +=wt
-                print("{}: {:02.0f}:{:02.0f} {}".format(name, *divmod(elapsed, 60), x), end="\r")
+            wait(wt)
+            el += wt
+            # show the ongoing output
+            __showElapsed__(name, el, next(cyc))
+    # show the completion output
+    __showElapsed__(name, el, fin=True)
     # return any of the outputs
     return r.get()

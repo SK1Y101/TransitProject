@@ -1,17 +1,17 @@
 date,observer,oc,oce,source
 2022-01-30,Paolo Arcangelo Matassa,-1.1,1.4,ExoClock observation
-2022-01-23,Mercedes Correa,-3.3,1.3,ExoClock observation
 2022-01-23,Andras Dan,-2.7,1.3,ExoClock observation
+2022-01-23,Mercedes Correa,-3.3,1.3,ExoClock observation
 2021-10-22,Adrian Jones,0.8,1.7,ExoClock observation
-2021-02-20,Manfred Raetz,-1.4,1.3,ExoClock observation
-2021-02-20,Roland Casali,0.2,2.9,ExoClock observation
-2021-02-20,Matthieu bachschmidt,6.912,2.6928,ETD
 2021-02-20,Manfred raetz,5.472,1.224,ETD
-2020-11-19,Yves Jongen,0.2,1.4,ExoClock observation
+2021-02-20,Matthieu bachschmidt,6.912,2.6928,ETD
+2021-02-20,Roland Casali,0.2,2.9,ExoClock observation
+2021-02-20,Manfred Raetz,-1.4,1.3,ExoClock observation
 2020-11-19,Riccardo Ciantini,0.4,0.6,ExoClock observation
+2020-11-19,Yves Jongen,0.2,1.4,ExoClock observation
 2020-11-18,Vicenç ferrando (aas),-0.288,1.4688,ETD
-2020-11-18,Anaël wünsche,17.856,1.9728,ETD
 2020-11-18,Yves jongen,5.472,1.3392,ETD
+2020-11-18,Anaël wünsche,17.856,1.9728,ETD
 2020-11-18,Manfred raetz,4.608,2.4192,ETD
 2020-03-13,Anaël wünsche,3.312,1.8432,ETD
 2019-12-24,Mario jean-claude,-0.0,,ETD

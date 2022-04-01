@@ -260,11 +260,15 @@ def fetchExoplanetArchive(table="pscomppars", loc="/raw_data/", stale_time=7):
     loc += table+".csv"
     # if we don't have any local data,
     if not checkForFile(loc, stale_time):
-        # fetch the tabular data
-        rtable = animated_loading_function(archive.query_criteria, table, name="Fetching Exoplanet Archive Data")
-        # convert to dataframe
-        rtable = rtable.to_pandas()
-        # and sort by planet name
-        rtable.sort_values(by="pl_name", inplace=True, ascending=ascending)
-        # store locally
-        saveDataFrame(rtable, loc)
+        # the function to fetch the data
+        def fetchData():
+            # fetch the tabular data
+            rtable = archive.query_criteria(table)
+            # convert to dataframe
+            rtable = rtable.to_pandas()
+            # and sort by planet name
+            rtable.sort_values(by="pl_name", inplace=True, ascending=True)
+            # store locally
+            saveDataFrame(rtable, loc)
+        # call the function with an animated loading output
+        animated_loading_function(fetchData, name="Fetching Exoplanet Archive Data")

@@ -28,15 +28,15 @@ date,observer,oc,oce,source
 2020-03-22,John Savage,-5.0,3.2,ExoClock observation
 2020-02-23,Anaël Wünsche,0.4,1.4,ExoClock observation
 2020-02-23,Anaël wünsche,-0.144,1.5984,ETD
-2020-02-12,F. lomoz,15.12,1.8,ETD
 2020-02-12,Marc bretton,8.352,0.8496,ETD
+2020-02-12,F. lomoz,15.12,1.8,ETD
 2020-02-12,Mauro Caló,2.8,2.7,ExoClock observation
 2020-02-12,Yves jongen,4.176,1.152,ETD
 2020-02-12,Anaël wünsche,5.472,1.4976,ETD
 2020-01-29,Anaël wünsche,-0.144,1.9296,ETD
 2020-01-29,Marc bretton,11.52,0.7632,ETD
-2020-01-29,Yves jongen,-2.16,1.4112,ETD
 2020-01-29,Anaël Wünsche,3.7,2.0,ExoClock observation
+2020-01-29,Yves jongen,-2.16,1.4112,ETD
 2020-01-01,Alessandro Marchini,-5.6,2.0,ExoClock observation
 2020-01-01,Alessandro marchini,-7.632,1.6416,ETD
 2020-01-01,F. lomoz,4.464,1.9296,ETD
@@ -44,9 +44,9 @@ date,observer,oc,oce,source
 2019-12-04,"Francesco scaggiante, danilo zardin,marco fiaschi",-1.728,1.2816,ETD
 2019-12-04,Eric girardin,-2.448,1.1088,ETD
 2019-12-01,Simone hagey,-18.144,3.8304,ETD
-2019-03-28,Anaël Wünsche,-2.2,2.0,ExoClock observation
-2019-03-28,Anael wunsche,-2.448,1.944,ETD
 2019-03-28,Mark salisbury,3.312,1.3536,ETD
+2019-03-28,Anael wunsche,-2.448,1.944,ETD
+2019-03-28,Anaël Wünsche,-2.2,2.0,ExoClock observation
 2019-02-28,Ramon naves,-11.232,2.3328,ETD
 2019-02-17,Anaël Wünsche,-1.3,1.7,ExoClock observation
 2019-02-17,Anael wunsche,0.432,2.1312,ETD
