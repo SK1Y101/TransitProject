@@ -21,7 +21,8 @@ ws.fetchExoClockData("https://www.exoclock.space/database/observations", sourceN
 ws.fetchExoClockData("https://www.exoclock.space/database/literature", sourceName="ExoClock literature")
 ws.fetchExoClockData("https://www.exoclock.space/database/etd", sourceName="ExoClock ETD")
 
-# Exoplanet Archive (System info)
+# Exoplanet Archive
+# Composite information
 ws.fetchExoplanetArchive("pscomppars")
-
-# Exoplanet Catalogue (System info & digital renders for pretty graphs)
+# all information
+ws.fetchExoplanetArchive("ps")

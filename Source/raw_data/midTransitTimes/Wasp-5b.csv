@@ -18,8 +18,8 @@ date,observer,oc,oce,source
 2014-11-08,Moyano et al. 2017,-0.2,0.3,ExoClock literature
 2014-11-07,"C. quiñones, c. villarreal",-1.296,0.3456,ETD
 2014-08-25,Moyano et al. 2017,0.4,0.6,ExoClock literature
-2014-08-24,"Eduardo fernández-lajús, romina p. di sisto",-0.72,0.6048,ETD
 2014-08-24,Quiñones c.,-1.008,0.4896,ETD
+2014-08-24,"Eduardo fernández-lajús, romina p. di sisto",-0.72,0.6048,ETD
 2014-08-16,"Mašek m., hoňková k., juryšek j.",-3.168,1.0656,ETD
 2014-08-07,Moyano et al. 2017,0.2,0.4,ExoClock literature
 2014-08-06,"Eduardo fernández-lajús, romina p. di sisto",-0.864,0.3888,ETD
@@ -29,7 +29,7 @@ date,observer,oc,oce,source
 2012-08-11,Moyano et al. 2017,0.7,0.7,ExoClock literature
 2012-07-29,Moyano et al. 2017,-0.5,0.5,ExoClock literature
 2012-07-28,Sauer t.,-1.584,0.5328,ETD
-2012-07-18,Hutcheson m.,8.064,3536827200.0,ETD
+2012-07-18,Hutcheson m.,8.064,40935.5,ETD
 2012-07-16,Moyano et al. 2017,0.0,0.6,ExoClock literature
 2012-07-15,Sauer t.,-1.008,0.6048,ETD
 2011-11-30,"Schneiter m, colazo c., guzzo p.",1.872,0.6624,ETD
@@ -49,8 +49,8 @@ date,observer,oc,oce,source
 2009-10-05,Fukui et al. 2011,-1.3,1.1,ExoClock literature
 2009-10-05,Fukui a. et al 2010,-1.296,1.0512,ETD
 2009-09-10,Tifner,-2.16,1.152,ETD
-2009-09-04,Fukui a. et al 2010,1.872,0.6336,ETD
 2009-09-04,Fukui et al. 2011,1.9,0.6,ExoClock literature
+2009-09-04,Fukui a. et al 2010,1.872,0.6336,ETD
 2009-09-01,Dragomir et al. 2011,-1.4,0.8,ExoClock literature
 2009-08-31,"Dragomir et al., 2011",-1.44,0.792,ETD
 2009-08-06,Hoyer et al. 2012,-0.0,1.2,ExoClock literature
@@ -61,8 +61,8 @@ date,observer,oc,oce,source
 2008-11-02,Fukui et al. 2011,-0.2,0.7,ExoClock literature
 2008-11-01,Fukui a. et al 2010,-0.288,0.7344,ETD
 2008-10-22,Hoyer et al. 2012,0.4,0.7,ExoClock literature
-2008-09-21,Hoyer et al. 2012,-0.1,1.1,ExoClock literature
 2008-09-21,Fukui et al. 2011,-0.8,0.3,ExoClock literature
+2008-09-21,Hoyer et al. 2012,-0.1,1.1,ExoClock literature
 2008-09-20,Southworth et al. 2009,-0.864,0.3168,ETD
 2008-08-29,Hoyer et al. 2012,-0.6,0.7,ExoClock literature
 2008-08-29,Fukui et al. 2011,0.4,0.3,ExoClock literature

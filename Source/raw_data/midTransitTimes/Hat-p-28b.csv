@@ -23,12 +23,12 @@ date,observer,oc,oce,source
 2018-11-17,F. lomoz,-4.896,2.88,ETD
 2018-11-17,F. lomoz,-5.616,4.32,ETD
 2018-10-25,Pere guerra,-5.472,1.6992,ETD
-2018-10-12,Marc bretton,-2.448,0.3888,ETD
 2018-10-12,Anaël Wünsche,0.6,0.6,ExoClock observation
-2018-09-29,Marc deldem,-2.016,1.8432,ETD
-2018-09-29,Rene roy,-4.608,2.376,ETD
+2018-10-12,Marc bretton,-2.448,0.3888,ETD
 2018-09-29,Pietro aceti,-6.336,2.0448,ETD
 2018-09-29,Marc Deldem,1.0,3.2,ExoClock observation
+2018-09-29,Marc deldem,-2.016,1.8432,ETD
+2018-09-29,Rene roy,-4.608,2.376,ETD
 2017-11-17,Anaël Wünsche,-0.6,1.2,ExoClock observation
 2017-11-17,Marc bretton,-3.168,0.9072,ETD
 2016-11-17,"Cory rude, christopher michael",-1.296,1.4256,ETD
@@ -60,9 +60,9 @@ date,observer,oc,oce,source
 2011-09-29,Lomoz f.,-0.0,3.0816,ETD
 2011-09-29,Trnka j.,-5.328,1.944,ETD
 2011-09-29,Brát l.,-3.6,1.7136,ETD
-2011-09-03,Brát l.,9.504,1.872,ETD
-2011-09-03,Kučáková h.,-6.192,2.0592,ETD
 2011-09-03,Zibar m.,8.496,2.2608,ETD
+2011-09-03,Kučáková h.,-6.192,2.0592,ETD
+2011-09-03,Brát l.,9.504,1.872,ETD
 2011-09-03,Lomoz f.,1.008,1.6416,ETD
 2010-08-09,Buchhave et al. 2011,-0.1,0.8,ExoClock literature
 2010-08-08,"Buchhave et al., 2011",0.0,0.7632,ETD

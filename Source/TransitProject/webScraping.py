@@ -183,7 +183,7 @@ def fetchETDData(url, sourceName="", stale_time=7):
         # navigate to that page
         subpage = bs4(exoUrl, stale_time=stale_time, loc="/raw_data/webpage_source/ETD/")
         # source the tabular data
-        transit_data = sourceFromETDTable(subpage)
+        transit_data = sourceFromETDTable(subpage, thisExoplanet[1])
         if transit_data.empty:
             continue
         #transit_data = sourceFromETDAscii(subpage, suburl)
@@ -194,6 +194,9 @@ def fetchETDData(url, sourceName="", stale_time=7):
                                origin=pd.Timestamp("1858-11-16 12:00")).dt.strftime('%Y-%m-%d')
         transit_data["oc"] = round(pd.to_numeric(transit_data["oc"])*1440,4)
         transit_data["oce"] = round(pd.to_numeric(transit_data["oce"])*1440,4)
+        # some rows in the dataset were coppied incorrectly, ie: HAT-P-13b has a BJD error of 113 days,
+        # looking at the literateure, this should actually be 113 seconds.
+        transit_data.loc[transit_data["oce"] > 86400, "oce"] /= 86400
         # save the data
         saveTransitTimes(transit_data, name=thisExoplanet[1])
     # remove the index column from ETD
@@ -201,7 +204,7 @@ def fetchETDData(url, sourceName="", stale_time=7):
     # save the dataframe
     saveDataFrame(df, "/raw_data/{}Ephemerides".format(sourceName))
 
-def sourceFromETDTable(page):
+def sourceFromETDTable(page, name=""):
     ''' Fetch midtransit times from the main ETD Table on the page.
         page:   the bs4 page source.'''
     # fetch the table
@@ -271,4 +274,4 @@ def fetchExoplanetArchive(table="pscomppars", loc="/raw_data/", stale_time=7):
             # store locally
             saveDataFrame(rtable, loc)
         # call the function with an animated loading output
-        animated_loading_function(fetchData, name="Fetching Exoplanet Archive Data")
+        animated_loading_function(fetchData, name="Fetching Exoplanet Archive {} Data".format(table.capitalize()))
