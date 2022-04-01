@@ -1,11 +1,11 @@
 date,observer,oc,oce,source
 2022-03-17,Yves Jongen,-69.5,3.6,ExoClock observation
 2022-03-09,Paolo Arcangelo Matassa,-79.5,3.6,ExoClock observation
-2022-02-26,Stéphane montchaud,38.016,5.6736,ETD
-2022-02-26,Yves jongen,-1.584,1.872,ETD
-2022-02-26,Adrian Jones,-77.0,2.3,ExoClock observation
 2022-02-26,Stéphane Montchaud,-78.0,2.9,ExoClock observation
+2022-02-26,Adrian Jones,-77.0,2.3,ExoClock observation
+2022-02-26,Yves jongen,-1.584,1.872,ETD
 2022-02-26,Yves Jongen,-77.6,1.9,ExoClock observation
+2022-02-26,Stéphane montchaud,38.016,5.6736,ETD
 2022-02-26,Didier Walliang,-72.5,3.0,ExoClock observation
 2022-02-05,Adrian Jones,-79.7,2.7,ExoClock observation
 2022-02-05,Martin Crow,-78.5,2.7,ExoClock observation
@@ -14,8 +14,8 @@ date,observer,oc,oce,source
 2022-01-03,Yves Jongen,-71.2,1.9,ExoClock observation
 2022-01-02,Yves jongen,6.192,1.7424,ETD
 2021-12-15,Alessandro marchini,16.848,3.672,ETD
-2017-02-14,František lomoz,23.76,3.5424,ETD
 2017-02-14,František lomoz,47.664,5.7168,ETD
+2017-02-14,František lomoz,23.76,3.5424,ETD
 2016-03-01,David molina,-3.888,2.7936,ETD
 2014-03-10,Dittler u.,4.32,3.8736,ETD
 2014-03-10,Zibar m.,14.256,4.4352,ETD

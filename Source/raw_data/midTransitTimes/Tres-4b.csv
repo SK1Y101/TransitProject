@@ -12,8 +12,8 @@ date,observer,oc,oce,source
 2018-08-15,Yenal ogmen,3.6,1.9872,ETD
 2018-08-01,Wonseok kang,14.976,1.8144,ETD
 2018-06-19,Marc bretton,-34.992,0.864,ETD
-2018-06-19,Yves jongen,3.024,1.3248,ETD
 2018-06-19,Yves Jongen,2.2,1.2,ExoClock observation
+2018-06-19,Yves jongen,3.024,1.3248,ETD
 2018-05-19,Yves Jongen,-4.5,2.2,ExoClock observation
 2018-05-18,Yves jongen,-5.904,1.7712,ETD
 2018-05-18,F. lomoz,-2.736,12.2976,ETD
@@ -41,8 +41,8 @@ date,observer,oc,oce,source
 2010-05-04,Tucker et al. 2011,-2.304,1.5106,ETD
 2010-04-28,Chan et al. 2011,1.1,0.9,ExoClock literature
 2010-04-27,Tucker et al. 2011,0.864,0.887,ETD
-2010-04-06,Lomoz f.,-6.624,8.8992,ETD
 2010-04-06,Trnka j.,-2.736,2.3904,ETD
+2010-04-06,Lomoz f.,-6.624,8.8992,ETD
 2009-09-08,Wiggins,3.744,6.48,ETD
 2009-08-11,Srdoc,-8.496,3.024,ETD
 2009-07-31,Tieman b.,-8.064,5.2992,ETD
@@ -52,8 +52,8 @@ date,observer,oc,oce,source
 2009-05-07,Trnka j.,-0.144,2.016,ETD
 2009-05-03,Tucker et al. 2011,2.304,1.6387,ETD
 2009-04-26,Dvorak,-1.44,2.736,ETD
-2009-04-12,Trnka j.,4.464,3.4848,ETD
 2009-04-12,Gregorio,4.896,2.736,ETD
+2009-04-12,Trnka j.,4.464,3.4848,ETD
 2009-04-02,Chan et al. 2011,-0.8,0.7,ExoClock literature
 2009-04-01,Tucker et al. 2011,-1.008,0.7085,ETD
 2008-06-10,Tucker et al. 2011,3.168,1.5206,ETD

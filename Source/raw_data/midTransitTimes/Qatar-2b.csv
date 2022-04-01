@@ -9,8 +9,8 @@ date,observer,oc,oce,source
 2021-06-07,Yves jongen,-2.88,0.36,ETD
 2021-05-18,Massaro salvatore,-1.44,3.1824,ETD
 2021-05-14,Jean plazas,3.888,,ETD
-2021-05-10,Vojtěch Školník,0.2,1.2,ExoClock observation
 2021-05-10,Školník v.,-1.872,1.1232,ETD
+2021-05-10,Vojtěch Školník,0.2,1.2,ExoClock observation
 2021-05-06,Stephen Futcher,-2.2,0.3,ExoClock observation
 2021-04-30,Yves Jongen,-1.9,0.4,ExoClock observation
 2021-04-29,Yves jongen,-2.592,0.432,ETD
@@ -27,13 +27,13 @@ date,observer,oc,oce,source
 2020-06-08,Yves Jongen,-2.2,0.4,ExoClock observation
 2020-06-07,Yves jongen,-3.456,0.3456,ETD
 2020-05-26,Gianni casalnuovo,-0.288,1.8144,ETD
+2020-05-22,Alberto garcía sánchez,4.32,1.7424,ETD
 2020-05-22,Jordi lopesino,-5.04,1.8864,ETD
 2020-05-22,Francois regembal,-7.056,1.2384,ETD
-2020-05-22,Alberto garcía sánchez,4.32,1.7424,ETD
 2020-05-22,Francois Regembal,-3.4,1.0,ExoClock observation
-2020-05-18,Guy brabant,9.936,1.7712,ETD
-2020-05-18,Michael irzyk,-1.152,1.8288,ETD
 2020-05-18,Jordi lopesino,-1.728,2.3328,ETD
+2020-05-18,Michael irzyk,-1.152,1.8288,ETD
+2020-05-18,Guy brabant,9.936,1.7712,ETD
 2020-05-12,Yves Jongen,-1.0,0.6,ExoClock observation
 2020-05-11,Yves jongen,-2.016,0.5328,ETD
 2020-04-27,Taewoo Kim,-4.8,0.4,ExoClock observation
@@ -68,17 +68,17 @@ date,observer,oc,oce,source
 2018-01-21,David molina,-3.6,0.6336,ETD
 2017-04-03,Martin fowler,0.72,1.8288,ETD
 2017-04-01,Wonseok kang,-2.16,0.3024,ETD
-2017-03-29,David molina,-3.312,0.8352,ETD
 2017-03-29,"Francesco scaggiante, danilo zardin",-2.016,1.3968,ETD
+2017-03-29,David molina,-3.312,0.8352,ETD
 2017-03-26,Martin fowler,-5.184,1.2816,ETD
-2016-04-14,"David molina, antoni vives sureda",-4.464,0.936,ETD
 2016-04-14,David molina,-4.608,0.864,ETD
+2016-04-14,"David molina, antoni vives sureda",-4.464,0.936,ETD
 2015-05-20,Yenal öğmen,-1.872,0.5904,ETD
 2015-04-20,Joe garlitz,-2.16,0.8064,ETD
 2015-04-19,Bernd gährken,-7.488,1.3536,ETD
+2015-03-26,Marc bretton,-0.72,0.4896,ETD
 2015-03-26,Marc bretton,2.016,1.44,ETD
 2015-03-26,Anaël Wünsche,0.9,0.6,ExoClock observation
-2015-03-26,Marc bretton,-0.72,0.4896,ETD
 2014-06-21,Sauer t.,-1.008,0.2592,ETD
 2014-06-18,Taylor s.,-6.624,1.008,ETD
 2014-04-11,Gonzalez j.,-0.288,1.5984,ETD
@@ -99,34 +99,34 @@ date,observer,oc,oce,source
 2013-02-11,Haro j. l.,-14.832,1.7856,ETD
 2012-05-09,Mancini et al. 2014,-0.4,0.3,ExoClock literature
 2012-05-09,Mancini et al. 2014,-0.5,0.2,ExoClock literature
-2012-05-09,Mancini et al. 2014,-0.9,0.4,ExoClock literature
 2012-05-09,Mancini et al. 2014,-1.0,0.3,ExoClock literature
-2012-04-27,Lomoz f.,-3.456,1.0944,ETD
+2012-05-09,Mancini et al. 2014,-0.9,0.4,ExoClock literature
 2012-04-27,Lomoz f.,-2.016,1.4544,ETD
-2012-04-27,"Denis gorshanov, natalia efimova, andrea di paola",1.728,3.4416,ETD
-2012-04-27,"Montigiani n., mannucci m.",-1.296,0.6048,ETD
 2012-04-27,Benishek v.,-2.304,1.3392,ETD
+2012-04-27,"Denis gorshanov, natalia efimova, andrea di paola",1.728,3.4416,ETD
+2012-04-27,Lomoz f.,-3.456,1.0944,ETD
+2012-04-27,"Montigiani n., mannucci m.",-1.296,0.6048,ETD
 2012-04-21,Mancini et al. 2014,0.0,0.2,ExoClock literature
 2012-04-21,Mancini et al. 2014,-0.5,0.2,ExoClock literature
 2012-04-21,Mancini et al. 2014,-0.2,0.1,ExoClock literature
 2012-04-19,Lomoz f.,3.168,1.4832,ETD
-2012-04-19,Lomoz f.,-1.44,1.4976,ETD
 2012-04-19,Carreño a.,1.008,0.9792,ETD
-2012-04-17,Mancini et al. 2014,0.6,0.2,ExoClock literature
-2012-04-17,Mancini et al. 2014,-0.2,0.2,ExoClock literature
+2012-04-19,Lomoz f.,-1.44,1.4976,ETD
 2012-04-17,Mancini et al. 2014,-0.7,0.1,ExoClock literature
+2012-04-17,Mancini et al. 2014,-0.2,0.2,ExoClock literature
+2012-04-17,Mancini et al. 2014,0.6,0.2,ExoClock literature
 2012-04-15,Melissa hutcheson,-0.288,,ETD
 2012-04-12,Mašek m.,0.144,2.1456,ETD
 2012-04-08,Dax t.,-2.592,0.4752,ETD
-2012-04-05,Mancini et al. 2014,0.7,0.3,ExoClock literature
 2012-04-05,Mancini et al. 2014,0.2,0.2,ExoClock literature
-2012-04-05,Mancini et al. 2014,-0.1,0.2,ExoClock literature
 2012-04-05,Mancini et al. 2014,0.1,0.3,ExoClock literature
+2012-04-05,Mancini et al. 2014,-0.1,0.2,ExoClock literature
+2012-04-05,Mancini et al. 2014,0.7,0.3,ExoClock literature
 2012-02-28,Gonzalez j.,0.576,0.9936,ETD
-2012-02-20,Emering f.,2.16,0.5472,ETD
 2012-02-20,Lomoz f.,-0.432,1.728,ETD
-2012-02-20,Zibar m.,1.296,1.8144,ETD
 2012-02-20,Lomoz f.,4.608,1.7568,ETD
+2012-02-20,Emering f.,2.16,0.5472,ETD
+2012-02-20,Zibar m.,1.296,1.8144,ETD
 2012-02-16,"Slesarenko v. , sokov e.",-6.768,2.0592,ETD
 2012-02-16,Strajnic et al.,1.008,1.0368,ETD
 2012-02-08,"Vereshchagina i. a., sokov e. n",13.104,5.7744,ETD
