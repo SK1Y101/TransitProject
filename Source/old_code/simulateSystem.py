@@ -6,7 +6,7 @@ from time import sleep as wait
 
 #from matplotlib.lines import Line2D
 
-def simulateSystem(*objects):
+def simulateSystem(*objects, transits = 100):
     # add params to object
     params, out, noneVal = ["mass", "period", "eccentricity", "omega", "inclination"], [[], []], 0.123456789
     # construct the 2d array of values
@@ -29,16 +29,16 @@ def simulateSystem(*objects):
         _out.append([out[int(thisbin[x])][x] for x in range(maxperms)])
     _out = np.unique(_out, axis=0)
 
-    print(len(_out))
+    #print(len(_out))
 
     def val(x):
         if x!=noneVal:
             return x
 
-    TTV, N = [], 1000
+    TTV, N = [], transits
 
     # construct a simulation for each possibility
-    for x in tqdm(_out):
+    for x in _out:#tqdm(_out):
         sim = rebound.Simulation()
         i = 0
         for obj in objects:
@@ -52,10 +52,10 @@ def simulateSystem(*objects):
         # simulate till TTV
         TTV100 = simulateTTV(sim, N)
         plt.scatter(np.arange(N), TTV100)
-    plt.show()
 
 def simulateTTV(sim, N):
-    tstep = 1 / 360
+    # simulate in minutely steps
+    tstep = 1 / (24*60/60)
     transittimes = np.zeros(N)
     p = sim.particles
     i = 0
@@ -64,13 +64,14 @@ def simulateTTV(sim, N):
         while i<N:
             yield
 
-    for _ in tqdm(gen()):
+    pbar = tqdm(total=N, leave=False)
+    while i<N:
         y_old = p[1].y - p[0].y  # (Thanks to David Martin for pointing out a bug in this line!)
         t_old = sim.t
         sim.integrate(sim.t+tstep) # check for transits every 0.5 time units. Note that 0.5 is shorter than one orbit
         t_new = sim.t
         if y_old*(p[1].y-p[0].y)<0. and p[1].x-p[0].x>0.:   # sign changed (y_old*y<0), planet in front of star (x>0)
-            while t_new-t_old>1e-7:   # bisect until prec of 1e-5 reached
+            while t_new-t_old>1e-7:   # bisect until prec of 1e-5 days (~1 second) reached
                 if y_old*(p[1].y-p[0].y)<0.:
                     t_new = sim.t
                 else:
@@ -78,6 +79,7 @@ def simulateTTV(sim, N):
                 sim.integrate( (t_new+t_old)/2.)
             transittimes[i] = sim.t
             i += 1
+            pbar.update(1)
             sim.integrate(sim.t+tstep)       # integrate 0.05 to be past the transit
 
     A = np.vstack([np.ones(N), range(N)]).T
@@ -87,23 +89,29 @@ def simulateTTV(sim, N):
 
     return TTV
 
+T=500
 
-simulateSystem({"name":"HAT-P-13",
-                "mass":1.220, "mass_e":[0.059, 0.1]
-                },
-               {"name":"HAT-P-13b",
-                "mass":0.883E-5, "mass_e":0,#[0.027E-5, 0.047E-5],
-                "period":2.9162431, "period_e":0.0000006,
-                "eccentricity":0.013, "eccentricity_e":0,#[0, 0.013],
-                "omega":197,"omega_e":0,#[32, 37],
-                "inclination":83.4, "inclination_e":0.26,
-                },
-               {"name":"HAT-P-13c",
-                "mass":14.61E-5, "mass_e":0,#[0.46E-5, 0.48E-5],
-                "period":445.82, "period_e":0.11,
-                "eccentricity":0.6554, "eccentricity_e":0,#[0.0021, 0.0020],
-                "omega":175.4, "omega_e":0,#0.22,
-                })
+for ecc in tqdm(np.arange(0, 0.9, 0.01)):
+    #print(ecc)
+
+    simulateSystem({"name":"HAT-P-13",
+                    "mass":1.220, "mass_e":0,#[0.059, 0.1]
+                    },
+                   {"name":"HAT-P-13b",
+                    "mass":0.883E-5, "mass_e":0,#[0.027E-5, 0.047E-5],
+                    "period":2.9162431, "period_e":0,#0.0000006,
+                    "eccentricity":0.013, "eccentricity_e":0,#[0.013, 0],
+                    "omega":197,"omega_e":0,#[32, 37],
+                    "inclination":83.4, "inclination_e":0,#0.26,
+                    },
+                   {"name":"HAT-P-13c",
+                    "mass":14.61E-5, "mass_e":0,#[0.46E-5, 0.48E-5],
+                    "period":445.82, "period_e":0,#0.11,
+                    "eccentricity":ecc, "eccentricity_e":0,#0.6554, "eccentricity_e":0,#[0.0021, 0.0020],
+                    "omega":175.4, "omega_e":0,#0.22,
+                    }, transits=T)
+
+plt.show()
 
 '''
 sim = rebound.Simulation()
