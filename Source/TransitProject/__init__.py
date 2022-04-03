@@ -85,6 +85,19 @@ def appendDataFrame(df, loc, sortby=None, ascending=False):
     # save the data
     saveDataFrame(df, loc)
 
+def inDataFrame(loc, target, col=None):
+    ''' check if a target value exists in a dataframe.
+        loc: the dataframe file to load and check.
+        target: the target value to search for.
+        col: the column to search in the dataframe for. '''
+    # fetch the dataframe
+    df = loadDataFrame(loc)
+    # ensure the column is valid
+    if not col:
+        col = df.columns[0]
+    # search for the target in the column
+    return target in list(df[col])
+
 def readFromFile(fileName):
     ''' Read the contenmt of a file using the standard python functions.
         fileName: the file to read from. '''

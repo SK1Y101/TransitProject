@@ -96,7 +96,7 @@ def saveTransitTimes(df, loc="/raw_data/midTransitTimes/", name="", stale_time=7
     # add the given data to the old dataframe
     appendDataFrame(df, loc, sortby="date")
     # add the exoplanet name to the list of exoplanets we're keeping track of
-    appendDataFrame(pd.DataFrame({"name":name}, index=[0]), "/raw_data/ExoplanetList.csv", ascending=True)
+    appendDataFrame(pd.DataFrame({"name":name}, index=[0]), "/raw_data/exoplanetList.csv", ascending=True)
 
 def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourceName=""):
     ''' Scrape the ExoClock website for exoplanet o-c data, and store as locally accesible csv data.

@@ -89,11 +89,23 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [ ] Refactor code
 - [ ] Simulation
   - [ ] Write a shared library for simulation
+    - [ ] Simulation pipeline
+      - [x] Fetch the planetary system to simulate
+      - [ ] Fetch the system parameters
+      - [ ] Determine the standard parameters, and all possible system configurations given known error values
+      - [ ] Simulate just central body and transiting body to determine unperturbed transit times
+      - [ ] Simulate the above with all known errors to determine error bars on unperturbed transit times
+      - [ ] Simulate the system with all known bodies to determine perturbed transit times
+      - [ ] Simulate the above with all known errors to determine error bars on perturbed transit times
   - [ ] Setup a pipeline with multithreading instances for many simulations in parallel
   - [ ] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
   - [ ] Determine a standardised output
   - [ ] Refactor code
 - [ ] Processing & Fitting
+  - [ ] Determine a simpler model that can produce the sinusoid for a given system layout
+    - [ ] Ensure this is accurate to system simulation
+    - [ ] Should be decently fast to run
+    - [ ] Is possible to give to an MCMC fitter
   - [ ] Determine a standardised input for data
   - [ ] Convert all data to standardised form & storage (ie: JSON)
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
@@ -104,9 +116,11 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [ ] Probably run Fourier analysis.
   - [ ] Determine a way of pulling out key frequency terms.
   - [ ] Map key information to system parameters. ie: frequency to orbital period mapping.
+  - [ ] Determine if the known parameters of the system adequately map to the observed variation
+    - [ ] If not, determine the parameters of the perturbation.
   - [ ] Refactor code
 - [ ] Re-simulate
-  - [ ] Use analysis to construct a range of possible system layouts
+  - [ ] Use analysis to construct a range of possible system layouts (See Analysis)
   - [ ] Simulate each system layout (See Simulation step)
   - [ ] Re-perform analysis of simulation, determine which, if any, simulated system layouts fit the data.
   - [ ] Refactor code
