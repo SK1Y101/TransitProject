@@ -8,7 +8,7 @@ from time import sleep as wait
 
 def simulateSystem(*objects, transits = 100):
     # add params to object
-    params, out, noneVal = ["mass", "period", "eccentricity", "omega", "inclination"], [[], []], 0.123456789
+    params, out, noneVal = ["mass", "period", "eccentricity", "omega", "inclination"], [[], []], np.nan
     # construct the 2d array of values
     for obj in objects:
         for param in params:
