@@ -1,5 +1,5 @@
 # python modules
-from tqdm import tqdm
+from tqdm import tqdm, trange
 import numpy as np
 import rebound
 
@@ -55,9 +55,61 @@ def fetchSystem(target):
     # and shift it to the top
     systemData = moveRowToTop(systemData, starIdx)
     # rename all the columns to be more usefull
-    systemData.columns = ["name", "mass", "masse1", "masse2", "per", "pere1", "pere2",
-                          "ecc", "ecce1", "ecce2", "inc", "ince1", "ince2", "arg", "arge1", "arge2"]
+    systemData.columns = ["name", "mass", "mass_e1", "mass_e2", "per", "per_e1", "per_e2",
+                          "ecc", "ecc_e1", "ecc_e2", "inc", "inc_e1", "inc_e2", "arg", "arg_e1", "arg_e2"]
     return systemData
+
+# construct a 2d array of all possible values
+# takes a (2,N) array, where the two different possible values for a column are (1, N) and (2, N)
+def possibilitySpace(out, totalParams):
+    # initial possibility space array
+    pos = np.full((2**totalParams, totalParams), np.nan)
+    # itterate over all possibility space
+    for idx in trange(2**totalParams, desc="Filling possibility space"):
+        # convert the current itteration number to a binary with as many positions as needed
+        idx_b = "{:0{}b}".format(idx, totalParams)
+        # use the binary representation of this iteration to select the zeroth or first row of the output
+        pos[idx,:] = np.array([out[int(idx_b[x])][x] for x in range(totalParams)])
+    # replace nan values with infinitiy so we know they are wrong
+    pos = np.nan_to_num(pos, nan=np.inf)
+    # fetch and return the unique permutations
+    return np.unique(pos, axis=0)
+
+# construct all simulation possibilities
+def constructSimArray(df):
+    # parameters needed for the simulation
+    params = ["mass", "per", "ecc", "inc", "arg"]
+    # compute the total number of required parameters
+    totalParams = len(params)*len(df.index)
+    # create an output array for each objects error values
+    out = np.full((2, totalParams), np.nan)
+    # and an output array for the default parameters
+    out_ = np.full((1, totalParams), np.nan)
+    # index counter for the loop
+    idx = 0
+
+    # construct the array of error values
+    for obj in range(len(df.index)):
+        object = df.loc[obj]
+        # for each parameter
+        for param in params:
+            # fetch the value and errors
+            val = object[param]
+            er1 = val + object[param+"_e1"]
+            er2 = val + object[param+"_e2"]
+            # add to the output
+            out[:,idx] = np.hstack([er1, er2])
+            out_[:,idx] = val
+            # inrement the index counter
+            idx+=1
+
+    # fetch the entire possibility space of our combinations
+    pos = possibilitySpace(out, totalParams)
+    # add the default simulation settings to the begining
+    pos = np.vstack([out_, pos])
+
+    # return the possibility space
+    return pos
 
 # fetch relevant data given exoplanet
 def fetchParams(exoplanet):
@@ -74,9 +126,17 @@ def fetchParams(exoplanet):
     if not tp.inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
         raise Exception("Mid-Transit data does not exist for target planet.")
 
-    # fetch the archive data for the planet
+    # fetch the archive data for the system
     archiveData = fetchSystem(archiveTarget)
-    print(archiveData)
 
-fetchParams("HAT-P-13 b")
-fetchParams("Epic-203771098 b")
+    # return the archive dataFrame
+    return archiveData
+
+# testing area
+df = fetchParams("HAT-P-13 b")
+
+simArray = constructSimArray(df)
+print(simArray.shape)
+
+simArray = constructSimArray(df.iloc[:2])
+print(simArray.shape)
