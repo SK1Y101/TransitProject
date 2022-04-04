@@ -6,5 +6,6 @@ matplotlib>=3.5.1
 numpy>=1.21.5
 pandas>=1.4.0rc0
 rebound>=3.19.2
+reboundx>=3.5.0
 scipy>=1.8.0rc2
 tqdm>=4.62.3

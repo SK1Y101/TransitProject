@@ -1,4 +1,5 @@
 # python modules
+from multiprocessing.pool import Pool
 from tqdm import tqdm, trange
 import numpy as np
 import rebound
@@ -17,9 +18,29 @@ def moveRowToTop(df, targetIdx):
     # remove the old value and return
     return df[df.index != targetIdx+1]
 
-def fetchSystem(target):
+
+# map my parameter names to archive names
+def mapToArchive(params):
+    def replace_error_name(archive, name):
+        if "_e" in name:
+            name, err = name.split("_e")
+            return archive[name]+"err{}".format(err)
+        return archive[name]
+    # dictionary of mappings
+    archive =  {"mass":"pl_bmassj",
+                "per":"pl_orbper",
+                "inc":"pl_orbincl",
+                "ecc":"pl_orbeccen",
+                "arg":"pl_orblper",}
+    # map and return
+    return [replace_error_name(archive, param) for param in params]
+
+def fetchSystem(target, params):
     # fetch the central body name
     star = target[:-1]
+    # add errors to the paramaters, and map to archive names
+    params = ",".join([",".join([param,param+"_e1",param+"_e2"]) for param in params]).split(",")
+    aparams = mapToArchive(params)
     # load the dataframe
     archive = tp.loadDataFrame("/raw_data/pscomppars.csv")
     # fetch all planets with the required hostname
@@ -31,22 +52,15 @@ def fetchSystem(target):
         # move the specified row to the top of the dataFrame
         data = moveRowToTop(data, targetIdx)
     # construct a new dataframe of only required parameters
-    systemData = data.loc[:, ["pl_name",
-                              # mass*sin(i) or mass in jupiter mass, depending on if sin(i) is known
-                              "pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2",
-                              # orbital period in days
-                              "pl_orbper", "pl_orbpererr1", "pl_orbpererr2",
-                              # eccentricity
-                              "pl_orbeccen", "pl_orbeccenerr1", "pl_orbeccenerr2",
-                              # inclination
-                              "pl_orbincl", "pl_orbinclerr1", "pl_orbinclerr2",
-                              # argument of periapsis
-                              "pl_orblper", "pl_orblpererr1", "pl_orblpererr2"]]
-    # convert mass to solar mass
-    systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
+    systemData = data.loc[:, ["pl_name"]+aparams]
+        # convert mass to solar mass
+    if "pl_bmassj" in systemData.columns:
+        systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
     # convert inclination and arg. per. to radians
-    systemData.loc[:, ["pl_orbincl", "pl_orbinclerr1", "pl_orbinclerr2",
-                       "pl_orblper", "pl_orblpererr1", "pl_orblpererr2"]] *= (np.pi/180)
+    if "pl_orbincl" in systemData.columns:
+        systemData.loc[:, ["pl_orbincl", "pl_orbinclerr1", "pl_orbinclerr2"]] *= (np.pi/180)
+    if "pl_orblper" in systemData.columns:
+        systemData.loc[:, ["pl_orblper", "pl_orblpererr1", "pl_orblpererr2"]] *= (np.pi/180)
     # populate a new list with the stars data
     d1 = data.iloc[0]
     starIdx, starData = len(systemData.index), [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
@@ -55,8 +69,7 @@ def fetchSystem(target):
     # and shift it to the top
     systemData = moveRowToTop(systemData, starIdx)
     # rename all the columns to be more usefull
-    systemData.columns = ["name", "mass", "mass_e1", "mass_e2", "per", "per_e1", "per_e2",
-                          "ecc", "ecc_e1", "ecc_e2", "inc", "inc_e1", "inc_e2", "arg", "arg_e1", "arg_e2"]
+    systemData.columns = ["name"]+params
     return systemData
 
 # construct a 2d array of all possible values
@@ -70,15 +83,11 @@ def possibilitySpace(out, totalParams):
         idx_b = "{:0{}b}".format(idx, totalParams)
         # use the binary representation of this iteration to select the zeroth or first row of the output
         pos[idx,:] = np.array([out[int(idx_b[x])][x] for x in range(totalParams)])
-    # replace nan values with infinitiy so we know they are wrong
-    pos = np.nan_to_num(pos, nan=np.inf)
-    # fetch and return the unique permutations
-    return np.unique(pos, axis=0)
+    # return all possibilities
+    return pos
 
 # construct all simulation possibilities
-def constructSimArray(df):
-    # parameters needed for the simulation
-    params = ["mass", "per", "ecc", "inc", "arg"]
+def constructSimArray(df, params=["mass", "per", "ecc", "inc", "arg"]):
     # compute the total number of required parameters
     totalParams = len(params)*len(df.index)
     # create an output array for each objects error values
@@ -107,12 +116,15 @@ def constructSimArray(df):
     pos = possibilitySpace(out, totalParams)
     # add the default simulation settings to the begining
     pos = np.vstack([out_, pos])
-
+    # replace nan values with infinitiy so we know they are wrong
+    pos = np.nan_to_num(pos, nan=np.inf)
+    # and remove nonunique values
+    pos = np.unique(pos, axis=0)
     # return the possibility space
     return pos
 
 # fetch relevant data given exoplanet
-def fetchParams(exoplanet):
+def fetchParams(exoplanet, params):
     # convert to capitalised with no space for exopclock
     exoclockTarget = exoplanet.capitalize().replace(" ", "")
     # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
@@ -125,18 +137,124 @@ def fetchParams(exoplanet):
     # check the planet has midtransit data
     if not tp.inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
         raise Exception("Mid-Transit data does not exist for target planet.")
-
     # fetch the archive data for the system
-    archiveData = fetchSystem(archiveTarget)
+    archiveData = fetchSystem(archiveTarget, params)
 
     # return the archive dataFrame
     return archiveData
 
+# if a value is infinity, return None, else return the value
+def noneIfInf(x):
+    if np.isinf(x):
+        return None
+    return x
+
+def valFromParam(value, array, param):
+    # if the value given is a list
+    if isinstance(value, list):
+        # reevaluate for each list value and return
+        return [valFromParam(val, array, param) for val in value]
+    # if the value is not in the parameters
+    if value not in param:
+        # return none
+        return None
+    # otherwise, return the part of the array that corresponds
+    return noneIfInf(array[param.index(value)])
+
+def fetchSims(simArray, params):
+    # fetch the number of objects
+    objs = int(len(simArray[0]) / len(params))
+    # simulation list
+    sims = []
+    # construct the required simulations
+    for thisSim in tqdm(simArray, desc="Creating simulations"):
+        # create the base simulation
+        sim = rebound.Simulation()
+        i=0
+        # for each object
+        for obj in np.split(thisSim, objs):
+            # fetch the parameters for this object
+            mass, per, inc, ecc, arg = valFromParam(["mass", "per", "inc", "ecc", "arg"], obj, params)
+            # add it to the simulation
+            sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
+            i+=1
+        # move the simulation to the centre of mass
+        #sim.move_to_com()
+        # and append to the simulation list
+        sims.append(sim)
+    # return the simulations
+    return sims
+
+def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
+    # transit time array
+    tarray, n = np.zeros(transits), 0
+    # reference to the particles in the simulation
+    p = sim.particles
+    # create a progress bar for this simulation
+    pbar = tqdm(total=transits, desc="Simulating transits", leave=False)
+    # keep iterating until we have the required number of transits
+    while n < transits:
+        # fetch the position of our target relative to the central body and the current time
+        pos_0, t_0 = p[1]-p[0], sim.t
+        # step forward in time
+        sim.integrate(sim.t+timestep)
+        # fetch the new position and time
+        pos_1, t_1 = p[1]-p[0], sim.t
+        # if the target has passed infront of the central body (ie: the sign has changed from positive to negative)
+        # and the target is infron of the central body
+        if pos_0.y*pos_1.y < 0 and pos_1.x > 0:
+            # iterate until we have the desired precision
+            while t_1-t_0 < prec:
+                # if the sign of the relative y position changed this timestep
+                if pos_0.y*(p[1]-p[0]).y < 0:
+                    # set this time as our upper bound
+                    t_1 = sim.t
+                else:
+                    # set this time as our lower bound
+                    t_0 = sim.t
+                # step forward by the difference in our times
+                sim.integrate(0.5 * (t_0+t_0))
+            # add the transit time to the array
+            tarray[n] = sim.t
+            # increment our transit counter
+            n += 1
+            # increment the progress bar
+            pbar.update(1)
+            # and step forward past the transit we just found
+            sim.integrate(sim.t+timestep)
+    # return the found transit times
+    return tarray
+
+def fetchTTV(sims, transits=1000):
+    # fetch the orbital period of our transiting target
+    p_orb = sims[0].particles[1].P
+    # and ensure we have 10 timesteps per orbit
+    tstep = p_orb * 0.1
+    # empty array of transit times
+    TT = np.zeros((len(sims), transits))
+    # fetch all the simulated transit times
+    for sim in tqdm(sims, desc="Simulating"):
+        # fetch this transit time
+        tt = simulateTT(sim, tstep, transits, sims.index(sim))
+        # and add to the transit time array
+        TT[sims.index(sim), :] = tt
+    # show the difference between the error values and the default values
+    print(TT - TT[0])
+
 # testing area
-df = fetchParams("HAT-P-13 b")
 
-simArray = constructSimArray(df)
-print(simArray.shape)
+# define the simulation parameters
+''' choice of mass, period, eccentiricty, inclination, argument of periapsis '''
+params = ["mass", "per", "ecc", "inc", "arg"]
 
-simArray = constructSimArray(df.iloc[:2])
-print(simArray.shape)
+# fetch the parameters for the system
+df = fetchParams("HAT-P-13 b", params)
+
+# fetch the array of simulation parameters
+simArray = constructSimArray(df.iloc[:2], params)
+
+# construct all simualtions
+sims = fetchSims(simArray, params)
+
+# simulate and return TTV
+TTV = fetchTTV(sims)

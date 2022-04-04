@@ -93,8 +93,8 @@ This is a general overview of the "Write Code" step above, and is of course subj
       - [x] Fetch the planetary system to simulate
       - [x] Fetch the system parameters
       - [x] Determine the standard parameters, and all possible system configurations given known error values
-      - [ ] Simulate just central body and transiting body to determine unperturbed transit times
-      - [ ] Simulate the above with all known errors to determine error bars on unperturbed transit times
+      - [x] Simulate just central body and transiting body to determine unperturbed transit times
+      - [x] Simulate the above with all known errors to determine error bars on unperturbed transit times
       - [ ] Simulate the system with all known bodies to determine perturbed transit times
       - [ ] Simulate the above with all known errors to determine error bars on perturbed transit times
   - [ ] Setup a pipeline with multithreading instances for many simulations in parallel
