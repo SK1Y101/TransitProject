@@ -118,8 +118,12 @@ def constructSimArray(df, params=["mass", "per", "ecc", "inc", "arg"]):
     pos = np.vstack([out_, pos])
     # replace nan values with infinitiy so we know they are wrong
     pos = np.nan_to_num(pos, nan=np.inf)
-    # and remove nonunique values
+    # remove nonunique values
     pos = np.unique(pos, axis=0)
+    # fetch the index of the default values
+    defidx = np.where((pos == np.nan_to_num(out_, nan=np.inf)).all(axis=1))[0][0]
+    # ensure the default values are at the top of the array
+    pos = np.vstack([pos[defidx], pos[defidx:], pos[:defidx+1]])
     # return the possibility space
     return pos
 
@@ -179,7 +183,7 @@ def fetchSims(simArray, params):
             sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
             i+=1
         # move the simulation to the centre of mass
-        #sim.move_to_com()
+        sim.move_to_com()
         # and append to the simulation list
         sims.append(sim)
     # return the simulations
@@ -225,11 +229,11 @@ def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
     # return the found transit times
     return tarray
 
-def fetchTTV(sims, transits=1000):
+def fetchTT(sims, transits=1000):
     # fetch the orbital period of our transiting target
     p_orb = sims[0].particles[1].P
     # and ensure we have 10 timesteps per orbit
-    tstep = p_orb * 0.1
+    tstep = p_orb * 0.01
     # empty array of transit times
     TT = np.zeros((len(sims), transits))
     # fetch all the simulated transit times
@@ -238,8 +242,14 @@ def fetchTTV(sims, transits=1000):
         tt = simulateTT(sim, tstep, transits, sims.index(sim))
         # and add to the transit time array
         TT[sims.index(sim), :] = tt
-    # show the difference between the error values and the default values
-    print(TT - TT[0])
+
+    # compute the average time, mininimum time, and maximum time for each transit
+    av = np.average(TT, axis=0)
+    mn = TT.min(axis=0)
+    mx = TT.max(axis=0)
+
+    # return the average transit time, and the error values
+    return av, av-mn, av-mx
 
 # testing area
 
@@ -250,11 +260,19 @@ params = ["mass", "per", "ecc", "inc", "arg"]
 # fetch the parameters for the system
 df = fetchParams("HAT-P-13 b", params)
 
-# fetch the array of simulation parameters
+# fetch the array of simulation parameters for the unperturbed system
 simArray = constructSimArray(df.iloc[:2], params)
-
 # construct all simualtions
 sims = fetchSims(simArray, params)
-
 # simulate and return TTV
-TTV = fetchTTV(sims)
+TT = fetchTT(sims, 100)
+
+
+# fetch the array of simulation parameters for the perturbed system
+simArray2 = constructSimArray(df, params)
+# construct all simualtions
+sims2 = fetchSims(simArray2, params)
+# simulate and return TTV
+TT2 = fetchTT(sims2, 100)
+
+print(TT2[0] - TT[0])
