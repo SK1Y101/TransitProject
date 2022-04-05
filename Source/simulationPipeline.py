@@ -228,7 +228,8 @@ def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
             # and step forward past the transit we just found
             sim.integrate(sim.t+timestep)
     # return the found transit times
-    return tarray
+    # because we are working with G=1, a=1 [AU], then t [year]=2pi
+    return tarray / (2*np.pi)
 
 def fetchTT(sims, transits=1000):
     # fetch the orbital period of our transiting target
@@ -246,22 +247,22 @@ def fetchTT(sims, transits=1000):
         TT[i, :] = tt
         i+=1
 
-    # compute the average time, mininimum time, and maximum time for each transit
+    # compute the mininimum time and maximum time for each transit
     av = TT[0]
     mn = TT.min(axis=0)
     mx = TT.max(axis=0)
 
-    # return the average transit time, and the error values
-    return av, np.vstack([av-mn, mx-av])
+    # return the transit time, and error values
+    return av, av-mn, mx-av
 
 # testing area
 
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma"]#, "ecc"]#, "inc"]
+params = ["mass", "sma", "ecc"]#, "inc"]
 
-N=1000
+N=10000
 
 
 import matplotlib.pylab as plt
@@ -277,6 +278,10 @@ TT = fetchTT(sims, N)
 A = np.vstack([np.ones(N), range(N)]).T
 c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
 
-plt.errorbar(range(N), TT[0], yerr=TT[1], label="From archive", fmt="o")
+# error area
+plt.fill_between(range(N), TT[0]-TT[1], TT[0]+TT[2], color="gray")
+plt.plot(range(N), TT[0], label="From archive", color="black")
+plt.xlabel("Epoch")
+plt.ylabel("Time [Years]")
 plt.legend()
 plt.show()
