@@ -260,7 +260,7 @@ def fetchTT(sims, transits=1000):
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc"]#, "inc"]
+params = ["mass", "sma", "ecc", "inc", "arg"]
 
 
 import matplotlib.pylab as plt
