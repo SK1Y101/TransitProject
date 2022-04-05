@@ -29,6 +29,7 @@ def mapToArchive(params):
     # dictionary of mappings
     archive =  {"mass":"pl_bmassj",
                 "per":"pl_orbper",
+                "sma":"pl_orbsmax",
                 "inc":"pl_orbincl",
                 "ecc":"pl_orbeccen",
                 "arg":"pl_orblper",}
@@ -56,11 +57,8 @@ def fetchSystem(target, params):
     # convert mass to solar mass
     if "pl_bmassj" in systemData.columns:
         systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
-    # convert inclination and arg. per. to radians
-    if "pl_orbincl" in systemData.columns:
-        systemData.loc[:, ["pl_orbincl", "pl_orbinclerr1", "pl_orbinclerr2"]] *= (np.pi/180)
-    if "pl_orblper" in systemData.columns:
-        systemData.loc[:, ["pl_orblper", "pl_orblpererr1", "pl_orblpererr2"]] *= (np.pi/180)
+    # convert mass to solar mass
+    #convert(systemData, "pl_orbincl", lambda x: np.radians(90-x))
     # populate a new list with the stars data
     d1 = data.iloc[0]
     starIdx, starData = len(systemData.index), [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
@@ -87,7 +85,7 @@ def possibilitySpace(out, totalParams):
     return pos
 
 # construct all simulation possibilities
-def constructSimArray(df, params=["mass", "per", "ecc", "inc", "arg"]):
+def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"]):
     # compute the total number of required parameters
     totalParams = len(params)*len(df.index)
     # create an output array for each objects error values
@@ -120,10 +118,8 @@ def constructSimArray(df, params=["mass", "per", "ecc", "inc", "arg"]):
     pos = np.nan_to_num(pos, nan=np.inf)
     # remove nonunique values
     pos = np.unique(pos, axis=0)
-    # fetch the index of the default values
-    defidx = np.where((pos == np.nan_to_num(out_, nan=np.inf)).all(axis=1))[0][0]
-    # ensure the default values are at the top of the array
-    pos = np.vstack([pos[defidx], pos[defidx:], pos[:defidx+1]])
+    # remove completely empty rows
+    pos = pos[~np.isinf(pos).all(axis=1)]
     # return the possibility space
     return pos
 
@@ -178,9 +174,14 @@ def fetchSims(simArray, params):
         # for each object
         for obj in np.split(thisSim, objs):
             # fetch the parameters for this object
-            mass, per, inc, ecc, arg = valFromParam(["mass", "per", "inc", "ecc", "arg"], obj, params)
+            mass, sma, per, inc, ecc, arg = valFromParam(["mass", "sma", "per", "inc", "ecc", "arg"], obj, params)
             # add it to the simulation
-            sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
+            if sma:
+                # default to using sma if possible
+                sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc)
+            else:
+                # else use period
+                sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
             i+=1
         # move the simulation to the centre of mass
         sim.move_to_com()
@@ -232,19 +233,21 @@ def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
 def fetchTT(sims, transits=1000):
     # fetch the orbital period of our transiting target
     p_orb = sims[0].particles[1].P
-    # and ensure we have 10 timesteps per orbit
-    tstep = p_orb * 0.1
+    # step either hourly, or per tenth of an orbit, depending on which is smaller
+    tstep = min(p_orb*0.1, 1 / (24*365))
     # empty array of transit times
     TT = np.zeros((len(sims), transits))
+    i=0
     # fetch all the simulated transit times
     for sim in tqdm(sims, desc="Simulating"):
         # fetch this transit time
         tt = simulateTT(sim, tstep, transits, sims.index(sim))
         # and add to the transit time array
-        TT[sims.index(sim), :] = tt
+        TT[i, :] = tt
+        i+=1
 
     # compute the average time, mininimum time, and maximum time for each transit
-    av = np.average(TT, axis=0)
+    av = TT[0]
     mn = TT.min(axis=0)
     mx = TT.max(axis=0)
 
@@ -254,34 +257,45 @@ def fetchTT(sims, transits=1000):
 # testing area
 
 # define the simulation parameters
-''' choice of mass, period, eccentiricty, inclination, argument of periapsis '''
-params = ["mass", "per", "ecc", "inc", "arg"]
+''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
+''' if both a period and semimajor axis is given, the script will default to SMA '''
+params = ["mass", "sma", "ecc"]#, "inc"]
 
-N=10
+N=1000
 
 # fetch the parameters for the system
+import matplotlib.pylab as plt
 df = fetchParams("HAT-P-13 b", params)
+simArray = constructSimArray(df, params)
+sims = fetchSims(simArray, params)
+TT = fetchTT(sims, N)[0]
+A = np.vstack([np.ones(N), range(N)]).T
+c, m = np.linalg.lstsq(A, TT, rcond=-1)[0]
+plt.scatter(range(N), (TT-m*np.array(range(N))-c)*60*24*365*2*np.pi, label="From archive")
+
+import pandas as pd
+df = pd.DataFrame([{"name":1, "mass":1.32},
+                  {"name":2, "mass":8.12705000e-04, "sma":4.38300000e-02, "ecc":1.33000000e-02, "arg":3.665191,"inc":83.4},
+                  {"name":3, "mass":1.36374000e-02, "sma":1.25800000e+00, "ecc":6.61600000e-01, "arg":3.059388}])
+for x in params:
+    if x not in df.columns:
+        df[x] = np.nan
+    if x+"_e1" not in df.columns:
+        df[x+"_e1"] = np.nan
+    if x+"_e2" not in df.columns:
+        df[x+"_e2"] = np.nan
 
 # fetch the array of simulation parameters for the unperturbed system
-simArray = constructSimArray(df.iloc[:2], params)
+simArray = constructSimArray(df, params)
 # construct all simualtions
 sims = fetchSims(simArray, params)
 # simulate and return TTV
-TT = fetchTT(sims, N)
-
-
-# fetch the array of simulation parameters for the perturbed system
-simArray2 = constructSimArray(df, params)
-# construct all simualtions
-sims2 = fetchSims(simArray2, params)
-# simulate and return TTV
-TT2 = fetchTT(sims2, N)
+TT = fetchTT(sims, N)[0]
 
 A = np.vstack([np.ones(N), range(N)]).T
-c, m = np.linalg.lstsq(A, TT2[0], rcond=-1)[0]
-TTV = (TT2[0]-m*np.array(range(N))-c)*(24.*365./2./np.pi)
+c, m = np.linalg.lstsq(A, TT, rcond=-1)[0]
 
 import matplotlib.pylab as plt
-plt.plot((TT2[0] - TT[0]).T)
-plt.plot(TTV)
+plt.scatter(range(N), (TT-m*np.array(range(N))-c)*60*24*365*2*np.pi, label="From given")
+plt.legend()
 plt.show()
