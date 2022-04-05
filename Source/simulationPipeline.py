@@ -252,50 +252,31 @@ def fetchTT(sims, transits=1000):
     mx = TT.max(axis=0)
 
     # return the average transit time, and the error values
-    return av, av-mn, av-mx
+    return av, np.vstack([av-mn, mx-av])
 
 # testing area
 
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc"]#, "inc"]
+params = ["mass", "sma"]#, "ecc"]#, "inc"]
 
 N=1000
 
+
+import matplotlib.pylab as plt
+
 # fetch the parameters for the system
-import matplotlib.pylab as plt
 df = fetchParams("HAT-P-13 b", params)
+
 simArray = constructSimArray(df, params)
+
 sims = fetchSims(simArray, params)
-TT = fetchTT(sims, N)[0]
+
+TT = fetchTT(sims, N)
 A = np.vstack([np.ones(N), range(N)]).T
-c, m = np.linalg.lstsq(A, TT, rcond=-1)[0]
-plt.scatter(range(N), (TT-m*np.array(range(N))-c)*60*24*365*2*np.pi, label="From archive")
+c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
 
-import pandas as pd
-df = pd.DataFrame([{"name":1, "mass":1.32},
-                  {"name":2, "mass":8.12705000e-04, "sma":4.38300000e-02, "ecc":1.33000000e-02, "arg":3.665191,"inc":83.4},
-                  {"name":3, "mass":1.36374000e-02, "sma":1.25800000e+00, "ecc":6.61600000e-01, "arg":3.059388}])
-for x in params:
-    if x not in df.columns:
-        df[x] = np.nan
-    if x+"_e1" not in df.columns:
-        df[x+"_e1"] = np.nan
-    if x+"_e2" not in df.columns:
-        df[x+"_e2"] = np.nan
-
-# fetch the array of simulation parameters for the unperturbed system
-simArray = constructSimArray(df, params)
-# construct all simualtions
-sims = fetchSims(simArray, params)
-# simulate and return TTV
-TT = fetchTT(sims, N)[0]
-
-A = np.vstack([np.ones(N), range(N)]).T
-c, m = np.linalg.lstsq(A, TT, rcond=-1)[0]
-
-import matplotlib.pylab as plt
-plt.scatter(range(N), (TT-m*np.array(range(N))-c)*60*24*365*2*np.pi, label="From given")
+plt.errorbar(range(N), TT[0], yerr=TT[1], label="From archive", fmt="o")
 plt.legend()
 plt.show()
