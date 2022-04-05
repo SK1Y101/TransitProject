@@ -3,9 +3,10 @@ from time import sleep as wait
 import numpy as np
 
 def testfunc(sim, tstep, transits=1000, i=0):
+    wait(1.5)
     return i
 
-sim = np.random.rand(int(5E4), 10)
+sim = np.random.rand(5, 10)
 
 itterable = [(sim[x], 100, 1000, x) for x in range(len(sim))]
 

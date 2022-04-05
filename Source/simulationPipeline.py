@@ -36,7 +36,7 @@ def mapToArchive(params):
     # map and return
     return [replace_error_name(archive, param) for param in params]
 
-def fetchSystem(target, params):
+def fetchSystem(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     # fetch the central body name
     star = target[:-1]
     # add errors to the paramaters, and map to archive names
@@ -124,7 +124,7 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"]):
     return pos
 
 # fetch relevant data given exoplanet
-def fetchParams(exoplanet, params):
+def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     # convert to capitalised with no space for exopclock
     exoclockTarget = exoplanet.capitalize().replace(" ", "")
     # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
@@ -262,13 +262,15 @@ def fetchTT(sims, transits=1000):
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
 params = ["mass", "sma", "ecc"]#, "inc"]
 
-N=10000
-
 
 import matplotlib.pylab as plt
 
 # fetch the parameters for the system
-df = fetchParams("HAT-P-13 b", params)
+df = fetchParams("HAT-P-13 b")
+
+startTime = 2008
+endTime = 2020
+N=int(np.ceil((endTime-startTime)*365.25/df.iloc[1]["per"]))
 
 simArray = constructSimArray(df, params)
 
