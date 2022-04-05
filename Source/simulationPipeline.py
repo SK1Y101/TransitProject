@@ -76,7 +76,7 @@ def possibilitySpace(out, totalParams):
     # initial possibility space array
     pos = np.full((2**totalParams, totalParams), np.nan)
     # itterate over all possibility space
-    for idx in trange(2**totalParams, desc="Filling possibility space"):
+    for idx in trange(2**totalParams, desc="Filling possibility space", unit_scale=True, smoothing=0):
         # convert the current itteration number to a binary with as many positions as needed
         idx_b = "{:0{}b}".format(idx, totalParams)
         # use the binary representation of this iteration to select the zeroth or first row of the output
@@ -167,7 +167,7 @@ def fetchSims(simArray, params):
     # simulation list
     sims = []
     # construct the required simulations
-    for thisSim in tqdm(simArray, desc="Creating simulations"):
+    for thisSim in tqdm(simArray, desc="Creating simulations", unit_scale=True, smoothing=0):
         # create the base simulation
         sim = rebound.Simulation()
         i=0
@@ -196,7 +196,7 @@ def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
     # reference to the particles in the simulation
     p = sim.particles
     # create a progress bar for this simulation
-    pbar = tqdm(total=transits, desc="Simulating transits", leave=False)
+    pbar = tqdm(total=transits, desc="Simulating transits", leave=False, unit_scale=True, smoothing=0)
     # keep iterating until we have the required number of transits
     while n < transits:
         # fetch the position of our target relative to the central body and the current time
@@ -240,7 +240,7 @@ def fetchTT(sims, transits=1000):
     TT = np.zeros((len(sims), transits))
     i=0
     # fetch all the simulated transit times
-    for sim in tqdm(sims, desc="Simulating"):
+    for sim in tqdm(sims, desc="Simulating", unit_scale=True, smoothing=0):
         # fetch this transit time
         tt = simulateTT(sim, tstep, transits, sims.index(sim))
         # and add to the transit time array
