@@ -18,6 +18,7 @@ A repository for my Masters Project on exoplanet transit timing variations.
 ![GitHub top language](https://img.shields.io/github/languages/top/SK1Y101/TransitProject)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/SK1Y101/TransitProject)
 ![Lines of code](https://img.shields.io/tokei/lines/github.com/SK1Y101/TransitProject)
+<img src="https://www.openhub.net/p/TransitProject/widgets/project_thin_badge?format=gif" alt="https://www.openhub.net/p/TransitProject/widgets/project_thin_badge?format=gif" style="border-radius: 0.25rem;">
 
 # Motivation
 Transiting exoplanets are growing ever more numerous, since *Kepler* launched in 2009, we have seen an explosive growth in the number of them detected. There are thousands visible in any single patch of the sky, and that's awesome.
