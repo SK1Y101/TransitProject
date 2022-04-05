@@ -53,7 +53,7 @@ def fetchSystem(target, params):
         data = moveRowToTop(data, targetIdx)
     # construct a new dataframe of only required parameters
     systemData = data.loc[:, ["pl_name"]+aparams]
-        # convert mass to solar mass
+    # convert mass to solar mass
     if "pl_bmassj" in systemData.columns:
         systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
     # convert inclination and arg. per. to radians
@@ -199,25 +199,25 @@ def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
     # keep iterating until we have the required number of transits
     while n < transits:
         # fetch the position of our target relative to the central body and the current time
-        pos_0, t_0 = p[1]-p[0], sim.t
+        y_0, t_0 = p[1]-p[0], sim.t
         # step forward in time
         sim.integrate(sim.t+timestep)
         # fetch the new position and time
-        pos_1, t_1 = p[1]-p[0], sim.t
+        y_1, t_1 = p[1]-p[0], sim.t
         # if the target has passed infront of the central body (ie: the sign has changed from positive to negative)
         # and the target is infron of the central body
-        if pos_0.y*pos_1.y < 0 and pos_1.x > 0:
+        if y_0.y*y_1.y < 0 and y_1.x > 0:
             # iterate until we have the desired precision
-            while t_1-t_0 < prec:
+            while t_1-t_0 > prec:
                 # if the sign of the relative y position changed this timestep
-                if pos_0.y*(p[1]-p[0]).y < 0:
+                if y_0.y*(p[1]-p[0]).y < 0:
                     # set this time as our upper bound
                     t_1 = sim.t
                 else:
                     # set this time as our lower bound
                     t_0 = sim.t
                 # step forward by the difference in our times
-                sim.integrate(0.5 * (t_0+t_0))
+                sim.integrate(0.5 * (t_0+t_1))
             # add the transit time to the array
             tarray[n] = sim.t
             # increment our transit counter
@@ -233,7 +233,7 @@ def fetchTT(sims, transits=1000):
     # fetch the orbital period of our transiting target
     p_orb = sims[0].particles[1].P
     # and ensure we have 10 timesteps per orbit
-    tstep = p_orb * 0.01
+    tstep = p_orb * 0.1
     # empty array of transit times
     TT = np.zeros((len(sims), transits))
     # fetch all the simulated transit times
@@ -257,6 +257,8 @@ def fetchTT(sims, transits=1000):
 ''' choice of mass, period, eccentiricty, inclination, argument of periapsis '''
 params = ["mass", "per", "ecc", "inc", "arg"]
 
+N=10
+
 # fetch the parameters for the system
 df = fetchParams("HAT-P-13 b", params)
 
@@ -265,7 +267,7 @@ simArray = constructSimArray(df.iloc[:2], params)
 # construct all simualtions
 sims = fetchSims(simArray, params)
 # simulate and return TTV
-TT = fetchTT(sims, 100)
+TT = fetchTT(sims, N)
 
 
 # fetch the array of simulation parameters for the perturbed system
@@ -273,6 +275,13 @@ simArray2 = constructSimArray(df, params)
 # construct all simualtions
 sims2 = fetchSims(simArray2, params)
 # simulate and return TTV
-TT2 = fetchTT(sims2, 100)
+TT2 = fetchTT(sims2, N)
 
-print(TT2[0] - TT[0])
+A = np.vstack([np.ones(N), range(N)]).T
+c, m = np.linalg.lstsq(A, TT2[0], rcond=-1)[0]
+TTV = (TT2[0]-m*np.array(range(N))-c)*(24.*365./2./np.pi)
+
+import matplotlib.pylab as plt
+plt.plot((TT2[0] - TT[0]).T)
+plt.plot(TTV)
+plt.show()
