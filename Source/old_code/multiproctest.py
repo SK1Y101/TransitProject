@@ -1,18 +1,28 @@
 from multiprocessing import Pool
 from time import sleep as wait
+from tqdm import tqdm, trange
+import multiprocessing
 import numpy as np
 
-def testfunc(sim, tstep, transits=1000, i=0):
-    wait(1.5)
-    return i
+def testfunc(sim, tstep, transits=1000):
+    workerId = multiprocessing.current_process()._identity[0]
+    for x in trange(10+workerId, leave=None, position=workerId, desc=str(workerId)):
+        wait(0.05)
+    return workerId
 
-sim = np.random.rand(5, 10)
+sim = np.random.rand(1000, 10)
 
-itterable = [(sim[x], 100, 1000, x) for x in range(len(sim))]
+itterable = [(sim[x], 100, 1000) for x in range(len(sim))]
+maxjobs = len(itterable)
+_complete=0
 
-with Pool() as p:
-    r=p.starmap_async(testfunc, itterable)
-    while not r.ready():
-        print(r._number_left)
-        wait(0.5)
-    print(r.get())
+with tqdm(total = maxjobs, leave=False, desc="Multiprocessing pool") as bar:
+    with Pool(4) as p:
+        r=p.starmap_async(testfunc, itterable, chunksize=1)
+        while not r.ready():
+            completed = maxjobs-r._number_left
+            bar.update((completed)-_complete)
+            _complete=completed
+            wait(0.1)
+        bar.update(1)
+        print(r.get())
