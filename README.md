@@ -89,7 +89,7 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [ ] Refactor code
 - [ ] Simulation
   - [ ] Write a shared library for simulation
-    - [ ] Simulation pipeline
+    - [x] Simulation pipeline
       - [x] Fetch the planetary system to simulate
       - [x] Fetch the system parameters
       - [x] Simulate the system with all known bodies to determine perturbed transit times
