@@ -36,11 +36,9 @@ Repo/
 │ ├ Poster.pdf
 │ └ ProjectProposal.pdf
 ├ Source/
-│ ├ old_code /
-│ │ └ *Contains various bits legacy code that is kept for reference*
+│ ├ old_code /                  *Contains various bits legacy code that is kept for reference*
 │ ├ raw_data/
-│ │ ├ midTransitTimes/
-│ │ │ └ *Contains CSV Data for all exoplanets mid-transit times*
+│ │ ├ midTransitTimes/          *Contains CSV Data for all exoplanets mid-transit times*
 │ │ ├ ETDEphemerides.csv        *ephemerides from Exoplanet Transit database*
 │ │ ├ exoClockEphemerides.csv   *ephemerides from Exoclock database*
 │ │ ├ exoplanetList.csv         *list of all exoplanets with mid-transit times*
