@@ -67,15 +67,16 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     # return the data
     return systemData
 
-def _possibilitySpace_(poss):
+def _possibilitySpace_(poss, tqdmLeave=True):
     ''' Construct a 2D array of all possible values, if each value can have one of two states.
-        poss: A (2,N) array of possible input values, where each column is the two values for a single state.'''
+        poss: A (2,N) array of possible input values, where each column is the two values for a single state.
+        tqdmLeave: Whether to leave the overarchive tqdm bar when completed.'''
     # compute the maximum number of parameters
     totalParams = poss.shape[1]
     # initial possibility space array
     pos = np.full((2**totalParams, totalParams), np.nan)
     # itterate over all possibility space
-    for idx in trange(2**totalParams, desc="Filling possibility space"):
+    for idx in trange(2**totalParams, desc="Filling possibility space", leave=tqdmLeave):
         # convert the current itteration number to a binary with as many positions as needed
         idx_b = "{:0{}b}".format(idx, totalParams)
         # use the binary representation of this iteration to select the zeroth or first row of the output
@@ -84,11 +85,12 @@ def _possibilitySpace_(poss):
     return pos
 
 # construct all simulation possibilities
-def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"]):
+def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave=True):
     ''' Construct an array of all possible simulation parameters.
         Each row corresponds to a new simulation setup, where the columns are the parameters for each object.
         df: The dataframe of system information to fetch data from.
-        params: The list of parameters to include in this simulation. '''
+        params: The list of parameters to include in this simulation.
+        tqdmLeave: Whether to leave the overarchive tqdm bar when completed.'''
     # compute the total number of required parameters
     totalParams = len(params)*len(df.index)
     # create an output array for each objects error values
@@ -114,7 +116,7 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"]):
             idx+=1
 
     # fetch the entire possibility space of our combinations
-    pos = _possibilitySpace_(out)
+    pos = _possibilitySpace_(out, tqdmLeave=tqdmLeave)
     # add the default simulation settings to the begining
     pos = np.vstack([out_, pos])
     # replace nan values with infinitiy so we know they are wrong
@@ -253,17 +255,19 @@ def _simulateTransitTimes_(simArray, params, transits=1000):
     # and return the transit times
     return TT
 
-def fetchTT(simArray, params, transits=1000):
+def fetchTT(simArray, params, transits=1000, workers=None, tqdmLeave=True):
     ''' Create a multiprocessing job to simulate all possible configurations of a planetary system.
         returns the transit times, the upper, and the lower error bounds.
         simArray: The 2D array of all possible simulation parameters.
         params: The list of parameter names. used to map the array to usable values.
-        transits: The number of transits to simulate for. '''
+        transits: The number of transits to simulate for.
+        workers: The number of worker processes to use for the simulation (defaults to cpucount / 2).
+        tqdmLeave: Whether to leave the overarchive tqdm bar when completed.'''
     inputs = toItterableInput(simArray, params, transits, keep=(1,))
     # run the multiprocessing job
-    TT = parallelJob(_simulateTransitTimes_, inputs, outType=np.array)
+    TT = parallelJob(_simulateTransitTimes_, inputs, outType=np.array, workers=workers, tqdmLeave=tqdmLeave)
     # compute the mininimum time and maximum time for each transit
-    av = TT[0] if TT.shape[0] > 1 else TT
+    av = TT[0]
     mn = TT.min(axis=0)
     mx = TT.max(axis=0)
     # return the transit time, and error values

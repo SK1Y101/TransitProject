@@ -267,13 +267,14 @@ def toItterableInput(*inputs, onlyUnique=True, keep=(None,)):
     # and return the array of inputs
     return out
 
-def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True):
+def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True, tqdmLeave=True):
     ''' Will execute a given function as a multiprocessing pool.
         function: The function to parallelise.
         inputs: The inputs to the function.
         workers: The number of worker processes to spawn. Defaults to half of the number of cpu cores
         reserveCpu: If true, the multiprocessing pool will ensure at least one CPU core is idle for other OS tasks.
-        outType: The type that the final output should be. Defaults to list. Accepts: list, tuple, dict, np.array. '''
+        outType: The type that the final output should be. Defaults to list. Accepts: list, tuple, dict, np.array.
+        tqdmLeave: Whether to leave the overarchive tqdm bar when completed.'''
     # imports required for this to work
     from time import sleep as wait
     import multiprocessing as mp
@@ -283,7 +284,7 @@ def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True):
     # the number of completed jobs
     comp_0, comp_1 = 0, 0
     # create the tqdm bar for the output
-    with tqdm(total=len(inputs), smoothing=0, desc="Parallel {}".format(function.__name__)) as bar:
+    with tqdm(total=len(inputs), smoothing=0, leave=tqdmLeave, desc="Parallel {}".format(function.__name__)) as bar:
         # create the multiprocessing pool
         with mp.Pool(workers) as p:
             # create the worker tasks

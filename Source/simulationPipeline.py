@@ -11,7 +11,7 @@ import TransitProject.Simulation as ts
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc"]#, "inc"]#"ecc", "inc", "arg"]
+params = ["mass", "sma", "ecc", "inc", "arg"]
 
 # fetch the parameters for the system
 df = ts.fetchParams("HAT-P-13 b")
@@ -35,7 +35,7 @@ TTV = TT[0] - m*np.array(range(N)) - c
 
 # error area
 #plt.fill_between(range(N), TT[0]-TT[1], TT[0]+TT[2], color="gray")
-plt.fill_between(range(N), TTV-TT[1]*1E-8, TTV+TT[2]*1E-8, color="gray", label="TTV error")
+#plt.fill_between(range(N), TTV-TT[1]*1E-8, TTV+TT[2]*1E-8, color="gray", label="TTV error")
 # main value
 #plt.plot(range(N), TT[0], label="From archive", color="black")
 plt.plot(TTV, color="black", label="Predicted TTV")
@@ -44,3 +44,34 @@ plt.xlabel("Epoch")
 plt.ylabel("Time [Years]")
 plt.legend()
 plt.show()
+
+
+'''
+# Benchmarking suite
+# Timing how long things take
+params = ["mass", "sma"]#, "ecc", "inc", "arg"]
+df = ts.fetchParams("HAT-P-13 b")
+
+import time
+times = []
+Ns = [5, 10, 25]#, 50, 100]
+workers = np.arange(4, 16)
+for N in Ns:
+    subtimes = []
+    for worker in workers:
+        start = time.time()
+        simArray = ts.constructSimArray(df, params, tqdmLeave=False)
+        TT = ts.fetchTT(simArray, params, N, workers=worker, tqdmLeave=False)
+        subtimes.append(time.time()-start)
+    times.append(subtimes)
+
+
+#print(times)
+for x in range(len(Ns)):
+    plt.scatter(workers, times[x], label="{} transits".format(Ns[x]))
+    if len(workers)>1:
+        plt.plot(workers, times[x][0] / (workers/workers[0]))#, label="Idealised runtime")
+plt.yscale("log")
+plt.legend()
+plt.show()
+'''
