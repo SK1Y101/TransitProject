@@ -2,18 +2,18 @@ date,observer,oc,oce,source
 2022-03-26,Michael Irzyk,0.6,1.4,ExoClock observation
 2022-03-03,Sw johny,1.728,1.6848,ETD
 2022-02-07,jean pascal vignes,1.6,0.7,ExoClock observation
-2022-01-28,Michelle Müller,-2.0,1.3,ExoClock observation
-2022-01-28,Miguel angel alava,-1.584,2.6064,ETD
 2022-01-28,Fernando Huet,-1.6,1.7,ExoClock observation
+2022-01-28,Miguel angel alava,-1.584,2.6064,ETD
+2022-01-28,Michelle Müller,-2.0,1.3,ExoClock observation
 2022-01-28,Fernando huet,-0.576,2.2608,ETD
 2022-01-25,Marc SERRAU,-3.1,1.9,ExoClock observation
 2022-01-24,Andre Kovacs,-7.1,4.3,ExoClock observation
 2022-01-12,Enrique Arce,0.9,1.4,ExoClock observation
 2022-01-12,Bernhard Wenzel,-1.4,7.2,ExoClock observation
 2022-01-12,Dominique DANIEL,-0.3,1.6,ExoClock observation
-2022-01-11,Bernhard wenzel,3.456,3.6864,ETD
-2022-01-11,Miguel angel alava,-3.024,3.456,ETD
 2022-01-11,Dominique daniel,-0.144,1.6848,ETD
+2022-01-11,Miguel angel alava,-3.024,3.456,ETD
+2022-01-11,Bernhard wenzel,3.456,3.6864,ETD
 2022-01-04,Andre Kovacs,2.4,2.9,ExoClock observation
 2021-12-20,Paolo Arcangelo Matassa,-2.2,4.3,ExoClock observation
 2021-04-04,Andre Kovacs,-1.1,4.3,ExoClock observation
@@ -31,8 +31,8 @@ date,observer,oc,oce,source
 2020-03-15,Mauro Caló,2.2,1.4,ExoClock observation
 2020-03-15,Francois Hurter,-1.6,3.5,ExoClock observation
 2020-02-24,Matthieu Bachschmidt,-1.2,1.2,ExoClock observation
-2020-02-24,Matthieu bachschmidt,-1.728,1.44,ETD
 2020-02-24,Yves jongen,1.296,0.8208,ETD
+2020-02-24,Matthieu bachschmidt,-1.728,1.44,ETD
 2020-02-24,Francois Hurter,6.3,8.6,ExoClock observation
 2020-02-17,Roger Dymock,4.6,4.3,ExoClock observation
 2020-02-07,Alessandro Nastasi,-0.3,2.4,ExoClock observation
@@ -53,39 +53,39 @@ date,observer,oc,oce,source
 2017-11-14,Pere guerra,0.432,1.4544,ETD
 2017-03-01,"Francesco scaggiante, danilo zardin",-1.296,1.2816,ETD
 2016-12-22,Mike miller,3.312,15.3936,ETD
-2016-04-06,Anaël Wünsche,1.5,0.7,ExoClock observation
 2016-04-06,Marc bretton,0.144,1.0368,ETD
 2016-04-06,David molina,2.88,1.0512,ETD
+2016-04-06,Anaël Wünsche,1.5,0.7,ExoClock observation
 2016-03-17,Anaël Wünsche,2.4,1.4,ExoClock observation
-2016-03-17,Marc bretton,1.872,1.2816,ETD
 2016-03-17,František lomoz,-11.664,3.1536,ETD
+2016-03-17,Marc bretton,1.872,1.2816,ETD
 2016-01-17,"Francesco scaggiante, danilo zardin",1.44,1.6416,ETD
-2015-03-11,Rutenkolk jan / pascal gimmler,2.736,1.9152,ETD
-2015-03-11,Josep gaitan,-18.864,1.9728,ETD
-2015-03-11,Pascal gimmler / jan rutenkolk,2.736,1.9152,ETD
 2015-03-11,"Lycée notre dame de toutes aides, nantes, france",1.008,4.7232,ETD
+2015-03-11,Pascal gimmler / jan rutenkolk,2.736,1.9152,ETD
+2015-03-11,Josep gaitan,-18.864,1.9728,ETD
+2015-03-11,Rutenkolk jan / pascal gimmler,2.736,1.9152,ETD
 2015-03-11,Jens jacobsen,1.44,2.0736,ETD
 2015-02-25,David molina,0.576,3.7008,ETD
 2015-02-25,Marc bretton,0.432,1.728,ETD
-2015-01-23,Mancini et al. 2016,0.4,0.3,ExoClock literature
-2015-01-23,Mancini et al. 2016,0.3,0.2,ExoClock literature
-2015-01-23,Mancini et al. 2016,0.2,0.1,ExoClock literature
 2015-01-23,Mancini et al. 2016,-0.1,0.5,ExoClock literature
+2015-01-23,Mancini et al. 2016,0.2,0.1,ExoClock literature
+2015-01-23,Mancini et al. 2016,0.3,0.2,ExoClock literature
+2015-01-23,Mancini et al. 2016,0.4,0.3,ExoClock literature
 2015-01-20,Mancini et al. 2016,-1.6,0.3,ExoClock literature
-2015-01-20,Mancini et al. 2016,-0.9,0.3,ExoClock literature
-2015-01-20,Mancini et al. 2016,-0.4,0.5,ExoClock literature
 2015-01-20,Mancini et al. 2016,-1.1,0.6,ExoClock literature
+2015-01-20,Mancini et al. 2016,-0.4,0.5,ExoClock literature
+2015-01-20,Mancini et al. 2016,-0.9,0.3,ExoClock literature
 2014-03-27,René r.,7.488,1.9872,ETD
-2014-03-07,Carreño a.,-2.016,1.296,ETD
-2014-03-07,Josep gaitan,-14.4,1.5696,ETD
 2014-03-07,Gaitan j.,-14.4,1.5696,ETD
+2014-03-07,Josep gaitan,-14.4,1.5696,ETD
+2014-03-07,Carreño a.,-2.016,1.296,ETD
 2014-02-20,Puehringer herbert,0.72,0.576,ETD
 2014-02-12,František lomoz,-3.312,4.1472,ETD
 2014-02-12,František lomoz,-0.432,4.0176,ETD
 2013-12-30,Mancini et al. 2016,-0.3,0.4,ExoClock literature
-2013-12-30,Mancini et al. 2016,-0.1,0.2,ExoClock literature
 2013-12-30,Mancini et al. 2016,-0.4,0.3,ExoClock literature
 2013-12-30,Mancini et al. 2016,-0.7,0.2,ExoClock literature
+2013-12-30,Mancini et al. 2016,-0.1,0.2,ExoClock literature
 2013-12-03,René r.,-0.0,1.2528,ETD
 2013-12-03,Bachschmidt m.,1.296,1.224,ETD
 2013-12-03,Dittler u.,17.856,2.1024,ETD
@@ -96,8 +96,8 @@ date,observer,oc,oce,source
 2013-02-05,Popov v.,3.744,2.9232,ETD
 2013-01-05,Gonzalez j.,1.008,1.2816,ETD
 2012-12-29,Turner et al. 2016,-0.5,0.5,ExoClock literature
-2012-04-15,Mancini et al. 2016,0.7,0.4,ExoClock literature
 2012-04-15,Mancini et al. 2016,0.6,0.4,ExoClock literature
+2012-04-15,Mancini et al. 2016,0.7,0.4,ExoClock literature
 2012-04-15,Mancini et al. 2016,0.1,0.4,ExoClock literature
 2012-04-15,Mancini et al. 2016,-0.2,0.4,ExoClock literature
 2012-04-08,Horta f. g.,-5.472,4.3056,ETD

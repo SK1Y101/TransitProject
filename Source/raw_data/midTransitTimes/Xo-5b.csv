@@ -26,8 +26,8 @@ date,observer,oc,oce,source
 2018-01-18,"Francesco scaggiante, danilo zardin",5.616,1.4112,ETD
 2017-11-16,"Francesco scaggiante, danilo zardin",-5.76,1.9152,ETD
 2017-03-18,Serge bergeron,11.808,3.8304,ETD
-2017-02-17,David molina,3.744,1.7424,ETD
 2017-02-17,Nikola petrov,-1.152,0.5184,ETD
+2017-02-17,David molina,3.744,1.7424,ETD
 2017-01-06,David molina,4.032,1.2816,ETD
 2016-01-16,Aaav astrofili valdera,-0.144,,ETD
 2015-12-26,David molina,10.368,1.8576,ETD
@@ -54,8 +54,8 @@ date,observer,oc,oce,source
 2012-03-14,Armentrout w.,-51.12,1.1232,ETD
 2012-03-10,Naves r.,0.432,1.5264,ETD
 2012-02-01,"Makely n., hutcheson m.",3.456,1.0368,ETD
-2012-01-24,Naves r.,-1.44,2.0016,ETD
 2012-01-24,Garcia f.,4.32,1.9872,ETD
+2012-01-24,Naves r.,-1.44,2.0016,ETD
 2012-01-11,Shadic s.,-4.32,2.3472,ETD
 2012-01-07,Dax t.,5.472,1.7136,ETD
 2012-01-03,Naves r.,-4.464,1.6128,ETD
@@ -75,9 +75,9 @@ date,observer,oc,oce,source
 2009-04-03,Mendez,6.336,3.024,ETD
 2009-04-03,Filip Walter,1.4,1.6,ExoClock observation
 2009-04-03,Poddaný s.,5.904,1.6128,ETD
+2009-03-13,Mendez,-2.16,3.6,ETD
 2009-03-13,Naves,4.608,2.448,ETD
 2009-03-13,Salas,14.544,3.744,ETD
-2009-03-13,Mendez,-2.16,3.6,ETD
 2009-02-03,Gary,4.752,1.152,ETD
 2009-01-13,Foot,5.472,2.592,ETD
 2008-03-27,Pál et al. 2009,-0.5,0.6,ExoClock literature
@@ -89,11 +89,11 @@ date,observer,oc,oce,source
 2008-02-09,Foote,10.512,6.192,ETD
 2008-02-09,Foote by burke et al 2008,3.024,4.32,ETD
 2008-02-09,Pál et. al 2009,1.152,0.8208,ETD
-2008-01-20,Burke et al. 2008,7.9,4.3,ExoClock literature
-2008-01-20,Pál et al. 2009,2.3,0.8,ExoClock literature
 2008-01-20,Burke et al. 2008,0.7,4.3,ExoClock literature
-2008-01-19,Gregorio j.,10.368,2.88,ETD
+2008-01-20,Pál et al. 2009,2.3,0.8,ExoClock literature
+2008-01-20,Burke et al. 2008,7.9,4.3,ExoClock literature
 2008-01-19,Pál et. al 2009,5.904,0.8352,ETD
+2008-01-19,Gregorio j.,10.368,2.88,ETD
 2008-01-03,Pál et al. 2009,1.7,2.6,ExoClock literature
 2008-01-02,Pál et. al 2009,6.48,2.6064,ETD
 2007-12-30,Burke et al. 2008,6.2,4.3,ExoClock literature

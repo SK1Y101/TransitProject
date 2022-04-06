@@ -100,6 +100,19 @@ def inDataFrame(loc, target, col=None):
     # search for the target in the column
     return target in list(df[col])
 
+def moveRowToTop(df, targetIdx):
+    ''' Move a given row to the top of a dataframe.
+        df: The dataframe to manipulate
+        targetIdx: The row index to move to the top '''
+    # append an empty row
+    df.loc[len(df.index)] = np.nan
+    # shift down
+    df = df.shift(1)
+    # copy target to first row
+    df.iloc[0] = df.iloc[targetIdx+1]
+    # remove the old value and return
+    return df[df.index != targetIdx+1]
+
 def readFromFile(fileName):
     ''' Read the contenmt of a file using the standard python functions.
         fileName: the file to read from. '''
@@ -183,6 +196,12 @@ def findFloats(txt=""):
     # Do I understand how this works? Vaguely.
     # But it was sourced from an excellent stackoverflow answer that does explain it anyway
     # https://stackoverflow.com/a/45001796
+
+def noneIfInf(x):
+    ''' return None if a value is infinity, otherwise return the value. '''
+    if np.isinf(x):
+        return None
+    return x
 
 def animated_loading_function(func, *args, name="Waiting"):
     ''' Execute a function with an animation showing the loading progress.

@@ -1,281 +1,44 @@
 # python modules
 from multiprocessing import current_process as curProc
+import matplotlib.pylab as plt
 from tqdm import tqdm, trange
 import numpy as np
 import rebound
 
 # my modules
-import TransitProject as tp
-import TransitProject.webScraping as ws
-
-def moveRowToTop(df, targetIdx):
-    # append an empty row
-    df.loc[len(df.index)] = np.nan
-    # shift down
-    df = df.shift(1)
-    # copy target to first row
-    df.iloc[0] = df.iloc[targetIdx+1]
-    # remove the old value and return
-    return df[df.index != targetIdx+1]
-
-
-# map my parameter names to archive names
-def mapToArchive(params):
-    def replace_error_name(archive, name):
-        if "_e" in name:
-            name, err = name.split("_e")
-            return archive[name]+"err{}".format(err)
-        return archive[name]
-    # dictionary of mappings
-    archive =  {"mass":"pl_bmassj",
-                "per":"pl_orbper",
-                "sma":"pl_orbsmax",
-                "inc":"pl_orbincl",
-                "ecc":"pl_orbeccen",
-                "arg":"pl_orblper",}
-    # map and return
-    return [replace_error_name(archive, param) for param in params]
-
-def fetchSystem(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
-    # fetch the central body name
-    star = target[:-1]
-    # add errors to the paramaters, and map to archive names
-    params = ",".join([",".join([param,param+"_e1",param+"_e2"]) for param in params]).split(",")
-    aparams = mapToArchive(params)
-    # load the dataframe
-    archive = tp.loadDataFrame("/raw_data/pscomppars.csv")
-    # fetch all planets with the required hostname
-    data = archive.loc[archive["hostname"].str.replace(" ", "") == star].reset_index()
-    # fetch the target planet index
-    targetIdx = np.where(data["pl_name"].str.replace(" ","") == target)[0][0]
-    # ensure it is the first value in the dataframe
-    if targetIdx != 0:
-        # move the specified row to the top of the dataFrame
-        data = moveRowToTop(data, targetIdx)
-    # construct a new dataframe of only required parameters
-    systemData = data.loc[:, ["pl_name"]+aparams]
-    # convert mass to solar mass
-    if "pl_bmassj" in systemData.columns:
-        systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
-    # convert mass to solar mass
-    #convert(systemData, "pl_orbincl", lambda x: np.radians(90-x))
-    # populate a new list with the stars data
-    d1 = data.iloc[0]
-    starIdx, starData = len(systemData.index), [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
-    # append it to the dataframe, filling any unspecified values with NaN
-    systemData.loc[starIdx] = starData + [np.nan]*(len(systemData.iloc[0])-len(starData))
-    # and shift it to the top
-    systemData = moveRowToTop(systemData, starIdx)
-    # rename all the columns to be more usefull
-    systemData.columns = ["name"]+params
-    return systemData
-
-# construct a 2d array of all possible values
-# takes a (2,N) array, where the two different possible values for a column are (1, N) and (2, N)
-def possibilitySpace(out, totalParams):
-    # initial possibility space array
-    pos = np.full((2**totalParams, totalParams), np.nan)
-    # itterate over all possibility space
-    for idx in trange(2**totalParams, desc="Filling possibility space"):
-        # convert the current itteration number to a binary with as many positions as needed
-        idx_b = "{:0{}b}".format(idx, totalParams)
-        # use the binary representation of this iteration to select the zeroth or first row of the output
-        pos[idx,:] = np.array([out[int(idx_b[x])][x] for x in range(totalParams)])
-    # return all possibilities
-    return pos
-
-# construct all simulation possibilities
-def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"]):
-    # compute the total number of required parameters
-    totalParams = len(params)*len(df.index)
-    # create an output array for each objects error values
-    out = np.full((2, totalParams), np.nan)
-    # and an output array for the default parameters
-    out_ = np.full((1, totalParams), np.nan)
-    # index counter for the loop
-    idx = 0
-
-    # construct the array of error values
-    for obj in range(len(df.index)):
-        object = df.loc[obj]
-        # for each parameter
-        for param in params:
-            # fetch the value and errors
-            val = object[param]
-            er1 = val + object[param+"_e1"]
-            er2 = val + object[param+"_e2"]
-            # add to the output
-            out[:,idx] = np.hstack([er1, er2])
-            out_[:,idx] = val
-            # inrement the index counter
-            idx+=1
-
-    # fetch the entire possibility space of our combinations
-    pos = possibilitySpace(out, totalParams)
-    # add the default simulation settings to the begining
-    pos = np.vstack([out_, pos])
-    # replace nan values with infinitiy so we know they are wrong
-    pos = np.nan_to_num(pos, nan=np.inf)
-    # remove nonunique values
-    pos = np.unique(pos, axis=0)
-    # remove completely empty rows
-    pos = pos[~np.isinf(pos).all(axis=1)]
-    # return the possibility space
-    return pos
-
-# fetch relevant data given exoplanet
-def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
-    # convert to capitalised with no space for exopclock
-    exoclockTarget = exoplanet.capitalize().replace(" ", "")
-    # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
-    if exoplanet[-1].isalpha():
-        archiveTarget = exoplanet[:-1].upper().replace(" ", "")+exoplanet[-1].lower()
-    else:
-        # if there wasn't a planet delimiter, add one
-        archiveTarget = exoplanet.upper().replace(" ", "")+"b"
-
-    # check the planet has midtransit data
-    if not tp.inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
-        raise Exception("Mid-Transit data does not exist for target planet.")
-    # fetch the archive data for the system
-    archiveData = fetchSystem(archiveTarget, params)
-
-    # return the archive dataFrame
-    return archiveData
-
-# if a value is infinity, return None, else return the value
-def noneIfInf(x):
-    if np.isinf(x):
-        return None
-    return x
-
-def valFromParam(value, array, param):
-    # if the value given is a list
-    if isinstance(value, list):
-        # reevaluate for each list value and return
-        return [valFromParam(val, array, param) for val in value]
-    # if the value is not in the parameters
-    if value not in param:
-        # return none
-        return None
-    # otherwise, return the part of the array that corresponds
-    return noneIfInf(array[param.index(value)])
-
-def simulateTT(sim, timestep, transits=1000, i=1, prec=1E-7):
-    # transit time array
-    tarray, n = np.zeros(transits), 0
-    # reference to the particles in the simulation
-    p = sim.particles
-    # create a progress bar for this simulation
-    pbar = tqdm(total=transits, desc="Simulating transits", leave=False, position=i)
-    # keep iterating until we have the required number of transits
-    while n < transits:
-        # fetch the position of our target relative to the central body and the current time
-        y_0, t_0 = p[1]-p[0], sim.t
-        # step forward in time
-        sim.integrate(sim.t+timestep)
-        # fetch the new position and time
-        y_1, t_1 = p[1]-p[0], sim.t
-        # if the target has passed infront of the central body (ie: the sign has changed from positive to negative)
-        # and the target is infron of the central body
-        if y_0.y*y_1.y < 0 and y_1.x > 0:
-            # iterate until we have the desired precision
-            while t_1-t_0 > prec:
-                # if the sign of the relative y position changed this timestep
-                if y_0.y*(p[1]-p[0]).y < 0:
-                    # set this time as our upper bound
-                    t_1 = sim.t
-                else:
-                    # set this time as our lower bound
-                    t_0 = sim.t
-                # step forward by the difference in our times
-                sim.integrate(0.5 * (t_0+t_1))
-            # add the transit time to the array
-            tarray[n] = sim.t
-            # increment our transit counter
-            n += 1
-            # increment the progress bar
-            pbar.update(1)
-            # and step forward past the transit we just found
-            sim.integrate(sim.t+timestep)
-    # return the found transit times
-    # because we are working with G=1, a=1 [AU], then t [year]=2pi
-    return tarray / (2*np.pi)
-
-def arrayToSim(thisSim, params):
-    # fetch the number of objects
-    objs = len(thisSim) / len(params)
-    # create the simulation
-    sim = rebound.Simulation()
-    # iterate on each object
-    for obj in np.split(thisSim, objs):
-        # fetch this objects paramaters
-        mass, sma, per, inc, ecc, arg = valFromParam(["mass", "sma", "per", "inc", "ecc", "arg"], obj, params)
-        # if we have a semimajor axis
-        if sma:
-            sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc)
-        else:
-            sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
-    # move to the centre of mass
-    sim.move_to_com()
-    # and return the simulation
-    return sim
-
-# create a multiprocessing job
-def simulateTransitTimes(simArray, params, transits):
-    # fetch this simulation
-    sim = arrayToSim(simArray, params)
-    # fetch the smallest orbital period in the system
-    p_orb = min([x.P for x in sim.particles[1:]])
-    # ensure our timestep is either hourly, or one tenth the smallest orbital period
-    timestep = min(p_orb*0.1, 1 / (24*365))
-    # fetch the position from the worker ID
-    pos = curProc()._identity[0] if curProc().name != "MainProcess" else None
-    # simulate for the chosen number of transits
-    TT = simulateTT(sim, timestep, transits, pos)
-    # and return the transit times
-    return TT
-
-def fetchTT(simArray, params, transits=1000):
-    inputs = tp.toItterableInput(simArray, params, transits, keep=(1,))
-    # run the multiprocessing job
-    TT = tp.parallelJob(simulateTransitTimes, inputs, outType=np.array)
-    # compute the mininimum time and maximum time for each transit
-    av = TT[0] if TT.shape[0] > 1 else TT
-    mn = TT.min(axis=0)
-    mx = TT.max(axis=0)
-    # return the transit time, and error values
-    return av, av-mn, mx-av
-
-# testing area
+import TransitProject.Simulation as ts
 
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "inc"]#"ecc", "inc", "arg"]
+params = ["mass", "sma"]#, "ecc"]#, "inc"]#"ecc", "inc", "arg"]
 
 # fetch the parameters for the system
-df = fetchParams("HAT-P-13 b")
+df = ts.fetchParams("HAT-P-13 b")
 
 # compute the number of transits needed
-times = 2008, 2020
+times = 2008, 2022
 N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
 
 # construct the aray of simulation parameters
-simArray = constructSimArray(df, params)
+simArray = ts.constructSimArray(df, params)
 
 # fetch the transit times from simulation
-TT = fetchTT(simArray, params, N)
+TT = ts.fetchTT(simArray, params, N)
 
 # linear regression to fetch transit times
 A = np.vstack([np.ones(N), range(N)]).T
 c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
 
-import matplotlib.pylab as plt
+# compute the TTV
+TTV = TT[0] - m*np.array(range(N)) - c
+
 # error area
-plt.fill_between(range(N), TT[0]-TT[1], TT[0]+TT[2], color="gray")
+#plt.fill_between(range(N), TT[0]-TT[1], TT[0]+TT[2], color="gray")
+plt.fill_between(range(N), TTV-TT[1]*1E-6, TTV+TT[2]*1E-6, color="gray", label="TTV error")
 # main value
-plt.plot(range(N), TT[0], label="From archive", color="black")
+#plt.plot(range(N), TT[0], label="From archive", color="black")
+plt.plot(TTV, color="black", label="Predicted TTV")
 #labels
 plt.xlabel("Epoch")
 plt.ylabel("Time [Years]")
