@@ -239,7 +239,7 @@ def simulateTransitTimes(simArray, params, transits):
 def fetchTT(simArray, params, transits=1000):
     inputs = tp.toItterableInput(simArray, params, transits, keep=(1,))
     # run the multiprocessing job
-    TT = tp.parallelJob(simulateTransitTimes, inputs, workers=12, outType=np.array)
+    TT = tp.parallelJob(simulateTransitTimes, inputs, outType=np.array)
     # compute the mininimum time and maximum time for each transit
     av = TT[0] if TT.shape[0] > 1 else TT
     mn = TT.min(axis=0)
