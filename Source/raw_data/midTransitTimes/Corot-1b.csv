@@ -1,8 +1,8 @@
 date,observer,oc,oce,source
 2022-01-28,Miguel angel alava,-4.464,4.5936,ETD
 2021-03-05,Jens jacobsen,-3.024,1.1232,ETD
-2021-03-02,Michal powalko,-0.576,3.4992,ETD
 2021-03-02,Jens jacobsen,4.32,2.16,ETD
+2021-03-02,Michal powalko,-0.576,3.4992,ETD
 2021-01-14,Yves jongen,-2.592,0.8784,ETD
 2020-10-29,Ferran grau horta,1.728,1.7424,ETD
 2020-02-20,Yves jongen,-2.016,0.864,ETD
@@ -11,14 +11,14 @@ date,observer,oc,oce,source
 2020-01-12,Yves jongen,-3.456,2.2032,ETD
 2020-01-06,Yves jongen,-1.728,1.7712,ETD
 2019-12-08,Yves jongen,-0.144,0.8208,ETD
-2019-02-11,Yves jongen,6.048,1.6272,ETD
 2019-02-11,Julien bourdette,-0.864,2.304,ETD
-2019-02-08,Yves jongen,1.728,1.8144,ETD
+2019-02-11,Yves jongen,6.048,1.6272,ETD
 2019-02-08,Marc bretton,-4.608,2.016,ETD
+2019-02-08,Yves jongen,1.728,1.8144,ETD
 2019-02-05,"Francesco scaggiante, danilo zardin",-10.224,1.8,ETD
 2018-12-11,Yves jongen,2.448,1.584,ETD
-2017-02-14,Wonseok kang,-1.872,0.6336,ETD
 2017-02-14,Wonseok kang,-1.728,0.5472,ETD
+2017-02-14,Wonseok kang,-1.872,0.6336,ETD
 2017-02-11,Wonseok kang,-2.736,0.648,ETD
 2016-02-10,Aaav astrofili valdera,0.0,,ETD
 2016-02-04,David molina,5.616,2.232,ETD
@@ -26,9 +26,9 @@ date,observer,oc,oce,source
 2015-12-19,Matthieu bachschmidt,-20.592,1.6848,ETD
 2015-12-10,Smolka m.,-3.888,2.1024,ETD
 2015-03-12,Jens jacobsen,5.76,4.9248,ETD
-2015-03-06,Aaav astrofili valdera,0.432,,ETD
-2015-03-06,Marc bretton,-4.896,1.9296,ETD
 2015-03-06,Marc bretton,-1.152,1.4112,ETD
+2015-03-06,Marc bretton,-4.896,1.9296,ETD
+2015-03-06,Aaav astrofili valdera,0.432,,ETD
 2015-02-28,Aaav astrofili valdera,-0.432,,ETD
 2014-12-31,Luistremosa,4.176,2.3904,ETD
 2014-12-31,Luis tremosa,4.176,2.3904,ETD
@@ -37,8 +37,8 @@ date,observer,oc,oce,source
 2014-04-02,Lomoz f.,5.328,11.8944,ETD
 2014-02-11,Benni p.,-2.448,2.6784,ETD
 2013-12-28,"Sokov e. n., rusov s.",-2.016,1.224,ETD
-2013-12-11,Benni p.,-1.584,2.5056,ETD
 2013-12-11,Dittler u.,-22.32,3.3984,ETD
+2013-12-11,Benni p.,-1.584,2.5056,ETD
 2013-12-02,Bachschmidt m.,-2.016,2.1312,ETD
 2013-12-02,Gonzalez j.,-2.016,2.1312,ETD
 2013-11-17,"Sokov e. n., ivanov a.",1.008,1.0512,ETD

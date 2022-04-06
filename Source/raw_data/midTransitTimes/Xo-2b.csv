@@ -10,8 +10,8 @@ date,observer,oc,oce,source
 2021-01-15,Fran campos,-4.32,1.2816,ETD
 2020-04-10,Yves jongen,-0.432,1.3968,ETD
 2020-04-10,Manfred raetz,-2.304,0.8064,ETD
-2020-03-28,Anaël wünsche,-0.144,0.7056,ETD
 2020-03-28,Manfred raetz,-0.72,0.5472,ETD
+2020-03-28,Anaël wünsche,-0.144,0.7056,ETD
 2020-03-28,Nosáľ p.,-5.76,2.4192,ETD
 2020-03-20,Jean plazas,10.08,7.632,ETD
 2020-03-15,Nosáľ p.,1.872,13.5072,ETD
@@ -19,8 +19,8 @@ date,observer,oc,oce,source
 2020-02-23,Yves jongen,-0.72,0.6912,ETD
 2020-02-07,F. abulencia / j. mcgrath,-2.448,0.6192,ETD
 2020-01-20,Manfred raetz,0.864,1.3824,ETD
-2020-01-12,Mauro calo,0.144,1.4976,ETD
 2020-01-12,Yves jongen,-2.016,0.9504,ETD
+2020-01-12,Mauro calo,0.144,1.4976,ETD
 2019-05-06,Yves jongen,3.744,1.2096,ETD
 2019-04-15,Arndt latusseck,-2.16,1.5264,ETD
 2019-04-15,Manfred raetz,-0.432,1.6704,ETD
@@ -29,8 +29,8 @@ date,observer,oc,oce,source
 2019-02-19,Anael wunsche,0.864,2.1456,ETD
 2019-02-14,Manfred raetz,-1.008,0.8208,ETD
 2019-02-14,Yves jongen,-1.44,0.7344,ETD
-2019-01-24,Josep gaitan,-0.576,1.0512,ETD
 2019-01-24,Yves jongen,-3.888,1.6992,ETD
+2019-01-24,Josep gaitan,-0.576,1.0512,ETD
 2019-01-11,Anael wunsche,-10.368,1.7712,ETD
 2019-01-03,Yves jongen,4.176,1.0944,ETD
 2018-04-06,Yves jongen,2.88,1.0944,ETD
@@ -74,9 +74,9 @@ date,observer,oc,oce,source
 2013-01-07,Horta f. g.,2.16,1.5984,ETD
 2013-01-02,Ferran grau horta,-0.288,1.6704,ETD
 2013-01-02,Vanessa logan and karen lewis,1.728,,ETD
-2013-01-02,Faustino garcia,3.024,1.6704,ETD
-2013-01-02,Faustino garcia,-2.592,2.1744,ETD
 2013-01-02,Gaitan j.,-7.344,1.4688,ETD
+2013-01-02,Faustino garcia,-2.592,2.1744,ETD
+2013-01-02,Faustino garcia,3.024,1.6704,ETD
 2012-12-12,Gudmundsson s.,-2.448,2.0592,ETD
 2012-10-31,Horta f. g.,1.728,2.376,ETD
 2012-10-18,Gudmundsson s.,2.736,4.0032,ETD
@@ -119,8 +119,8 @@ date,observer,oc,oce,source
 2010-03-03,Sing et al. 2010,-0.72,0.432,ETD
 2010-01-15,Marchini a.,0.72,0.864,ETD
 2009-12-09,Wiggins p.,-0.576,1.728,ETD
-2009-12-04,Sing et al. 2010,1.152,0.3312,ETD
 2009-12-04,Sing et al. 2010,0.432,0.3312,ETD
+2009-12-04,Sing et al. 2010,1.152,0.3312,ETD
 2009-12-01,Garlitz j.,-1.152,1.152,ETD
 2009-11-26,Wiggins,0.0,2.88,ETD
 2009-11-13,Sing et al. 2010,0.432,0.3888,ETD

@@ -7,8 +7,8 @@ date,observer,oc,oce,source
 2021-09-24,Taewoo Kim,1.9,1.2,ExoClock observation
 2021-08-02,Yves Jongen,3.5,0.7,ExoClock observation
 2021-08-01,Yves jongen,2.592,0.7056,ETD
-2021-07-16,Anaël Wünsche,2.1,0.7,ExoClock observation
 2021-07-16,Yves Jongen,1.3,0.7,ExoClock observation
+2021-07-16,Anaël Wünsche,2.1,0.7,ExoClock observation
 2021-07-15,Anaël wünsche,1.296,0.7344,ETD
 2021-07-15,Yves jongen,0.0,0.8064,ETD
 2020-11-28,Yves Jongen,2.4,1.0,ExoClock observation
@@ -43,9 +43,9 @@ date,observer,oc,oce,source
 2012-08-12,Moyano et al. 2017,1.2,0.7,ExoClock literature
 2012-07-18,Sauer t.,-1.728,0.6912,ETD
 2011-10-14,Turner et al. 2016,-0.0,1.9,ExoClock literature
-2011-10-07,Mancini et al. 2013,0.3,0.5,ExoClock literature
 2011-10-07,Mancini et al. 2013,1.0,0.4,ExoClock literature
 2011-10-07,Mancini et al. 2013,0.8,0.7,ExoClock literature
+2011-10-07,Mancini et al. 2013,0.3,0.5,ExoClock literature
 2011-10-02,Mancini et al. 2013,-0.5,0.3,ExoClock literature
 2011-10-02,Mancini et al. 2013,-0.1,0.2,ExoClock literature
 2011-10-02,Mancini et al. 2013,0.6,0.4,ExoClock literature

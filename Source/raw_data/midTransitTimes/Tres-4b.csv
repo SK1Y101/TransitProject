@@ -21,8 +21,8 @@ date,observer,oc,oce,source
 2016-07-26,Marc bretton,4.464,1.3392,ETD
 2016-07-26,Anaël Wünsche,2.4,1.4,ExoClock observation
 2016-06-24,Marc bretton,-3.888,2.6352,ETD
-2014-04-27,Matthieu bachschmidt,-49.104,73.9728,ETD
 2014-04-27,Carreño a.,-2.736,5.3136,ETD
+2014-04-27,Matthieu bachschmidt,-49.104,73.9728,ETD
 2014-04-20,Ivan sergey,31.104,33.7824,ETD
 2013-06-29,Ayiomamitis a.,-6.336,2.6208,ETD
 2013-03-21,"Logan v., lewis k.",4.464,1.5264,ETD
@@ -52,8 +52,8 @@ date,observer,oc,oce,source
 2009-05-07,Trnka j.,-0.144,2.016,ETD
 2009-05-03,Tucker et al. 2011,2.304,1.6387,ETD
 2009-04-26,Dvorak,-1.44,2.736,ETD
-2009-04-12,Trnka j.,4.464,3.4848,ETD
 2009-04-12,Gregorio,4.896,2.736,ETD
+2009-04-12,Trnka j.,4.464,3.4848,ETD
 2009-04-02,Chan et al. 2011,-0.8,0.7,ExoClock literature
 2009-04-01,Tucker et al. 2011,-1.008,0.7085,ETD
 2008-06-10,Tucker et al. 2011,3.168,1.5206,ETD
@@ -62,10 +62,10 @@ date,observer,oc,oce,source
 2007-10-13,Vanmuster,1.584,3.6,ETD
 2007-09-25,Hentunen,18.432,7.2,ETD
 2007-08-24,Gregorio,1.44,7.2,ETD
-2007-05-10,Sozzetti et al. 2009,0.7,1.6,ExoClock literature
-2007-05-10,Mandushev et al. 2007,0.3,0.7,ExoClock literature
-2007-05-10,Chan et al. 2011,0.1,0.9,ExoClock literature
 2007-05-10,Sozzetti et al. 2009,-0.4,0.9,ExoClock literature
+2007-05-10,Chan et al. 2011,0.1,0.9,ExoClock literature
+2007-05-10,Mandushev et al. 2007,0.3,0.7,ExoClock literature
+2007-05-10,Sozzetti et al. 2009,0.7,1.6,ExoClock literature
 2007-05-09,Sozzetti et al 2009,0.576,1.5926,ETD
 2007-05-09,Mandushe et al 2007,0.144,0.72,ETD
 2007-05-09,Sozzetti et al 2009,-0.432,0.9446,ETD

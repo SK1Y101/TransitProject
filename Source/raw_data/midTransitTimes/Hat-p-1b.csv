@@ -2,26 +2,26 @@ date,observer,oc,oce,source
 2021-11-02,Martin Crow,-3.1,4.3,ExoClock observation
 2021-11-02,Snaevarr gudmundsson,-10.944,1.2528,ETD
 2021-10-24,Bernhard wenzel & markus rockenbauer,-0.864,0.8784,ETD
-2021-10-24,Bernhard Wenzel,-1.1,0.9,ExoClock observation
-2021-10-24,Robert Roth,0.4,1.0,ExoClock observation
 2021-10-24,Jacques Michelet,1.2,1.0,ExoClock observation
+2021-10-24,Robert Roth,0.4,1.0,ExoClock observation
+2021-10-24,Bernhard Wenzel,-1.1,0.9,ExoClock observation
 2021-08-18,Fran campos,3.024,0.9936,ETD
 2020-10-14,Jean plazas,-14.832,,ETD
 2020-10-05,Harri Kiiskinen,2.7,3.0,ExoClock observation
 2020-10-05,Francois regembal,-1.872,4.0176,ETD
-2020-07-22,Martin Smith,-1.0,4.3,ExoClock observation
 2020-07-22,Pierros Papadeas,-1.6,2.0,ExoClock observation
+2020-07-22,Martin Smith,-1.0,4.3,ExoClock observation
 2019-12-02,Martin Crow,-0.8,2.2,ExoClock observation
 2019-09-17,Jean plazas,12.816,7.0992,ETD
 2019-09-08,Anael wunsche,-0.0,2.1312,ETD
 2019-09-08,Anaël Wünsche,5.5,2.0,ExoClock observation
 2018-08-29,Stephen m. brincat,9.648,5.8464,ETD
-2017-09-28,Anaël Wünsche,-0.1,0.4,ExoClock observation
 2017-09-28,Marc bretton,-0.864,0.504,ETD
+2017-09-28,Anaël Wünsche,-0.1,0.4,ExoClock observation
 2016-09-09,František lomoz,1.728,1.9872,ETD
 2016-09-09,František lomoz,18.144,1.6416,ETD
-2016-07-04,Anaël Wünsche,-1.0,5.8,ExoClock observation
 2016-07-04,Marc bretton,4.032,1.5408,ETD
+2016-07-04,Anaël Wünsche,-1.0,5.8,ExoClock observation
 2014-07-25,Gonzalez j.,7.488,2.0592,ETD
 2013-11-08,Salisbury m.,-0.72,2.016,ETD
 2013-10-30,Benni p.,1.152,1.0368,ETD
@@ -33,8 +33,8 @@ date,observer,oc,oce,source
 2011-10-20,Trnka j.,1.872,2.1024,ETD
 2011-09-23,Trnka j.,9.216,2.232,ETD
 2011-08-18,Shadic s.,3.168,2.4768,ETD
-2010-10-05,Joe garlitz,2.88,1.512,ETD
 2010-10-05,Hose k.,1.872,1.8576,ETD
+2010-10-05,Joe garlitz,2.88,1.512,ETD
 2010-09-04,Naves r.,0.864,2.1888,ETD
 2010-07-30,Shadick s.,-4.896,2.088,ETD
 2010-07-08,Vrašťák m.,-4.896,2.6784,ETD
@@ -45,9 +45,9 @@ date,observer,oc,oce,source
 2009-09-16,Latham c. ,-1.728,1.7136,ETD
 2009-09-07,Wiggins,-0.864,2.592,ETD
 2009-09-03,Ayiomamitis,1.872,2.304,ETD
-2009-08-25,Brát l.,-3.312,3.8448,ETD
 2009-08-25,Dřevěný r.,-4.752,3.7008,ETD
 2009-08-25,Srdoc,8.352,2.16,ETD
+2009-08-25,Brát l.,-3.312,3.8448,ETD
 2009-08-16,Srdoc,11.808,2.016,ETD
 2008-10-12,L. brát,-16.704,3.5856,ETD
 2008-07-28,"Stanislav poddaný, filip walter",-10.512,3.2832,ETD
@@ -59,14 +59,14 @@ date,observer,oc,oce,source
 2007-09-06,Naves,13.536,,ETD
 2006-11-29,Winn et al. 2007,1.3,4.2,ExoClock literature
 2006-11-29,Winn et al 2007,0.144,4.176,ETD
-2006-10-02,Winn et al. 2007,0.3,1.5,ExoClock literature
 2006-10-02,Winn et al 2007,-0.864,1.5408,ETD
+2006-10-02,Winn et al. 2007,0.3,1.5,ExoClock literature
 2006-09-28,Winn et al. 2007,0.6,0.8,ExoClock literature
 2006-09-27,Winn et al 2007,-0.576,0.8496,ETD
 2006-09-19,Winn et al. 2007,1.8,0.7,ExoClock literature
 2006-09-19,Winn et al. 2007,-0.4,0.8,ExoClock literature
-2006-09-18,Winn et al 2007,0.72,0.6768,ETD
 2006-09-18,Winn et al 2007,-1.44,0.7776,ETD
+2006-09-18,Winn et al 2007,0.72,0.6768,ETD
 2006-09-10,Winn et al. 2007,0.5,1.1,ExoClock literature
 2006-09-09,Winn et al 2007,-0.72,1.0944,ETD
 2006-09-05,Bakos et al 2007,-0.144,12.96,ETD

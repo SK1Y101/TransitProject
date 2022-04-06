@@ -4,8 +4,8 @@ date,observer,oc,oce,source
 2021-09-02,Claudio Lopresti,-120.4,8.6,ExoClock observation
 2021-08-30,Anaël Wünsche,-119.9,4.3,ExoClock observation
 2021-08-30,Claudio Lopresti,-125.7,8.6,ExoClock observation
-2021-08-27,Adrian Jones,-117.0,2.6,ExoClock observation
 2021-08-27,Carmelo Falco,-124.6,2.0,ExoClock observation
+2021-08-27,Adrian Jones,-117.0,2.6,ExoClock observation
 2021-08-24,Carmelo Falco,-121.9,4.3,ExoClock observation
 2021-08-21,Claudio Lopresti,-120.0,4.3,ExoClock observation
 2021-08-21,Carmelo Falco,-120.5,1.6,ExoClock observation
@@ -13,9 +13,9 @@ date,observer,oc,oce,source
 2021-08-18,Yves jongen,-31.392,3.2112,ETD
 2021-08-18,Yves Jongen,-106.5,8.6,ExoClock observation
 2021-08-13,Carmelo Falco,-121.4,4.3,ExoClock observation
-2021-08-13,Martin Crow,-114.2,4.3,ExoClock observation
-2021-08-13,Dimitrios Deligeorgopoulos,-122.8,8.6,ExoClock observation
 2021-08-13,Carmelo Falco,-125.7,5.8,ExoClock observation
+2021-08-13,Dimitrios Deligeorgopoulos,-122.8,8.6,ExoClock observation
+2021-08-13,Martin Crow,-114.2,4.3,ExoClock observation
 2021-08-10,Yves Jongen,-113.9,1.9,ExoClock observation
 2021-08-09,Yves jongen,-14.112,2.0736,ETD
 2021-08-07,Yves Jongen,-122.8,1.3,ExoClock observation

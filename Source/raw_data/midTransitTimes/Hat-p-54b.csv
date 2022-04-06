@@ -5,11 +5,11 @@ date,observer,oc,oce,source
 2022-02-28,Yannic Delisle,-0.3,0.9,ExoClock observation
 2022-02-28,Valère Perroud,-0.7,2.0,ExoClock observation
 2022-02-28,Marc Deldem,-0.7,1.4,ExoClock observation
-2022-02-09,Fran Campos,0.5,1.2,ExoClock observation
-2022-02-09,Paolo Arcangelo Matassa,5.0,1.9,ExoClock observation
-2022-02-09,Alessandro marchini,-1.584,1.2384,ETD
 2022-02-09,Alessandro Marchini,-0.8,1.3,ExoClock observation
+2022-02-09,Fran Campos,0.5,1.2,ExoClock observation
+2022-02-09,Alessandro marchini,-1.584,1.2384,ETD
 2022-02-09,Snaevarr gudmundsson,0.0,1.1376,ETD
+2022-02-09,Paolo Arcangelo Matassa,5.0,1.9,ExoClock observation
 2022-01-21,Aaav astrofili valdera,0.0,,ETD
 2022-01-21,Cyrille aumasson,-4.32,0.4752,ETD
 2022-01-21,Cyrille AUMASSON,0.2,0.6,ExoClock observation
@@ -18,22 +18,22 @@ date,observer,oc,oce,source
 2021-12-06,Yves jongen,-6.192,0.7344,ETD
 2021-11-18,Yves Jongen,0.5,1.0,ExoClock observation
 2021-11-17,Yves jongen,-2.016,0.9072,ETD
-2021-03-23,Mario morales,3.6,2.808,ETD
+2021-03-23,Mario Morales Aimar,-2.0,2.4,ExoClock observation
 2021-03-23,Anaël Wünsche,4.2,1.3,ExoClock observation
 2021-03-23,Anaël wünsche,3.744,0.5184,ETD
-2021-03-23,Mario Morales Aimar,-2.0,2.4,ExoClock observation
 2021-03-23,Anaël wünsche,9.216,1.1664,ETD
+2021-03-23,Mario morales,3.6,2.808,ETD
 2021-03-20,Paul Benni,-0.4,1.0,ExoClock observation
 2021-03-19,Paul benni,6.192,0.9792,ETD
 2021-03-04,Michal powalko,2.016,0.7344,ETD
-2021-03-04,Snaevarr gudmundsson,0.144,0.6768,ETD
-2021-03-04,Jens jacobsen,-0.432,0.9792,ETD
 2021-03-04,Antonio Marino,3.5,3.5,ExoClock observation
+2021-03-04,Jens jacobsen,-0.432,0.9792,ETD
+2021-03-04,Snaevarr gudmundsson,0.144,0.6768,ETD
 2021-03-01,Yves Jongen,2.8,1.0,ExoClock observation
 2021-02-28,Yves jongen,3.888,0.936,ETD
 2021-02-13,Thomas grunge,6.768,1.5408,ETD
-2021-02-13,"D. baysan, l. nothdurft",5.616,0.7488,ETD
 2021-02-13,Jens jacobsen,-10.944,0.9504,ETD
+2021-02-13,"D. baysan, l. nothdurft",5.616,0.7488,ETD
 2021-02-10,Yves Jongen,1.3,0.7,ExoClock observation
 2021-02-09,Yves jongen,-0.288,0.7632,ETD
 2021-01-22,Yves Jongen,2.5,2.3,ExoClock observation
@@ -57,20 +57,20 @@ date,observer,oc,oce,source
 2020-10-19,Yves Jongen,0.8,0.7,ExoClock observation
 2020-10-18,Yves jongen,3.888,0.72,ETD
 2020-04-15,Jean plazas,9.648,77.4,ETD
-2020-03-27,Danilo Sedita,-2.5,1.6,ExoClock observation
 2020-03-27,Geoffrey Thurston,-1.2,1.3,ExoClock observation
-2020-03-27,John Savage,2.4,1.0,ExoClock observation
 2020-03-27,Pavel pintr,5.616,2.1168,ETD
+2020-03-27,John Savage,2.4,1.0,ExoClock observation
+2020-03-27,Danilo Sedita,-2.5,1.6,ExoClock observation
 2020-03-08,Alberto tomatis,6.48,1.1952,ETD
 2020-03-08,Giuseppe marino,-6.48,1.152,ETD
 2020-03-08,Alberto Tomatis,-4.4,2.4,ExoClock observation
 2020-02-26,Wonseok Kang,-1.2,0.6,ExoClock observation
 2020-02-22,Vikrant Kumar Agnihotri,-0.4,1.0,ExoClock observation
-2020-02-18,Anaël wünsche,1.584,1.8288,ETD
 2020-02-18,Yves jongen,-4.752,0.8496,ETD
 2020-02-18,Nosáľ p.,-6.048,3.1968,ETD
 2020-02-18,Yves Jongen,0.3,1.0,ExoClock observation
 2020-02-18,Alessandro Nastasi,-0.1,0.7,ExoClock observation
+2020-02-18,Anaël wünsche,1.584,1.8288,ETD
 2020-01-30,Dim Stouraitis,0.1,1.4,ExoClock observation
 2020-01-27,Yves Jongen,4.2,0.9,ExoClock observation
 2020-01-26,Yves jongen,-2.304,0.8208,ETD
@@ -79,8 +79,8 @@ date,observer,oc,oce,source
 2020-01-11,Claudio Lopresti,0.5,3.2,ExoClock observation
 2020-01-04,Martin Fowler,-5.6,4.3,ExoClock observation
 2019-12-23,Claudio lopresti,-8.208,0.9936,ETD
-2019-12-23,Alessandro Marchini,0.4,1.3,ExoClock observation
 2019-12-23,Alessandro marchini,-6.912,1.1952,ETD
+2019-12-23,Alessandro Marchini,0.4,1.3,ExoClock observation
 2019-10-05,Yves Jongen,2.6,0.7,ExoClock observation
 2019-10-04,Yves jongen,7.344,0.6768,ETD
 2019-04-01,Arndt latusseck,7.776,0.9072,ETD
@@ -89,17 +89,17 @@ date,observer,oc,oce,source
 2019-02-22,Yves jongen,-1.296,0.864,ETD
 2019-02-03,Yves jongen,-2.88,0.8208,ETD
 2019-02-03,Yves Jongen,2.7,0.9,ExoClock observation
-2019-01-15,Yves jongen,-0.0,0.8784,ETD
 2019-01-15,Jean plazas,0.72,,ETD
 2019-01-15,"Friedli, thomas karl + kropf, simon",3.456,2.9232,ETD
 2019-01-15,Marc bretton,-10.944,0.3024,ETD
+2019-01-15,Yves jongen,-0.0,0.8784,ETD
 2019-01-15,Anaël Wünsche,-3.4,0.4,ExoClock observation
 2019-01-15,Yves Jongen,0.3,0.9,ExoClock observation
 2019-01-12,Yves Jongen,1.1,1.0,ExoClock observation
 2019-01-11,Yves jongen,-0.144,6.0336,ETD
+2018-12-27,Yves Jongen,0.5,0.6,ExoClock observation
 2018-12-27,Antonino brosio,-3.312,0.9648,ETD
 2018-12-27,Yves jongen,0.288,0.8064,ETD
-2018-12-27,Yves Jongen,0.5,0.6,ExoClock observation
 2018-12-08,Oriol serra ,0.576,,ETD
 2018-12-08,Mohammad talafha,7.776,1.9296,ETD
 2018-12-05,Yves Jongen,2.4,1.0,ExoClock observation
@@ -109,8 +109,8 @@ date,observer,oc,oce,source
 2018-01-19,Luis perez fernandez,1.728,1.0368,ETD
 2017-03-02,Gaehrken bernd,1.44,0.648,ETD
 2017-01-23,David molina,4.32,0.8928,ETD
-2016-12-16,Eric girardin,-8.64,0.7056,ETD
 2016-12-16,František lomoz,-11.952,2.6496,ETD
+2016-12-16,Eric girardin,-8.64,0.7056,ETD
 2016-03-21,Devin gilmore,16.56,10.8288,ETD
 2016-03-06,Marc bretton,7.776,1.1808,ETD
 2016-02-16,Pierre le cam,1.872,1.7568,ETD
@@ -124,6 +124,6 @@ date,observer,oc,oce,source
 2015-01-17,Marc bretton,-8.352,0.9648,ETD
 2015-01-13,Faustino garcia,1.152,1.008,ETD
 2015-01-09,Emily wroblewski,1.872,1.08,ETD
-2014-12-25,Fran campos,2.592,0.9936,ETD
 2014-12-25,Alfonso carreno,1.296,1.3104,ETD
+2014-12-25,Fran campos,2.592,0.9936,ETD
 2013-01-06,Bakos et al. 2015,0.2,0.3,ExoClock literature
