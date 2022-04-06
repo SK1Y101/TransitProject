@@ -1,7 +1,9 @@
 # python modules
 from datetime import datetime
+from tqdm import tqdm
 import pandas as pd
 import os, time, re
+import numpy as np
 
 # -----< Methods >-----
 
@@ -210,3 +212,74 @@ def animated_loading_function(func, *args, name="Waiting"):
     __showElapsed__(name, el, fin=True)
     # return any of the outputs
     return r.get()
+
+def toItterableInput(*inputs, onlyUnique=True, keep=(None,)):
+    ''' Will decompose any number of inputs into a list of arguments for a
+        function call with multiprocessing.pool().starmap
+        *inputs: any number of inputs to the function to multiprocess.
+        onlyUnique: Whether the output array will only contain unique arguments.
+        keep: the index of any inputs that should be kept as their tuple.'''
+    # the types of inputs we want to expand
+    tupleTypes = (tuple, list, np.ndarray)
+    # and ensure our input is a list, rather than a tuple
+    inputs = list(inputs)
+    # if desired, sort to only unique inputs
+    if onlyUnique:
+        # for each input
+        for x in range(len(inputs)):
+            # try to condense down to only unique values
+            try:
+                # if we aren't keeping this input as is
+                if x not in keep:
+                    inputs[x] = np.unique(inputs[x], axis=0)
+            # otherwise, keep as is
+            except:
+                pass
+    # return if an input should be split or not
+    def splitInput(inputs, x, keep):
+        return (x not in keep) and isinstance(inputs[x], tupleTypes)
+    # length of input tuple
+    inputNum = range(len(inputs))
+    # compute required number of inputs
+    num = int(np.product([len(inputs[x]) for x in inputNum if splitInput(inputs, x, keep)]))
+    # create the output by itteration of the input
+    out = [[inputs[y][x%len(inputs[y])] if splitInput(inputs, y, keep) else inputs[y] \
+            for y in inputNum] for x in range(num)]
+    # and return the array of inputs
+    return out
+
+def parallelJob(function, inputs, workers=None, outType=None):
+    ''' Will execute a given function as a multiprocessing pool.
+        function: The function to parallelise.
+        inputs: The inputs to the function.
+        workers: The number of worker processes to spawn. Defaults to the maximum number of cpu cores.
+        outType: The type that the final output should be. Defaults to list. Accepts: list, tuple, dict, np.array. '''
+    # imports required for this to work
+    from multiprocessing import Pool
+    # the number of completed jobs
+    comp_0, comp_1 = 0, 0
+    # create the tqdm bar for the output
+    with tqdm(total=len(inputs), leave=False, smoothing=-0.3, desc="Parallel {}".format(function.__name__)) as bar:
+        # create the multiprocessing pool
+        with Pool(workers) as p:
+            # create the worker tasks
+            results = p.starmap_async(function, inputs, chunksize=1)
+            # show the tqdm output while waiting for things to finish
+            while not results.ready():
+                # compute the number of completed jobs
+                comp_1 = bar.total-results._number_left
+                # update the tqdm bar
+                bar.update(comp_1 - comp_0)
+                # and update our variable
+                comp_0 = comp_1
+        # ensure the bar is completed when the job is done
+        bar.n = bar.total
+        # update the bar
+        bar.refresh()
+    # fetch the results of the pool
+    res = results.get()
+    # if the outType is defined, and is applicable
+    if outType and outType in [list, tuple, dict, np.array]:
+        return outType(res)
+    # return the output
+    return res

@@ -1,5 +1,5 @@
 # python modules
-from multiprocessing.pool import Pool
+from multiprocessing import current_process as curProc
 from tqdm import tqdm, trange
 import numpy as np
 import rebound
@@ -76,7 +76,7 @@ def possibilitySpace(out, totalParams):
     # initial possibility space array
     pos = np.full((2**totalParams, totalParams), np.nan)
     # itterate over all possibility space
-    for idx in trange(2**totalParams, desc="Filling possibility space", unit_scale=True, smoothing=0):
+    for idx in trange(2**totalParams, desc="Filling possibility space"):
         # convert the current itteration number to a binary with as many positions as needed
         idx_b = "{:0{}b}".format(idx, totalParams)
         # use the binary representation of this iteration to select the zeroth or first row of the output
@@ -161,42 +161,13 @@ def valFromParam(value, array, param):
     # otherwise, return the part of the array that corresponds
     return noneIfInf(array[param.index(value)])
 
-def fetchSims(simArray, params):
-    # fetch the number of objects
-    objs = int(len(simArray[0]) / len(params))
-    # simulation list
-    sims = []
-    # construct the required simulations
-    for thisSim in tqdm(simArray, desc="Creating simulations", unit_scale=True, smoothing=0):
-        # create the base simulation
-        sim = rebound.Simulation()
-        i=0
-        # for each object
-        for obj in np.split(thisSim, objs):
-            # fetch the parameters for this object
-            mass, sma, per, inc, ecc, arg = valFromParam(["mass", "sma", "per", "inc", "ecc", "arg"], obj, params)
-            # add it to the simulation
-            if sma:
-                # default to using sma if possible
-                sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc)
-            else:
-                # else use period
-                sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
-            i+=1
-        # move the simulation to the centre of mass
-        sim.move_to_com()
-        # and append to the simulation list
-        sims.append(sim)
-    # return the simulations
-    return sims
-
-def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
+def simulateTT(sim, timestep, transits=1000, i=1, prec=1E-7):
     # transit time array
     tarray, n = np.zeros(transits), 0
     # reference to the particles in the simulation
     p = sim.particles
     # create a progress bar for this simulation
-    pbar = tqdm(total=transits, desc="Simulating transits", leave=False, unit_scale=True, smoothing=0)
+    pbar = tqdm(total=transits, desc="Simulating transits", leave=False, position=i)
     # keep iterating until we have the required number of transits
     while n < transits:
         # fetch the position of our target relative to the central body and the current time
@@ -231,27 +202,48 @@ def simulateTT(sim, timestep, transits=1000, i=0, prec=1E-7):
     # because we are working with G=1, a=1 [AU], then t [year]=2pi
     return tarray / (2*np.pi)
 
-def fetchTT(sims, transits=1000):
-    # fetch the orbital period of our transiting target
-    p_orb = sims[0].particles[1].P
-    # step either hourly, or per tenth of an orbit, depending on which is smaller
-    tstep = min(p_orb*0.1, 1 / (24*365))
-    # empty array of transit times
-    TT = np.zeros((len(sims), transits))
-    i=0
-    # fetch all the simulated transit times
-    for sim in tqdm(sims, desc="Simulating", unit_scale=True, smoothing=0):
-        # fetch this transit time
-        tt = simulateTT(sim, tstep, transits, sims.index(sim))
-        # and add to the transit time array
-        TT[i, :] = tt
-        i+=1
+def arrayToSim(thisSim, params):
+    # fetch the number of objects
+    objs = len(thisSim) / len(params)
+    # create the simulation
+    sim = rebound.Simulation()
+    # iterate on each object
+    for obj in np.split(thisSim, objs):
+        # fetch this objects paramaters
+        mass, sma, per, inc, ecc, arg = valFromParam(["mass", "sma", "per", "inc", "ecc", "arg"], obj, params)
+        # if we have a semimajor axis
+        if sma:
+            sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc)
+        else:
+            sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
+    # move to the centre of mass
+    sim.move_to_com()
+    # and return the simulation
+    return sim
 
+# create a multiprocessing job
+def simulateTransitTimes(simArray, params, transits):
+    # fetch this simulation
+    sim = arrayToSim(simArray, params)
+    # fetch the smallest orbital period in the system
+    p_orb = min([x.P for x in sim.particles[1:]])
+    # ensure our timestep is either hourly, or one tenth the smallest orbital period
+    timestep = min(p_orb*0.1, 1 / (24*365))
+    # fetch the position from the worker ID
+    pos = curProc()._identity[0] if curProc().name != "MainProcess" else None
+    # simulate for the chosen number of transits
+    TT = simulateTT(sim, timestep, transits, pos)
+    # and return the transit times
+    return TT
+
+def fetchTT(simArray, params, transits=1000):
+    inputs = tp.toItterableInput(simArray, params, transits, keep=(1,))
+    # run the multiprocessing job
+    TT = tp.parallelJob(simulateTransitTimes, inputs, workers=12, outType=np.array)
     # compute the mininimum time and maximum time for each transit
-    av = TT[0]
+    av = TT[0] if TT.shape[0] > 1 else TT
     mn = TT.min(axis=0)
     mx = TT.max(axis=0)
-
     # return the transit time, and error values
     return av, av-mn, mx-av
 
@@ -268,15 +260,17 @@ import matplotlib.pylab as plt
 # fetch the parameters for the system
 df = fetchParams("HAT-P-13 b")
 
-startTime = 2008
-endTime = 2020
-N=int(np.ceil((endTime-startTime)*365.25/df.iloc[1]["per"]))
+# compute the number of transits needed
+times = 2008, 2020
+N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
 
+# construct the aray of simulation parameters
 simArray = constructSimArray(df, params)
 
-sims = fetchSims(simArray, params)
+# fetch the transit times from simulation
+TT = fetchTT(simArray, params, N)
 
-TT = fetchTT(sims, N)
+# linear regression to fetch transit times
 A = np.vstack([np.ones(N), range(N)]).T
 c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
 
