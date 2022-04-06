@@ -248,20 +248,25 @@ def toItterableInput(*inputs, onlyUnique=True, keep=(None,)):
     # and return the array of inputs
     return out
 
-def parallelJob(function, inputs, workers=None, outType=None):
+def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True):
     ''' Will execute a given function as a multiprocessing pool.
         function: The function to parallelise.
         inputs: The inputs to the function.
-        workers: The number of worker processes to spawn. Defaults to the maximum number of cpu cores.
+        workers: The number of worker processes to spawn. Defaults to half of the number of cpu cores
+        reserveCpu: If true, the multiprocessing pool will ensure at least one CPU core is idle for other OS tasks.
         outType: The type that the final output should be. Defaults to list. Accepts: list, tuple, dict, np.array. '''
     # imports required for this to work
-    from multiprocessing import Pool
+    from time import sleep as wait
+    import multiprocessing as mp
+    # if worker number isn't give, set it to the job length or half cpu count.
+    # if it was given, set it to the given number not exceeding the maximum cpu count
+    workers = min(len(inputs), mp.cpu_count()//2) if not workers else min(workers, mp.cpu_count()-reserveCpu)
     # the number of completed jobs
     comp_0, comp_1 = 0, 0
     # create the tqdm bar for the output
-    with tqdm(total=len(inputs), leave=False, smoothing=-0.3, desc="Parallel {}".format(function.__name__)) as bar:
+    with tqdm(total=len(inputs), smoothing=-0.3, desc="Parallel {}".format(function.__name__)) as bar:
         # create the multiprocessing pool
-        with Pool(workers) as p:
+        with mp.Pool(workers) as p:
             # create the worker tasks
             results = p.starmap_async(function, inputs, chunksize=1)
             # show the tqdm output while waiting for things to finish
@@ -272,6 +277,7 @@ def parallelJob(function, inputs, workers=None, outType=None):
                 bar.update(comp_1 - comp_0)
                 # and update our variable
                 comp_0 = comp_1
+                wait(0.1)
         # ensure the bar is completed when the job is done
         bar.n = bar.total
         # update the bar
