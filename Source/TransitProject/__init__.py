@@ -264,20 +264,16 @@ def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True):
     # the number of completed jobs
     comp_0, comp_1 = 0, 0
     # create the tqdm bar for the output
-    with tqdm(total=len(inputs), smoothing=-0.3, desc="Parallel {}".format(function.__name__)) as bar:
+    with tqdm(total=len(inputs), smoothing=0, desc="Parallel {}".format(function.__name__)) as bar:
         # create the multiprocessing pool
         with mp.Pool(workers) as p:
             # create the worker tasks
             results = p.starmap_async(function, inputs, chunksize=1)
             # show the tqdm output while waiting for things to finish
             while not results.ready():
-                # compute the number of completed jobs
-                comp_1 = bar.total-results._number_left
-                # update the tqdm bar
-                bar.update(comp_1 - comp_0)
-                # and update our variable
-                comp_0 = comp_1
-                wait(0.1)
+                # update the number of completed jobs
+                bar.n = bar.total-results._number_left
+                bar.update(0)
         # ensure the bar is completed when the job is done
         bar.n = bar.total
         # update the bar

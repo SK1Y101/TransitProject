@@ -252,10 +252,7 @@ def fetchTT(simArray, params, transits=1000):
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc", "inc", "arg"]
-
-
-import matplotlib.pylab as plt
+params = ["mass", "sma", "inc"]#"ecc", "inc", "arg"]
 
 # fetch the parameters for the system
 df = fetchParams("HAT-P-13 b")
@@ -274,9 +271,12 @@ TT = fetchTT(simArray, params, N)
 A = np.vstack([np.ones(N), range(N)]).T
 c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
 
+import matplotlib.pylab as plt
 # error area
 plt.fill_between(range(N), TT[0]-TT[1], TT[0]+TT[2], color="gray")
+# main value
 plt.plot(range(N), TT[0], label="From archive", color="black")
+#labels
 plt.xlabel("Epoch")
 plt.ylabel("Time [Years]")
 plt.legend()
