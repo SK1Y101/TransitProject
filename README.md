@@ -38,15 +38,32 @@ Repo/
 ├ Source/
 │ ├ old_code /
 │ │ └ *Contains various bits legacy code that is kept for reference*
+│ ├ raw_data/
+│ │ ├ midTransitTimes/
+│ │ │ └ *Contains CSV Data for all exoplanets mid-transit times*
+│ │ ├ ETDEphemerides.csv        *ephemerides from Exoplanet Transit database*
+│ │ ├ exoClockEphemerides.csv   *ephemerides from Exoclock database*
+│ │ ├ exoplanetList.csv         *list of all exoplanets with mid-transit times*
+│ │ ├ ps.csv                    *NASA Exoplanet Archive planetary information table*
+│ │ └ pscomparrs.csv            *NASA Exoplanet Archive composite planetary table*
 │ ├ TransitProject/
 │ │ ├ __init__.py
+│ │ ├ Simulation.py
 │ │ └ webScraping.py
-│ └ fetchData.py
-└ README.md
+│ ├ fetchData.py
+│ └ simulationPipeline.py
+├ .gitignore
+├ README.md
+└ requirements.txt
 ```
 
 In the `Source/` folder is all of the python scripts to be ran.
-Additionally, contained within the `Source/TransitProject` folder is the individual code modules common across the project.
+These scripts are:
+ - `fetchData.py` - Fetch Ephemerides and mid-transit times for exoplanets
+ - `simulationPipeline.py` - Simulate the known properties of an exoplanetary system to fetch transit times.
+
+Contained within `Source/TransitProject/` is the individual code modules common across the project.
+Additionally, within `Source/old_code/` is legacy code that may still be useful.
 
 # Overview
 
@@ -72,7 +89,7 @@ The (Current) High-level plan for this project is (as everything else is) subjec
 
 This is a general overview of the "Write Code" step above, and is of course subject to change. Next to each item is a tickbox that marks its completion status.
 
-- [ ] Collect all required data
+- [x] Collect all required data
   - [x] ETD Lightcurves or mid-transit times
   - [x] Exoclock
     - [x] Lightcurves or mid-transit times
@@ -81,21 +98,21 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [x] Exoplanet Catalogue
     - [x] System info (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
     - [x] digital renders for pretty graphs (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
-  - [ ] other data sources
-  - [ ] Refactor code
-- [ ] Combine data
+  - [x] other data sources
+  - [x] Refactor code
+- [x] Combine data
   - [x] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
-  - [ ] Merge Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
-    - [ ] Figure out how to deal with conflicting information
-  - [ ] Refactor code
+  - [x] Merge Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
+    - [x] Figure out how to deal with conflicting information
+  - [x] Refactor code
 - [ ] Simulation
-  - [ ] Write a shared library for simulation
+  - [x] Write a shared library for simulation
     - [x] Simulation pipeline
       - [x] Fetch the planetary system to simulate
       - [x] Fetch the system parameters
       - [x] Simulate the system with all known bodies to determine perturbed transit times
       - [x] Simulate the above with all known errors to determine error bars on perturbed transit times
-  - [ ] Setup a pipeline with multithreading instances for many simulations in parallel
+  - [x] Setup a pipeline with multithreading instances for many simulations in parallel
   - [ ] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
   - [ ] Determine a standardised output
   - [ ] Refactor code
