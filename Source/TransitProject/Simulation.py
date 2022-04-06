@@ -71,7 +71,7 @@ def _possibilitySpace_(poss):
     ''' Construct a 2D array of all possible values, if each value can have one of two states.
         poss: A (2,N) array of possible input values, where each column is the two values for a single state.'''
     # compute the maximum number of parameters
-    totalParams = out.shape[1]
+    totalParams = poss.shape[1]
     # initial possibility space array
     pos = np.full((2**totalParams, totalParams), np.nan)
     # itterate over all possibility space
