@@ -36,6 +36,10 @@ params = ["mass", "sma", "ecc"]#, "inc", "arg"]
 # fetch the parameters for the system
 df = ts.fetchParams("HAT-P-13 b")
 
+for x in params[:-1]:
+    for y in [1,2]:
+        df[x+"_e{}".format(y)] = 0
+
 # compute the number of transits needed
 times = 2008, 2022
 N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
@@ -44,6 +48,7 @@ N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
 simArray = ts.constructSimArray(df, params)
 
 # fetch the transit times from simulation
+TT = ts.fetchTT(simArray, params, N, returnAll=True)
 TT = ts.fetchTT(simArray, params, N, returnAll=True)
 
 # compute the TTV for all values
