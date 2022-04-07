@@ -8,6 +8,25 @@ import rebound
 # my modules
 import TransitProject.Simulation as ts
 
+'''
+Goals: Collect system information from a local database.
+       Setup simulation from known system parameters.
+       Compute timing transit variations from simulation.
+'''
+
+def computeTTV(transitTimes):
+    ''' Compute the transit timing variation from an array of transit times using linear regression.
+        transitTimes: the array of transit times. '''
+    N = len(transitTimes)
+    # construct an empty 2d array for regression
+    A = np.vstack([np.ones(N), range(N)]).T
+    # perform regression to get coefficients of linear fit
+    c, m = np.linalg.lstsq(A, transitTimes, rcond=-1)[0]
+    # subtract from the transit times to get the variation
+    TTV = transitTimes - m*np.arrange(N) - c
+    # and return
+    return TTV
+
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
@@ -31,47 +50,17 @@ A = np.vstack([np.ones(N), range(N)]).T
 c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
 
 # compute the TTV
-TTV = TT[0] - m*np.array(range(N)) - c
+TTV = computeTTV(TT[0])
+# and the error bounds (upper and lower)
+TTVu = computeTTV(TT[0]+TT[2])
+TTVl = computeTTV(TT[0]-TT[1])
 
 # error area
-#plt.fill_between(range(N), TT[0]-TT[1], TT[0]+TT[2], color="gray")
-#plt.fill_between(range(N), TTV-TT[1]*1E-8, TTV+TT[2]*1E-8, color="gray", label="TTV error")
+plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
 # main value
-#plt.plot(range(N), TT[0], label="From archive", color="black")
 plt.plot(TTV, color="black", label="Predicted TTV")
 #labels
 plt.xlabel("Epoch")
 plt.ylabel("Time [Years]")
 plt.legend()
 plt.show()
-
-
-'''
-# Benchmarking suite
-# Timing how long things take
-params = ["mass", "sma"]#, "ecc", "inc", "arg"]
-df = ts.fetchParams("HAT-P-13 b")
-
-import time
-times = []
-Ns = [5, 10, 25]#, 50, 100]
-workers = np.arange(4, 16)
-for N in Ns:
-    subtimes = []
-    for worker in workers:
-        start = time.time()
-        simArray = ts.constructSimArray(df, params, tqdmLeave=False)
-        TT = ts.fetchTT(simArray, params, N, workers=worker, tqdmLeave=False)
-        subtimes.append(time.time()-start)
-    times.append(subtimes)
-
-
-#print(times)
-for x in range(len(Ns)):
-    plt.scatter(workers, times[x], label="{} transits".format(Ns[x]))
-    if len(workers)>1:
-        plt.plot(workers, times[x][0] / (workers/workers[0]))#, label="Idealised runtime")
-plt.yscale("log")
-plt.legend()
-plt.show()
-'''

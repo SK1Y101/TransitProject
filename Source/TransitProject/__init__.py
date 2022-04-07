@@ -283,8 +283,10 @@ def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True, t
     workers = min(len(inputs), mp.cpu_count()//2) if not workers else min(workers, mp.cpu_count()-reserveCpu)
     # the number of completed jobs
     comp_0, comp_1 = 0, 0
+
     # create the tqdm bar for the output
-    with tqdm(total=len(inputs), smoothing=0, leave=tqdmLeave, desc="Parallel {}".format(function.__name__)) as bar:
+    with tqdm(total=len(inputs), desc="Parallel {}".format(function.__name__), \
+              leave=tqdmLeave, smoothing=0) as bar:
         # create the multiprocessing pool
         with mp.Pool(workers) as p:
             # create the worker tasks

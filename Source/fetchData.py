@@ -8,7 +8,13 @@ from tqdm import tqdm, trange
 import TransitProject as tp
 import TransitProject.webScraping as ws
 
-# Examples for fetching
+'''
+Goals: Collect midtransit times from ETD and ExoClock
+       Collect System information from exoplanet archive
+       Collect ephemerides from Exoclock and exoplanet archive.
+       Only download data occasionally (minimise network overhead)
+'''
+
 
 # ETD (Lightcurves)
 ws.fetchETDData("http://var2.astro.cz/ETD/index.php?lang=en", sourceName="ETD")
