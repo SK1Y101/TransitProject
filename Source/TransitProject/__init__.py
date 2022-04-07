@@ -208,7 +208,7 @@ def avMinMax(array, av=None, axis=0):
     # compute the minimum and maximum
     mn = array.min(axis=axis)
     mx = array.max(axis=axis)
-    # return the average minimum and maximum
+    # return the average, minimum, and maximum
     return av, mn, mx
 
 def noneIfInf(x):
