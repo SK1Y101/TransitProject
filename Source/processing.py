@@ -16,3 +16,13 @@ Goals: Create a simple extensible model that can take system parameters and outp
        - ie: fit for perturbing planetary period, for example.
        - can be found from fourier analysis, or from the MCMC model parameters probably.
 '''
+
+# model:
+# required inputs:
+# orbital elements of transiting planet
+# physical parameters of transiting planet and parent star
+# variable inputs:
+# physical parameters and orbital elements of perturbing planet(s)
+
+# output:
+# sinusoidal curve with correct amplitude and frequency, as seen from simulation.

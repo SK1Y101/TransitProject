@@ -7,6 +7,7 @@ import rebound
 
 # my modules
 import TransitProject.Simulation as ts
+import TransitProject as tp
 
 '''
 Goals: Collect system information from a local database.
@@ -23,37 +24,36 @@ def computeTTV(transitTimes):
     # perform regression to get coefficients of linear fit
     c, m = np.linalg.lstsq(A, transitTimes, rcond=-1)[0]
     # subtract from the transit times to get the variation
-    TTV = transitTimes - m*np.arrange(N) - c
+    TTV = transitTimes - m*np.arange(N) - c
     # and return
     return TTV
 
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc", "inc", "arg"]
+params = ["mass", "sma", "ecc"]#, "inc", "arg"]
 
 # fetch the parameters for the system
 df = ts.fetchParams("HAT-P-13 b")
 
+for x in ["mass", "sma"]:
+    for y in [1,2]:
+        df[x+"_e{}".format(y)] = 0
+
 # compute the number of transits needed
-times = 2008, 2022
+times = 2008, 3000#2022
 N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
 
 # construct the aray of simulation parameters
 simArray = ts.constructSimArray(df, params)
 
 # fetch the transit times from simulation
-TT = ts.fetchTT(simArray, params, N)
+TT = ts.fetchTT(simArray, params, N, returnAll=True)
 
-# linear regression to fetch transit times
-A = np.vstack([np.ones(N), range(N)]).T
-c, m = np.linalg.lstsq(A, TT[0], rcond=-1)[0]
-
-# compute the TTV
-TTV = computeTTV(TT[0])
+# compute the TTV for all values
+TTV = [computeTTV(tt) for tt in TT]
 # and the error bounds (upper and lower)
-TTVu = computeTTV(TT[0]+TT[2])
-TTVl = computeTTV(TT[0]-TT[1])
+TTV, TTVl, TTVu = tp.avMinMax(TTV, 0)
 
 # error area
 plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
