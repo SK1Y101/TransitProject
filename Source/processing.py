@@ -26,3 +26,6 @@ Goals: Create a simple extensible model that can take system parameters and outp
 
 # output:
 # sinusoidal curve with correct amplitude and frequency, as seen from simulation.
+
+#-> eccentricity  == 0  -> sinusoid
+#-> eccentricity --> 1  -> smooth sawtooth (or skewed sine)
