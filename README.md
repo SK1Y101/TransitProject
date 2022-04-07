@@ -49,6 +49,7 @@ Repo/
 │ │ ├ Simulation.py
 │ │ └ webScraping.py
 │ ├ fetchData.py
+│ ├ processing.py
 │ └ simulationPipeline.py
 ├ .gitignore
 ├ README.md
@@ -57,11 +58,14 @@ Repo/
 
 In the `Source/` folder is all of the python scripts to be ran.
 These scripts are:
- - `fetchData.py` - Fetch Ephemerides and mid-transit times for exoplanets
+ - `fetchData.py` - Fetch Ephemerides and mid-transit times for exoplanets.
+ - `processing.py` - Fit a transiting model to the observed data.
  - `simulationPipeline.py` - Simulate the known properties of an exoplanetary system to fetch transit times.
 
 Contained within `Source/TransitProject/` is the individual code modules common across the project.
 Additionally, within `Source/old_code/` is legacy code that may still be useful.
+
+At some point, I will probably have to write some unit-tests for all of my methods to ensure we have the expected outputs. Unfortunately, although I know how useful those are, I don't like doing that, so that may be a while (or possibly never, I'm not sure)
 
 # Overview
 
