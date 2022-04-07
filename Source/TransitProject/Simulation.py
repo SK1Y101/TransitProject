@@ -253,22 +253,21 @@ def _simulateTransitTimes_(simArray, params, transits=1000):
     # simulate for the chosen number of transits
     TT = _simulateTT_(sim, timestep, transits, pos)
     # and return the transit times
-    return TT
+    return np.array(TT)
 
-def fetchTT(simArray, params, transits=1000, workers=None, tqdmLeave=True):
+def fetchTT(simArray, params, transits=1000, workers=None, tqdmLeave=True, returnAll=False):
     ''' Create a multiprocessing job to simulate all possible configurations of a planetary system.
         returns the transit times, the upper, and the lower error bounds.
         simArray: The 2D array of all possible simulation parameters.
         params: The list of parameter names. used to map the array to usable values.
         transits: The number of transits to simulate for.
         workers: The number of worker processes to use for the simulation (defaults to cpucount / 2).
-        tqdmLeave: Whether to leave the overarchive tqdm bar when completed.'''
+        tqdmLeave: Whether to leave the overarchive tqdm bar when completed.
+        returnAll: Whether to return the entire output, or just the average/minimum/maximum.'''
     inputs = toItterableInput(simArray, params, transits, keep=(1,))
     # run the multiprocessing job
     TT = parallelJob(_simulateTransitTimes_, inputs, outType=np.array, workers=workers, tqdmLeave=tqdmLeave)
-    # compute the mininimum time and maximum time for each transit
-    av = TT[0]
-    mn = TT.min(axis=0)
-    mx = TT.max(axis=0)
-    # return the transit time, and error values
-    return av, av-mn, mx-av
+    # if we want to return everything, do that
+    if returnAll:
+        return TT
+    return avMinMax(TT, 0)

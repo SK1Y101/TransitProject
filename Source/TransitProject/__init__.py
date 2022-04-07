@@ -197,6 +197,20 @@ def findFloats(txt=""):
     # But it was sourced from an excellent stackoverflow answer that does explain it anyway
     # https://stackoverflow.com/a/45001796
 
+def avMinMax(array, av=None, axis=0):
+    ''' fetch the average, minimum, and maximum of a 2D array.
+        array: The 2D array to search over.
+        av: A predetermined average value.
+        axis: The axis to search for values along. '''
+    array = np.array(array)
+    # if the average is given, use that, else compute it
+    av = array[av] if av!=None else np.average(array, axis=axis)
+    # compute the minimum and maximum
+    mn = array.min(axis=axis)
+    mx = array.max(axis=axis)
+    # return the average minimum and maximum
+    return av, mn, mx
+
 def noneIfInf(x):
     ''' return None if a value is infinity, otherwise return the value. '''
     if np.isinf(x):
