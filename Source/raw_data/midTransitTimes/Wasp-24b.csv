@@ -1,10 +1,11 @@
 date,observer,oc,oce,source
+2022-04-10,Paolo Arcangelo Matassa,4.7,2.9,ExoClock observation
 2021-06-04,Francois Regembal,1.9,7.2,ExoClock observation
 2021-05-21,Giuseppe marino,-1.728,1.4688,ETD
 2021-04-26,Yves Jongen,1.1,1.7,ExoClock observation
 2021-04-25,Yves jongen,0.288,1.3248,ETD
-2021-03-29,Carmelo Falco,0.9,1.6,ExoClock observation
 2021-03-29,Yves Jongen,5.8,1.9,ExoClock observation
+2021-03-29,Carmelo Falco,0.9,1.6,ExoClock observation
 2021-03-28,Yves jongen,4.896,1.2816,ETD
 2021-03-22,Francois Regembal,2.3,1.9,ExoClock observation
 2021-03-21,Miguel sanchez,-6.768,2.1024,ETD
@@ -21,8 +22,8 @@ date,observer,oc,oce,source
 2019-02-20,Anaël Wünsche,0.3,1.4,ExoClock observation
 2019-02-19,Anael wunsche,0.432,1.9872,ETD
 2017-05-21,F. lomoz,0.432,38.6784,ETD
-2017-04-30,František lomoz,-0.576,1.656,ETD
 2017-04-30,Martin mašek,-12.096,3.1392,ETD
+2017-04-30,František lomoz,-0.576,1.656,ETD
 2017-04-23,Matthieu bachschmidt,-9.216,4.3344,ETD
 2016-07-02,Marc bretton,0.72,2.376,ETD
 2016-07-02,Anaël Wünsche,1.5,2.4,ExoClock observation
@@ -42,8 +43,8 @@ date,observer,oc,oce,source
 2012-01-27,"Naumov k. n., sokov e. n.",-4.752,2.448,ETD
 2011-07-22,Curtis i.,2.736,1.9296,ETD
 2011-05-12,"Shadic s., tuplip c.",-11.52,3.4992,ETD
-2011-05-10,Ruocco n.,-2.592,5.3568,ETD
 2011-05-10,"Gorshanov d. l., sokov e. n.",-2.736,4.1184,ETD
+2011-05-10,Ruocco n.,-2.592,5.3568,ETD
 2011-04-21,Dvorak s.,2.304,3.2832,ETD
 2010-08-16,"Eduardo fernández lajús, romina p. di sisto",-7.776,2.4192,ETD
 2010-07-12,Sauer t.,3.024,1.728,ETD

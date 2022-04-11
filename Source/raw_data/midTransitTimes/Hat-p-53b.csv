@@ -19,24 +19,25 @@ date,observer,oc,oce,source
 2020-10-23,Xesco rubia,-23.04,4.2912,ETD
 2020-09-05,Yves Jongen,-4.4,1.7,ExoClock observation
 2020-09-04,Yves jongen,0.576,2.16,ETD
-2020-09-03,Francois Regembal,-0.8,3.2,ExoClock observation
 2020-09-03,Marc Deldem,-3.7,1.9,ExoClock observation
+2020-09-03,Francois Regembal,-0.8,3.2,ExoClock observation
 2020-09-02,Jean plazas,8.928,3.168,ETD
-2020-09-02,Marc deldem,0.144,2.232,ETD
 2020-09-02,Francois regembal,-1.44,6.9984,ETD
+2020-09-02,Marc deldem,0.144,2.232,ETD
 2020-02-25,Veli-pekka hentunen,-1.584,2.16,ETD
 2020-01-03,Daniel bertesteanu,134.64,4.32,ETD
 2020-01-03,Daniel bertesteanu,132.336,3.6,ETD
 2019-12-30,Manfred raetz,2.304,1.944,ETD
-2019-12-26,Yves Jongen,-2.8,3.0,ExoClock observation
 2019-12-26,Yves jongen,-4.32,3.3408,ETD
+2019-12-26,Yves Jongen,-2.8,3.0,ExoClock observation
+2019-12-26,Yves Jongen,-3.1,3.5,ExoClock observation
 2019-12-25,Yves Jongen,1.7,1.6,ExoClock observation
 2019-12-24,Yves jongen,4.608,2.1456,ETD
 2019-11-13,Snaevarr gudmundsson,2.592,2.3472,ETD
 2019-11-11,Mishevskiy nikolay,-33.408,102.5136,ETD
 2019-09-19,Veli-pekka hentunen,-1.008,3.7152,ETD
-2019-09-11,"Francesco scaggiante, danilo zardin,marco fiaschi",-24.048,0.9072,ETD
 2019-09-11,Bruno christmann,-4.608,3.7152,ETD
+2019-09-11,"Francesco scaggiante, danilo zardin,marco fiaschi",-24.048,0.9072,ETD
 2019-07-26,Pavel pintr,-2.592,3.9024,ETD
 2019-07-26,Gianluca rossi,-6.624,55.8288,ETD
 2019-07-24,"Francesco scaggiante, danilo zardin",4.608,3.24,ETD
@@ -57,8 +58,8 @@ date,observer,oc,oce,source
 2015-12-12,Anaël Wünsche,1.7,0.9,ExoClock observation
 2015-12-12,Marc bretton,13.536,3.2544,ETD
 2015-10-22,Olivier labrevoir,-6.336,3.9312,ETD
-2015-10-16,Marc deldem,-3.744,2.3904,ETD
 2015-10-16,"P. farissier, s. combe, l. bret-morel, c. gillier, r. montaigut",1.872,1.584,ETD
+2015-10-16,Marc deldem,-3.744,2.3904,ETD
 2015-10-06,Cody anderson,3.168,5.5296,ETD
 2015-08-30,A. marino,13.68,3.7584,ETD
 2015-08-28,Frank larsen,11.664,3.8448,ETD

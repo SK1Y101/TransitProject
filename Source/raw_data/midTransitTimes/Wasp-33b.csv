@@ -54,13 +54,13 @@ date,observer,oc,oce,source
 2016-10-30,Clausse jean-christophe,-5.904,2.7504,ETD
 2016-10-30,Matthieu bachschmidt,-13.68,26.0928,ETD
 2016-10-03,Jerome proust,21.888,1.4544,ETD
-2016-10-03,Riat valentin,-29.664,1.3968,ETD
-2016-10-03,Pierre le cam,1.152,1.2096,ETD
 2016-10-03,Marc deldem,15.264,1.1808,ETD
+2016-10-03,Pierre le cam,1.152,1.2096,ETD
+2016-10-03,Riat valentin,-29.664,1.3968,ETD
 2016-09-27,Pavel pintr,5.76,3.4704,ETD
 2016-09-12,Manfred Raetz,16.5,0.9,ExoClock observation
-2016-09-11,Manfred raetz,16.272,0.7488,ETD
 2016-09-11,Ramon naves,18.0,0.936,ETD
+2016-09-11,Manfred raetz,16.272,0.7488,ETD
 2016-08-25,"Vrašťák m, skubák p",13.824,1.0368,ETD
 2016-08-03,Gianluca rossi,20.304,3.4272,ETD
 2015-12-25,Marc bretton,13.392,1.008,ETD
@@ -69,8 +69,8 @@ date,observer,oc,oce,source
 2015-11-11,Dauchet coulon charrier,17.856,2.4336,ETD
 2015-11-10,Marc bretton,13.68,0.936,ETD
 2015-11-01,Manfred Raetz,10.4,1.0,ExoClock observation
-2015-10-31,"Raetz, manfred",3.168,0.9936,ETD
 2015-10-31,Matthieu bachschmidt,16.272,0.8784,ETD
+2015-10-31,"Raetz, manfred",3.168,0.9936,ETD
 2015-09-11,"M. monaci, l. ramazzotti, m. tiberi",18.0,0.5328,ETD
 2015-01-14,"A. marino, v. flagiello",62.352,12.3408,ETD
 2015-01-04,Antonio zanardo,14.4,3.1392,ETD
@@ -96,8 +96,8 @@ date,observer,oc,oce,source
 2013-11-10,"Guvenen b., sebastian n.",7.344,1.1376,ETD
 2013-11-10,"Guvenen b, sebastian n.",9.936,1.0368,ETD
 2013-11-04,Benni p.,10.8,1.0656,ETD
-2013-10-28,Ayiomamitis a.,7.344,0.864,ETD
 2013-10-28,Marino g.,11.52,0.864,ETD
+2013-10-28,Ayiomamitis a.,7.344,0.864,ETD
 2013-10-22,Marino g.,15.696,1.08,ETD
 2013-09-03,Lopesino j.,9.216,1.1664,ETD
 2013-09-03,Naves r.,3.888,0.7488,ETD
@@ -130,8 +130,8 @@ date,observer,oc,oce,source
 2011-12-20,"Denis gorshanov, eugene sokov",8.064,0.4176,ETD
 2011-12-20,"Gorshanov d. l., sokov e. n.",8.064,0.4176,ETD
 2011-12-15,Gaitan j.,6.336,0.7488,ETD
-2011-12-10,"Ivanov k., bourdanov a.",7.2,4.0464,ETD
 2011-12-10,Trnka j.,5.904,1.0224,ETD
+2011-12-10,"Ivanov k., bourdanov a.",7.2,4.0464,ETD
 2011-12-10,"Romas e., sokov e.",9.648,0.9216,ETD
 2011-12-10,Garcia f.,1.296,1.2384,ETD
 2011-12-10,Bourdanov a.,4.32,1.2528,ETD
@@ -141,14 +141,14 @@ date,observer,oc,oce,source
 2011-12-04,Ruben garcia,21.744,4.7376,ETD
 2011-11-30,Dax t.,8.208,0.576,ETD
 2011-11-24,Naves r.,14.976,0.864,ETD
-2011-11-23,Gaitan j.,-19.872,1.5264,ETD
 2011-11-23,Naves r.,7.92,1.224,ETD
+2011-11-23,Gaitan j.,-19.872,1.5264,ETD
 2011-11-22,Bourdanov a.,9.792,1.6128,ETD
 2011-11-22,Bourdanov a.,4.464,1.224,ETD
 2011-11-13,Dvorak s.,1.296,1.2096,ETD
-2011-11-12,František lomoz,-9.504,2.232,ETD
-2011-11-12,Corfini g.,6.768,1.1088,ETD
 2011-11-12,František lomoz,6.192,2.1744,ETD
+2011-11-12,Corfini g.,6.768,1.1088,ETD
+2011-11-12,František lomoz,-9.504,2.232,ETD
 2011-11-08,Morris b.,1.872,3.024,ETD
 2011-10-29,Shadic s.,9.36,0.9792,ETD
 2011-10-26,"Romas e., sokov e.",8.496,1.9872,ETD
@@ -159,14 +159,14 @@ date,observer,oc,oce,source
 2011-10-05,"Vereshchagina i. a., sokov e. n",17.136,1.6992,ETD
 2011-10-05,Naves r.,10.368,1.2816,ETD
 2011-09-30,Shadic s.,6.048,1.0512,ETD
-2011-09-29,Trnka j.,6.48,1.9296,ETD
+2011-09-29,Sergison d.,9.648,1.0944,ETD
 2011-09-29,Naves r.,-6.192,4.5648,ETD
 2011-09-29,Naves r.,4.176,2.9664,ETD
-2011-09-29,Sergison d.,9.648,1.0944,ETD
+2011-09-29,Trnka j.,6.48,1.9296,ETD
 2011-09-29,Gillier ch.,10.656,1.8144,ETD
 2011-09-25,Shadic s.,5.04,1.296,ETD
-2011-09-24,Trnka j.,5.328,1.0656,ETD
 2011-09-24,Brát l.,8.496,0.5904,ETD
+2011-09-24,Trnka j.,5.328,1.0656,ETD
 2011-09-20,Shadic s.,9.36,0.8208,ETD
 2011-09-18,"Ivanov a. v., sokov e. n.",-0.144,1.9584,ETD
 2011-08-27,"Kouprianov v.v., sokov e. n.",6.048,1.3968,ETD
@@ -183,9 +183,9 @@ date,observer,oc,oce,source
 2010-12-05,Shadic s.,6.912,1.4112,ETD
 2010-12-03,Husar d.,4.32,1.6128,ETD
 2010-11-27,Brát l.,9.648,1.1808,ETD
-2010-11-18,Shawn dvorak,5.904,0.864,ETD
-2010-11-18,Dvorak s.,6.048,0.8064,ETD
 2010-11-18,Garlitz i.,-0.432,1.6992,ETD
+2010-11-18,Dvorak s.,6.048,0.8064,ETD
+2010-11-18,Shawn dvorak,5.904,0.864,ETD
 2010-11-11,Ruocco n.,8.496,1.3392,ETD
 2010-11-06,Francisco jiménez alvarado,6.624,1.0656,ETD
 2010-11-06,Ruocco n.,9.36,4.464,ETD
@@ -205,8 +205,8 @@ date,observer,oc,oce,source
 2010-09-22,Uhlař r.,2.016,1.6848,ETD
 2010-09-17,Scarmato t.,8.496,0.7776,ETD
 2010-09-11,Lopresti c.,-8.64,1.3968,ETD
-2010-08-26,Hormuth f.,4.464,0.6912,ETD
 2010-08-26,Naves r.,9.648,1.08,ETD
+2010-08-26,Hormuth f.,4.464,0.6912,ETD
 2010-08-22,Hose k.,7.344,0.864,ETD
 2010-08-20,Manfred raetz,10.512,1.7568,ETD
 2007-03-03,"A. collier cameron et al., 2010",0.0,0.3744,ETD

@@ -1,18 +1,19 @@
 date,observer,oc,oce,source
+2022-02-26,Siegfried Vanaverbeke,5.9,2.9,ExoClock observation
 2022-02-26,Siegfried Vanaverbeke,6.3,4.3,ExoClock observation
 2021-10-26,Mario Morales Aimar,2.2,2.4,ExoClock observation
 2021-10-26,Mario morales,12.384,2.6928,ETD
 2021-10-24,Manfred Raetz,6.8,1.6,ExoClock observation
 2021-10-23,Manfred raetz,14.112,1.0368,ETD
+2021-10-15,Manfred raetz,-3.024,1.8288,ETD
 2021-10-15,Paolo Arcangelo Matassa,5.3,2.2,ExoClock observation
 2021-10-15,Manfred Raetz,-7.8,3.2,ExoClock observation
-2021-10-15,Manfred raetz,-3.024,1.8288,ETD
 2021-09-04,F. lomoz,0.576,3.0528,ETD
 2021-08-25,Yves Jongen,6.2,1.6,ExoClock observation
 2021-08-24,Yves jongen,13.104,1.6128,ETD
 2021-08-14,Yves Jongen,4.3,2.6,ExoClock observation
-2021-08-13,Fran campos,14.112,1.6272,ETD
 2021-08-13,Yves jongen,12.96,1.8864,ETD
+2021-08-13,Fran campos,14.112,1.6272,ETD
 2021-08-05,Tõnis Eenmäe,-8.5,2.6,ExoClock observation
 2021-08-05,Gianluca rossi,-18.144,16.8336,ETD
 2021-02-03,Jean plazas,-0.432,,ETD
@@ -24,17 +25,17 @@ date,observer,oc,oce,source
 2020-10-03,Josep gaitan,8.784,1.3536,ETD
 2020-09-22,Nikolaos Paschalis,-4.6,2.3,ExoClock observation
 2020-09-11,Roman ehrenberger,15.696,1.9008,ETD
-2020-08-12,Roman ehrenberger,10.8,2.5344,ETD
-2020-08-12,Mauro Caló,-2.3,2.6,ExoClock observation
 2020-08-12,Adam Popowicz,5.4,5.8,ExoClock observation
+2020-08-12,Mauro Caló,-2.3,2.6,ExoClock observation
+2020-08-12,Roman ehrenberger,10.8,2.5344,ETD
 2020-08-01,David Wright,1.3,3.5,ExoClock observation
-2020-08-01,Mark Roberts,7.1,4.3,ExoClock observation
 2020-08-01,Henzl z.,13.968,3.0816,ETD
 2020-08-01,Roman ehrenberger,-29.376,2.5776,ETD
-2019-12-02,Anaël wünsche,12.816,2.0736,ETD
+2020-08-01,Mark Roberts,7.1,4.3,ExoClock observation
 2019-12-02,Anaël Wünsche,-0.6,4.3,ExoClock observation
-2019-10-11,Lionel rousselot,6.48,1.728,ETD
+2019-12-02,Anaël wünsche,12.816,2.0736,ETD
 2019-10-11,Lionel Rousselot,-0.7,2.7,ExoClock observation
+2019-10-11,Lionel rousselot,6.48,1.728,ETD
 2019-09-30,Yves Jongen,2.8,1.2,ExoClock observation
 2019-09-30,Yves jongen,7.488,1.2816,ETD
 2019-09-19,Veli-pekka hentunen,-0.144,,ETD
@@ -67,15 +68,15 @@ date,observer,oc,oce,source
 2017-08-04,Stephane ferratfiat ,5.328,1.3824,ETD
 2017-06-24,Medulka t.,4.608,3.6864,ETD
 2017-06-24,Medulka t.,7.2,5.5296,ETD
-2017-01-03,Snaevarr gudmundsson,4.464,2.4192,ETD
 2017-01-03,Eric girardin,2.592,1.3104,ETD
+2017-01-03,Snaevarr gudmundsson,4.464,2.4192,ETD
 2016-12-23,Fran campos,7.632,2.6496,ETD
 2016-12-12,Marc bretton,20.736,1.728,ETD
 2016-12-04,Manfred raetz,3.6,1.728,ETD
 2016-10-02,Marc Deldem,-1.4,1.9,ExoClock observation
+2016-10-02,Mark salisbury,0.72,1.4976,ETD
 2016-10-02,David molina,6.768,1.7856,ETD
 2016-10-02,Marc deldem,3.312,1.728,ETD
-2016-10-02,Mark salisbury,0.72,1.4976,ETD
 2016-09-21,Ramon naves,16.416,2.8512,ETD
 2016-09-21,David molina,5.184,1.5984,ETD
 2016-09-13,Veli-pekka hentunen,4.464,15.3936,ETD

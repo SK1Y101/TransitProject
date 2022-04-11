@@ -1,15 +1,18 @@
 date,observer,oc,oce,source
 2022-03-26,Yves Jongen,-3.2,1.4,ExoClock observation
-2022-03-02,Walter f.,-7.488,3.1104,ETD
 2022-03-02,Filip Walter,-7.5,4.3,ExoClock observation
+2022-03-02,Walter f.,-7.488,3.1104,ETD
+2022-03-02,Filip Walter,-7.8,3.2,ExoClock observation
 2021-03-30,Anaël wünsche,-14.832,1.8576,ETD
-2021-03-30,Anaël Wünsche,2.0,2.4,ExoClock observation
-2021-03-30,Didier Laloum,-6.4,4.3,ExoClock observation
 2021-03-30,F. lomoz,3.888,2.808,ETD
+2021-03-30,Didier Laloum,-6.4,4.3,ExoClock observation
+2021-03-30,Anaël Wünsche,2.0,2.4,ExoClock observation
+2021-02-21,Nico Montigiani,-6.4,2.4,ExoClock observation
 2021-02-21,"Nico montigiani, massimiliano mannucci",-13.248,2.1744,ETD
 2021-02-21,Adam Popowicz,-0.5,2.7,ExoClock observation
-2021-02-21,Nico Montigiani,-6.4,2.4,ExoClock observation
+2021-02-21,Nico Montigiani,-5.4,1.6,ExoClock observation
 2021-01-16,Lorenzo Betti,-9.8,1.3,ExoClock observation
+2021-01-16,Lorenzo Betti,-9.9,0.7,ExoClock observation
 2021-01-02,Martin Smith,-7.5,3.0,ExoClock observation
 2020-05-07,Yves Jongen,0.9,1.2,ExoClock observation
 2020-05-06,Yves jongen,1.728,1.2528,ETD
@@ -26,11 +29,11 @@ date,observer,oc,oce,source
 2014-04-12,Caat,14.256,2.5344,ETD
 2014-03-30,Zibar M.,3.6,1.5,ExoClock ETD
 2014-03-30,Lomoz F.,4.6,1.7,ExoClock ETD
-2014-03-29,Lomoz f.,3.456,1.7136,ETD
-2014-03-29,Zibar m.,2.592,1.512,ETD
-2014-03-29,Trnka j.,-7.056,5.0112,ETD
 2014-03-29,Matthieu bachschmidt,-189.36,148.3632,ETD
-2014-03-06,Zibar m.,3.168,6.8112,ETD
+2014-03-29,Zibar m.,2.592,1.512,ETD
+2014-03-29,Lomoz f.,3.456,1.7136,ETD
+2014-03-29,Trnka j.,-7.056,5.0112,ETD
 2014-03-06,Zibar m.,-14.832,2.9376,ETD
+2014-03-06,Zibar m.,3.168,6.8112,ETD
 2014-03-06,Gonzalez j.,-6.912,2.2464,ETD
 2011-06-18,Faedi et al. 2013,-0.0,0.1,ExoClock literature
