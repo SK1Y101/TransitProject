@@ -23,9 +23,9 @@ date,observer,oc,oce,source
 2012-09-29,Emering f.,-4.464,4.3488,ETD
 2012-09-26,"Mravik j., grnja j.",-7.2,2.88,ETD
 2012-09-04,Hose k.,1.152,0.8496,ETD
-2012-08-27,Mancini et al. 2013,-4.3,1.6,ExoClock literature
 2012-08-27,Mancini et al. 2013,-2.0,0.8,ExoClock literature
 2012-08-27,Mancini et al. 2013,1.4,0.7,ExoClock literature
+2012-08-27,Mancini et al. 2013,-4.3,1.6,ExoClock literature
 2012-08-27,Mancini et al. 2013,1.7,0.8,ExoClock literature
 2012-08-20,"Mravik j., grnja j.",-9.36,3.3696,ETD
 2011-11-20,Dvorak s.,0.576,3.0672,ETD
@@ -35,11 +35,11 @@ date,observer,oc,oce,source
 2011-10-02,Trnka j.,1.44,,ETD
 2011-09-29,Brát l.,1.296,2.664,ETD
 2011-09-07,Shadic s.,-2.448,1.224,ETD
-2011-08-26,Zibar m.,0.432,3.6576,ETD
 2011-08-26,Uhlař r.,-5.04,2.2752,ETD
 2011-08-26,Brát l.,-7.056,1.8144,ETD
-2011-08-26,Trnka j.,-3.312,1.6128,ETD
 2011-08-26,Marek p.,4.464,1.4832,ETD
+2011-08-26,Trnka j.,-3.312,1.6128,ETD
+2011-08-26,Zibar m.,0.432,3.6576,ETD
 2011-08-23,Brát l.,-2.304,2.1168,ETD
 2011-08-23,Marek p.,3.168,4.1184,ETD
 2011-08-23,"Moudrá m., sobotka p.",7.776,2.736,ETD
@@ -47,17 +47,17 @@ date,observer,oc,oce,source
 2010-09-12,Hose k.,-3.744,1.1376,ETD
 2010-08-31,Marino g.,0.432,1.6704,ETD
 2010-08-28,Mancini et al. 2013,-1.7,0.6,ExoClock literature
-2010-08-28,Vanhuysse  m.,-4.464,1.2816,ETD
-2010-08-28,Hormuth f.,-1.44,0.5616,ETD
 2010-08-28,Ruocco n.,2.16,1.4976,ETD
+2010-08-28,Hormuth f.,-1.44,0.5616,ETD
+2010-08-28,Vanhuysse  m.,-4.464,1.2816,ETD
 2009-10-22,Mancini et al. 2013,-3.1,1.1,ExoClock literature
 2009-10-18,Tieman b.,1.584,2.5344,ETD
 2009-09-11,Tieman b.,-0.144,2.6208,ETD
 2009-09-11,Tieman b.,-14.112,2.6496,ETD
-2009-08-30,Lomoz f.,-11.088,2.1456,ETD
 2009-08-30,Srdoc,-6.192,1.872,ETD
-2009-08-27,Kučáková h.,3.456,1.6848,ETD
+2009-08-30,Lomoz f.,-11.088,2.1456,ETD
 2009-08-27,Trnka j.,14.4,1.8288,ETD
+2009-08-27,Kučáková h.,3.456,1.6848,ETD
 2009-08-27,Srdoc,-2.16,1.296,ETD
 2009-08-27,Ayiomamitis,-4.896,2.736,ETD
 2009-08-27,Dřevěný r.,-5.184,2.232,ETD

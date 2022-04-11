@@ -1,4 +1,5 @@
 date,observer,oc,oce,source
+2022-04-07,Alvaro Fornas Silva,-3.6,4.3,ExoClock observation
 2020-07-21,Carmelo Falco,-3.4,3.5,ExoClock observation
 2020-04-17,Manfred raetz,-15.408,2.4192,ETD
 2016-06-28,"Florian signoret, jean-bernard pioppa",-3.744,1.9728,ETD
@@ -21,8 +22,8 @@ date,observer,oc,oce,source
 2007-05-02,,-7.056,10.08,ETD
 2006-05-19,,3.456,7.2,ETD
 2006-04-26,,1.296,3.456,ETD
-2005-07-01,Charbonneau et al. 2006,1.296,1.44,ETD
 2005-07-01,Charbonneau et al. 2006,2.736,3.312,ETD
+2005-07-01,Charbonneau et al. 2006,1.296,1.44,ETD
 2005-06-08,Sato et al. 2005,-0.576,1.728,ETD
 2005-06-05,Charbonneau et al 2006,-2.88,1.728,ETD
 2005-06-05,,-2.304,3.024,ETD

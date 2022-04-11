@@ -1,14 +1,17 @@
 date,observer,oc,oce,source
+2022-02-26,Michael Irzyk,1.7,2.9,ExoClock observation
 2022-02-26,Michael Irzyk,2.5,2.9,ExoClock observation
 2021-07-07,"Eduardo fernández lajús, romina p. di sisto",-9.36,1.5984,ETD
-2021-04-27,F. lomoz,42.048,12.168,ETD
 2021-04-27,F. lomoz,55.008,3.6432,ETD
+2021-04-27,F. lomoz,42.048,12.168,ETD
 2021-04-23,Yves Jongen,5.9,2.2,ExoClock observation
-2021-04-23,Yves jongen,-6.336,1.512,ETD
-2021-04-23,Daniel verilhac,-3.6,3.3696,ETD
 2021-04-23,Jean plazas,0.576,,ETD
+2021-04-23,Daniel verilhac,-3.6,3.3696,ETD
+2021-04-23,Yves jongen,-6.336,1.512,ETD
+2020-05-15,Yves Jongen,-0.4,3.2,ExoClock observation
 2020-05-15,Yves Jongen,-1.2,2.6,ExoClock observation
 2020-05-14,Yves jongen,-5.184,3.0096,ETD
+2020-02-18,Yves Jongen,-0.1,5.8,ExoClock observation
 2020-02-18,Yves Jongen,2.1,3.3,ExoClock observation
 2020-02-17,Yves jongen,-5.472,3.3408,ETD
 2019-04-19,Marc bretton,19.728,4.032,ETD

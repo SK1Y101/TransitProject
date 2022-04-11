@@ -40,12 +40,12 @@ date,observer,oc,oce,source
 2015-09-23,Marc bretton,-6.048,2.5344,ETD
 2015-08-05,Massimo banfi,-12.096,1.4976,ETD
 2015-07-30,Marc bretton,3.888,1.8576,ETD
+2015-06-05,Juan lozano de haro,-5.04,1.7856,ETD
 2015-06-05,František lomoz,2.448,2.5776,ETD
-2015-06-05,David molina,4.608,2.6928,ETD
-2015-06-05,Marc bretton,5.328,2.0448,ETD
 2015-06-05,Marc bretton,5.76,0.8064,ETD
 2015-06-05,František lomoz,-5.76,2.9808,ETD
-2015-06-05,Juan lozano de haro,-5.04,1.7856,ETD
+2015-06-05,David molina,4.608,2.6928,ETD
+2015-06-05,Marc bretton,5.328,2.0448,ETD
 2015-06-02,Ramon naves,-3.024,2.0448,ETD
 2015-05-30,Juanjo gonzalez,4.176,1.1808,ETD
 2015-05-27,David molina,-0.144,2.448,ETD
@@ -54,8 +54,8 @@ date,observer,oc,oce,source
 2014-09-21,Garcia f.,1.296,1.584,ETD
 2014-07-22,"Benavides, r.",2.448,2.8944,ETD
 2014-07-07,Mike miller,0.288,,ETD
-2014-06-09,Zibar m.,-4.464,3.3984,ETD
 2014-06-09,Aaav astrofili valdera,-0.144,,ETD
+2014-06-09,Zibar m.,-4.464,3.3984,ETD
 2014-06-06,Trnka j.,6.48,3.2112,ETD
 2014-06-06,Zibar m.,-0.432,2.0736,ETD
 2013-11-28,René r.,-1.728,2.1312,ETD
@@ -79,12 +79,12 @@ date,observer,oc,oce,source
 2013-06-13,"Mravik j., grnja j.",2.448,4.2336,ETD
 2013-06-07,Marino g.,0.144,1.1808,ETD
 2013-05-05,Shadic s.,14.4,3.7152,ETD
-2013-04-13,Alonso e. d.,-11.52,2.6928,ETD
 2013-04-13,Enrique díez alonso,-9.648,3.1824,ETD
+2013-04-13,Alonso e. d.,-11.52,2.6928,ETD
 2012-10-08,"Mravik j., grnja j.",-3.6,2.0592,ETD
-2012-10-05,Scarmato t.,-8.352,0.9792,ETD
-2012-10-05,"Mravik j., grnja j.",-2.88,3.7152,ETD
 2012-10-05,Blois sologne astronomie,-2.592,3.888,ETD
+2012-10-05,"Mravik j., grnja j.",-2.88,3.7152,ETD
+2012-10-05,Scarmato t.,-8.352,0.9792,ETD
 2012-10-02,"Sergeev a, sokov e.",-6.048,0.5184,ETD
 2012-09-05,Strickland w.,-3.168,1.3392,ETD
 2012-08-08,Lopresti c.,4.896,1.728,ETD
