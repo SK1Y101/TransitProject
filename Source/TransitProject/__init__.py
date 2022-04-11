@@ -7,6 +7,17 @@ import numpy as np
 
 # -----< Methods >-----
 
+def loadIfAvailable(targetValue, availabilityDataFrame, outputDataFrame=None):
+    ''' load a pandas dataframe object, if and only if a targetValue is found within a seperate dataframe.
+        targetValue: the target to search for.
+        availabilityDataFrame: the dataframe to search for the target.
+        outputDataFrame: the dataframe to return. defaults to the availabilityDataFrame if none given. '''
+    # check the value is within the dataframe
+    if not inDataFrame(availabilityDataFrame, targetValue):
+        raise Exception("{} could not be found within {}.".format(targetValue, availabilityDataFrame))
+    # return the required dataframe
+    return loadDataFrame(outputDataFrame if outputDataFrame else availabilityDataFrame)
+
 def loadDataFrame(fpath):
     ''' Load a pandas.DataFrame object to a given file.
         fpath: The file path to load the dataframe from.
