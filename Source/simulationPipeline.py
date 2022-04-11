@@ -31,35 +31,37 @@ def computeTTV(transitTimes):
 # define the simulation parameters
 ''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
 ''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc"]#, "inc", "arg"]
+params = ["mass", "sma", "ecc", "inc", "arg"]
 
 # fetch the parameters for the system
 df = ts.fetchParams("HAT-P-13 b")
 
-for x in params[:-1]:
-    for y in [1,2]:
-        df[x+"_e{}".format(y)] = 0
-
 # compute the number of transits needed
 times = 2008, 2022
 N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
+
+# manually removing errors
+a, b, N = "ecc", .3, 1000
+for x in params:
+    for y in [1,2]:
+        df[x+"_e{}".format(y)] = 0
+df.loc[2, a] = df.loc[2, a+"_e1"] = df.loc[2, a+"_e2"] = b
 
 # construct the aray of simulation parameters
 simArray = ts.constructSimArray(df, params)
 
 # fetch the transit times from simulation
 TT = ts.fetchTT(simArray, params, N, returnAll=True)
-TT = ts.fetchTT(simArray, params, N, returnAll=True)
 
 # compute the TTV for all values
 TTV = [computeTTV(tt) for tt in TT]
 # and the error bounds (upper and lower)
-TTV, TTVl, TTVu = tp.avMinMax(TTV, 0)
+TTVa, TTVl, TTVu = tp.avMinMax(TTV, 0)
 
 # error area
-plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
+#plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
 # main value
-plt.plot(TTV, color="black", label="Predicted TTV")
+[plt.plot(TTVb[:300], color="black", label="Predicted TTV") for TTVb in TTV]
 #labels
 plt.xlabel("Epoch")
 plt.ylabel("Time [Years]")

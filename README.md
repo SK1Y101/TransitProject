@@ -123,8 +123,9 @@ This is a general overview of the "Write Code" step above, and is of course subj
     - [ ] Ensure this is accurate to system simulation
     - [ ] Should be decently fast to run
     - [ ] Is possible to give to an MCMC fitter
-  - [ ] Determine a standardised input for data
-  - [ ] Convert all data to standardised form & storage (ie: JSON)
+  - [ ] Linear fit to the visual data
+    - [ ] Eliminates incorrect Ephemerides (Compare against ExoClock reporting)
+    - [ ] Search through Residuals for TTV
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [ ] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
   - [ ] Refactor code

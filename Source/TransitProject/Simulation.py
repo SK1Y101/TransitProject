@@ -107,8 +107,8 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
         for param in params:
             # fetch the value and errors
             val = object[param]
-            er1 = val + object[param+"_e1"]
-            er2 = val + object[param+"_e2"]
+            er1 = val + abs(object[param+"_e1"])
+            er2 = val - abs(object[param+"_e2"])
             # add to the output
             out[:,idx] = np.hstack([er1, er2])
             out_[:,idx] = val
