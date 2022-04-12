@@ -102,13 +102,13 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
 
     # construct the array of error values
     for obj in range(len(df.index)):
-        object = df.loc[obj]
+        thisobj = df.loc[obj]
         # for each parameter
         for param in params:
             # fetch the value and errors
-            val = object[param]
-            er1 = val + abs(object[param+"_e1"])
-            er2 = val - abs(object[param+"_e2"])
+            val = thisobj[param]
+            er1 = val + abs(thisobj[param+"_e1"])
+            er2 = val - abs(thisobj[param+"_e2"])
             # add to the output
             out[:,idx] = np.hstack([er1, er2])
             out_[:,idx] = val

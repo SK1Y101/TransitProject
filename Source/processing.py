@@ -69,5 +69,5 @@ def plotMidtransits(df):
         plt.legend()
         plt.show()
 
-df = fetchMidTransitTimes("HAT-P-13b")
+df = fetchMidTransitTimes("Corot-11b")#"HAT-P-13b")
 plotMidtransits(df)

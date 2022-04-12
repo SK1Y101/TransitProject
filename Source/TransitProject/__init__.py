@@ -186,23 +186,20 @@ def makeFolder(loc):
     # if the folder dosent exist
     if not os.path.exists(loc):
         # split the filepath by directory
-        dirs = loc.split("/")
+        dirs, startdir  = loc.split("/"), 0
         # itterate backwards over the directory
         for x in range(len(dirs))[::-1]:
             # if this directory exists, break here
             if os.path.exists("/".join(dirs[:x])):
-                break
+                startdir=x
         # and now create all of the directories that didn't exist
-        for y in range(x, len(dirs)):
-            try:
-                os.mkdir("/".join(dirs[:y+1]))
-            except:
-                pass
+        for y in range(startdir, len(dirs)):
+            os.mkdir("/".join(dirs[:y+1]))
     # return the folder existing
     return os.path.exists(os.path.split(loc)[0])
 
-''' An absolutely magical regex function to get all floats in a string. '''
 def findFloats(txt=""):
+    ''' An absolutely magical regex function to get all floats in a string. '''
     return re.findall(r"[+-]? *(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", txt)
     # Do I understand how this works? Vaguely.
     # But it was sourced from an excellent stackoverflow answer that does explain it anyway
@@ -270,12 +267,12 @@ def toItterableInput(*inputs, onlyUnique=True, keep=(None,)):
     # if desired, sort to only unique inputs
     if onlyUnique:
         # for each input
-        for x in range(len(inputs)):
+        for i, item in enumerate(inputs):
             # try to condense down to only unique values
             try:
                 # if we aren't keeping this input as is
                 if x not in keep:
-                    inputs[x] = np.unique(inputs[x], axis=0)
+                    inputs[i] = np.unique(item, axis=0)
             # otherwise, keep as is
             except:
                 pass
