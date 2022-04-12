@@ -61,7 +61,8 @@ TTVa, TTVl, TTVu = tp.avMinMax(TTV, 0)
 # error area
 #plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
 # main value
-[plt.plot(TTVb[:300], color="black", label="Predicted TTV") for TTVb in TTV]
+for TTVb in TTV:
+    plt.plot(TTVb[:300], color="black", label="Predicted TTV")
 #labels
 plt.xlabel("Epoch")
 plt.ylabel("Time [Years]")
