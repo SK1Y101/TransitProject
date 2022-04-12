@@ -275,7 +275,7 @@ def toItterableInput(*inputs, onlyUnique=True, keep=(None,)):
                     inputs[i] = np.unique(item, axis=0)
             # otherwise, keep as is
             except:
-                pass
+                inputs[i] = item
     # return if an input should be split or not
     def splitInput(inputs, x, keep):
         return (x not in keep) and isinstance(inputs[x], tupleTypes)
