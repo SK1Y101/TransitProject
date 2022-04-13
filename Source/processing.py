@@ -60,7 +60,6 @@ def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b):
     pars, corr = scipy.optimize.curve_fit(f, x, y, sigma=err)
     return lambda x:f(x, *pars)
 
-
 def plotMidtransits(df):
     # fetch the sources list
     sources = sorted(df["source"].unique())
