@@ -41,11 +41,9 @@ times = 2008, 2022
 N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
 
 # manually removing errors
-a, b, N = "ecc", .3, 1000
 for x in params:
     for y in [1,2]:
-        df[x+"_e{}".format(y)] = 0
-df.loc[2, a] = df.loc[2, a+"_e1"] = df.loc[2, a+"_e2"] = b
+        pass#df[x+"_e{}".format(y)] = 0
 
 # construct the aray of simulation parameters
 simArray = ts.constructSimArray(df, params)
@@ -65,6 +63,6 @@ for TTVb in TTV:
     plt.plot(TTVb[:300], color="black", label="Predicted TTV")
 #labels
 plt.xlabel("Epoch")
-plt.ylabel("Time [Years]")
+plt.ylabel("Time [Days]")
 plt.legend()
 plt.show()

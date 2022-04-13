@@ -29,6 +29,27 @@ def mapToArchive(params):
     # map and return
     return [replace_error_name(archive, param) for param in params]
 
+def convert(df, col, convFunc):
+    ''' Convert a dataframe column using a specified function.
+        df: The dataframe to convert.
+        col: The column(s) to convert'''
+    # if we had a list of columns
+    if isinstance(col, list):
+        for co in col:
+            df = convert(df, co, convFunc)
+    # oterwise
+    else:
+        # fetch the column values
+        val = convFunc(df.loc[:,col])
+        # and the insert position
+        idx = list(df.columns).index(col)
+        # Remove the old
+        df = df.drop([col], axis=1)
+        # and add the new
+        df.insert(loc=idx, column=col, value=val)
+    # return the new dataframe
+    return df
+
 def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     ''' Fetch the system information for a given target planet.
         target: The name of the planet to fetch the information for.
@@ -53,8 +74,12 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     # convert mass to solar mass
     if "pl_bmassj" in systemData.columns:
         systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
-    # convert mass to solar mass
-    #convert(systemData, "pl_orbincl", lambda x: np.radians(90-x))
+    # convert radians to degrees
+    if ("pl_orbincl" in systemData.columns) or ("pl_orblper" in systemData.columns):
+        degcols = mapToArchive(["inc", "inc_e1", "inc_e2", "arg", "arg_e1", "arg_e2"])
+        systemData = convert(systemData, degcols[1:], np.radians)
+        # because inclination is perpendicular to earth, we need to deal with this slightly differently
+        systemData = convert(systemData, degcols[0], lambda x: np.radians(90-x))
     # populate a new list with the stars data
     d1 = data.iloc[0]
     starIdx, starData = len(systemData.index), [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
@@ -213,7 +238,7 @@ def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1E-7):
             sim.integrate(sim.t+timestep)
     # return the found transit times
     # because we are working with G=1, a=1 [AU], then t [year]=2pi
-    return tarray / (2*np.pi)
+    return tarray * (2*np.pi)
 
 def _arrayToSim_(thisSim, params):
     ''' Generates a list of simulations from an array of simulation parameters.
