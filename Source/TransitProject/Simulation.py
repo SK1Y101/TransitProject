@@ -32,7 +32,8 @@ def mapToArchive(params):
 def convert(df, col, convFunc):
     ''' Convert a dataframe column using a specified function.
         df: The dataframe to convert.
-        col: The column(s) to convert'''
+        col: The column(s) to convert.
+        convFunc: The function that would convert from old to new (ie: np.radians)'''
     # if we had a list of columns
     if isinstance(col, list):
         for co in col:
@@ -238,7 +239,7 @@ def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1E-7):
             sim.integrate(sim.t+timestep)
     # return the found transit times
     # because we are working with G=1, a=1 [AU], then t [year]=2pi
-    return tarray * (2*np.pi)
+    return tarray / (2*np.pi)
 
 def _arrayToSim_(thisSim, params):
     ''' Generates a list of simulations from an array of simulation parameters.

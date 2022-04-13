@@ -43,7 +43,7 @@ N=int(np.ceil((times[1]-times[0])*365.25/df.iloc[1]["per"]))
 # manually removing errors
 for x in params:
     for y in [1,2]:
-        pass#df[x+"_e{}".format(y)] = 0
+        df[x+"_e{}".format(y)] = 0
 
 # construct the aray of simulation parameters
 simArray = ts.constructSimArray(df, params)
