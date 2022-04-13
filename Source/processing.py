@@ -1,5 +1,6 @@
 # python modules
 import matplotlib.pylab as plt
+import scipy.optimize
 import pandas as pd
 import numpy as np
 
@@ -49,25 +50,62 @@ def fetchMidTransitTimes(exoplanet):
     # and return
     return df
 
+def dateToYearFloat(date):
+    nanoSecToDay = 86400 * 1E9
+    if not isinstance(date, str):
+        return pd.to_datetime(date).astype(int) / nanoSecToDay
+    return pd.to_datetime(date).value / nanoSecToDay
+
+def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b):
+    pars, corr = scipy.optimize.curve_fit(f, x, y, sigma=err)
+    return lambda x:f(x, *pars)
+
+
 def plotMidtransits(df):
     # fetch the sources list
     sources = sorted(df["source"].unique())
     # if there are any
     if sources:
+        df = df.loc[df["source"]!="ETD"]
+        #df = df.sort_values(by="date", ascending=True)
+
+        def f(x, a, b):
+            c=0.013 * 24 * 60
+            d=428
+            return c*np.sin(x*(2*np.pi/d)+a) + b
+
+        fig = plt.figure()
+        ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
+        [ax1, ax2] = ax
+
+        dateAsFloat = dateToYearFloat(df["date"])
+        dateAsDate = pd.to_datetime(df["date"])
+        dateminmax = [min(dateAsFloat), max(dateAsFloat)]
+        daterange = np.linspace(*dateminmax, 10000)
+
+        linefit = fetchFit(dateAsFloat, df["oc"], df["oce"], f=lambda x,a,b:a*x+b)
+        df["oc"] -= linefit(dateAsFloat)
+        fitfunc = fetchFit(dateAsFloat, df["oc"], df["oce"], f)
+        ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
+        ax2.plot(dateminmax, [0, 0], "b", label="Model fit")
         # fetch the data
         for source in sources:
             data = df.loc[df["source"]==source]
-            data = data.sort_values(by="date", ascending=True)
-            plt.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
+            dateAsFloat = dateToYearFloat(data["date"])
+            ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
+            ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source+" residuals", fmt="o")
 
         #dates = pd.to_datetime(df["date"])
         #plt.plot([min(dates), max(dates)], [0,0])
-        plt.title(df.index.name)
-        plt.gcf().autofmt_xdate()
-        plt.ylabel("O-C (minutes)")
-        plt.xlabel("Date of observation")
-        plt.legend()
+        for axs in ax:
+            axs.set_title(df.index.name)
+            #axs.gcf().autofmt_xdate()
+            axs.set_ylabel("O-C (minutes)")
+            axs.set_xlabel("Date of observation")
+            axs.legend()
         plt.show()
 
-df = fetchMidTransitTimes("Corot-11b")#"HAT-P-13b")
+df = fetchMidTransitTimes("Corot-11b")
+#df = fetchMidTransitTimes("CoRoT-2b")
+df = fetchMidTransitTimes("HAT-P-13b")
 plotMidtransits(df)
