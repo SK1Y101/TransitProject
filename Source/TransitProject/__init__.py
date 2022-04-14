@@ -111,16 +111,42 @@ def inDataFrame(loc, target, col=None):
     # search for the target in the column
     return target in list(df[col])
 
-def moveRowToTop(df, targetIdx):
+def insertRow(df, newRow, idx=0):
+    ''' Add a new row to a dataframe.
+        df: the dataframe to add to.
+        newRow: the row of information to add.
+        idx: the row index to insert at.'''
+    # fetch all values below the target index
+    low = df.iloc[idx:]
+    # remove everything lower
+    df = df.iloc[:idx].copy()
+    # append the new row
+    df.loc[idx] = newRow
+    # append the old data
+    df = pd.concat([df, low])
+    # and reset the indices
+    df.reset_index(inplace=True)
+    return df
+
+def addRow(df, newRow):
+    ''' Add a new row to the end of a dataframe.
+        df: the dataframe to add to.
+        newRow: the row of information to add.'''
+    df.loc[len(df.index)] = newRow
+    return df
+
+def moveRowToTop(df, targetIdx=None):
     ''' Move a given row to the top of a dataframe.
         df: The dataframe to manipulate
         targetIdx: The row index to move to the top '''
+    if targetIdx==None:
+        targetIdx = max(df.index)
     # append an empty row
-    df.loc[len(df.index)] = np.nan
+    df = addRow(df, np.nan)
     # shift down
     df = df.shift(1)
     # copy target to first row
-    df.iloc[0] = df.iloc[targetIdx+1]
+    df.loc[0] = df.loc[targetIdx+1]
     # remove the old value and return
     return df[df.index != targetIdx+1]
 
