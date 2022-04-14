@@ -3,6 +3,7 @@ import matplotlib.pylab as plt
 import scipy.optimize
 import pandas as pd
 import numpy as np
+import argparse
 
 # my modules
 import TransitProject as tp
@@ -57,7 +58,7 @@ def dateToYearFloat(date):
     return pd.to_datetime(date).value / nanoSecToDay
 
 def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b):
-    pars, corr = scipy.optimize.curve_fit(f, x, y, sigma=err)
+    pars, corr = scipy.optimize.curve_fit(f, x, y, sigma=err, maxfev=5000)
     return lambda x:f(x, *pars)
 
 def plotMidtransits(df):
@@ -66,12 +67,10 @@ def plotMidtransits(df):
     # if there are any
     if sources:
         df = df.loc[df["source"]!="ETD"]
-        #df = df.sort_values(by="date", ascending=True)
+        df = df.sort_values(by="date", ascending=True)
 
-        def f(x, a, b):
-            c=0.013 * 24 * 60
-            d=428
-            return c*np.sin(x*(2*np.pi/d)+a) + b
+        def f(x, a, b, c, d):
+            return a*np.sin(x*(2*np.pi/b)+c) + d
 
         fig = plt.figure()
         ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
@@ -104,7 +103,12 @@ def plotMidtransits(df):
             axs.legend()
         plt.show()
 
-df = fetchMidTransitTimes("Corot-11b")
-#df = fetchMidTransitTimes("CoRoT-2b")
-df = fetchMidTransitTimes("HAT-P-13b")
+# fetch the planet from command line input
+parser = argparse.ArgumentParser(description="Simulate transit timing variations.")
+parser.add_argument("--planet", help="The name of the planet to simulate TTV for.")
+args = parser.parse_args()
+if not args.planet:
+    raise Exception("No planet provided")
+
+df = fetchMidTransitTimes(args.planet)
 plotMidtransits(df)
