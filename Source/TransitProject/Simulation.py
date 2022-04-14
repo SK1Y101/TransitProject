@@ -58,6 +58,10 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     # if we didn't include mass or sma, include them (minimum needed for simulation)
     params = ["mass"]+params if "mass" not in params else params
     params = ["sma"]+params if ("sma" not in params) or ("per" not in params) else params
+    # if the target does not contain a distinction between name and number, attempt to do so
+    if "-" not in target:
+        numidx = target.index(findFloats(target)[0])
+        target = target[:numidx]+"-"+target[numidx:]
     # fetch the central body name
     star = target[:-1]
     # add errors to the paramaters, and map to archive names
@@ -92,11 +96,12 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
         systemData = convert(systemData, mapToArchive(["per", "per_e1", "per_e2"]), lambda x:x/365.25)
     # populate a new list with the stars data
     d1 = data.iloc[0]
-    starIdx, starData = len(systemData.index), [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
+    starData = [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
     # append it to the dataframe, filling any unspecified values with NaN
-    systemData.loc[starIdx] = starData + [np.nan]*(len(systemData.iloc[0])-len(starData))
-    # and shift it to the top
-    systemData = moveRowToTop(systemData, starIdx)
+    systemData = insertRow(systemData, starData + [np.nan]*(len(systemData.iloc[0])-len(starData)), 0)
+    # remove the index column if given
+    if "index" in systemData.columns:
+        systemData = systemData.drop(["index"], axis=1)
     # rename all the columns to be more usefull
     systemData.columns = ["name"]+param
     # return the data
@@ -120,7 +125,7 @@ def _possibilitySpace_(poss, tqdmLeave=True):
     return pos
 
 # construct all simulation possibilities
-def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave=True):
+def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave=True, useerror=True):
     ''' Construct an array of all possible simulation parameters.
         Each row corresponds to a new simulation setup, where the columns are the parameters for each object.
         df: The dataframe of system information to fetch data from.
@@ -150,10 +155,14 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
             # inrement the index counter
             idx+=1
 
-    # fetch the entire possibility space of our combinations
-    pos = _possibilitySpace_(out, tqdmLeave=tqdmLeave)
-    # add the default simulation settings to the begining
-    pos = np.vstack([out_, pos])
+    # if we are using error values
+    if useerror:
+        # fetch the entire possibility space of our combinations
+        pos = _possibilitySpace_(out, tqdmLeave=tqdmLeave)
+        # add the default simulation settings to the begining
+        pos = np.vstack([out_, pos])
+    else:
+        pos = out_
     # replace nan values with infinitiy so we know they are wrong
     pos = np.nan_to_num(pos, nan=np.inf)
     # remove nonunique values
@@ -164,7 +173,7 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
     return pos
 
 # fetch relevant data given exoplanet
-def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
+def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"], forceUse=False):
     ''' Fetch all relevant data for an exoplanet. Will raise an exception if no transit data exists for the target.
         exoplanet: The name of the exoplanet to search for.
         params: The list of parameters to be used in this simulation. '''
@@ -179,7 +188,10 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
 
     # check the planet has midtransit data
     if not inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
-        raise Exception("Mid-Transit data does not exist for target planet.")
+        if forceUse:
+            print("Mid-Transit data does not exist for target planet.")
+        else:
+            raise Exception("Mid-Transit data does not exist for target planet.")
     # fetch the archive data for the system
     archiveData = _fetchSystem_(archiveTarget, params)
 
@@ -260,6 +272,8 @@ def _arrayToSim_(thisSim, params):
     sim = rebound.Simulation()
     # set the units for the simulation
     sim.units = ('yr', 'AU', 'Msun')
+    # because our units are in years, the default 1E-9 may not be small enough
+    sim.ri_ias15.min_dt = 1E-9**3
     # iterate on each object
     for obj in np.split(thisSim, objs):
         # fetch this objects paramaters
@@ -292,7 +306,7 @@ def _simulateTransitTimes_(simArray, params, transits=1000, prec=1/31557600.0):
     # if it is very small, step in units of 0.1 periods.
     # if very large, step in units of 0.001 periods.
     # if niehter, step hourly
-    timestep = max(p_orb*0.0001, min(p_orb*0.1, 1 / (24*365)))
+    timestep = max(p_orb*0.001, min(p_orb*0.1, 1/8760))
     # fetch the position from the worker ID
     pos = curProc()._identity[0] if curProc().name != "MainProcess" else None
     # simulate for the chosen number of transits

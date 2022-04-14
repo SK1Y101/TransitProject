@@ -37,9 +37,10 @@ parser.add_argument("--planet", help="The name of the planet to simulate TTV for
 parser.add_argument("--years", help="The number of years to simulate TTV for.\nDefaults to 4.")
 parser.add_argument("--workers", help="The number of workers to use for multiprocessing.\nDefaults to half the available CPU cores")
 parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 1 second.")
+parser.add_argument("--useerror", help="Include error bounds in the calculation.", action="store_true")
+parser.add_argument("--forceUse", help="Force the simulation to be executed if no midtransit data is available", action="store_true")
 args = parser.parse_args()
-years = float(args.years) if args.years else 4
-workers = int(args.workers) if args.workers else None
+years, workers = float(args.years) if args.years else 4, int(args.workers) if args.workers else None
 precision = float(args.precision if args.precision else 1) / 31557600
 if not args.planet:
     raise Exception("No planet provided")
@@ -50,7 +51,7 @@ if not args.planet:
 params = ["mass", "sma", "ecc", "inc", "arg"]
 
 # fetch the parameters for the system
-df = ts.fetchParams(args.planet)
+df = ts.fetchParams(args.planet, forceUse=args.forceUse)
 
 # compute the number of transits needed
 N, a = int(np.ceil(years/df.iloc[1]["per"])), 1
@@ -58,7 +59,7 @@ N, a = int(np.ceil(years/df.iloc[1]["per"])), 1
 N = max(N, int(np.ceil(N * 10 * max(df.per[df.per.notnull()]) / years)))
 
 # construct the aray of simulation parameters
-simArray = ts.constructSimArray(df, params)
+simArray = ts.constructSimArray(df, params, useerror=args.useerror)
 
 # fetch the transit times from simulation
 TT = ts.fetchTT(simArray, params, N, prec=precision, returnAll=True, workers=workers)
@@ -69,9 +70,10 @@ TTV = [computeTTV(tt) * 365.25 * 1440 for tt in TT]
 TTVa, TTVl, TTVu = tp.avMinMax(TTV, 0)
 
 # error area
-plt.plot(TTVl, color="black", label="TTV Range (Lower estimate)")
-plt.plot(TTVu, color="black", label="TTV Range (Upper estimate)")
-#plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
+if args.useerror:
+    plt.plot(TTVl, color="black", label="TTV Range (Lower estimate)")
+    plt.plot(TTVu, color="black", label="TTV Range (Upper estimate)")
+    plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
 # main value
 plt.plot(TTVa, color="black", label="Predicted TTV")
 #labels
