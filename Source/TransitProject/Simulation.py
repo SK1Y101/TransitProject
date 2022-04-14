@@ -55,23 +55,29 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     ''' Fetch the system information for a given target planet.
         target: The name of the planet to fetch the information for.
         params: List of parameters to fetch from the stored databases. '''
+    # if we didn't include mass or sma, include them (minimum needed for simulation)
+    params = ["mass"]+params if "mass" not in params else params
+    params = ["sma"]+params if ("sma" not in params) or ("per" not in params) else params
     # fetch the central body name
     star = target[:-1]
     # add errors to the paramaters, and map to archive names
-    params = ",".join([",".join([param,param+"_e1",param+"_e2"]) for param in params]).split(",")
-    aparams = mapToArchive(params)
+    def allParams(params):
+        params = ",".join([",".join([param,param+"_e1",param+"_e2"]) for param in params]).split(",")
+        aparams = mapToArchive(params)
+        return params, aparams
+    param, aparam = allParams(params)
     # load the dataframe
     archive = loadDataFrame("/raw_data/pscomppars.csv")
     # fetch all planets with the required hostname
-    data = archive.loc[archive["hostname"].str.replace(" ", "") == star].reset_index()
+    data = archive[archive.hostname.str.replace(" ", "").isin([star, star.lower(), star.upper(), star.capitalize()])].reset_index()
     # fetch the target planet index
-    targetIdx = np.where(data["pl_name"].str.replace(" ","") == target)[0][0]
+    targetIdx = np.where(data.pl_name.str.replace(" ", "").isin([target, target.lower(), target.upper(), target.capitalize()]))[0][0]
     # ensure it is the first value in the dataframe
     if targetIdx != 0:
         # move the specified row to the top of the dataFrame
         data = moveRowToTop(data, targetIdx)
     # construct a new dataframe of only required parameters
-    systemData = data.loc[:, ["pl_name"]+aparams]
+    systemData = data.loc[:, ["pl_name"]+aparam]
     # convert mass to solar mass
     if "pl_bmassj" in systemData.columns:
         systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
@@ -81,6 +87,9 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
         systemData = convert(systemData, degcols[1:], np.radians)
         # because inclination is perpendicular to earth, we need to deal with this slightly differently
         systemData = convert(systemData, degcols[0], lambda x: np.radians(90-x))
+    # convert period to years
+    if "pl_orbper" in systemData.columns:
+        systemData = convert(systemData, mapToArchive(["per", "per_e1", "per_e2"]), lambda x:x/365.25)
     # populate a new list with the stars data
     d1 = data.iloc[0]
     starIdx, starData = len(systemData.index), [d1["hostname"], d1["st_mass"], d1["st_masserr1"], d1["st_masserr2"]]
@@ -89,7 +98,7 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     # and shift it to the top
     systemData = moveRowToTop(systemData, starIdx)
     # rename all the columns to be more usefull
-    systemData.columns = ["name"]+params
+    systemData.columns = ["name"]+param
     # return the data
     return systemData
 
@@ -194,7 +203,7 @@ def valFromParam(value, array, param):
     # otherwise, return the part of the array that corresponds
     return noneIfInf(array[param.index(value)])
 
-def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1E-7):
+def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1/31557600.0):
     ''' Simulate a system and find the transit times.
         sim: A rebound Simulation object to integrate. (particle 1 is assumed to be the target)
         timestep: The timestep to integrate over.
@@ -239,7 +248,7 @@ def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1E-7):
             sim.integrate(sim.t+timestep)
     # return the found transit times
     # because we are working with G=1, a=1 [AU], then t [year]=2pi
-    return tarray / (2*np.pi)
+    return tarray
 
 def _arrayToSim_(thisSim, params):
     ''' Generates a list of simulations from an array of simulation parameters.
@@ -249,6 +258,8 @@ def _arrayToSim_(thisSim, params):
     objs = len(thisSim) / len(params)
     # create the simulation
     sim = rebound.Simulation()
+    # set the units for the simulation
+    sim.units = ('yr', 'AU', 'Msun')
     # iterate on each object
     for obj in np.split(thisSim, objs):
         # fetch this objects paramaters
@@ -256,41 +267,50 @@ def _arrayToSim_(thisSim, params):
         # if we have a semimajor axis
         if sma:
             sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc)
-        else:
+        elif per:
+            # because of our units of G=1, a=1 [AU], then t [year]=2pi
             sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
+        else:
+            # the star has no interesting properties beyond mass
+            sim.add(m=mass)
     # move to the centre of mass
     sim.move_to_com()
     # and return the simulation
     return sim
 
-def _simulateTransitTimes_(simArray, params, transits=1000):
+def _simulateTransitTimes_(simArray, params, transits=1000, prec=1/31557600.0):
     ''' Locate all transit times for a given simulation setup.
         simArray: The array of simulation parameters.
         params: The list of parameter names. used to map the array to usable values.
-        transits: The number of transits to locate. '''
+        transits: The number of transits to locate.
+        prec: The precision, defaults to 1 second. '''
     # fetch this simulation
     sim = _arrayToSim_(simArray, params)
     # fetch the smallest orbital period in the system
     p_orb = min([x.P for x in sim.particles[1:]])
-    # ensure our timestep is either hourly, or one tenth the smallest orbital period
-    timestep = min(p_orb*0.1, 1 / (24*365))
+    # ensure our timestep is resonable: Take the smallest orbital period:
+    # if it is very small, step in units of 0.1 periods.
+    # if very large, step in units of 0.001 periods.
+    # if niehter, step hourly
+    timestep = max(p_orb*0.0001, min(p_orb*0.1, 1 / (24*365)))
     # fetch the position from the worker ID
     pos = curProc()._identity[0] if curProc().name != "MainProcess" else None
     # simulate for the chosen number of transits
-    TT = _simulateTT_(sim, timestep, transits, pos)
+    TT = _simulateTT_(sim, timestep, transits, pos, prec)
     # and return the transit times
     return np.array(TT)
 
-def fetchTT(simArray, params, transits=1000, workers=None, tqdmLeave=True, returnAll=False):
+def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tqdmLeave=True, returnAll=False):
     ''' Create a multiprocessing job to simulate all possible configurations of a planetary system.
         returns the transit times, the upper, and the lower error bounds.
         simArray: The 2D array of all possible simulation parameters.
         params: The list of parameter names. used to map the array to usable values.
         transits: The number of transits to simulate for.
+        prec: The precision, defaults to 1 second.
         workers: The number of worker processes to use for the simulation (defaults to cpucount / 2).
         tqdmLeave: Whether to leave the overarchive tqdm bar when completed.
         returnAll: Whether to return the entire output, or just the average/minimum/maximum.'''
-    inputs = toItterableInput(simArray, params, transits, keep=(1,))
+    inputs = toItterableInput(simArray, params, transits, prec, keep=(1,))
     # run the multiprocessing job
     TT = parallelJob(_simulateTransitTimes_, inputs, outType=np.array, workers=workers, tqdmLeave=tqdmLeave)
     # if we want to return everything, do that
