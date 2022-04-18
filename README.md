@@ -115,16 +115,17 @@ This is a general overview of the "Write Code" step above, and is of course subj
       - [x] Simulate the system with all known bodies to determine perturbed transit times
       - [x] Simulate the above with all known errors to determine error bars on perturbed transit times
   - [x] Setup a pipeline with multithreading instances for many simulations in parallel
-  - [ ] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
+  - [x] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
   - [ ] Determine a standardised output
-  - [ ] Refactor code
+  - [x] Refactor code
 - [ ] Processing & Fitting
   - [ ] Determine a simpler model that can produce the sinusoid for a given system layout
     - [ ] Ensure this is accurate to system simulation
     - [ ] Should be decently fast to run
     - [ ] Is possible to give to an MCMC fitter
   - [ ] Linear fit to the visual data
-    - [ ] Eliminates incorrect Ephemerides (Compare against ExoClock reporting)
+    - [x] Fit a line to the data
+    - [ ] compare against exoclock ephemerides
     - [ ] Search through Residuals for TTV
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [ ] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
