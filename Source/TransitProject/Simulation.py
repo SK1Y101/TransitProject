@@ -1,8 +1,8 @@
 # python modules
 from multiprocessing import current_process as curProc
 from tqdm import tqdm, trange
+import rebound, reboundx
 import numpy as np
-import rebound
 
 # my modules
 from . import *
@@ -326,8 +326,14 @@ def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1/31557600.0):
                 else:
                     # set this time as our lower bound
                     t_0 = sim.t
+                # find the zero point by the arithmetic mean
+                new_t = 0.5 * (t_0+t_1)
+                # find the zero point by the geometric mean
+                #new_t = np.sqrt(t_0 * t_1)
+                # find the zero point by the harmonic mean
+                #new_t = 1/(1/t_0 + 1/t_1)
                 # step forward by the difference in our times
-                sim.integrate(0.5 * (t_0+t_1))
+                sim.integrate(new_t)
             # add the transit time to the array
             tarray[n] = sim.t
             # increment our transit counter
@@ -367,6 +373,12 @@ def _arrayToSim_(thisSim, params):
             sim.add(m=mass)
     # move to the centre of mass
     sim.move_to_com()
+    # add the reboundx extras
+    rebx = reboundx.Extras(sim)
+    # introduce general relatiity
+    gr = rebx.load_force("gr")
+    rebx.add_force(gr)
+    gr.params["c"] = (299792458) * ((365.25*86400) / 149597870700) # speed of light in Au/Year
     # and return the simulation
     return sim
 
