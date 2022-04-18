@@ -481,9 +481,9 @@ def predictTTVMagnitude(df):
     if len(planets) > 2:
         print("Warning! TTV Prediction may be innacurate due to system containing more than two planets!")
     # compute the TTV by summation
-    print(np.array(TTV))
-    print(np.average(1 / np.array(TTV)))
-    print(sum(TTV))
+    #print(np.array(TTV))
+    #print(np.average(1 / np.array(TTV)))
+    #print(sum(TTV))
     TTV = sum(TTV)
     # return the TTV prediction
     return TTV
