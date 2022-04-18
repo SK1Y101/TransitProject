@@ -187,7 +187,7 @@ def _possibilitySpace_(poss, tqdmLeave=True):
     return pos
 
 # construct all simulation possibilities
-def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave=True, useerror=True):
+def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave=True, useerror=True, limitError=False):
     ''' Construct an array of all possible simulation parameters.
         Each row corresponds to a new simulation setup, where the columns are the parameters for each object.
         df: The dataframe of system information to fetch data from.
@@ -211,6 +211,9 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
             val = thisobj[param]
             er1 = val + abs(thisobj[param+"_e1"])
             er2 = val - abs(thisobj[param+"_e2"])
+            # if we are limiting errors, and this is an error to limit
+            if limitError and param not in ["mass", "sma", "per"]:
+                er1, er2 = np.nan, np.nan
             # add to the output
             out[:,idx] = np.hstack([er1, er2])
             out_[:,idx] = val
@@ -545,7 +548,7 @@ def predictGREffect(df, observationYears=4):
     # offset by epsilon each orbit.
     def timeFromTrueAnomaly(f, t, e=0):
         # compute eccentric anomaly
-        E = np.arccos(e+np.cos(f) / (1+e*np.cos(f)))
+        E = np.arccos((e+np.cos(f)) / (1+e*np.cos(f)))
         # compute the mean anomaly
         M = E - e*np.sin(E)
         # compute the mean motion

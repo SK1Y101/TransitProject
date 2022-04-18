@@ -19,14 +19,19 @@ Goals: Collect system information from a local database.
 def fetchArgs():
     ''' fetch the program arguments from command line input. '''
     parser = argparse.ArgumentParser(description="Simulate transit timing variations.")
+    # select planet
     parser.add_argument("--planet", help="The name of the planet to simulate TTV for.")
+    # select timeframe
     parser.add_argument("--years", help="The number of years to simulate TTV for.\nDefaults to 4.")
-    parser.add_argument("--workers", help="The number of workers to use for multiprocessing.\nDefaults to half the available CPU cores")
     parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 0.1 second.")
+    # select plotting and simulation setups
     parser.add_argument("--useError", help="Include error bounds in the calculation.", action="store_true")
     parser.add_argument("--plotErrorArea", help="Requires error bounds in the calculation, will plot the error output.", action="store_true")
+    parser.add_argument("--workers", help="The number of workers to use for multiprocessing.\nDefaults to half the available CPU cores")
     parser.add_argument("--forceUse", help="Force the simulation to be executed if no midtransit data is available", action="store_true")
+    # limit the simulation
     parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
+    parser.add_argument("--limitError", help="Run the simulation with only errors on the mass and period/semimajor axis", action="store_true")
     args = parser.parse_args()
     # ensure we are not missing any required
     if not args.planet:
@@ -65,7 +70,7 @@ def runTTVPipeline(df, params, args):
     N = max(N, int(np.ceil(N * 10 * max(df.per[df.per.notnull()]) / args.years)))
 
     # construct the aray of simulation parameters
-    simArray = ts.constructSimArray(df, params, useerror=args.useError)
+    simArray = ts.constructSimArray(df, params, useerror=args.useError, limitError=args.limitError)
 
     # fetch the transit times from simulation
     TT = ts.fetchTT(simArray, params, N, prec=args.precision, returnAll=True, workers=args.workers)
@@ -112,7 +117,7 @@ def plotSimulation(TTVMinMaxAv, args):
         err = np.vstack([(TTVa-TTVl), (TTVu - TTVa)]) * rescale[1]
         plt.errorbar(range(N), TTVa*rescale[1], yerr=err, color="black", label="Predicted TTV", fmt="o")
     else:
-        plt.scatter(range(N), TTVa*rescale[1], color="black", label="Predicted TTV", s=15)
+        plt.plot(range(N), TTVa*rescale[1], color="black", label="Predicted TTV")#, s=15)
     # exoplanet name
     eName = args.planet.split(",")[1] if ".csv" in args.planet else args.planet
     # title
@@ -129,11 +134,12 @@ def plotSimulation(TTVMinMaxAv, args):
     ax.set_xlabel("Epoch")
     ax.tick_params(axis="x",direction="in", pad=-15)
     ax.xaxis.labelpad = -20
-    ax.set_xlim([0, int(np.ceil(args.years/df.iloc[1]["per"]))])
+    ax.set_xlim([-1, int(np.ceil(args.years/df.iloc[1]["per"]))])
     plt.legend()
 
     # pot as years if the numbers start getting unweildy
     asYears = args.years >= 20
+    orbitscale = df.iloc[1]["per"]*(1 if asYears else 365.25)
     # plot day/year number
     ax2 = ax.twiny()
     ax2.set_xlabel("Time [{}]".format("Years" if asYears else "Days"))
@@ -141,7 +147,7 @@ def plotSimulation(TTVMinMaxAv, args):
     ax2.xaxis.tick_bottom()
     ax2.xaxis.set_minor_locator(AutoMinorLocator())
     ax2.xaxis.labelpad = 0
-    ax2.set_xlim([0, (np.ceil(args.years/df.iloc[1]["per"])*df.iloc[1]["per"])*(1 if asYears else 365.25)])
+    ax2.set_xlim([axval*orbitscale for axval in ax.get_xlim()])
 
     # show the final plot
     plt.show()
