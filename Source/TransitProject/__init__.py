@@ -355,3 +355,15 @@ def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True, t
         return outType(res)
     # return the output
     return res
+
+def tosi(val, unit=""):
+    ''' convert a value to si.
+        val: the value to convert.
+        unit: a unit to tack on if needed. '''
+    # si values
+    units = {-24: "y", -21: "z", -18: "a", -15: "f", -12: "p", -9: "n", -6: "μ", -3: "m",
+             0: "", 3: "k", 6: "M", 9: "G", 12: "T", 15: "P", 18: "E", 21: "Z", 24: "Y"}
+    # compute the largest power that is useful
+    thisunit = 3*np.floor(np.log(val)/np.log(1000))
+    # return the value shifted up to zero, and the unit
+    return val * 10**(-thisunit), units[thisunit]+unit
