@@ -39,6 +39,18 @@ Goals: Create a simple extensible model that can take system parameters and outp
 
 #-> inclination -> sineness or tanness of the function
 
+def fetchArgs():
+    ''' fetch the planet from command line input. '''
+    parser = argparse.ArgumentParser(description="Process transit timing variations.")
+    # add any arguments
+    parser.add_argument("--planet", help="The name of the planet to process TTV for.")
+    args = parser.parse_args()
+    # ensure we are not missing any required
+    if not args.planet:
+        raise Exception("No planet provided")
+    # return the argument input
+    return args
+
 def fetchMidTransitTimes(exoplanet):
     # convert to capitalised with no space for exopclock
     exoclockTarget = exoplanet.capitalize().replace(" ", "")
@@ -103,12 +115,11 @@ def plotMidtransits(df):
             axs.legend()
         plt.show()
 
-# fetch the planet from command line input
-parser = argparse.ArgumentParser(description="Simulate transit timing variations.")
-parser.add_argument("--planet", help="The name of the planet to simulate TTV for.")
-args = parser.parse_args()
-if not args.planet:
-    raise Exception("No planet provided")
-
-df = fetchMidTransitTimes(args.planet)
-plotMidtransits(df)
+# execte the program if called
+if __name__ == "__main__":
+    # fetch the program arguments
+    args = fetchArgs()
+    # fetch the planetary data
+    df = fetchMidTransitTimes(args.planet)
+    # plot the data
+    plotMidtransits(df)
