@@ -16,6 +16,28 @@ Goals: Collect system information from a local database.
        Compute timing transit variations from simulation.
 '''
 
+def fetchArgs():
+    ''' fetch the program arguments from command line input. '''
+    parser = argparse.ArgumentParser(description="Simulate transit timing variations.")
+    parser.add_argument("--planet", help="The name of the planet to simulate TTV for.")
+    parser.add_argument("--years", help="The number of years to simulate TTV for.\nDefaults to 4.")
+    parser.add_argument("--workers", help="The number of workers to use for multiprocessing.\nDefaults to half the available CPU cores")
+    parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 1 second.")
+    parser.add_argument("--useerror", help="Include error bounds in the calculation.", action="store_true")
+    parser.add_argument("--forceUse", help="Force the simulation to be executed if no midtransit data is available", action="store_true")
+    parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
+    parser.add_argument("--plotyears", help="If true, plot the output as epochs and years. otherwise, plot as epochs and days", action="store_true")
+    args = parser.parse_args()
+    # ensure we are not missing any required
+    if not args.planet:
+        raise Exception("No planet provided")
+    # default arguments if not provided
+    args.years = float(args.years) if args.years else 4
+    args.workers = int(args.workers) if args.workers else None
+    args.precision = float(args.precision if args.precision else 1) / 31557600
+    # return the argument input
+    return args
+
 def computeTTV(transitTimes):
     ''' Compute the transit timing variation from an array of transit times using linear regression.
         transitTimes: the array of transit times. '''
@@ -32,74 +54,83 @@ def computeTTV(transitTimes):
     # and return
     return TTV
 
-# fetch the planet from command line input
-parser = argparse.ArgumentParser(description="Simulate transit timing variations.")
-parser.add_argument("--planet", help="The name of the planet to simulate TTV for.")
-parser.add_argument("--years", help="The number of years to simulate TTV for.\nDefaults to 4.")
-parser.add_argument("--workers", help="The number of workers to use for multiprocessing.\nDefaults to half the available CPU cores")
-parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 1 second.")
-parser.add_argument("--useerror", help="Include error bounds in the calculation.", action="store_true")
-parser.add_argument("--forceUse", help="Force the simulation to be executed if no midtransit data is available", action="store_true")
-parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
-args = parser.parse_args()
-years, workers = float(args.years) if args.years else 4, int(args.workers) if args.workers else None
-precision = float(args.precision if args.precision else 1) / 31557600
-if not args.planet:
-    raise Exception("No planet provided")
+def runTTVPipeline(df, params, args):
+    ''' run the pipeline that takes a set of requirements and produces a s imulates TTV.
+        df: The planetary data dataframe.
+        params: The parameters to simulate.
+        args: The program arguments. '''
+    # compute the number of transits needed
+    N, a = int(np.ceil(args.years/df.iloc[1]["per"])), 1
+    # ensure the outermost planet transits at least ten times (to bring out the TTV signal)
+    N = max(N, int(np.ceil(N * 10 * max(df.per[df.per.notnull()]) / args.years)))
 
-# define the simulation parameters
-''' choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis '''
-''' if both a period and semimajor axis is given, the script will default to SMA '''
-params = ["mass", "sma", "ecc", "inc", "arg"]
+    # construct the aray of simulation parameters
+    simArray = ts.constructSimArray(df, params, useerror=args.useerror)
 
-# fetch the parameters for the system
-df, params = ts.fetchParams(args.planet, forceUse=args.forceUse)
-if args.unperturbed:
-    df = df.iloc[:2]
+    # fetch the transit times from simulation
+    TT = ts.fetchTT(simArray, params, N, prec=args.precision, returnAll=True, workers=args.workers)
 
-print("The predicted TTV for {} is on the order of {:0.2f}s".format(df.iloc[1]["name"], ts.predictTTVMagnitude(df)))
+    # compute the TTV for all values, convert to minutes
+    TTV = [computeTTV(tt) * 365.25 * 1440 for tt in TT]
+    # and the error bounds (upper and lower)
+    TTVMinMaxAv = tp.avMinMax(TTV, 0)
 
-# compute the number of transits needed
-N, a = int(np.ceil(years/df.iloc[1]["per"])), 1
-# ensure the outermost planet transits at least ten times (to bring out the TTV signal)
-N = max(N, int(np.ceil(N * 10 * max(df.per[df.per.notnull()]) / years)))
+    # return the TTV
+    return TTVMinMaxAv
 
-# construct the aray of simulation parameters
-simArray = ts.constructSimArray(df, params, useerror=args.useerror)
+def plotSimulation(TTVMinMaxAv, args):
+    ''' plot the results of a TTV simulation. '''
+    # decompose TTV min, max, and average
+    TTVa, TTVl, TTVu = TTVMinMaxAv
+    # plot an error area
+    if args.useerror:
+        plt.plot(TTVl, color="black", label="TTV Range (Lower estimate)")
+        plt.plot(TTVu, color="black", label="TTV Range (Upper estimate)")
+        plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
+    # main value
+    plt.plot(TTVa, color="black", label="Predicted TTV")
+    plt.ylabel("Time [Minutes]")
 
-# fetch the transit times from simulation
-TT = ts.fetchTT(simArray, params, N, prec=precision, returnAll=True, workers=workers)
+    # plot epoch number
+    ax = plt.gca()
+    plt.xlabel("Epoch")
+    ax.tick_params(axis="x",direction="in", pad=-15)
+    ax.xaxis.labelpad = -20
+    ax.set_xlim([0, int(np.ceil(args.years/df.iloc[1]["per"]))])
+    plt.legend()
 
-# compute the TTV for all values, convert to minutes
-TTV = [computeTTV(tt) * 365.25 * 1440 for tt in TT]
-# and the error bounds (upper and lower)
-TTVa, TTVl, TTVu = tp.avMinMax(TTV, 0)
+    # plot day/year number
+    ax2 = ax.twiny()
+    ax2.set_xlabel("Time [{}]".format("Years" if args.plotyears else "Days"))
+    ax2.xaxis.set_label_position("bottom")
+    ax2.xaxis.tick_bottom()
+    ax2.xaxis.set_minor_locator(AutoMinorLocator())
+    ax2.xaxis.labelpad = 0
+    ax2.set_xlim([0, (np.ceil(args.years/df.iloc[1]["per"])*df.iloc[1]["per"])*(1 if args.plotyears else 365.25)])
 
-# error area
-if args.useerror:
-    plt.plot(TTVl, color="black", label="TTV Range (Lower estimate)")
-    plt.plot(TTVu, color="black", label="TTV Range (Upper estimate)")
-    plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
-# main value
-plt.plot(TTVa, color="black", label="Predicted TTV")
-plt.ylabel("Time [Minutes]")
+    # show the final plot
+    plt.show()
 
-# plot epoch number
-ax = plt.gca()
-plt.xlabel("Epoch")
-ax.tick_params(axis="x",direction="in", pad=-15)
-ax.xaxis.labelpad = -20
-ax.set_xlim([0, int(np.ceil(years/df.iloc[1]["per"]))])
-plt.legend()
+# start the script
+if __name__ == "__main__":
+    # fetch the program arguments
+    args = fetchArgs()
 
-asDays = False
-# plot day number
-ax2 = ax.twiny()
-ax2.set_xlabel("Time [{}]".format("Days" if asDays else "Years"))
-ax2.xaxis.set_label_position("bottom")
-ax2.xaxis.tick_bottom()
-ax2.xaxis.set_minor_locator(AutoMinorLocator())
-ax2.xaxis.labelpad = 0
-ax2.set_xlim([0, (np.ceil(years/df.iloc[1]["per"])*df.iloc[1]["per"])*(365.25 if asDays else 1)])
+    # define the simulation parameters
+    # choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis
+    # if both a period and semimajor axis is given, the script will default to SMA
+    params = ["mass", "sma", "ecc", "inc", "arg"]
 
-plt.show()
+    # fetch the parameters for the system
+    df, params = ts.fetchParams(args.planet, forceUse=args.forceUse)
+    if args.unperturbed:
+        df = df.iloc[:2]
+
+    # compute the predicted TTV
+    print("The predicted TTV for {} is on the order of {:0.2f}s".format(df.iloc[1]["name"], ts.predictTTVMagnitude(df)))
+
+    # run the pipeline
+    TTVMinMaxAv = runTTVPipeline(df, params, args)
+
+    # plot the output
+    plotSimulation(TTVMinMaxAv, args)
