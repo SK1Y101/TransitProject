@@ -51,13 +51,75 @@ def convert(df, col, convFunc):
     # return the new dataframe
     return df
 
-def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
+def removeWhitespace(df):
+    ''' Removes all whitespace from a dataframe. usefull for converting human readable into machine readable.
+        df: The dataframe to convert. '''
+    # remove the whitespace in the columns row
+    df.columns = df.columns.str.strip()
+    # for each column in the dataframe
+    for col in df.columns:
+        # remove whitespace
+        df[col] = df[col].str.strip()
+    # return the dataframe
+    return df
+
+def nestToLinear(lis):
+    ''' convert a nested list to a linear one.
+        lis: The list to convert. '''
+    return list(np.array(lis).flatten())
+
+def _fetchCustomSystem_(file, exoplanet):
+    ''' Fetch the system information for a given planet in a custom system.
+        file: The csv file containing the system information.
+        exoplanet: The name of the target exoplanet.'''
+    # define the allowed parameters
+    params=["mass", "sma", "per", "ecc", "inc", "arg"]
+    # get the dataset
+    data = loadDataFrame(file)
+    # remove any whitespace
+    data = removeWhitespace(data)
+    # define some conversion factors to change things into the simulation units
+    conv = {"mass": {"":1, "S":1, "J": 1/1047.348644, "E":1/332946.0487, "M":1/27068702.8061, "Kg":1/1.98855E30},
+            "sma":  {"":1, "AU":1, "Km":1/149597870.7, "m":1/149597870700},
+            "per":  {"":1, "Y":1, "M": 1/12.008, "D":1/365.25, "h":1/8766, "m":1/52600, "s":1/31557600}}
+    # fetch the columns that could contain a unit shorthand
+    cols = nestToLinear([[cols, cols+"_e1", cols+"_e2"] for cols in list(conv.keys())])
+    # for each column
+    for col in cols:
+        # for each value in the column
+        for v, val in enumerate(data[col]):
+            # fetch all the numbers in that row
+            floats = findFloats(val)
+            # if there are none, move on
+            if not floats:
+                continue
+            # the starting value, and conversion key
+            thisval, convKey = 0, col.split("_")[0]
+            # work backwards through the floats
+            for f in floats[::-1]:
+                # fetch the position of the unit shorthand
+                unitPos = val.index(f)+len(f)
+                # fetch the unit and value
+                value, unit = f, val[unitPos:]
+                # add to thisvalue
+                thisval += float(value)*conv[convKey][unit]
+                # remove from the val
+                val = val[:val.index(f)]
+            # update the dataframe
+            data.loc[v, [col]] = thisval
+    # fetch all the columns that are meant to be numeric
+    numCol = data.columns[data.columns!="name"]
+    # convert to numeric
+    data.loc[:, numCol] = data.loc[:, numCol].apply(lambda x : pd.to_numeric(x, "coerce"))
+    # return the dataframe
+    return data
+
+def _fetchSystem_(target):
     ''' Fetch the system information for a given target planet.
         target: The name of the planet to fetch the information for.
         params: List of parameters to fetch from the stored databases. '''
-    # if we didn't include mass or sma, include them (minimum needed for simulation)
-    params = ["mass"]+params if "mass" not in params else params
-    params = ["sma"]+params if ("sma" not in params) or ("per" not in params) else params
+    # define the allowed parameters
+    params=["mass", "sma", "per", "ecc", "inc", "arg"]
     # if the target does not contain a distinction between name and number, attempt to do so
     if "-" not in target:
         numidx = target.index(findFloats(target)[0])
@@ -66,7 +128,7 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     star = target[:-1]
     # add errors to the paramaters, and map to archive names
     def allParams(params):
-        params = ",".join([",".join([param,param+"_e1",param+"_e2"]) for param in params]).split(",")
+        params = nestToLinear([[param,param+"_e1",param+"_e2"] for param in params])
         aparams = mapToArchive(params)
         return params, aparams
     param, aparam = allParams(params)
@@ -84,7 +146,7 @@ def _fetchSystem_(target, params=["mass", "sma", "per", "ecc", "inc", "arg"]):
     systemData = data.loc[:, ["pl_name"]+aparam]
     # convert mass to solar mass
     if "pl_bmassj" in systemData.columns:
-        systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.55E-4
+        systemData.loc[:, ["pl_bmassj", "pl_bmassjerr1", "pl_bmassjerr2"]] *= 9.547919E-4
     # convert radians to degrees
     if ("pl_orbincl" in systemData.columns) or ("pl_orblper" in systemData.columns):
         degcols = mapToArchive(["inc", "inc_e1", "inc_e2", "arg", "arg_e1", "arg_e2"])
@@ -154,7 +216,6 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
             out_[:,idx] = val
             # inrement the index counter
             idx+=1
-
     # if we are using error values
     if useerror:
         # fetch the entire possibility space of our combinations
@@ -177,26 +238,43 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"], f
     ''' Fetch all relevant data for an exoplanet. Will raise an exception if no transit data exists for the target.
         exoplanet: The name of the exoplanet to search for.
         params: The list of parameters to be used in this simulation. '''
-    # convert to capitalised with no space for exopclock
-    exoclockTarget = exoplanet.capitalize().replace(" ", "")
-    # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
-    if exoplanet[-1].isalpha():
-        archiveTarget = exoplanet[:-1].upper().replace(" ", "")+exoplanet[-1].lower()
+    # if we were given a file to simulate from
+    if ".csv" in exoplanet:
+        # fetch the file and planet
+        file, exoplanet = exoplanet.split(",")
+        # fetch the data using the manual system different handler
+        archiveData = _fetchCustomSystem_(file, exoplanet)
     else:
-        # if there wasn't a planet delimiter, add one
-        archiveTarget = exoplanet.upper().replace(" ", "")+"b"
-
-    # check the planet has midtransit data
-    if not inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
-        if forceUse:
-            print("Mid-Transit data does not exist for target planet.")
+        # convert to capitalised with no space for exopclock
+        exoclockTarget = exoplanet.capitalize().replace(" ", "")
+        # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
+        if exoplanet[-1].isalpha():
+            archiveTarget = exoplanet[:-1].upper().replace(" ", "")+exoplanet[-1].lower()
         else:
-            raise Exception("Mid-Transit data does not exist for target planet.")
-    # fetch the archive data for the system
-    archiveData = _fetchSystem_(archiveTarget, params)
+            # if there wasn't a planet delimiter, add one
+            archiveTarget = exoplanet.upper().replace(" ", "")+"b"
+
+        # check the planet has midtransit data
+        if not inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
+            if forceUse:
+                print("Mid-Transit data does not exist for target planet.")
+            else:
+                raise Exception("Mid-Transit data does not exist for target planet.")
+        # fetch the archive data for the system
+        archiveData = _fetchSystem_(archiveTarget)
+
+    # check if sma or per are nan
+    nonNan = ~archiveData.loc[1:, ["sma", "per"]].isna().any(axis=0)
+    # if all semimajor axis values are non-Nan, remove the period section
+    if nonNan[0]:
+        params.remove("per")
+    # else, if all period values are non-Nan, remove semimajor axis.
+    elif nonNan[1]:
+        params.remove("sma")
+    # otherwise, this will just use a mixture of the two
 
     # return the archive dataFrame
-    return archiveData
+    return archiveData, params
 
 def valFromParam(value, array, param):
     ''' Fetch the value of a given parameter given an array to search over.
@@ -331,3 +409,81 @@ def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tq
     if returnAll:
         return TT
     return avMinMax(TT, 0)
+
+def _planetVars_(star, planet, mTot):
+    # gravitational parameter
+    Gmu = (planet["mass"]+star["mass"])*6.67408E-11*1.98855E30
+    # we require a period or semimajor axis
+    if ("sma" not in planet) and ("per" not in planet):
+        raise Exception("{} requires a defined semimajor axis, or period. Has neither!".format(planet["name"]))
+    hassma, hasper = ~np.isnan(planet["sma"]), ~np.isnan(planet["per"])
+    # if we have a semimajor axis
+    if hassma:
+        # convert to metres
+        a = planet["sma"]*149597870700
+        # if we don't have an orbital period, compute
+        if ~hasper:
+            p = 2*np.pi*np.sqrt(a**3 / Gmu)
+    # if we have a period
+    if hasper:
+        # convert to seconds
+        p = planet["per"]*31557600
+        # if we didn't have a semimajor axis
+        if ~hassma:
+            a = (Gmu * p**2 / (4*np.pi**2))**(1/3)
+    # fetch everything else
+    arg, inc, ecc, mMu = np.radians(planet["arg"]), np.radians(90-planet["inc"]), planet["ecc"], planet["mass"] / mTot
+    # variables in an np array
+    var = np.array([a, p, mMu, ecc, inc, arg])
+    # remove NaN
+    var[np.isnan(var)] = 0
+    # and return the variables
+    return var
+
+def _innerTTV_(target, perturber):
+    ''' Compute the predicted magnitude of a TTV from an inner perturbing planet.
+        target: The transiting planet to observe for TTV of.
+        perturber: The perturbing planet that will cause a TTV.'''
+    # decompose variables
+    a1, p1, m1, e1, i1, arg1 = perturber
+    a2, p2, m2, e2, i2, arg2 = target
+    # compute the predicted TTV
+    return (p2 * m1 * a1 * np.cos(arg1) * np.sqrt(1 - e2**2)) / (2*np.pi * a2 * (1 + e2*np.sin(arg2)))
+
+def _outerTTV_(target, perturber):
+    ''' Compute the predicted magnitude of a TTV from an outer perturbing planet.
+        target: The transiting planet to observe for TTV of.
+        perturber: The perturbing planet that will cause a TTV.'''
+    # decompose variables
+    a1, p1, m1, e1, i1, arg1 = target
+    a2, p2, m2, e2, i2, arg2 = perturber
+    # compute the predicted TTV
+    return m2 * e2 * p2 * (a1 / a2)**3
+
+def predictTTVMagnitude(df):
+    ''' Calculate the predicted TTV Magnitude due to planets in the system.
+        df: The dataframe holding the system information. '''
+    # compute the reduced mass for each object
+    mTotal = sum(df["mass"])
+    # and fetch the rquired variables
+    planets = [_planetVars_(df.iloc[0], df.iloc[idx], mTotal) for idx in df.index[1:]]
+    # reference to the target planet
+    target, TTV = planets[0], []
+    # compute the TTV due to each planet
+    for otherPlanet in planets[1:]:
+        # if the semimajor axis of the target is larger
+        if target[0] > otherPlanet[0]:
+            TTV.append(_innerTTV_(target, otherPlanet))
+        # else
+        else:
+            TTV.append(_outerTTV_(target, otherPlanet))
+    # show an inacuracy warning if there are multiple planets in the system
+    if len(planets) > 2:
+        print("Warning! TTV Prediction may be innacurate due to system containing more than two planets!")
+    # compute the TTV by summation
+    print(np.array(TTV))
+    print(np.average(1 / np.array(TTV)))
+    print(sum(TTV))
+    TTV = sum(TTV)
+    # return the TTV prediction
+    return TTV

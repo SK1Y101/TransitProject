@@ -1,5 +1,6 @@
 # python modules
 from multiprocessing import current_process as curProc
+from matplotlib.ticker import AutoMinorLocator
 import rebound, argparse, scipy.optimize
 import matplotlib.pylab as plt
 from tqdm import tqdm, trange
@@ -39,6 +40,7 @@ parser.add_argument("--workers", help="The number of workers to use for multipro
 parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 1 second.")
 parser.add_argument("--useerror", help="Include error bounds in the calculation.", action="store_true")
 parser.add_argument("--forceUse", help="Force the simulation to be executed if no midtransit data is available", action="store_true")
+parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
 args = parser.parse_args()
 years, workers = float(args.years) if args.years else 4, int(args.workers) if args.workers else None
 precision = float(args.precision if args.precision else 1) / 31557600
@@ -51,7 +53,11 @@ if not args.planet:
 params = ["mass", "sma", "ecc", "inc", "arg"]
 
 # fetch the parameters for the system
-df = ts.fetchParams(args.planet, forceUse=args.forceUse)
+df, params = ts.fetchParams(args.planet, forceUse=args.forceUse)
+if args.unperturbed:
+    df = df.iloc[:2]
+
+print("The predicted TTV for {} is on the order of {:0.2f}s".format(df.iloc[1]["name"], ts.predictTTVMagnitude(df)))
 
 # compute the number of transits needed
 N, a = int(np.ceil(years/df.iloc[1]["per"])), 1
@@ -76,9 +82,24 @@ if args.useerror:
     plt.fill_between(range(N), TTVl, TTVu, color="gray", label="TTV error")
 # main value
 plt.plot(TTVa, color="black", label="Predicted TTV")
-#labels
-plt.xlim([0, int(np.ceil(years/df.iloc[1]["per"]))])
-plt.xlabel("Epoch")
 plt.ylabel("Time [Minutes]")
+
+# plot epoch number
+ax = plt.gca()
+plt.xlabel("Epoch")
+ax.tick_params(axis="x",direction="in", pad=-15)
+ax.xaxis.labelpad = -20
+ax.set_xlim([0, int(np.ceil(years/df.iloc[1]["per"]))])
 plt.legend()
+
+asDays = False
+# plot day number
+ax2 = ax.twiny()
+ax2.set_xlabel("Time [{}]".format("Days" if asDays else "Years"))
+ax2.xaxis.set_label_position("bottom")
+ax2.xaxis.tick_bottom()
+ax2.xaxis.set_minor_locator(AutoMinorLocator())
+ax2.xaxis.labelpad = 0
+ax2.set_xlim([0, (np.ceil(years/df.iloc[1]["per"])*df.iloc[1]["per"])*(365.25 if asDays else 1)])
+
 plt.show()
