@@ -23,7 +23,8 @@ def fetchArgs():
     parser.add_argument("--years", help="The number of years to simulate TTV for.\nDefaults to 4.")
     parser.add_argument("--workers", help="The number of workers to use for multiprocessing.\nDefaults to half the available CPU cores")
     parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 0.1 second.")
-    parser.add_argument("--useerror", help="Include error bounds in the calculation.", action="store_true")
+    parser.add_argument("--useError", help="Include error bounds in the calculation.", action="store_true")
+    parser.add_argument("--plotErrorArea", help="Requires error bounds in the calculation, will plot the error output.", action="store_true")
     parser.add_argument("--forceUse", help="Force the simulation to be executed if no midtransit data is available", action="store_true")
     parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
     args = parser.parse_args()
@@ -64,7 +65,7 @@ def runTTVPipeline(df, params, args):
     N = max(N, int(np.ceil(N * 10 * max(df.per[df.per.notnull()]) / args.years)))
 
     # construct the aray of simulation parameters
-    simArray = ts.constructSimArray(df, params, useerror=args.useerror)
+    simArray = ts.constructSimArray(df, params, useerror=args.useError)
 
     # fetch the transit times from simulation
     TT = ts.fetchTT(simArray, params, N, prec=args.precision, returnAll=True, workers=args.workers)
@@ -77,22 +78,41 @@ def runTTVPipeline(df, params, args):
     # return the TTV
     return TTVMinMaxAv
 
+def computeScale(val):
+    ''' Compute the scale factor for a value. '''
+    # maximum value
+    mval = val if isinstance(val, (int, float)) else max(abs(val))
+    # scale factors
+    scales = {"milliseconds":0.001, "seconds":1, "minutes":60, "hours":3600, "days":86400}
+    # standard scale output
+    rescale = ("milliseconds", 0.001)
+    # for each scale
+    for scale in scales:
+        # if the scale is smaller than the maximum value
+        if scales[scale] < mval:
+            # update the rescale factor
+            rescale = (scale, 1/scales[scale])
+    # return
+    return rescale
+
 def plotSimulation(TTVMinMaxAv, args):
     ''' plot the results of a TTV simulation. '''
     # decompose TTV min, max, and average
     TTVa, TTVl, TTVu = TTVMinMaxAv
     # compute the y axis scaling.
-    scales, rescale = {"Seconds":1, "Minutes":60, "Hours":3600, "Days":86400}, ("Seconds", 1)
-    for scale in scales:
-        if scales[scale] < max(abs(TTVa)):
-            rescale = (scale, 1/scales[scale])
+    rescale = computeScale(TTVa)
+    N = len(TTVa)
     # plot an error area
-    if args.useerror:
+    if args.plotErrorArea:
         plt.plot(TTVl*rescale[1], color="black", label="TTV Range (Lower estimate)")
         plt.plot(TTVu*rescale[1], color="black", label="TTV Range (Upper estimate)")
         plt.fill_between(range(N), TTVl*rescale[1], TTVu*rescale[1], color="gray", label="TTV error")
     # main value
-    plt.plot(TTVa*rescale[1], color="black", label="Predicted TTV")
+    if args.useError:
+        err = np.vstack([(TTVa-TTVl), (TTVu - TTVa)]) * rescale[1]
+        plt.errorbar(range(N), TTVa*rescale[1], yerr=err, color="black", label="Predicted TTV", fmt="o")
+    else:
+        plt.scatter(range(N), TTVa*rescale[1], color="black", label="Predicted TTV", s=15)
     # exoplanet name
     eName = args.planet.split(",")[1] if ".csv" in args.planet else args.planet
     # title
@@ -102,7 +122,7 @@ def plotSimulation(TTVMinMaxAv, args):
     # fetch axis objects
     ax = plt.gca()
     # y axis
-    ax.set_ylabel("Time [{}]".format(rescale[0]))
+    ax.set_ylabel("TTV [{}]".format(rescale[0].capitalize()))
     ax.yaxis.set_minor_locator(AutoMinorLocator())
 
     # plot epoch number
@@ -142,7 +162,14 @@ if __name__ == "__main__":
         df = df.iloc[:2]
 
     # compute the predicted TTV
-    print("The predicted TTV for {} is on the order of {:0.2f}s".format(df.iloc[1]["name"], ts.predictTTVMagnitude(df)))
+    predTTV = ts.predictTTVMagnitude(df)
+    predScale = computeScale(predTTV)
+    # convert to useful value
+    print("The predicted TTV for {} is on the order of {:0.2f} {}".format(df.iloc[1]["name"], predTTV*predScale[1], predScale[0]))
+
+    # compute the effect due to GR
+    GRTTV = ts.predictGREffect(df, args.years)
+    print("The predicted TTV due to GR is on the order of {:0.2f} {}".format(*tp.tosi(GRTTV[0], "s")))
 
     # run the pipeline
     TTVMinMaxAv = runTTVPipeline(df, params, args)

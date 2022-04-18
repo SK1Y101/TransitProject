@@ -472,6 +472,34 @@ def _outerTTV_(target, perturber):
     # compute the predicted TTV
     return m2 * e2 * p2 * (a1 / a2)**3
 
+def _resonanceOrder_(target, perturber):
+    ''' Compute the resonance order (j) of two planets.
+        target: The transiting planet to observe for TTV of.
+        perturber: The perturbing planet that will cause a TTV.'''
+    # decompose variables
+    p1 = target[1]
+    p2 = perturber[1]
+    # greatest common divisor
+    gcd = np.gcd(int(p1), int(p2))
+    # decompose to (any) common multiples
+    j = int(p1 / gcd), int(p2 / gcd)
+    # an nth order resonance has value m:m-n, and has j=(m-n) * n ie: n=1, first order resonance
+    order = max(j) - min(j)
+    # return
+    return order, min(j) * order
+
+def _resonantTTV_(target, perturber):
+    ''' Compute the predicted magnitude of a TTV from a perturbing planet in a resonant orbit.
+        target: The transiting planet to observe for TTV of.
+        perturber: The perturbing planet that will cause a TTV.'''
+    # decompose variables
+    a1, p1, m1, e1, i1, arg1 = target
+    a2, p2, m2, e2, i2, arg2 = perturber
+    # resonance order.
+    j = _resonanceOrder_(target, perturber)[1]
+    # compute predicted TTV
+    return (p2 / (4.5*j)) * (m1 / (m1+m2))
+
 def predictTTVMagnitude(df):
     ''' Calculate the predicted TTV Magnitude due to planets in the system.
         df: The dataframe holding the system information. '''
@@ -483,6 +511,8 @@ def predictTTVMagnitude(df):
     target, TTV = planets[0], []
     # compute the TTV due to each planet
     for otherPlanet in planets[1:]:
+        # compute any resonances
+        TTV.append(_resonantTTV_(target, otherPlanet))
         # if the semimajor axis of the target is larger
         if target[0] > otherPlanet[0]:
             TTV.append(_innerTTV_(target, otherPlanet))
@@ -493,9 +523,34 @@ def predictTTVMagnitude(df):
     if len(planets) > 2:
         print("Warning! TTV Prediction may be innacurate due to system containing more than two planets!")
     # compute the TTV by summation
-    #print(np.array(TTV))
-    #print(np.average(1 / np.array(TTV)))
-    #print(sum(TTV))
     TTV = sum(TTV)
     # return the TTV prediction
-    return TTV
+    return float(TTV)
+
+def predictGREffect(df, observationYears=4):
+    ''' Compute the TTV magnitude due to general relativity.
+        df: The system data dataframe.
+        observationYears: Self explanatory. '''
+    # fetch the variables needed (use zero for total mass as we don't acually care about mass for this)
+    a, t, _, e, _, _ = _planetVars_(df.iloc[0], df.iloc[1], 1)
+    # compute the number of transits
+    Ntransits = int(np.ceil(31557600 * observationYears/t))
+    # speed of light
+    c = 299792458
+    # compute epsilon (this is in radians of precession per orbit)
+    epsilon = 24 * np.pi**3 * a**2 * t**-2 * c**-2 * (1-e**2)**-1
+    # the timescale this effect is cyclic is a full circle / epsilon
+    cycle_time = (np.pi * 2 / epsilon) * t
+    # this twists the apsides by epsilon each orbit, which is equivalent to saying the true anomaly of the transit is
+    # offset by epsilon each orbit.
+    def timeFromTrueAnomaly(f, t, e=0):
+        # compute eccentric anomaly
+        E = np.arccos(e+np.cos(f) / (1+e*np.cos(f)))
+        # compute the mean anomaly
+        M = E - e*np.sin(E)
+        # compute the mean motion
+        n = t / (2*np.pi)
+        # and compute this time
+        return M / n
+    # compute the time from periapse to epsilon times the number of observed transits, also return the cycle time
+    return timeFromTrueAnomaly(epsilon*Ntransits, t, e), cycle_time
