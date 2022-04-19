@@ -3,23 +3,21 @@ date,observer,oc,oce,source
 2022-03-22,Martin Mifsud,-3.8,1.3,ExoClock observation
 2022-03-22,Ivo Peretto,-6.0,5.8,ExoClock observation
 2022-03-22,Marc SERRAU,-2.3,1.9,ExoClock observation
-2022-03-05,Sebastien Brouillard,-1.3,0.7,ExoClock observation
-2022-03-05,Siegfried Vanaverbeke,-4.0,1.0,ExoClock observation
+2022-03-05,Pieter Vuylsteke,-0.2,0.4,ExoClock observation
 2022-03-05,Yves Jongen,-6.4,1.2,ExoClock observation
 2022-03-05,Jacques Michelet,-3.4,1.0,ExoClock observation
+2022-03-05,Sebastien Brouillard,-1.3,0.7,ExoClock observation
 2022-03-05,Yves jongen,0.72,1.2816,ETD
-2022-03-05,Pieter Vuylsteke,0.0,0.9,ExoClock observation
 2022-03-05,Siegfried Vanaverbeke,-4.0,0.9,ExoClock observation
-2022-03-05,Pieter Vuylsteke,-0.2,0.4,ExoClock observation
 2022-02-08,Yves Jongen,-6.9,1.4,ExoClock observation
 2022-02-07,Yves jongen,2.736,0.9216,ETD
 2022-01-22,Leon Bewersdorff,-3.6,0.6,ExoClock observation
 2021-12-18,Yves jongen,6.336,1.0656,ETD
 2021-12-18,J.plazas,-0.432,,ETD
-2021-03-12,Anaël wünsche,6.48,0.8784,ETD
 2021-03-12,Anaël Wünsche,1.1,1.0,ExoClock observation
-2021-02-23,Claudio Lopresti,-1.8,4.3,ExoClock observation
+2021-03-12,Anaël wünsche,6.48,0.8784,ETD
 2021-02-23,Manfred Raetz,-0.9,1.7,ExoClock observation
+2021-02-23,Claudio Lopresti,-1.8,4.3,ExoClock observation
 2021-02-23,Manfred raetz,5.04,1.5264,ETD
 2021-01-12,Yves Jongen,-3.2,0.6,ExoClock observation
 2021-01-11,Yves jongen,2.88,0.6048,ETD
@@ -29,9 +27,9 @@ date,observer,oc,oce,source
 2019-03-27,Josep gaitan,-1.44,1.6128,ETD
 2019-03-27,Anael wunsche,2.304,0.7488,ETD
 2017-11-26,Mattia spagnol,5.76,2.1312,ETD
-2016-02-26,František lomoz,4.608,1.5264,ETD
-2016-02-26,František lomoz,5.472,2.6784,ETD
 2016-02-26,František lomoz,17.856,2.7792,ETD
+2016-02-26,František lomoz,5.472,2.6784,ETD
+2016-02-26,František lomoz,4.608,1.5264,ETD
 2013-06-04,Anderson et al. 2015,-0.0,0.1,ExoClock literature
 2012-12-24,Anderson et al. 2014,0.1,0.1,ExoClock literature
 2012-12-24,Anderson et al. (2013),-0.0,0.144,ETD

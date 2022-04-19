@@ -20,7 +20,7 @@ def fetchArgs():
     ''' fetch the program arguments from command line input. '''
     parser = argparse.ArgumentParser(description="Simulate transit timing variations.")
     # select planet
-    parser.add_argument("--planet", help="The name of the planet to simulate TTV for.")
+    parser.add_argument("--planet", help="The name of the planet to simulate TTV for.", required=True)
     # select timeframe
     parser.add_argument("--years", help="The number of years to simulate TTV for.\nDefaults to 4.")
     parser.add_argument("--precision", help="The precision (in seconds) of the simulation.\nDefaults to 0.1 second.")
@@ -33,9 +33,6 @@ def fetchArgs():
     parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
     parser.add_argument("--limitError", help="Run the simulation with only errors on the mass and period/semimajor axis", action="store_true")
     args = parser.parse_args()
-    # ensure we are not missing any required
-    if not args.planet:
-        raise Exception("No planet provided")
     # default arguments if not provided
     args.years = float(args.years) if args.years else 4
     args.workers = int(args.workers) if args.workers else None
@@ -72,14 +69,8 @@ def runTTVPipeline(df, params, args):
     # construct the aray of simulation parameters
     simArray = ts.constructSimArray(df, params, useerror=args.useError, limitError=args.limitError)
 
-    # plot the current system layout
-    #ts.plotSystem(ts._arrayToSim_(simArray[0], params), df, False)
-
     # fetch the transit times from simulation
     TT = ts.fetchTT(simArray, params, N, prec=args.precision, returnAll=True, workers=args.workers)
-
-    # plot the system layout after the simulated time has passed
-    #ts.plotSystem(ts._arrayToSim_(simArray[0], params), df, False)
 
     # compute the TTV for all values, convert to seconds
     TTV = [computeTTV(tt) * 31557600 for tt in TT]

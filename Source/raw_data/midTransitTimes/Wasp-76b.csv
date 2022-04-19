@@ -1,8 +1,8 @@
 date,observer,oc,oce,source
-2021-11-20,Yves Jongen,-0.7,1.7,ExoClock observation
 2021-11-20,Alessandro marchini,-2.016,3.6,ETD
 2021-11-20,Yves jongen,-2.592,1.1808,ETD
 2021-11-20,J.plazas,13.104,,ETD
+2021-11-20,Yves Jongen,-0.7,1.7,ExoClock observation
 2021-11-10,Georgios Lekkas,2.4,4.3,ExoClock observation
 2021-11-10,Didier Laloum,-1.9,5.8,ExoClock observation
 2021-10-22,Dominique DANIEL,5.4,2.3,ExoClock observation
@@ -10,22 +10,18 @@ date,observer,oc,oce,source
 2020-12-13,Jean-claude mario,-5.04,2.6352,ETD
 2020-11-23,F. lomoz,-0.72,1.4688,ETD
 2020-11-23,F. lomoz,-10.944,2.2032,ETD
-2020-11-14,Jacques Michelet,1.5,1.7,ExoClock observation
+2020-11-14,Jacques Michelet,2.0,1.9,ExoClock observation
 2020-11-14,F. lomoz,-14.544,4.5216,ETD
 2020-11-14,F. lomoz,-23.904,3.3984,ETD
 2020-11-14,F. lomoz,-9.936,31.2912,ETD
-2020-11-14,Jacques Michelet,2.0,1.9,ExoClock observation
 2020-08-29,Carmelo Falco,-0.9,1.2,ExoClock observation
-2020-08-29,Carmelo Falco,-1.2,1.3,ExoClock observation
 2019-09-21,Pavel pintr,-3.168,2.0304,ETD
-2018-12-11,Yves Jongen,-1.8,1.3,ExoClock observation
 2018-12-11,Yves jongen,-2.016,1.3968,ETD
 2018-12-11,Yves Jongen,-0.2,1.3,ExoClock observation
 2018-11-08,St-gelais denis,-1.728,0.9216,ETD
 2017-12-23,Josep gaitan ,-5.328,2.2176,ETD
 2017-12-14,Claudio arena,-1.152,1.5408,ETD
 2017-10-26,Alessandro Marchini,0.1,1.2,ExoClock observation
-2017-09-18,Nikolaos Paschalis,8.6,1.7,ExoClock observation
 2017-09-18,Nikolaos Paschalis,8.7,1.3,ExoClock observation
 2017-08-29,Gabriel murawski,3.456,3.096,ETD
 2016-11-29,"Technische universität braunschweig, institut für geophysik und extraterrestrische physik",1.44,3.9024,ETD

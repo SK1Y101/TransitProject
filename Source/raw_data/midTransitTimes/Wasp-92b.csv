@@ -6,36 +6,33 @@ date,observer,oc,oce,source
 2021-07-12,Dim Stouraitis,-2.5,1.9,ExoClock observation
 2021-06-19,Manfred Raetz,-3.6,1.6,ExoClock observation
 2021-06-18,Manfred raetz,-5.904,1.7568,ETD
-2021-06-05,Yves jongen,2.016,1.1664,ETD
 2021-06-05,Yves Jongen,1.3,1.3,ExoClock observation
 2021-06-05,Anaël Wünsche,-1.0,2.0,ExoClock observation
+2021-06-05,Yves jongen,2.016,1.1664,ETD
 2021-06-05,Anaël wünsche,2.16,1.5408,ETD
 2021-04-16,Veli-pekka hentunen,-5.616,1.3104,ETD
-2021-04-16,Harri Kiiskinen,9.5,7.2,ExoClock observation
 2021-04-06,Philip Michel,3.0,2.0,ExoClock observation
 2021-04-03,Jens jacobsen,-4.464,1.4976,ETD
 2021-04-03,Michal powalko,-2.448,2.664,ETD
 2021-03-24,Valère Perroud,-2.0,1.7,ExoClock observation
 2021-03-23,Yves jongen,-2.448,3.1392,ETD
 2021-03-23,Snaevarr gudmundsson,-3.024,1.152,ETD
+2020-07-29,Manfred raetz,-4.896,0.9072,ETD
 2020-07-29,Manfred Raetz,1.4,1.0,ExoClock observation
 2020-07-29,Marc bretton,-2.448,1.584,ETD
-2020-07-29,Manfred raetz,-4.896,0.9072,ETD
 2020-04-29,Taewoo Kim,-0.0,0.9,ExoClock observation
 2020-04-10,Alessandro Marchini,-1.8,1.9,ExoClock observation
 2020-03-14,Jean plazas,14.688,2.2032,ETD
 2019-07-21,Giuseppe Marino,2.3,1.6,ExoClock observation
 2019-07-21,"M. banfi, g. marino, r. papini, f. salvaggio",-1.44,2.016,ETD
 2019-06-28,Yves Jongen,0.4,1.3,ExoClock observation
-2019-06-28,Yves Jongen,3.9,1.2,ExoClock observation
-2019-06-28,Alessandro Marchini,-1.4,2.2,ExoClock observation
 2019-06-28,Anaël Wünsche,-1.0,0.7,ExoClock observation
-2019-06-27,Pere guerra,-4.32,1.0944,ETD
-2019-06-27,Bruno christmann,-12.24,3.744,ETD
-2019-06-27,Yves jongen,-1.008,1.152,ETD
+2019-06-28,Alessandro Marchini,-1.4,2.2,ExoClock observation
 2019-06-27,Alessandro marchini,1.44,2.4048,ETD
 2019-06-27,Anaël wünsche,-1.152,0.72,ETD
-2019-06-01,Yves Jongen,0.6,1.0,ExoClock observation
+2019-06-27,Yves jongen,-1.008,1.152,ETD
+2019-06-27,Bruno christmann,-12.24,3.744,ETD
+2019-06-27,Pere guerra,-4.32,1.0944,ETD
 2019-06-01,Yves jongen,4.464,1.3104,ETD
 2019-06-01,Yves Jongen,6.9,1.3,ExoClock observation
 2019-04-25,Veli-pekka hentunen,-1.296,1.9296,ETD
@@ -63,5 +60,5 @@ date,observer,oc,oce,source
 2016-08-02,Marc bretton,-3.456,1.224,ETD
 2016-07-10,Anaël Wünsche,-4.0,1.7,ExoClock observation
 2016-07-09,Marc bretton,-5.184,1.728,ETD
-2013-03-29,Hay et al. 2016,0.1,0.4,ExoClock literature
 2013-03-29,Hay et al. (2016),0.0,0.3888,ETD
+2013-03-29,Hay et al. 2016,0.1,0.4,ExoClock literature

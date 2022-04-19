@@ -8,13 +8,13 @@ date,observer,oc,oce,source
 2021-04-14,Giorgio Baj,-2.0,1.6,ExoClock observation
 2021-04-13,Snaevarr gudmundsson,-1.872,0.9216,ETD
 2021-04-13,Giorgio baj   ,-63.792,21.2832,ETD
-2021-03-14,Yves jongen,-1.872,1.0224,ETD
 2021-03-14,Yves Jongen,-3.5,1.9,ExoClock observation
+2021-03-14,Yves jongen,-1.872,1.0224,ETD
 2021-03-02,Yves Jongen,3.2,1.4,ExoClock observation
 2021-03-02,Manfred Raetz,4.5,1.0,ExoClock observation
+2021-03-01,Manfred raetz,4.32,0.9792,ETD
 2021-03-01,Veli-pekka hentunen,5.184,2.1312,ETD
 2021-03-01,Yves jongen,2.304,1.2096,ETD
-2021-03-01,Manfred raetz,4.32,0.9792,ETD
 2021-02-12,Jens jacobsen,0.864,1.3536,ETD
 2020-07-29,"F, lomoz",3.888,2.2032,ETD
 2020-07-29,F. lomoz,3.888,2.2032,ETD
@@ -25,14 +25,14 @@ date,observer,oc,oce,source
 2020-04-04,Adam nowak,-17.568,17.9136,ETD
 2020-03-09,Jean plazas,-1.008,2.7936,ETD
 2019-06-25,Yves jongen,1.872,0.9504,ETD
-2019-05-01,Anaël Wünsche,-0.4,0.4,ExoClock observation
 2019-05-01,Anaël Wünsche,0.5,1.3,ExoClock observation
-2019-04-30,Anael wunsche,-0.432,0.7776,ETD
+2019-05-01,Anaël Wünsche,-0.4,0.4,ExoClock observation
 2019-04-30,Marc bretton,-1.584,0.3168,ETD
-2019-03-31,Anaël Wünsche,-0.3,1.0,ExoClock observation
+2019-04-30,Anael wunsche,-0.432,0.7776,ETD
 2019-03-31,Anael wunsche,-1.44,0.936,ETD
-2019-03-31,Manfred raetz,-3.168,1.1808,ETD
 2019-03-31,"Francesco scaggiante, danilo zardin",1.152,1.0656,ETD
+2019-03-31,Manfred raetz,-3.168,1.1808,ETD
+2019-03-31,Anaël Wünsche,-0.3,1.0,ExoClock observation
 2019-01-21,Yves jongen,-5.616,2.0736,ETD
 2018-06-20,Yves jongen,-18.144,1.6128,ETD
 2018-06-03,Yenal ogmen,-0.72,0.6768,ETD
@@ -46,13 +46,12 @@ date,observer,oc,oce,source
 2016-06-06,Alessandro Marchini,1.3,1.9,ExoClock observation
 2016-06-06,Manfred raetz,2.448,0.8496,ETD
 2016-06-06,Alessandro marchini,1.152,1.9872,ETD
-2016-03-12,Marc bretton,7.92,1.4256,ETD
 2016-03-12,Anaël Wünsche,2.9,1.6,ExoClock observation
-2016-03-12,Anaël Wünsche,2.6,1.6,ExoClock observation
+2016-03-12,Marc bretton,7.92,1.4256,ETD
 2015-06-15,Mark salisbury,-4.752,1.4976,ETD
-2015-04-20,Mark salisbury,-1.152,0.72,ETD
 2015-04-20,"Francesco scaggiante, danilo zardin",3.456,2.2608,ETD
 2015-04-20,Marc bretton,4.176,0.504,ETD
+2015-04-20,Mark salisbury,-1.152,0.72,ETD
 2015-03-08,Martin zíbar,0.432,1.7856,ETD
 2011-05-15,Hartman et al. 2014,0.0,0.3,ExoClock literature
 2011-05-14,Hartman et al. (2014),-1.008,0.3456,ETD

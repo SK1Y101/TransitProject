@@ -32,8 +32,8 @@ date,observer,oc,oce,source
 2020-12-23,Yves jongen,-0.432,0.5616,ETD
 2020-12-17,Yves Jongen,-0.8,0.4,ExoClock observation
 2020-12-16,Yves jongen,-1.872,0.432,ETD
-2020-05-07,Yves jongen,-0.432,0.5328,ETD
 2020-05-07,Yves Jongen,-0.1,0.6,ExoClock observation
+2020-05-07,Yves jongen,-0.432,0.5328,ETD
 2020-05-04,Yves Jongen,-0.3,0.6,ExoClock observation
 2020-05-03,Yves jongen,-1.584,0.5328,ETD
 2020-03-31,Phil Evans,0.3,0.6,ExoClock observation
@@ -60,32 +60,19 @@ date,observer,oc,oce,source
 2020-01-11,Yves jongen,-1.152,0.8208,ETD
 2019-12-08,Yves jongen,-1.008,0.4176,ETD
 2019-05-16,Don radford,-1.584,2.376,ETD
-2019-04-11,Petrucci et al. 2020,-1.2,0.4,ExoClock literature
 2019-03-06,Anaël Wünsche,0.5,0.7,ExoClock observation
 2019-03-06,Anael wunsche,-0.72,0.7488,ETD
-2019-02-13,Petrucci et al. 2020,-0.5,0.7,ExoClock literature
 2018-05-08,Carl r knight,-4.176,0.4896,ETD
 2018-04-04,Carl r knight,-1.728,0.2592,ETD
 2018-02-03,Carl r knight,-0.576,0.648,ETD
 2018-01-27,Carl r knight,-2.304,2.6784,ETD
 2018-01-23,Carl r knight,-2.304,2.1744,ETD
-2017-12-22,Petrucci et al. 2020,3.6,2.2,ExoClock literature
-2017-11-22,Petrucci et al. 2020,0.3,0.3,ExoClock literature
 2017-04-13,Espinoza et al. 2019,-0.1,0.2,ExoClock literature
 2017-04-05,Espinoza et al. 2019,0.1,0.1,ExoClock literature
 2017-02-12,Espinoza et al. 2019,0.1,0.1,ExoClock literature
-2017-02-08,Petrucci et al. 2020,-0.6,1.1,ExoClock literature
-2017-01-31,Petrucci et al. 2020,-0.9,0.3,ExoClock literature
-2017-01-24,Petrucci et al. 2020,-3.7,2.0,ExoClock literature
-2016-12-17,Petrucci et al. 2020,-2.3,0.8,ExoClock literature
 2016-12-01,"Eduardo fernández-lajús, romina p. di sisto",-1.44,0.3168,ETD
-2016-07-07,Petrucci et al. 2020,-1.9,1.1,ExoClock literature
-2016-06-10,Petrucci et al. 2020,-2.4,0.6,ExoClock literature
-2016-06-07,Petrucci et al. 2020,-0.6,0.4,ExoClock literature
-2016-05-09,Petrucci et al. 2020,-0.2,0.5,ExoClock literature
 2016-04-03,"Eduardo fernández-lajús, romina p. di sisto",-1.44,0.4752,ETD
 2015-06-03,Espinoza et al. 2019,0.3,0.1,ExoClock literature
-2014-11-16,Sedaghati et al. 2015,-1.3,0.2,ExoClock literature
 2014-04-29,Espinoza et al. 2019,0.3,0.1,ExoClock literature
 2014-03-23,Espinoza et al. 2019,0.5,0.1,ExoClock literature
 2014-03-22,"Mašek m., hoňková k., juryšek j.",-1.296,0.4176,ETD
@@ -103,29 +90,22 @@ date,observer,oc,oce,source
 2012-04-04,Bean et al. 2013,-0.3,0.1,ExoClock literature
 2012-03-13,Bean et al. 2013,-0.3,0.1,ExoClock literature
 2012-01-07,Starr p.,3.6,0.8064,ETD
-2011-12-26,Mancini et al. 2013,-0.8,8.0,ExoClock literature
 2011-12-23,Mancini et al. 2013,-0.0,1.5,ExoClock literature
 2011-12-19,Mancini et al. 2013,-1.3,0.9,ExoClock literature
-2011-11-30,Mancini et al. 2013,-3.5,3.0,ExoClock literature
-2011-11-21,Mancini et al. 2013,-0.2,3.0,ExoClock literature
 2011-05-27,Mancini et al. 2013,0.2,0.2,ExoClock literature
 2011-05-23,Mancini et al. 2013,0.2,0.5,ExoClock literature
-2011-05-22,Mancini et al. 2013,-3.5,5.9,ExoClock literature
 2011-05-12,Mancini et al. 2013,-0.7,0.2,ExoClock literature
-2011-05-11,Mancini et al. 2013,-1.9,3.7,ExoClock literature
 2011-05-08,Mancini et al. 2013,0.2,0.4,ExoClock literature
-2011-05-07,Mancini et al. 2013,-2.6,4.8,ExoClock literature
 2011-04-26,Mancini et al. 2013,0.4,2.8,ExoClock literature
 2011-04-19,Lendl et al. 2013,-1.1,0.9,ExoClock literature
 2011-04-04,Lendl et al. 2013,-0.5,0.6,ExoClock literature
 2011-03-12,Lendl et al. 2013,-0.2,0.4,ExoClock literature
-2011-03-03,Mancini et al. 2013,-1.7,2.0,ExoClock literature
 2011-03-03,Tan tg,-2.016,0.7344,ETD
+2011-03-03,Mancini et al. 2013,-1.7,2.0,ExoClock literature
 2011-03-02,Lendl et al. 2013,-1.1,0.4,ExoClock literature
 2011-02-15,Lendl et al. 2013,-1.4,0.5,ExoClock literature
 2011-02-14,Lendl et al. 2013,0.2,0.3,ExoClock literature
 2011-02-12,Tan tg,-2.592,0.9216,ETD
-2011-02-12,Mancini et al. 2013,-4.0,2.6,ExoClock literature
 2011-02-10,Lendl et al. 2013,1.5,0.7,ExoClock literature
 2011-02-08,Mancini et al. 2013,-1.5,1.0,ExoClock literature
 2011-02-08,Tan tg,-1.728,0.5184,ETD
@@ -136,7 +116,6 @@ date,observer,oc,oce,source
 2011-01-08,Lendl et al. 2013,-1.2,0.5,ExoClock literature
 2010-12-09,Lendl et al. 2013,0.1,0.4,ExoClock literature
 2010-07-11,Milne g.,-4.32,5.5008,ETD
-2010-06-21,Mancini et al. 2013,-3.3,3.1,ExoClock literature
 2010-06-15,Milne g.,-2.304,0.5904,ETD
 2010-06-06,Mancini et al. 2013,-0.8,0.3,ExoClock literature
 2010-05-22,Lendl et al. 2013,0.0,0.3,ExoClock literature
