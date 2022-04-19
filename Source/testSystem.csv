@@ -1,4 +1,4 @@
 name,   mass, mass_e1,  mass_e2,  sma,  sma_e1, sma_e2, per,    per_e1, per_e2, ecc,  ecc_e1, ecc_e2, inc,  inc_e1, inc_e2,   arg,  arg_e1, arg_e2
 star1,  0.94, 0.1J,     0.1J,     NaN,  NaN,    NaN,    NaN,    NaN,    NaN,    NaN,  NaN,    NaN,    NaN,  NaN,    NaN,      NaN,  NaN,    NaN
-planet1,0.6J, .1E,      .2E,      NaN,  NaN,    NaN,    20D,    0m,     0m,     0,    0,      0,      90,   NaN,    NaN,      121,  1,      3
-planet2,5.9J, .1E,      .1E,      NaN,  NaN,    NaN,    317D,   0m,     0m,     0.9,  0,      0,      NaN,  NaN,    NaN,      271,  40,     27
+planet1, 1J,  .1E,      .2E,      NaN,  NaN,    NaN,    12D,    0m,     0m,     0,    0,      0,      NaN,  NaN,    NaN,      121,  1,      3
+planet2, 1E,  .1E,      .1E,      NaN,  NaN,    NaN,    24D,    0m,     0m,     0,    0,      0,      NaN,  NaN,    NaN,      271,  40,     27

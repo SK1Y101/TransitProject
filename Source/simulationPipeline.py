@@ -72,8 +72,14 @@ def runTTVPipeline(df, params, args):
     # construct the aray of simulation parameters
     simArray = ts.constructSimArray(df, params, useerror=args.useError, limitError=args.limitError)
 
+    # plot the current system layout
+    #ts.plotSystem(ts._arrayToSim_(simArray[0], params), df, False)
+
     # fetch the transit times from simulation
     TT = ts.fetchTT(simArray, params, N, prec=args.precision, returnAll=True, workers=args.workers)
+
+    # plot the system layout after the simulated time has passed
+    #ts.plotSystem(ts._arrayToSim_(simArray[0], params), df, False)
 
     # compute the TTV for all values, convert to seconds
     TTV = [computeTTV(tt) * 31557600 for tt in TT]
