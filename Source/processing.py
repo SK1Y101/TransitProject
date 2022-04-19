@@ -84,6 +84,10 @@ def fetchMidTransitTimes(exoplanet):
         exoplanet: the name of the exoplanet to search for the data of.'''
     # convert to capitalised with no space for exopclock
     exoclockTarget = exoplanet.capitalize().replace(" ", "")
+    # if the target does not contain a distinction between name and number, attempt to do so
+    if "-" not in exoclockTarget:
+        numidx = exoclockTarget.index(tp.findFloats(exoclockTarget)[0])
+        exoclockTarget = exoclockTarget[:numidx]+"-"+exoclockTarget[numidx:]
     # fetch the datafil name for if this planet is available
     dataFile = "/raw_data/midTransitTimes/{}.csv".format(exoclockTarget)
     # load if available
