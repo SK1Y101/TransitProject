@@ -557,3 +557,27 @@ def predictGREffect(df, observationYears=4):
         return M / n
     # compute the time from periapse to epsilon times the number of observed transits, also return the cycle time
     return timeFromTrueAnomaly(epsilon*Ntransits, t, e), cycle_time
+
+def plotSystem(sim, df, savefig=False):
+    ''' Plot the layout of a system.
+        sim: The simulation to plot.
+        df: The dataframe of the system. '''
+    from matplotlib.lines import Line2D
+    import matplotlib.pylab as plt
+    # plot the orbits
+    fig, ax_main, ax_top, ax_right = rebound.OrbitPlot(sim, slices=0.5, xlim=[-2.,2], ylim=[-2.,2], color=True, unitlabel="[AU]")
+    # use the stars name as tge system name
+    fig.suptitle(df.iloc[0]["name"])
+    # colours that rebound uses
+    colours = [(1.,0.,0.),(0.,0.75,0.75),(0.75,0.,0.75),(0.75, 0.75, 0,),(0., 0., 0.),(0., 0., 1.),(0., 0.5, 0.)]
+    # create a new line element for each planet
+    legend_elements = [Line2D([0], [0], color=colours[idx-1], lw=1.5, label="{} Orbit".format(df.iloc[idx]["name"])) for idx in df.index[1:]]
+    # add to the legend
+    ax_main.legend(handles = legend_elements, loc=2)
+    # create the tight layout
+    fig.tight_layout()
+    # save the figure if desired
+    if savefig:
+        fig.savefig("{} layout.png".format(df.iloc[0]["name"]), transparent=True, bbox_inches='tight')
+    # show the figure
+    plt.show()
