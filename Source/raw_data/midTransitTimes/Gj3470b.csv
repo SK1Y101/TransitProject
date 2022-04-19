@@ -1,13 +1,10 @@
 date,observer,oc,oce,source
 2022-01-21,Adrian Jones,2.5,2.0,ExoClock observation
-2021-12-02,Adrian Jones,-0.3,3.6,ExoClock observation
 2021-04-25,Carmelo Falco,4.2,4.3,ExoClock observation
 2021-03-26,Carmelo Falco,5.8,1.7,ExoClock observation
-2021-02-18,Yves Jongen,9.2,1.4,ExoClock observation
 2021-02-17,Yves jongen,23.04,1.2528,ETD
 2020-04-03,Jean plazas,17.136,,ETD
 2020-02-27,Yves Jongen,6.7,2.7,ExoClock observation
-2020-02-27,Yves Jongen,8.1,1.3,ExoClock observation
 2020-02-26,Yves jongen,21.456,1.3392,ETD
 2019-01-28,Stan shadick,20.448,1.728,ETD
 2019-01-05,"Francesco scaggiante, danilo zardin",13.536,1.4112,ETD
@@ -25,9 +22,9 @@ date,observer,oc,oce,source
 2015-01-18,"Eugene sokov, sergey rusov",17.568,1.8144,ETD
 2015-01-08,Ramon naves nogues,17.856,1.656,ETD
 2014-02-15,Salisbury m.,15.84,1.008,ETD
-2014-02-05,Horta f. g.,26.64,2.7648,ETD
-2014-02-05,Salisbury m.,14.976,1.152,ETD
 2014-02-05,Gaitan j.,-2.736,1.6704,ETD
+2014-02-05,Salisbury m.,14.976,1.152,ETD
+2014-02-05,Horta f. g.,26.64,2.7648,ETD
 2014-01-29,Benni p.,12.096,0.8928,ETD
 2014-01-09,Benni p.,6.048,1.2816,ETD
 2013-12-30,Benni p.,16.704,0.936,ETD

@@ -1,13 +1,12 @@
 date,observer,oc,oce,source
-2020-08-11,Adam Popowicz,2.3,5.8,ExoClock observation
 2020-08-11,Dim Stouraitis,-2.6,2.3,ExoClock observation
 2020-08-01,Yves Jongen,3.2,1.2,ExoClock observation
 2020-07-31,Yves jongen,2.16,1.1808,ETD
 2020-07-15,Mauro Caló,0.0,2.6,ExoClock observation
 2020-06-19,Francois Regembal,1.3,1.6,ExoClock observation
 2019-07-20,Anaël wünsche,2.16,0.8928,ETD
-2019-07-20,"F. salvaggio, m. banfi, r. papini, g. marino",-5.904,2.3328,ETD
 2019-07-20,Anaël Wünsche,2.6,1.2,ExoClock observation
+2019-07-20,"F. salvaggio, m. banfi, r. papini, g. marino",-5.904,2.3328,ETD
 2018-08-04,Wakeford et al. 2020,-1.2,0.4,ExoClock literature
 2018-08-04,Wakeford et al. 2020,-0.2,0.4,ExoClock literature
 2018-08-02,Wakeford et al. 2020,-3.4,2.0,ExoClock literature

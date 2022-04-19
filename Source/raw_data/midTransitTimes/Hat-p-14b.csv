@@ -1,34 +1,28 @@
 date,observer,oc,oce,source
 2021-08-20,Didier Laloum,-2.9,4.3,ExoClock observation
-2021-08-20,Mario Morales Aimar,-5.8,5.8,ExoClock observation
 2021-08-20,Mario morales,-9.936,3.7008,ETD
+2021-08-20,Mario Morales Aimar,-5.8,5.8,ExoClock observation
 2021-05-24,Carmelo Falco,-3.3,2.3,ExoClock observation
-2021-05-24,Carmelo Falco,-4.5,2.6,ExoClock observation
 2021-04-17,John Savage,6.0,2.6,ExoClock observation
-2021-04-17,John Savage,6.8,3.3,ExoClock observation
 2021-02-26,David Wright,1.6,5.8,ExoClock observation
 2020-09-07,"K. hoňková, m. tylšar",-26.064,25.1856,ETD
 2020-07-18,Mauro Caló,-2.9,3.3,ExoClock observation
-2020-07-18,Mauro Caló,-2.7,3.3,ExoClock observation
 2020-07-18,Jacques Michelet,0.6,2.2,ExoClock observation
 2020-07-18,Yves jongen,-26.496,2.6352,ETD
 2020-07-18,Dim Stouraitis,4.2,4.3,ExoClock observation
-2020-07-18,Jacques Michelet,0.7,2.2,ExoClock observation
 2020-06-11,F. lomoz,-29.376,4.0176,ETD
-2020-06-11,Carmelo Falco,-1.1,1.6,ExoClock observation
 2020-05-29,Manfred Raetz,-1.1,5.8,ExoClock observation
-2020-05-29,Manfred Raetz,1.7,5.8,ExoClock observation
-2020-05-28,Manfred raetz,-2.88,2.5776,ETD
 2020-05-28,Alberto garcía sánchez,1.584,1.8,ETD
+2020-05-28,Manfred raetz,-2.88,2.5776,ETD
 2020-04-07,Jean plazas,-28.8,12.0528,ETD
 2019-09-12,Josep gaitan,10.8,19.1232,ETD
+2019-07-23,Manfred raetz,-7.344,1.6128,ETD
 2019-07-23,Mario morales,-13.824,2.952,ETD
 2019-07-23,Mario Morales Aimar,-2.9,2.7,ExoClock observation
-2019-07-23,Manfred raetz,-7.344,1.6128,ETD
 2017-08-14,Matúš kamenec,20.592,40.3632,ETD
 2017-07-08,David molina,-1.152,2.4336,ETD
-2017-04-02,Wonseok kang,-10.224,1.7856,ETD
 2017-04-02,Wonseok kang,-9.936,1.3536,ETD
+2017-04-02,Wonseok kang,-10.224,1.7856,ETD
 2015-10-27,"Dittler, ullrich",-5.76,2.3328,ETD
 2014-05-31,Benni p.,2.736,2.3616,ETD
 2013-08-22,"Mravik j., grnja j.",0.432,9.504,ETD
@@ -37,8 +31,8 @@ date,observer,oc,oce,source
 2012-07-06,Naves r.,0.576,1.4688,ETD
 2012-02-18,Gonzalez j.,-10.512,1.9872,ETD
 2011-08-31,Marek p.,4.176,4.5936,ETD
-2011-06-18,Ayiomamitis a.,2.16,1.656,ETD
 2011-06-18,Toni scarmato,0.72,6.5376,ETD
+2011-06-18,Ayiomamitis a.,2.16,1.656,ETD
 2011-05-12,Scarmato t.,-6.336,5.544,ETD
 2011-05-07,Dvorak s.,-18.0,3.5568,ETD
 2011-03-17,Shawn dvorak,-2.448,5.3424,ETD
