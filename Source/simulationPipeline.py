@@ -4,6 +4,7 @@ from matplotlib.ticker import AutoMinorLocator
 import rebound, argparse, scipy.optimize
 import matplotlib.pylab as plt
 from tqdm import tqdm, trange
+import pandas as pd
 import numpy as np
 
 # my modules
@@ -32,6 +33,8 @@ def fetchArgs():
     # limit the simulation
     parser.add_argument("--unperturbed", help="Run the simulation with only the target planet", action="store_true")
     parser.add_argument("--limitError", help="Run the simulation with only errors on the mass and period/semimajor axis", action="store_true")
+    # save the simulation output
+    parser.add_argument("--saveAs", help="Filename to save the simulation results as.")
     args = parser.parse_args()
     # default arguments if not provided
     args.years = float(args.years) if args.years else 4
@@ -74,35 +77,16 @@ def runTTVPipeline(df, params, args):
 
     # compute the TTV for all values, convert to seconds
     TTV = [computeTTV(tt) * 31557600 for tt in TT]
-    # and the error bounds (upper and lower)
-    TTVMinMaxAv = tp.avMinMax(TTV, 0)
 
     # return the TTV
-    return TTVMinMaxAv
-
-def computeScale(val):
-    ''' Compute the scale factor for a value. '''
-    # maximum value
-    mval = val if isinstance(val, (int, float)) else max(abs(val))
-    # scale factors
-    scales = {"milliseconds":0.001, "seconds":1, "minutes":60, "hours":3600, "days":86400}
-    # standard scale output
-    rescale = ("milliseconds", 0.001)
-    # for each scale
-    for scale in scales:
-        # if the scale is smaller than the maximum value
-        if scales[scale] < mval:
-            # update the rescale factor
-            rescale = (scale, 1/scales[scale])
-    # return
-    return rescale
+    return TTV
 
 def plotSimulation(TTVMinMaxAv, args):
     ''' plot the results of a TTV simulation. '''
     # decompose TTV min, max, and average
     TTVa, TTVl, TTVu = TTVMinMaxAv
     # compute the y axis scaling.
-    rescale = computeScale(TTVa)
+    rescale = ts.computeScale(TTVa)
     N = len(TTVa)
     # plot an error area
     if args.plotErrorArea:
@@ -149,6 +133,24 @@ def plotSimulation(TTVMinMaxAv, args):
     # show the final plot
     plt.show()
 
+def saveSimulation(system, TTV, args):
+    ''' save the system layout and computed ttv for a given simulation.
+        system: the system data dataframe
+        ttv: the list of computed ttvs.
+        args: the program commandline arguments.'''
+    # if we are svaing
+    if args.saveAs:
+        # create the simulation save location
+        tp.makeFolder("/sim_data/")
+        # save the system information
+        tp.saveDataFrame(system.replace(np.nan, 0), "/sim_data/"+args.saveAs+"_system")
+        # convert ttv times to dataframe
+        TTVt = pd.DataFrame(np.array(TTV).T)
+        # ensure the columns are strings, not numbers
+        TTVt.columns = [str(x) for x in list(TTVt.columns)]
+        # save the TTV times
+        tp.saveDataFrame(TTVt, "/sim_data/"+args.saveAs+"_TTV")
+
 # start the script
 if __name__ == "__main__":
     # fetch the program arguments
@@ -165,17 +167,28 @@ if __name__ == "__main__":
         df = df.iloc[:2]
 
     # compute the predicted TTV
-    predTTV = ts.predictTTVMagnitude(df)
-    predScale = computeScale(predTTV)
+    predTTV, predTime = ts.predictTTVMagnitude(df)
     # convert to useful value
-    print("The predicted TTV for {} is on the order of {:0.2f} {}".format(df.iloc[1]["name"], predTTV*predScale[1], predScale[0]))
+    print("The predicted TTV for {} is on the order of {}".format(df.iloc[1]["name"], tp.totimestring(predTTV)))
+    print("The predicted TTV is cyclic on the order of {}".format(tp.totimestring(predTime)))
 
     # compute the effect due to GR
     GRTTV = ts.predictGREffect(df, args.years)
-    print("The predicted TTV due to GR is on the order of {:0.2f} {}".format(*tp.tosi(GRTTV[0], "s")))
+    print()
+    print("The effect due to GR is on the order of {:0.2f} {}".format(*tp.tosi(GRTTV[0], "s")))
+    print("The effect due to GR is cyclic on the order of {}".format(tp.totimestring(GRTTV[1])))
 
     # run the pipeline
-    TTVMinMaxAv = runTTVPipeline(df, params, args)
+    TTV = runTTVPipeline(df, params, args)
+
+    # compute the minimum, maximum, and average
+    TTVMinMaxAv = tp.avMinMax(TTV, 0)
+
+    # if we want to save
+    saveSimulation(df, TTV, args)
+    if args.saveAs:
+        print("Save")
+        #time.sleep(100)
 
     # plot the output
     plotSimulation(TTVMinMaxAv, args)

@@ -218,6 +218,7 @@ def makeFolder(loc):
             # if this directory exists, break here
             if os.path.exists("/".join(dirs[:x])):
                 startdir=x
+                break
         # and now create all of the directories that didn't exist
         for y in range(startdir, len(dirs)):
             os.mkdir("/".join(dirs[:y+1]))
@@ -356,13 +357,40 @@ def parallelJob(function, inputs, outType=None, workers=None, reserveCpu=True, t
     # return the output
     return res
 
+def totimestring(val):
+    ''' convert a day float to a timestring
+        val: the day float.'''
+    # stop if nan
+    if np.isnan(val):
+        return val
+    # convert to seconds
+    val *= 86400
+    # fetch the seconds
+    s, val = float(val % 60), val // 60
+    # minutes
+    m, val = int(val % 60), val // 60
+    # hours
+    h, val = int(val % 24), val // 24
+    # days
+    d, val = int(val % 365.25), val // 365.25
+    # years
+    y = int(val)
+    # combine
+    timestring = bool(y)*"{}y ".format(y) + bool(d)*"{}d ".format(d) + bool(h)*"{}h ".format(h) + \
+                 bool(m)*"{}m ".format(m) + bool(s)*"{:0.3f}{}s".format(*tosi(s))
+    # and return
+    return timestring.strip()
+
 def tosi(val, unit=""):
     ''' convert a value to si.
         val: the value to convert.
         unit: a unit to tack on if needed. '''
     # if value is nan, don't got further
     if np.isnan(val):
-        return 0, unit
+        return val, unit
+    # if the value is zero
+    if val == 0:
+        return val, unit
     # si values
     units = {-24: "y", -21: "z", -18: "a", -15: "f", -12: "p", -9: "n", -6: "μ", -3: "m",
              0: "", 3: "k", 6: "M", 9: "G", 12: "T", 15: "P", 18: "E", 21: "Z", 24: "Y"}

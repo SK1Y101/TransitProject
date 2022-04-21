@@ -135,9 +135,9 @@ def _fetchSystem_(target):
     # load the dataframe
     archive = loadDataFrame("/raw_data/pscomppars.csv")
     # fetch all planets with the required hostname
-    data = archive[archive.hostname.str.replace(" ", "").isin([star, star.lower(), star.upper(), star.capitalize()])].reset_index()
+    data = archive[archive.hostname.str.replace(" ", "").str.lower().isin([star.lower()])].reset_index()
     # fetch the target planet index
-    targetIdx = np.where(data.pl_name.str.replace(" ", "").isin([target, target.lower(), target.upper(), target.capitalize()]))[0][0]
+    targetIdx = np.where(data.pl_name.str.replace(" ", "").str.lower().isin([target.lower()]))[0][0]
     # ensure it is the first value in the dataframe
     if targetIdx != 0:
         # move the specified row to the top of the dataFrame
@@ -248,6 +248,10 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"], f
         # fetch the data using the manual system different handler
         archiveData = _fetchCustomSystem_(file, exoplanet)
     else:
+        # if the target does not contain a distinction between name and number, attempt to do so
+        if "-" not in exoplanet:
+            numidx = exoplanet.index(findFloats(exoplanet)[0])
+            exoplanet = exoplanet[:numidx]+"-"+exoplanet[numidx:]
         # convert to capitalised with no space for exopclock
         exoclockTarget = exoplanet.capitalize().replace(" ", "")
         # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
@@ -259,10 +263,11 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"], f
 
         # check the planet has midtransit data
         if not inDataFrame("/raw_data/exoplanetList.csv", exoclockTarget):
+            err = "Mid-Transit data does not exist for {}".format(exoclockTarget)
             if forceUse:
-                print("Mid-Transit data does not exist for target planet.")
+                print(err)
             else:
-                raise Exception("Mid-Transit data does not exist for target planet.")
+                raise Exception(err)
         # fetch the archive data for the system
         archiveData = _fetchSystem_(archiveTarget)
 
@@ -383,6 +388,7 @@ def _arrayToSim_(thisSim, params):
     rebx.add_force(gr)
     gr.params["c"] = (299792458) * ((365.25*86400) / 149597870700) # speed of light in Au/Year
     # and return the simulation
+    #sim.cite()
     return sim
 
 def _simulateTransitTimes_(simArray, params, transits=1000, prec=1/31557600.0):
@@ -509,26 +515,30 @@ def predictTTVMagnitude(df):
     # compute the reduced mass for each object
     mTotal = sum(df["mass"])
     # and fetch the rquired variables
-    planets = [_planetVars_(df.iloc[0], df.iloc[idx], mTotal) for idx in df.index[1:]]
+    planets = np.array([_planetVars_(df.iloc[0], df.iloc[idx], mTotal) for idx in df.index[1:]])
     # reference to the target planet
-    target, TTV = planets[0], []
+    target, TTV, TTVt = planets[0], [], []
     # compute the TTV due to each planet
     for otherPlanet in planets[1:]:
         # compute any resonances
         TTV.append(_resonantTTV_(target, otherPlanet))
+        # and the resonance timescale
+        TTVt.append(int(target[1]) * int(otherPlanet[1]) / np.gcd(int(target[1]), int(otherPlanet[1])))
         # if the semimajor axis of the target is larger
         if target[0] > otherPlanet[0]:
             TTV.append(_innerTTV_(target, otherPlanet))
         # else
         else:
             TTV.append(_outerTTV_(target, otherPlanet))
+        # the orbital period
+        TTVt.append(otherPlanet[1])
     # show an inacuracy warning if there are multiple planets in the system
     if len(planets) > 2:
         print("Warning! TTV Prediction may be innacurate due to system containing more than two planets!")
-    # compute the TTV by summation
-    TTV = sum(TTV)
-    # return the TTV prediction
-    return float(TTV)
+    # compute which TTV effect was largest
+    largesteffect = np.array(TTV).argmax()
+    # return the TTV prediction and the timescale of the largest effect
+    return float(sum(TTV))/86400, TTVt[largesteffect]/86400
 
 def predictGREffect(df, observationYears=4):
     ''' Compute the TTV magnitude due to general relativity.
@@ -556,7 +566,24 @@ def predictGREffect(df, observationYears=4):
         # and compute this time
         return M / n
     # compute the time from periapse to epsilon times the number of observed transits, also return the cycle time
-    return timeFromTrueAnomaly(epsilon*Ntransits, t, e), cycle_time
+    return timeFromTrueAnomaly(epsilon*Ntransits, t, e), cycle_time / 86400
+
+def computeScale(val):
+    ''' Compute the scale factor for a value. '''
+    # maximum value
+    mval = val if isinstance(val, (int, float)) else max(abs(val))
+    # scale factors
+    scales = {"milliseconds":0.001, "seconds":1, "minutes":60, "hours":3600, "days":86400}
+    # standard scale output
+    rescale = ("milliseconds", 0.001)
+    # for each scale
+    for scale in scales:
+        # if the scale is smaller than the maximum value
+        if scales[scale] < mval:
+            # update the rescale factor
+            rescale = (scale, 1/scales[scale])
+    # return
+    return rescale
 
 def plotSystem(sim, df, savefig=False):
     ''' Plot the layout of a system.

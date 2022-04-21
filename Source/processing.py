@@ -7,6 +7,7 @@ import argparse
 
 # my modules
 import TransitProject as tp
+import TransitProject.Simulation as ts
 
 '''
 Goals: Create a simple extensible model that can take system parameters and output a TTV sinusoid.
@@ -44,7 +45,7 @@ def fetchArgs():
     parser = argparse.ArgumentParser(description="Process transit timing variations.")
     # add any arguments
     parser.add_argument("--planet", help="The name of the planet to process TTV for.", required=True)
-    parser.add_argument("--dataSource", help="The list of Sources to use data from.", nargs="+", default="exoclock", required=True)
+    parser.add_argument("--dataSource", help="The list of Sources to use data from.", nargs="+", default=["exoclock"])
     args = parser.parse_args()
     # return the argument input
     return args
@@ -118,14 +119,31 @@ def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b, bounds=(-np.inf, np.inf)):
     # return the function that fits to this curve
     return lambda x:f(x, *pars), pars, cov
 
-def plotMidtransits(df):
+def checkEphemerides(transitdf, systemdf):
+    ''' fit a line to the midtransit times to determine if the ephemerides agree with literature.
+        transitdf: the dataframe of midtransit mid-transit times.
+        systemdf: the dataframe of the system information.'''
+    # fetch the date as a float (days since 1970-01-01)
+    dateAsFloat = dateToYearFloat(transitdf["date"])
+    # planet orbit in days
+    period = systemdf.iloc[1]["per"] * 365.25
+    print("Planet orbital period is:         {}.".format(tp.totimestring(period)))
+    # fit a line to the o-c data
+    linefit, lineparam, linecov = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"])
+    # offset per orbit in seconds
+    offset = lineparam[0] * period
+    print("Linear fit suggests it should be: {}.".format(tp.totimestring(period+offset)))
+    # update the midtransit times with the linefit
+    transitdf["oc"] -= linefit(dateAsFloat)
+
+def plotMidtransits(transitdf):
     ''' plot the midtransit times to a nice chart.
         df: The dataframe of midtransit times.'''
     # fetch the sources list
-    sources = sorted(df["source"].unique())
+    sources = sorted(transitdf["source"].unique())
     # if there are any
     if sources:
-        df = df.sort_values(by="date", ascending=True)
+        transitdf = transitdf.sort_values(by="date", ascending=True)
 
         def f(x, a, b, c, d):
             return a*np.sin(x*(2*np.pi/b)+c) + d
@@ -134,21 +152,17 @@ def plotMidtransits(df):
         ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
         [ax1, ax2] = ax
 
-        dateAsFloat = dateToYearFloat(df["date"])
-        dateAsDate = pd.to_datetime(df["date"])
+        dateAsFloat = dateToYearFloat(transitdf["date"])
+        dateAsDate = pd.to_datetime(transitdf["date"])
         dateminmax = [min(dateAsFloat), max(dateAsFloat)]
         daterange = np.linspace(*dateminmax, 10000)
-
-        linefit, lineparam, linecov = fetchFit(dateAsFloat, df["oc"], df["oce"], f=lambda x,a,b:a*x+b)
-        print(lineparam)
-        df["oc"] -= linefit(dateAsFloat)
-        fitfunc, _, _ = fetchFit(dateAsFloat, df["oc"], df["oce"], f, bounds=((0, 0, -10, -100), (1000, 500, 10, 100)))
+        fitfunc, _, _ = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"], f, bounds=((0, 0, 0, 0), (1000, 500, 10, 100)))
         ax1.plot(dateminmax, [0, 0], "lightgray")
         ax2.plot(dateminmax, [0, 0], "lightgray")
         ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
         # fetch the data
         for source in sources:
-            data = df.loc[df["source"]==source]
+            data = transitdf.loc[transitdf["source"]==source]
             dateAsFloat = dateToYearFloat(data["date"])
             ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
             ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
@@ -156,7 +170,7 @@ def plotMidtransits(df):
         #dates = pd.to_datetime(df["date"])
         #plt.plot([min(dates), max(dates)], [0,0])
         for axs in ax:
-            axs.set_title(df.index.name)
+            axs.set_title(transitdf.index.name)
             #axs.gcf().autofmt_xdate()
             axs.set_ylabel("O-C (minutes)")
             axs.set_xlabel("Date of observation")
@@ -169,8 +183,13 @@ if __name__ == "__main__":
     # fetch the program arguments
     args = fetchArgs()
     # fetch the planetary data
-    df = fetchMidTransitTimes(args.planet)
+    transitdf = fetchMidTransitTimes(args.planet)
     # include the datasources we are using
-    df = trimToSources(df, args.dataSource)
+    transitdf = trimToSources(transitdf, args.dataSource)
+    # fetch the system data
+    systemdf = ts.fetchParams(args.planet)[0]
+    print(systemdf)
+    # check the ephemerides
+    checkEphemerides(transitdf, systemdf)
     # plot the data
-    plotMidtransits(df)
+    plotMidtransits(transitdf)
