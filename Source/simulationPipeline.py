@@ -186,9 +186,6 @@ if __name__ == "__main__":
 
     # if we want to save
     saveSimulation(df, TTV, args)
-    if args.saveAs:
-        print("Save")
-        #time.sleep(100)
 
     # plot the output
     plotSimulation(TTVMinMaxAv, args)

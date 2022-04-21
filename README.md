@@ -44,6 +44,7 @@ Repo/
 │ │ ├ exoplanetList.csv         *list of all exoplanets with mid-transit times*
 │ │ ├ ps.csv                    *NASA Exoplanet Archive planetary information table*
 │ │ └ pscomparrs.csv            *NASA Exoplanet Archive composite planetary table*
+│ ├ sim_data/                   *Contains the outputs of any simulations that were run*
 │ ├ TransitProject/
 │ │ ├ __init__.py
 │ │ ├ Simulation.py
