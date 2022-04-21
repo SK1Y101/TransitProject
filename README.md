@@ -100,7 +100,7 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [x] Exoplanet Catalogue
     - [x] System info (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
     - [x] digital renders for pretty graphs (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
-  - [x] other data sources
+  - [ ] TESS/Kepler raw data > fit lightcurves to that for comparisons.
   - [x] Refactor code
 - [x] Combine data
   - [x] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
