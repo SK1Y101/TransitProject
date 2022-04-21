@@ -115,7 +115,7 @@ def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b, bounds=(-np.inf, np.inf)):
         err: The error on the y data. (We assume x data is controlled)
         f: The function to fit. if not givem , will default to a line.'''
     # fetch the parameters and the correlation of the optimisation
-    pars, cov = scipy.optimize.curve_fit(f, x, y, sigma=err, maxfev=5000, bounds=bounds)
+    pars, cov = scipy.optimize.curve_fit(f, x, y, sigma=err, maxfev=50000, bounds=bounds)
     # return the function that fits to this curve
     return lambda x:f(x, *pars), pars, cov
 
