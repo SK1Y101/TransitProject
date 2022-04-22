@@ -93,6 +93,12 @@ def fetchMidTransitTimes(exoplanet):
     dataFile = "/raw_data/midTransitTimes/{}.csv".format(exoclockTarget)
     # load if available
     df = tp.loadIfAvailable(exoclockTarget, "/raw_data/exoplanetList.csv", dataFile)
+    # ensure we have enough datapoints
+    if len(df) < 2:
+        raise Exception("Cannot perform analysis with {} datapoint{}!".format(len(df), "s"*(len(df)!=1)))
+    # warn if we have few datapoints
+    if len(df) < 20:
+        print("Warning! planet only has {} mid transit points. Acuracy may be diminished.".format(len(df)))
     # assign the exoplanet to the dataframe index
     df.index.name = exoclockTarget
     # and return
@@ -115,7 +121,7 @@ def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b, bounds=(-np.inf, np.inf)):
         err: The error on the y data. (We assume x data is controlled)
         f: The function to fit. if not givem , will default to a line.'''
     # fetch the parameters and the correlation of the optimisation
-    pars, cov = scipy.optimize.curve_fit(f, x, y, sigma=err, maxfev=50000, bounds=bounds)
+    pars, cov = scipy.optimize.curve_fit(f, x, y, sigma=err, maxfev=1000000, bounds=bounds)
     # return the function that fits to this curve
     return lambda x:f(x, *pars), pars, cov
 
@@ -136,47 +142,58 @@ def checkEphemerides(transitdf, systemdf):
     # update the midtransit times with the linefit
     transitdf["oc"] -= linefit(dateAsFloat)
 
-def plotMidtransits(transitdf):
+def plotMidtransits(transitdf, fitfunc):
     ''' plot the midtransit times to a nice chart.
         df: The dataframe of midtransit times.'''
     # fetch the sources list
     sources = sorted(transitdf["source"].unique())
-    # if there are any
-    if sources:
-        transitdf = transitdf.sort_values(by="date", ascending=True)
+    # ensure the transits are sorted by date
+    transitdf = transitdf.sort_values(by="date", ascending=True)
 
-        def f(x, a, b, c, d):
-            return a*np.sin(x*(2*np.pi/b)+c) + d
+    # fetch the x axis details
+    dateAsFloat = dateToYearFloat(transitdf["date"])
+    dateAsDate = pd.to_datetime(transitdf["date"])
+    dateminmax = [min(dateAsFloat), max(dateAsFloat)]
+    daterange = np.linspace(*dateminmax, 10000)
 
-        fig = plt.figure()
-        ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
-        [ax1, ax2] = ax
+    # compute the fit
+    fitfunc, _, _ = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"], fitfunc,
+                             # ensure the orbital period is reasonable
+                             bounds=((-np.inf, 1, -np.inf, -np.inf), (np.inf, np.inf, np.inf, np.inf)))
 
-        dateAsFloat = dateToYearFloat(transitdf["date"])
-        dateAsDate = pd.to_datetime(transitdf["date"])
-        dateminmax = [min(dateAsFloat), max(dateAsFloat)]
-        daterange = np.linspace(*dateminmax, 10000)
-        fitfunc, _, _ = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"], f, bounds=((0, 0, 0, 0), (1000, 500, 10, 100)))
-        ax1.plot(dateminmax, [0, 0], "lightgray")
-        ax2.plot(dateminmax, [0, 0], "lightgray")
-        ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
-        # fetch the data
-        for source in sources:
-            data = transitdf.loc[transitdf["source"]==source]
-            dateAsFloat = dateToYearFloat(data["date"])
-            ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
-            ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+    # plot laout
+    fig = plt.figure()
+    ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
+    [ax1, ax2] = ax
+    # plot the grey central area
+    ax1.plot(dateminmax, [0, 0], "lightgray")
+    ax2.plot(dateminmax, [0, 0], "lightgray")
+    # plot the model
+    ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
+    secondfit = lambda x:6.7*np.sin(x*(2*np.pi/300) + np.pi)
+    ax1.plot(daterange, secondfit(daterange), "r")
+    # print the chi squared value
+    print("Chi squared value of data:", sum([x**2 for x in transitdf["oc"]]))
+    print("Chi squared value of computer fit:", sum([x**2 for x in transitdf["oc"]-fitfunc(dateAsFloat)]))
+    print("Chi squared value of manual fit:", sum([x**2 for x in transitdf["oc"]-secondfit(dateAsFloat)]))
+    # plot each datapoint
+    for source in sources:
+        data = transitdf.loc[transitdf["source"]==source]
+        dateAsFloat = dateToYearFloat(data["date"])
+        ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
+        ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+        ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-secondfit(dateAsFloat), yerr=data["oce"], label="myfit", fmt="o")
 
-        #dates = pd.to_datetime(df["date"])
-        #plt.plot([min(dates), max(dates)], [0,0])
-        for axs in ax:
-            axs.set_title(transitdf.index.name)
-            #axs.gcf().autofmt_xdate()
-            axs.set_ylabel("O-C (minutes)")
-            axs.set_xlabel("Date of observation")
-            axs.legend()
-        ax2.set_title("Residuals from fit")
-        plt.show()
+    #dates = pd.to_datetime(df["date"])
+    #plt.plot([min(dates), max(dates)], [0,0])
+    for axs in ax:
+        axs.set_title(transitdf.index.name)
+        #axs.gcf().autofmt_xdate()
+        axs.set_ylabel("O-C (minutes)")
+        axs.set_xlabel("Date of observation")
+        axs.legend()
+    ax2.set_title("Residuals from fit")
+    plt.show()
 
 # execte the program if called
 if __name__ == "__main__":
@@ -191,5 +208,8 @@ if __name__ == "__main__":
     print(systemdf)
     # check the ephemerides
     checkEphemerides(transitdf, systemdf)
-    # plot the data
-    plotMidtransits(transitdf)
+    # fitting function
+    def fitfunc(x, a, b, c, d):
+        return a*np.sin(x*(2*np.pi/b)+c) + d
+    # plot the data with the fitting residuals
+    plotMidtransits(transitdf, fitfunc)
