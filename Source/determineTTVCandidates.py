@@ -1,0 +1,73 @@
+# python modules
+import numpy as np
+
+# my modules
+import TransitProject as tp
+import TransitProject.Simulation as ts
+
+'''
+Goals: Determine which, if any, of the known exolanets are suitable candidates for TTV control tests.
+       They must:
+         be in a planetary system with 1 other planet.
+         have known midtransit times.
+'''
+
+def checkTransiting(systemname, systemdf):
+    ''' check if any planets in a system have midtransit data. '''
+    # fetch the system
+    thissystem = systemdf[systemdf["hostname"]==systemname]
+    # and fetch each planet
+    theseplanets = list(thissystem["pl_name"].str.capitalize().str.replace(" ",""))
+    # check if either planet has midtransit times
+    transits = [tp.inDataFrame("/raw_data/exoplanetList", planet) for planet in theseplanets]
+    # if they do, return the planet name(s)
+    return list(np.array(theseplanets)[transits])
+
+def searchIdeal(systemdf):
+    ''' search through a dataframe to find how many planetary systems are ideal TTV control candidates. '''
+    # look through the hostname section
+    stars = sorted(systemdf["hostname"].unique())
+    # for each star, compute the planetary systsem size
+    sysSize = np.array([len(np.where(systemdf["hostname"]==star)[0]) for star in stars])
+    # pull out ideal and nonideal candidates
+    ideal = np.where(sysSize==2)[0]
+    nonideal = np.where(sysSize>2)[0]
+    # fetch the transiting systems in the ideal and nonideal list
+    idealTransiting = [checkTransiting(stars[star], systemdf) for star in ideal]
+    nonidealTransiting = [checkTransiting(stars[star], systemdf) for star in nonideal]
+    # remove empty values and flatten
+    idealTransiting = sum([transit for transit in idealTransiting if transit], [])
+    nonidealTransiting = sum([transit for transit in nonidealTransiting if transit], [])
+    # return
+    return idealTransiting, nonidealTransiting
+
+def midTransitTimeNumber(planets):
+    ''' compute the number of midtransit times for each planet given. '''
+    # dictionary of planet times
+    planetTimes = {}
+    # for each planet
+    for planet in planets:
+        # load the midtransit times
+        df = tp.loadDataFrame("/raw_data/midTransitTimes/{}".format(planet))
+        # add the number of midtransit times to the planet dictionary
+        planetTimes[planet] = len(df)
+    # return the dictionary
+    return planetTimes
+
+if __name__ == "__main__":
+    # load the exoplanet archive
+    systemdf = tp.loadDataFrame("/raw_data/pscomppars")
+    # search the exoplanet archive for ideal planetary systems
+    ideal, nideal = searchIdeal(systemdf)
+    print("There are {} planets with mid-transit times in 2-planet systems, and {} planets with mid-transit times in 2+ planetary systems".format(len(ideal), len(nideal)))
+    # fetch the number of midtransit times per planet
+    mtti = midTransitTimeNumber(ideal)
+    mttn = midTransitTimeNumber(nideal)
+    # sort by value (second value in dict.items)
+    mtti = dict(sorted(mtti.items(), key=lambda x:x[1], reverse=True))
+    mttn = dict(sorted(mttn.items(), key=lambda x:x[1], reverse=True))
+    # show as a nice output
+    print("\nThe TTV test candidates in 2-planet systems (in decreasing order of datapoints) are:")
+    print(",\t".join(["{}: {}".format(k,v) for k,v in mtti.items()]))
+    print("\nThe TTV test candidates in 2+-planet systems (in decreasing order of datapoints) are:")
+    print(",\t".join(["{}: {}".format(k,v) for k,v in mttn.items()]))
