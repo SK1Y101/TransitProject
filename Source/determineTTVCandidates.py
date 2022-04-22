@@ -1,4 +1,5 @@
 # python modules
+import pandas as pd
 import numpy as np
 
 # my modules
@@ -71,3 +72,9 @@ if __name__ == "__main__":
     print(",\t".join(["{}: {}".format(k,v) for k,v in mtti.items()]))
     print("\nThe TTV test candidates in 2+-planet systems (in decreasing order of datapoints) are:")
     print(",\t".join(["{}: {}".format(k,v) for k,v in mttn.items()]))
+    # combine dictionaries into 2d array of key and value
+    combined = np.array(list(mtti.items()) + list(mttn.items()))
+    # create a dataframe
+    controlCandidates = pd.DataFrame.from_dict({"Exoplanet":combined[:, 0], "Datapoints":combined[:, 1]})
+    # and save it
+    tp.saveDataFrame(controlCandidates, "/ControlCandidates")
