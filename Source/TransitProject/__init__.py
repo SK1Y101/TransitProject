@@ -398,3 +398,7 @@ def tosi(val, unit=""):
     thisunit = 3*np.floor(np.log(val)/np.log(1000))
     # return the value shifted up to zero, and the unit
     return val * 10**(-thisunit), units[thisunit]+unit
+
+def HJDtoDate(val):
+    ''' convert a half julian datetime to a standard date. '''
+    return pd.to_datetime(val - 2400000, unit="d", origin=pd.Timestamp("1858-11-16 12:00"))

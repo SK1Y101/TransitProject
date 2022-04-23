@@ -25,7 +25,8 @@ def mapToArchive(params):
                 "sma":"pl_orbsmax",
                 "inc":"pl_orbincl",
                 "ecc":"pl_orbeccen",
-                "arg":"pl_orblper",}
+                "arg":"pl_orblper",
+                "mean":"pl_orbtper"}
     # map and return
     return [replace_error_name(archive, param) for param in params]
 
@@ -73,7 +74,7 @@ def _fetchCustomSystem_(file, exoplanet):
         file: The csv file containing the system information.
         exoplanet: The name of the target exoplanet.'''
     # define the allowed parameters
-    params=["mass", "sma", "per", "ecc", "inc", "arg"]
+    params=["mass", "sma", "per", "ecc", "inc", "arg", "mean"]
     # get the dataset
     data = loadDataFrame(file)
     # remove any whitespace
@@ -114,12 +115,12 @@ def _fetchCustomSystem_(file, exoplanet):
     # return the dataframe
     return data
 
-def _fetchSystem_(target):
+def _fetchSystem_(target, startTime="2000-01-01"):
     ''' Fetch the system information for a given target planet.
         target: The name of the planet to fetch the information for.
         params: List of parameters to fetch from the stored databases. '''
     # define the allowed parameters
-    params=["mass", "sma", "per", "ecc", "inc", "arg"]
+    params=["mass", "sma", "per", "ecc", "inc", "arg", "mean"]
     # if the target does not contain a distinction between name and number, attempt to do so
     if "-" not in target:
         numidx = target.index(findFloats(target)[0])
@@ -166,6 +167,21 @@ def _fetchSystem_(target):
         systemData = systemData.drop(["index"], axis=1)
     # rename all the columns to be more usefull
     systemData.columns = ["name"]+param
+    # fetch the epoch of periapse passage and starting time
+    EoPP = HJDtoDate(systemData["mean"])
+    EoPP_e1 = HJDtoDate(systemData["mean"]+systemData["mean_e1"])
+    EoPP_e2 = HJDtoDate(systemData["mean"]+systemData["mean_e2"])
+    startTime = pd.to_datetime(startTime)
+    # compute the difference from starting time
+    tdif, tdif_e1, tdif_e2 = EoPP - startTime, EoPP_e1 - startTime, EoPP_e2 - startTime
+    # compute the mean anomaly due to the start time
+    m = ((tdif.dt.total_seconds() / (systemData["per"] * 31557600)) % 1) * 2 * np.pi
+    m_e1 = ((tdif_e1.dt.total_seconds() / ((systemData["per"]+systemData["per_e2"]) * 31557600)) % 1) * 2 * np.pi
+    m_e2 = ((tdif_e2.dt.total_seconds() / ((systemData["per"]+systemData["per_e1"]) * 31557600)) % 1) * 2 * np.pi
+    # and change to mean anomaly
+    systemData["mean"] = m
+    systemData["mean_e1"] = m_e1
+    systemData["mean_e2"] = m_e2
     # return the data
     return systemData
 
@@ -187,7 +203,7 @@ def _possibilitySpace_(poss, tqdmLeave=True):
     return pos
 
 # construct all simulation possibilities
-def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave=True, useerror=True, limitError=False):
+def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg", "mean"], tqdmLeave=True, useerror=True, limitError=False):
     ''' Construct an array of all possible simulation parameters.
         Each row corresponds to a new simulation setup, where the columns are the parameters for each object.
         df: The dataframe of system information to fetch data from.
@@ -237,7 +253,7 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg"], tqdmLeave
     return pos
 
 # fetch relevant data given exoplanet
-def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"], forceUse=False):
+def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg", "mean"], forceUse=False, startTime="2000-01-01"):
     ''' Fetch all relevant data for an exoplanet. Will raise an exception if no transit data exists for the target.
         exoplanet: The name of the exoplanet to search for.
         params: The list of parameters to be used in this simulation. '''
@@ -269,7 +285,7 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg"], f
             else:
                 raise Exception(err)
         # fetch the archive data for the system
-        archiveData = _fetchSystem_(archiveTarget)
+        archiveData = _fetchSystem_(archiveTarget, startTime=startTime)
 
     # check if sma or per are nan
     nonNan = ~archiveData.loc[1:, ["sma", "per"]].isna().any(axis=0)
@@ -351,7 +367,6 @@ def _simulateTT_(sim, timestep, transits=1000, i=1, prec=1/31557600.0):
             # and step forward past the transit we just found
             sim.integrate(sim.t+timestep)
     # return the found transit times
-    # because we are working with G=1, a=1 [AU], then t [year]=2pi
     return tarray
 
 def _arrayToSim_(thisSim, params):
@@ -369,13 +384,13 @@ def _arrayToSim_(thisSim, params):
     # iterate on each object
     for obj in np.split(thisSim, objs):
         # fetch this objects paramaters
-        mass, sma, per, inc, ecc, arg = valFromParam(["mass", "sma", "per", "inc", "ecc", "arg"], obj, params)
+        mass, sma, per, inc, ecc, arg, mean = valFromParam(["mass", "sma", "per", "inc", "ecc", "arg", "mean"], obj, params)
         # if we have a semimajor axis
         if sma:
-            sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc)
+            sim.add(m=mass, a=sma, e=ecc, omega=arg, inc=inc, M=mean)
         elif per:
             # because of our units of G=1, a=1 [AU], then t [year]=2pi
-            sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc)
+            sim.add(m=mass, P=per, e=ecc, omega=arg, inc=inc, M=mean)
         else:
             # the star has no interesting properties beyond mass
             sim.add(m=mass)
@@ -540,6 +555,20 @@ def predictTTVMagnitude(df):
     # return the TTV prediction and the timescale of the largest effect
     return float(sum(TTV))/86400, TTVt[largesteffect]/86400
 
+def _timeFromTrueAnomaly_(f, t, e=0):
+    ''' compute the time of flight from periapse to a given true anomaly.
+        f: true anomaly (radians)
+        t: orbital period.
+        e: eccentricity. '''
+    # compute eccentric anomaly
+    E = np.arccos((e+np.cos(f)) / (1+e*np.cos(f)))
+    # compute the mean anomaly
+    M = E - e*np.sin(E)
+    # compute the mean motion
+    n = t / (2*np.pi)
+    # and compute this time
+    return M / n
+
 def predictGREffect(df, observationYears=4):
     ''' Compute the TTV magnitude due to general relativity.
         df: The system data dataframe.
@@ -554,19 +583,33 @@ def predictGREffect(df, observationYears=4):
     epsilon = 24 * np.pi**3 * a**2 * t**-2 * c**-2 * (1-e**2)**-1
     # the timescale this effect is cyclic is a full circle / epsilon
     cycle_time = (np.pi * 2 / epsilon) * t
+    # convert from seconds to days
+    cycle_time /= 86400
     # this twists the apsides by epsilon each orbit, which is equivalent to saying the true anomaly of the transit is
-    # offset by epsilon each orbit.
-    def timeFromTrueAnomaly(f, t, e=0):
-        # compute eccentric anomaly
-        E = np.arccos((e+np.cos(f)) / (1+e*np.cos(f)))
-        # compute the mean anomaly
-        M = E - e*np.sin(E)
-        # compute the mean motion
-        n = t / (2*np.pi)
-        # and compute this time
-        return M / n
-    # compute the time from periapse to epsilon times the number of observed transits, also return the cycle time
-    return timeFromTrueAnomaly(epsilon*Ntransits, t, e), cycle_time / 86400
+    # offset by epsilon each orbit. compute the time from periapse to epsilon times the number of observed transits
+    # , also return the cycle time
+    return _timeFromTrueAnomaly_(epsilon*Ntransits, t, e), cycle_time
+
+def predictBCEffect(df):
+    ''' compute the TTV magnitude due to other planets in the system shifting the barycentre position.
+        df: the system data dataframe.'''
+    # fetch the total mass and reduced mass of the star
+    mTotal = sum(df["mass"])
+    mStar = df.iloc[0]["mass"] / mTotal
+    # fetch the planetary system variables
+    planets = np.array([_planetVars_(df.iloc[0], df.iloc[idx], mTotal) for idx in df.index[1:]])
+    # fetch the centre of mass offset due to all other planets in the system.
+    com = sum(planets[1:, 0] * (1+planets[1:, 3]) * planets[1:, 2]) / (sum(planets[1:, 2]) + mStar)
+    # compute the true anomaly the transiting planet must travel to correct for the com shift
+    com_ang = np.arctan2(com, planets[0][0] * (1+planets[0][3]))
+    # compute the time this is cyclic over (synodic period of all planets in the system)
+    cycleTime = 1/max(1 / planets[1:, 1])-min(1 / planets[1:, 1])
+    # if there was only one planet
+    cycleTime = planets[1, 1] if cycleTime==0 else cycleTime
+    # convert from seconds to days
+    cycleTime /= 86400
+    # and compute the time of flight for this angle
+    return _timeFromTrueAnomaly_(com_ang, planets[0][1], planets[0][3]), cycleTime
 
 def computeScale(val):
     ''' Compute the scale factor for a value. '''
