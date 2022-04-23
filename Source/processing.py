@@ -45,7 +45,7 @@ def fetchArgs():
     parser = argparse.ArgumentParser(description="Process transit timing variations.")
     # add any arguments
     parser.add_argument("--planet", help="The name of the planet to process TTV for.", required=True)
-    parser.add_argument("--dataSource", help="The list of Sources to use data from.", nargs="+", default=["exoclock"])
+    parser.add_argument("--dataSource", help="The list of Sources to use data from.", nargs="+")
     args = parser.parse_args()
     # return the argument input
     return args
@@ -56,6 +56,9 @@ def trimToSources(df, sources):
         sources: The list of allowed sources. '''
     # fetch the sources list
     dfsources = sorted(df["source"].unique())
+    # if the provided sources were empty, use all of them
+    if not sources:
+        sources = dfsources
     # allowed sources
     allowed = set()
     # iterate on the list of desired
@@ -140,7 +143,7 @@ def checkEphemerides(transitdf, systemdf):
     offset = lineparam[0] * period
     print("Linear fit suggests it should be: {}.".format(tp.totimestring(period+offset)))
     # update the midtransit times with the linefit
-    transitdf["oc"] -= linefit(dateAsFloat)
+    #transitdf["oc"] -= linefit(dateAsFloat)
 
 def plotMidtransits(transitdf, fitfunc):
     ''' plot the midtransit times to a nice chart.
@@ -154,12 +157,13 @@ def plotMidtransits(transitdf, fitfunc):
     dateAsFloat = dateToYearFloat(transitdf["date"])
     dateAsDate = pd.to_datetime(transitdf["date"])
     dateminmax = [min(dateAsFloat), max(dateAsFloat)]
-    daterange = np.linspace(*dateminmax, 10000)
+    # ensure we have one datapoints per hour
+    daterange = np.arange(*dateminmax, 1/24)
 
     # compute the fit
     fitfunc, _, _ = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"], fitfunc,
-                             # ensure the orbital period is reasonable
-                             bounds=((-np.inf, 1, -np.inf, -np.inf), (np.inf, np.inf, np.inf, np.inf)))
+                             # ensure the fit it reasonable
+                             bounds = ((-np.inf, -np.inf, -np.inf), (np.inf, np.inf, np.inf)))
 
     # plot laout
     fig = plt.figure()
@@ -170,19 +174,18 @@ def plotMidtransits(transitdf, fitfunc):
     ax2.plot(dateminmax, [0, 0], "lightgray")
     # plot the model
     ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
-    secondfit = lambda x:6.7*np.sin(x*(2*np.pi/300) + np.pi)
-    ax1.plot(daterange, secondfit(daterange), "r")
+
+    def chisq(obs, exp, err):
+        return np.sum((obs-exp)**2 / (err ** 2))
     # print the chi squared value
-    print("Chi squared value of data:", sum([x**2 for x in transitdf["oc"]]))
-    print("Chi squared value of computer fit:", sum([x**2 for x in transitdf["oc"]-fitfunc(dateAsFloat)]))
-    print("Chi squared value of manual fit:", sum([x**2 for x in transitdf["oc"]-secondfit(dateAsFloat)]))
+    print("Chi squared value of data:", chisq(transitdf["oc"], [0]*len(transitdf), transitdf["oce"]))
+    print("Chi squared value of fit:", chisq(transitdf["oc"]-fitfunc(dateAsFloat), [0]*len(transitdf), transitdf["oce"]))
     # plot each datapoint
     for source in sources:
         data = transitdf.loc[transitdf["source"]==source]
         dateAsFloat = dateToYearFloat(data["date"])
         ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
         ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
-        ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-secondfit(dateAsFloat), yerr=data["oce"], label="myfit", fmt="o")
 
     #dates = pd.to_datetime(df["date"])
     #plt.plot([min(dates), max(dates)], [0,0])
@@ -209,7 +212,7 @@ if __name__ == "__main__":
     # check the ephemerides
     checkEphemerides(transitdf, systemdf)
     # fitting function
-    def fitfunc(x, a, b, c, d):
-        return a*np.sin(x*(2*np.pi/b)+c) + d
+    def fitfunc(x, a, b, c):
+        return a*np.sin(x*(2*np.pi/b)+c)
     # plot the data with the fitting residuals
     plotMidtransits(transitdf, fitfunc)
