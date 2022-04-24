@@ -381,10 +381,15 @@ def totimestring(val):
     # and return
     return timestring.strip()
 
-def tosi(val, unit=""):
+def tosi(val, unit="", power=1000):
     ''' convert a value to si.
         val: the value to convert.
-        unit: a unit to tack on if needed. '''
+        unit: a unit to tack on if needed.
+        power: the power to do. (1000, 1024)'''
+    # ensure we're either power of 10 or 2
+    power = 1000 if power != 1024 else 1024
+    # if power of two, binary prefix
+    unit = "i"+unit if power == 1024 else unit
     # if value is nan, don't got further
     if np.isnan(val):
         return val, unit
@@ -392,12 +397,12 @@ def tosi(val, unit=""):
     if val == 0:
         return val, unit
     # si values
-    units = {-24: "y", -21: "z", -18: "a", -15: "f", -12: "p", -9: "n", -6: "μ", -3: "m",
-             0: "", 3: "k", 6: "M", 9: "G", 12: "T", 15: "P", 18: "E", 21: "Z", 24: "Y"}
+    units = {-8: "y", -7: "z", -6: "a", -5: "f", -4: "p", -3: "n", -2: "μ", -1: "m",
+             0: "", 1: "k", 2: "M", 3: "G", 4: "T", 5: "P", 6: "E", 7: "Z", 8: "Y"}
     # compute the largest power that is useful
-    thisunit = 3*np.floor(np.log(val)/np.log(1000))
+    thisunit = np.floor(np.log(val)/np.log(power))
     # return the value shifted up to zero, and the unit
-    return val * 10**(-thisunit), units[thisunit]+unit
+    return val * power**(-thisunit), units[thisunit]+unit
 
 def HJDtoDate(val):
     ''' convert a half julian datetime to a standard date. '''
