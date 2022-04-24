@@ -235,20 +235,23 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg", "mean"], t
             out_[:,idx] = val
             # inrement the index counter
             idx+=1
+    # remove NaN for default
+    out_ = np.nan_to_num(out_, nan=np.inf)
     # if we are using error values
     if useerror:
         # fetch the entire possibility space of our combinations
         pos = _possibilitySpace_(out, tqdmLeave=tqdmLeave)
+        # replace nan values with infinitiy so we know they are wrong
+        pos = np.nan_to_num(pos, nan=np.inf)
+        # remove completely empty rows
+        pos = pos[~np.isinf(pos).all(axis=1)]
+        # remove nonunique values
+        pos = np.unique(pos, axis=0)
         # add the default simulation settings to the begining
-        pos = np.vstack([out_, pos])
+        pos = np.vstack([out, pos])
     else:
+        # set the possibility space to only the default values
         pos = out_
-    # replace nan values with infinitiy so we know they are wrong
-    pos = np.nan_to_num(pos, nan=np.inf)
-    # remove nonunique values
-    pos = np.unique(pos, axis=0)
-    # remove completely empty rows
-    pos = pos[~np.isinf(pos).all(axis=1)]
     # return the possibility space
     return pos
 
@@ -438,6 +441,7 @@ def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tq
         workers: The number of worker processes to use for the simulation (defaults to cpucount / 2).
         tqdmLeave: Whether to leave the overarchive tqdm bar when completed.
         returnAll: Whether to return the entire output, or just the average/minimum/maximum.'''
+    # fetch the inputs for the multiprocessing
     inputs = toItterableInput(simArray, params, transits, prec, keep=(1,))
     # run the multiprocessing job
     TT = parallelJob(_simulateTransitTimes_, inputs, outType=np.array, workers=workers, tqdmLeave=tqdmLeave)

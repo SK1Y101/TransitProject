@@ -49,6 +49,8 @@ Repo/
 │ │ ├ __init__.py
 │ │ ├ Simulation.py
 │ │ └ webScraping.py
+│ ├ ControlCandidates.csv
+│ ├ determineTTVCandidates.py
 │ ├ fetchData.py
 │ ├ processing.py
 │ └ simulationPipeline.py
@@ -59,9 +61,13 @@ Repo/
 
 In the `Source/` folder is all of the python scripts to be ran.
 These scripts are:
+ - `determineTTVCandidates.py` - Determine which, of all exoplanets, are ideal candidates for testing TTV Models.
  - `fetchData.py` - Fetch Ephemerides and mid-transit times for exoplanets.
  - `processing.py` - Fit a transiting model to the observed data.
  - `simulationPipeline.py` - Simulate the known properties of an exoplanetary system to fetch transit times.
+
+Additionally, there are the following files in `Source/`:
+ - `ControlCandidates.csv` - Comma separated list of ideal testing candidates, in decreasing order of mid-transit data-points
 
 Contained within `Source/TransitProject/` is the individual code modules common across the project.
 Additionally, within `Source/old_code/` is legacy code that may still be useful.
@@ -108,7 +114,7 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [x] Merge Exoplanet Archive & Exoplanet Catalogue & ExoClock to find system information
     - [x] Figure out how to deal with conflicting information
   - [x] Refactor code
-- [ ] Simulation
+- [x] Simulation
   - [x] Write a shared library for simulation
     - [x] Simulation pipeline
       - [x] Fetch the planetary system to simulate
@@ -117,7 +123,7 @@ This is a general overview of the "Write Code" step above, and is of course subj
       - [x] Simulate the above with all known errors to determine error bars on perturbed transit times
   - [x] Setup a pipeline with multithreading instances for many simulations in parallel
   - [x] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
-  - [ ] Determine a standardised output
+  - [x] Determine a standardised output
   - [x] Refactor code
 - [ ] Processing & Fitting
   - [ ] Determine a simpler model that can produce the sinusoid for a given system layout
@@ -126,7 +132,7 @@ This is a general overview of the "Write Code" step above, and is of course subj
     - [ ] Is possible to give to an MCMC fitter
   - [ ] Linear fit to the visual data
     - [x] Fit a line to the data
-    - [ ] compare against exoclock ephemerides
+    - [x] compare against exoclock ephemerides
     - [ ] Search through Residuals for TTV
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [ ] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
