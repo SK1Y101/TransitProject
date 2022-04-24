@@ -48,7 +48,7 @@ def fetchArgs():
         args.years = (pd.to_datetime(args.endTime)-pd.to_datetime(args.startTime)).total_seconds() / 31557600
     # the year quantity is finicky if i don't do this
     args.years = float(args.years) if args.years else 4
-    args.simYears = max(args.years, float(args.simYears))
+    args.simYears = float(max(args.years, args.simYears if args.simYears else 0))
     # set use error to true if limit error is enabled
     args.useError = args.limitError or args.useError
     # return the argument input

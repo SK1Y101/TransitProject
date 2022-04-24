@@ -425,7 +425,7 @@ def _simulateTransitTimes_(simArray, params, transits=1000, prec=1/31557600.0):
     pos = curProc()._identity[0] if curProc().name != "MainProcess" else None
     # simulate for the chosen number of transits
     TT = _simulateTT_(sim, timestep, transits, pos, prec)
-    # and return the transit times
+    # and return the transit times, ensuring they start at zero
     return np.array(TT)
 
 def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tqdmLeave=True, returnAll=False):
