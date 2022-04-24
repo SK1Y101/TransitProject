@@ -111,7 +111,6 @@ def plotSimulation(TTVMinMaxAv, args):
         plt.fill_between(range(N), TTVl*rescale[1], TTVu*rescale[1], color="gray", label="TTV error")
     # main value
     if args.useError:
-        print(max(TTVa), max(TTVl), max(TTVu))
         err = np.vstack([(TTVa-TTVl), (TTVu - TTVa)]) * rescale[1]
         plt.errorbar(range(N), TTVa*rescale[1], yerr=err, color="black", label="Predicted TTV", fmt="o")
     else:

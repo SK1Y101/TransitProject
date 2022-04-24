@@ -191,14 +191,39 @@ def _possibilitySpace_(poss, tqdmLeave=True):
         tqdmLeave: Whether to leave the overarchive tqdm bar when completed.'''
     # compute the maximum number of parameters
     totalParams = poss.shape[1]
-    # initial possibility space array
-    pos = np.full((2**totalParams, totalParams), np.nan)
-    # itterate over all possibility space
-    for idx in trange(2**totalParams, desc="Filling possibility space", leave=tqdmLeave):
-        # convert the current itteration number to a binary with as many positions as needed
-        idx_b = "{:0{}b}".format(idx, totalParams)
-        # use the binary representation of this iteration to select the zeroth or first row of the output
-        pos[idx,:] = np.array([poss[int(idx_b[x])][x] for x in range(totalParams)])
+    # compute the size (In bytes) of a (2**totalParams, totalParams) array
+    asize = 2**totalParams * totalParams * 8
+    # if the array would be too large for memory, do the slower but more memory efficient search
+    if asize > 4*2**30:
+        # compute the array size in powers of two
+        print("Fast approach requires {:0.3f} {} of memory, using slow approach instead".format(*tosi(asize, "B", 1024)))
+        # initialise as empty
+        pos = []#np.zeros((2, totalParams))
+        # itterte
+        for idx in trange(2**totalParams, desc="Filling possibility space", leave=tqdmLeave):
+            # convert the current itteration number to a binary with as many positions as needed
+            idx_b = "{:0{}b}".format(idx, totalParams)
+            # use the binary representation of this iteration to select the zeroth or first row of the output
+            val = np.array([poss[int(idx_b[x])][x] for x in range(totalParams)])
+            # remove nan
+            val = np.nan_to_num(val, nan=np.inf)
+            # if this doesnt match any previous rows
+            if list(val) not in pos:#~np.isin(pos, val).all(axis=1).any():
+                # add to the possibilities area
+                #pos = np.vstack([pos, val])
+                pos.append(list(val))
+        # remove the initial zero
+        pos = np.array(pos)
+    # otherwise
+    else:
+        # initial possibility space array
+        pos = np.full((2**totalParams, totalParams), np.nan)
+        # itterate over all possibility space
+        for idx in trange(2**totalParams, desc="Filling possibility space", leave=tqdmLeave):
+            # convert the current itteration number to a binary with as many positions as needed
+            idx_b = "{:0{}b}".format(idx, totalParams)
+            # use the binary representation of this iteration to select the zeroth or first row of the output
+            pos[idx,:] = np.array([poss[int(idx_b[x])][x] for x in range(totalParams)])
     # return all possibilities
     return pos
 
