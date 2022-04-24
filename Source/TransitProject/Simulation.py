@@ -248,7 +248,7 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg", "mean"], t
         # remove nonunique values
         pos = np.unique(pos, axis=0)
         # add the default simulation settings to the begining
-        pos = np.vstack([out, pos])
+        pos = np.vstack([out_, pos])
     else:
         # set the possibility space to only the default values
         pos = out_
