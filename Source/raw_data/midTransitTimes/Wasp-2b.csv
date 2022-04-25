@@ -43,9 +43,9 @@ date,observer,oc,oce,source
 2019-09-14,Anaël Wünsche,1.6,0.4,ExoClock observation
 2019-09-14,Marc bretton,3.168,0.5328,ETD
 2019-08-30,Pavel pintr,0.432,1.4256,ETD
-2019-08-30,Pavel Pintr,-1.1,1.6,ExoClock observation
 2019-08-30,Bernhard Wenzel,-3.3,3.5,ExoClock observation
 2019-08-30,Bernhard wenzel,4.896,3.744,ETD
+2019-08-30,Pavel Pintr,-1.1,1.6,ExoClock observation
 2019-08-17,"Alfa crucis - colesanti c, de carvalho aguiar p, kulh d, napoleao t, olim e, rodrigues ma, treü r",5.04,2.6064,ETD
 2019-08-02,Ccd skupina v úpici,-2.736,1.6128,ETD
 2019-08-02,Claudio lopresti,-1.728,0.9216,ETD
@@ -81,10 +81,10 @@ date,observer,oc,oce,source
 2016-08-23,Anaël Wünsche,0.7,0.7,ExoClock observation
 2016-08-08,Marian urbaník,0.72,,ETD
 2016-07-26,Marc morisson,3.024,2.7648,ETD
+2016-07-26,Marc bretton,2.16,0.6912,ETD
 2016-07-26,Anaël Wünsche,1.4,1.2,ExoClock observation
 2016-07-26,Vincent boudon,5.184,3.3984,ETD
 2016-07-26,Vincent boudon,-22.896,2.6496,ETD
-2016-07-26,Marc bretton,2.16,0.6912,ETD
 2016-07-02,Benjamin fitter,12.384,1.1808,ETD
 2016-06-29,Marc Deldem,-0.4,1.0,ExoClock observation
 2016-06-28,Marc deldem,1.152,1.0368,ETD
@@ -120,13 +120,13 @@ date,observer,oc,oce,source
 2013-08-15,"Majchrovic i., maruska tomas",4.896,1.584,ETD
 2013-08-06,Benni p.,-2.016,0.864,ETD
 2013-08-04,Benni p.,1.728,0.8496,ETD
-2013-08-02,"Poddaný s., korda d., mádlová t., butkovičová d.",0.576,1.8864,ETD
 2013-08-02,Trnka j.,0.864,1.1232,ETD
 2013-08-02,Gonzalez j.,0.432,0.7488,ETD
+2013-08-02,"Poddaný s., korda d., mádlová t., butkovičová d.",0.576,1.8864,ETD
 2013-07-24,Shadic s.,-1.296,0.9936,ETD
 2013-07-05,Salisbury m.,0.72,1.4544,ETD
-2013-07-05,Valère perroud,7.344,,ETD
 2013-07-05,"Shadic s., rusov s.",-2.88,1.0656,ETD
+2013-07-05,Valère perroud,7.344,,ETD
 2013-07-05,Vabhuysse m.,2.16,0.9792,ETD
 2013-05-29,"Kehusmaa p., harlingten c.",0.432,0.792,ETD
 2013-05-14,Oksanen a.,5.328,2.1744,ETD
@@ -144,8 +144,8 @@ date,observer,oc,oce,source
 2012-07-30,Ayiomamitis a.,-1.44,1.0512,ETD
 2012-07-15,"Yu. kuznietsova, m. andreev, v. krushevska",-3.888,1.2096,ETD
 2012-07-02,Scarmato t.,0.0,0.5328,ETD
-2012-07-02,Francisco carlos soldán alfaro,-82.08,120.9168,ETD
 2012-07-02,Emering f.,1.44,2.7216,ETD
+2012-07-02,Francisco carlos soldán alfaro,-82.08,120.9168,ETD
 2012-06-19,Scarmato t.,-7.632,6.5232,ETD
 2011-09-22,Carrion j.a.,5.328,0.6912,ETD
 2011-08-25,Marek p.,6.192,2.2464,ETD
@@ -162,10 +162,10 @@ date,observer,oc,oce,source
 2010-08-13,Garlitz i.,1.008,1.2096,ETD
 2010-07-27,Naves r.,-0.432,1.1664,ETD
 2010-07-16,Tieman b.,1.44,1.368,ETD
-2010-07-12,Lomoz f.,-3.456,6.1488,ETD
-2010-07-12,Scarmato t.,16.416,3.7728,ETD
 2010-07-12,"V. krushevska, yu. kuznietsova, m. andreev",3.456,1.1664,ETD
 2010-07-12,Vanhuysse  m.,2.16,1.2096,ETD
+2010-07-12,Lomoz f.,-3.456,6.1488,ETD
+2010-07-12,Scarmato t.,16.416,3.7728,ETD
 2010-07-04,Becker et al. 2013,-4.3,1.3,ExoClock literature
 2009-11-11,Southworth et al. 2010,-1.1,0.2,ExoClock literature
 2009-11-11,Southworth et al. 2010,-0.432,0.2448,ETD
@@ -203,10 +203,10 @@ date,observer,oc,oce,source
 2008-06-15,Becker et al. 2013,0.7,0.1,ExoClock literature
 2007-10-16,Becker et al. 2013,1.2,0.3,ExoClock literature
 2007-10-02,Sheridan,4.896,1.872,ETD
-2007-09-13,S. poddaný,-2.448,1.152,ETD
-2007-09-13,S. poddaný,-1.008,1.0512,ETD
-2007-09-13,Ohlert j.,-3.456,1.008,ETD
 2007-09-13,Hrudkova et al 2008,0.432,0.2304,ETD
+2007-09-13,S. poddaný,-2.448,1.152,ETD
+2007-09-13,Ohlert j.,-3.456,1.008,ETD
+2007-09-13,S. poddaný,-1.008,1.0512,ETD
 2007-09-11,Ohlert j.,-1.296,1.1232,ETD
 2007-09-04,Sheridan,-10.656,,ETD
 2007-08-20,Sheridan,1.152,,ETD

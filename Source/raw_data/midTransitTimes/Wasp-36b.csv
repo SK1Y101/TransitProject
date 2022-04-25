@@ -62,9 +62,9 @@ date,observer,oc,oce,source
 2016-01-17,"Francesco scaggiante, danilo zardin",1.44,1.6416,ETD
 2015-03-11,Rutenkolk jan / pascal gimmler,2.736,1.9152,ETD
 2015-03-11,Pascal gimmler / jan rutenkolk,2.736,1.9152,ETD
-2015-03-11,"Lycée notre dame de toutes aides, nantes, france",1.008,4.7232,ETD
-2015-03-11,Jens jacobsen,1.44,2.0736,ETD
 2015-03-11,Josep gaitan,-18.864,1.9728,ETD
+2015-03-11,Jens jacobsen,1.44,2.0736,ETD
+2015-03-11,"Lycée notre dame de toutes aides, nantes, france",1.008,4.7232,ETD
 2015-02-25,Marc bretton,0.432,1.728,ETD
 2015-02-25,David molina,0.576,3.7008,ETD
 2015-01-23,Mancini et al. 2016,0.4,0.3,ExoClock literature
@@ -83,9 +83,9 @@ date,observer,oc,oce,source
 2014-02-12,František lomoz,-0.432,4.0176,ETD
 2014-02-12,František lomoz,-3.312,4.1472,ETD
 2013-12-30,Mancini et al. 2016,-0.3,0.4,ExoClock literature
+2013-12-30,Mancini et al. 2016,-0.4,0.3,ExoClock literature
 2013-12-30,Mancini et al. 2016,-0.7,0.2,ExoClock literature
 2013-12-30,Mancini et al. 2016,-0.1,0.2,ExoClock literature
-2013-12-30,Mancini et al. 2016,-0.4,0.3,ExoClock literature
 2013-12-03,Gerteis o.,1.584,1.5408,ETD
 2013-12-03,Dittler u.,17.856,2.1024,ETD
 2013-12-03,Bachschmidt m.,1.296,1.224,ETD

@@ -46,6 +46,7 @@ def fetchArgs():
     # add any arguments
     parser.add_argument("--planet", help="The name of the planet to process TTV for.", required=True)
     parser.add_argument("--dataSource", help="The list of Sources to use data from.", nargs="+")
+    parser.add_argument("--addSim", help="Compute the TTV for this system and overlay it on the O-C graph.", action="store_true")
     args = parser.parse_args()
     # return the argument input
     return args
@@ -145,7 +146,7 @@ def checkEphemerides(transitdf, systemdf):
     # update the midtransit times with the linefit
     #transitdf["oc"] -= linefit(dateAsFloat)
 
-def plotMidtransits(transitdf, fitfunc):
+def plotMidtransits(transitdf, fitfunc, addSim=False):
     ''' plot the midtransit times to a nice chart.
         df: The dataframe of midtransit times.'''
     # fetch the sources list
@@ -187,6 +188,27 @@ def plotMidtransits(transitdf, fitfunc):
         ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
         ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
 
+    # if we are including the simulation
+    if addSim:
+        print("Simulating system to fetch predicted TTV")
+        # planet name
+        planetName = transitdf.index.name
+        # start time, and years to simulate
+        startTime, endTime = min(transitdf["date"]), max(transitdf["date"])
+        simYears = (pd.to_datetime(endTime)-pd.to_datetime(startTime)).total_seconds() / 31557600
+
+        # import the simulation pipeline
+        import simulationPipeline as simP
+
+        # and run the simulation
+        TTV, TT = simP.runMinimalSim(planetName, startTime, simYears, False)
+
+        # Transit times are in years, convert to datestamps
+        TT = pd.to_datetime(startTime) + pd.to_timedelta(TT * 31557600, unit="s")
+
+        # and plot
+        ax1.plot(TT, TTV / 60, label="Simulated TTV")
+
     #dates = pd.to_datetime(df["date"])
     #plt.plot([min(dates), max(dates)], [0,0])
     for axs in ax:
@@ -202,17 +224,22 @@ def plotMidtransits(transitdf, fitfunc):
 if __name__ == "__main__":
     # fetch the program arguments
     args = fetchArgs()
+
     # fetch the planetary data
     transitdf = fetchMidTransitTimes(args.planet)
+
     # include the datasources we are using
     transitdf = trimToSources(transitdf, args.dataSource)
+
     # fetch the system data
     systemdf = ts.fetchParams(args.planet)[0]
     print(systemdf)
     # check the ephemerides
     checkEphemerides(transitdf, systemdf)
+
     # fitting function
     def fitfunc(x, a, b, c):
         return a*np.sin(x*(2*np.pi/b)+c)
+
     # plot the data with the fitting residuals
-    plotMidtransits(transitdf, fitfunc)
+    plotMidtransits(transitdf, fitfunc, args.addSim)

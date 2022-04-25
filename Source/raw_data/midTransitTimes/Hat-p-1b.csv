@@ -9,14 +9,14 @@ date,observer,oc,oce,source
 2020-10-14,Jean plazas,-14.832,,ETD
 2020-10-05,Harri Kiiskinen,2.7,3.0,ExoClock observation
 2020-10-05,Francois regembal,-1.872,4.0176,ETD
-2020-07-22,Martin Smith,-1.0,4.3,ExoClock observation
 2020-07-22,Pierros Papadeas,-1.6,2.0,ExoClock observation
+2020-07-22,Martin Smith,-1.0,4.3,ExoClock observation
 2019-12-02,Martin Crow,-0.8,2.2,ExoClock observation
 2019-09-17,Jean plazas,12.816,7.0992,ETD
 2019-09-08,Anael wunsche,-0.0,2.1312,ETD
 2018-08-29,Stephen m. brincat,9.648,5.8464,ETD
-2017-09-28,Marc bretton,-0.864,0.504,ETD
 2017-09-28,Anaël Wünsche,-0.1,0.4,ExoClock observation
+2017-09-28,Marc bretton,-0.864,0.504,ETD
 2016-09-09,František lomoz,18.144,1.6416,ETD
 2016-09-09,František lomoz,1.728,1.9872,ETD
 2016-07-04,Marc bretton,4.032,1.5408,ETD
@@ -32,21 +32,21 @@ date,observer,oc,oce,source
 2011-10-20,Trnka j.,1.872,2.1024,ETD
 2011-09-23,Trnka j.,9.216,2.232,ETD
 2011-08-18,Shadic s.,3.168,2.4768,ETD
-2010-10-05,Hose k.,1.872,1.8576,ETD
 2010-10-05,Joe garlitz,2.88,1.512,ETD
+2010-10-05,Hose k.,1.872,1.8576,ETD
 2010-09-04,Naves r.,0.864,2.1888,ETD
 2010-07-30,Shadick s.,-4.896,2.088,ETD
-2010-07-08,Vrašťák m.,-4.896,2.6784,ETD
 2010-07-08,Scarmato t.,-2.016,6.84,ETD
+2010-07-08,Vrašťák m.,-4.896,2.6784,ETD
 2009-10-04,Tieman b.,-2.736,1.4688,ETD
 2009-09-25,Gary b.,-1.872,1.728,ETD
-2009-09-16,Gary,1.584,1.296,ETD
 2009-09-16,Latham c. ,-1.728,1.7136,ETD
+2009-09-16,Gary,1.584,1.296,ETD
 2009-09-07,Wiggins,-0.864,2.592,ETD
 2009-09-03,Ayiomamitis,1.872,2.304,ETD
-2009-08-25,Brát l.,-3.312,3.8448,ETD
 2009-08-25,Srdoc,8.352,2.16,ETD
 2009-08-25,Dřevěný r.,-4.752,3.7008,ETD
+2009-08-25,Brát l.,-3.312,3.8448,ETD
 2009-08-16,Srdoc,11.808,2.016,ETD
 2008-10-12,L. brát,-16.704,3.5856,ETD
 2008-07-28,Walter f.,-11.232,2.6496,ETD

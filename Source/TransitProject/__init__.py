@@ -406,4 +406,5 @@ def tosi(val, unit="", power=1000):
 
 def HJDtoDate(val):
     ''' convert a half julian datetime to a standard date. '''
-    return pd.to_datetime(val - 2400000, unit="d", origin=pd.Timestamp("1858-11-16 12:00"))
+    # only subtract if val is not reduced julian date
+    return pd.to_datetime(val - 2400000*(val>2400000), unit="d", origin=pd.Timestamp("1858-11-16 12:00"))

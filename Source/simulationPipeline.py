@@ -51,6 +51,8 @@ def fetchArgs():
     args.simYears = float(max(args.years, args.simYears if args.simYears else 0))
     # set use error to true if limit error is enabled
     args.useError = args.limitError or args.useError
+    # convert to float
+    args.precision = float(args.precision)
     # return the argument input
     return args
 
@@ -94,10 +96,10 @@ def runTTVPipeline(df, params, args):
     # compute the TTV for all values, convert to seconds
     TTV = [computeTTV(tt) * 31557600 for tt in TT]
 
-    # return the TTV
-    return TTV
+    # return the TTV and raw transit times
+    return TTV, TT
 
-def plotSimulation(TTVMinMaxAv, args):
+def plotSimulation(TTVMinMaxAv, df, args):
     ''' plot the results of a TTV simulation. '''
     # decompose TTV min, max, and average
     TTVa, TTVl, TTVu = TTVMinMaxAv
@@ -139,7 +141,7 @@ def plotSimulation(TTVMinMaxAv, args):
     orbitscale = df.iloc[1]["per"]*(1 if asYears else 365.25)
     # plot day/year number
     ax2 = ax.twiny()
-    ax2.set_xlabel("Time [{}]".format("Years" if asYears else "Days"))
+    ax2.set_xlabel("Time".format("Years" if asYears else "Days"))
     ax2.xaxis.set_label_position("bottom")
     ax2.xaxis.tick_bottom()
     ax2.xaxis.set_minor_locator(AutoMinorLocator())
@@ -167,20 +169,53 @@ def saveSimulation(system, TTV, args):
         # save the TTV times
         tp.saveDataFrame(TTVt, "/sim_data/"+args.saveAs+"_TTV")
 
+def runMinimalSim(target, startTime="2000-01-01", years=4, unperturbed=False):
+    ''' Run a simulation with minimal input parameters, so that other modules can fetch.
+        target: The transiting planet to simulate.
+        startTime: The date to start.
+        years: The number of years to simulate for.
+        unperturbed: Whether we should only simulate the target planet. '''
+    # construct fake commanline inputs
+    class args:
+        pass
+    args = args()
+    args.years = args.simYears = years
+    args.useError = args.limitError = False
+    args.precision = float(1E-6 / 31557600)
+    args.workers = None
+
+    # fetch the parameters for the system
+    df, params = ts.fetchParams(target, forceUse=False, startTime=startTime)
+
+    # if we are only simulating the target planet
+    if unperturbed:
+        df = df.iloc[:2]
+
+    # run the TTV pipeline
+    TTV, TT = runTTVPipeline(df, params, args)
+
+    # as we only used one sim setup, fetch the timing
+    TTV, TT = TTV[0], TT[0]
+
+    # fetch only the TTV within the observation window
+    endWindow = np.where(TT > years)[0][0]
+    TTV, TT = TTV[:endWindow], TT[:endWindow]
+
+    # and return the TTV and times
+    return TTV, TT
+
+# define the simulation parameters
+# choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis
+# if both a period and semimajor axis is given, the script will default to SMA
+params = ["mass", "sma", "ecc", "inc", "arg", "mean"]
+
 # start the script
 if __name__ == "__main__":
     # fetch the program arguments
     args = fetchArgs()
 
-    # define the simulation parameters
-    # choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis
-    # if both a period and semimajor axis is given, the script will default to SMA
-    params = ["mass", "sma", "ecc", "inc", "arg", "mean"]
-
     # fetch the parameters for the system
     df, params = ts.fetchParams(args.planet, forceUse=args.forceUse, startTime=args.startTime)
-    if args.unperturbed:
-        df = df.iloc[:2]
 
     # compute the predicted TTV
     predTTV = ts.predictTTVMagnitude(df)
@@ -198,8 +233,12 @@ if __name__ == "__main__":
     print("\nThe effect due to Barycentre shift is on the order of {:0.2f} {}".format(*tp.tosi(BCTTV[0], "s")))
     print("The effect due to Barycentre shift is cyclic on the order of {}".format(tp.totimestring(BCTTV[1])))
 
+    # if the planet is to be simulated alone, do that here
+    if args.unperturbed:
+        df = df.iloc[:2]
+
     # run the pipeline
-    TTV = runTTVPipeline(df, params, args)
+    TTV = runTTVPipeline(df, params, args)[0]
 
     # compute the minimum, maximum, and average
     TTVMinMaxAv = tp.avMinMax(TTV, 0)
@@ -208,4 +247,4 @@ if __name__ == "__main__":
     saveSimulation(df, TTV, args)
 
     # plot the output
-    plotSimulation(TTVMinMaxAv, args)
+    plotSimulation(TTVMinMaxAv, df, args)

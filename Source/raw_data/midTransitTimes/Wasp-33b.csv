@@ -130,10 +130,10 @@ date,observer,oc,oce,source
 2011-12-20,"Denis gorshanov, eugene sokov",8.064,0.4176,ETD
 2011-12-20,"Gorshanov d. l., sokov e. n.",8.064,0.4176,ETD
 2011-12-15,Gaitan j.,6.336,0.7488,ETD
-2011-12-10,Garcia f.,1.296,1.2384,ETD
-2011-12-10,Trnka j.,5.904,1.0224,ETD
 2011-12-10,"Ivanov k., bourdanov a.",7.2,4.0464,ETD
+2011-12-10,Trnka j.,5.904,1.0224,ETD
 2011-12-10,"Romas e., sokov e.",9.648,0.9216,ETD
+2011-12-10,Garcia f.,1.296,1.2384,ETD
 2011-12-10,Bourdanov a.,4.32,1.2528,ETD
 2011-12-06,Dvorak s.,6.048,1.296,ETD
 2011-12-06,Joe garlitz,2.736,0.8496,ETD
@@ -159,9 +159,9 @@ date,observer,oc,oce,source
 2011-10-05,"Vereshchagina i. a., sokov e. n",17.136,1.6992,ETD
 2011-10-05,Naves r.,10.368,1.2816,ETD
 2011-09-30,Shadic s.,6.048,1.0512,ETD
-2011-09-29,Naves r.,4.176,2.9664,ETD
-2011-09-29,Naves r.,-6.192,4.5648,ETD
 2011-09-29,Trnka j.,6.48,1.9296,ETD
+2011-09-29,Naves r.,-6.192,4.5648,ETD
+2011-09-29,Naves r.,4.176,2.9664,ETD
 2011-09-29,Sergison d.,9.648,1.0944,ETD
 2011-09-29,Gillier ch.,10.656,1.8144,ETD
 2011-09-25,Shadic s.,5.04,1.296,ETD
