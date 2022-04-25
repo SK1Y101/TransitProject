@@ -19,18 +19,18 @@ date,observer,oc,oce,source
 2020-08-05,Yves jongen,-2.016,0.7488,ETD
 2020-07-08,Francois Regembal,0.1,1.2,ExoClock observation
 2020-07-08,Yves Jongen,-0.6,0.4,ExoClock observation
-2020-07-08,Francois regembal,-7.776,1.4832,ETD
 2020-07-08,Alberto Tomatis,-1.5,0.6,ExoClock observation
-2020-07-08,Nikolaos Paschalis,0.4,1.3,ExoClock observation
 2020-07-08,Mauro Caló,-1.0,0.7,ExoClock observation
+2020-07-08,Francois regembal,-7.776,1.4832,ETD
 2020-07-08,Anaël wünsche,-0.72,0.6336,ETD
 2020-07-08,Yves jongen,-1.296,0.432,ETD
+2020-07-08,Nikolaos Paschalis,0.4,1.3,ExoClock observation
 2020-07-02,Yves Jongen,0.1,0.4,ExoClock observation
 2020-07-01,Yves jongen,-1.584,0.5904,ETD
 2020-06-25,Yves Jongen,-1.7,0.7,ExoClock observation
 2020-06-25,Adrian Jones,-0.4,0.6,ExoClock observation
-2020-06-24,Anaël wünsche,0.576,0.7632,ETD
 2020-06-24,Yves jongen,-1.728,0.5616,ETD
+2020-06-24,Anaël wünsche,0.576,0.7632,ETD
 2020-06-23,Martin Fowler,0.2,1.9,ExoClock observation
 2020-06-09,Roger Dymock,2.5,5.8,ExoClock observation
 2020-04-09,Yves Jongen,0.2,0.6,ExoClock observation
@@ -39,14 +39,14 @@ date,observer,oc,oce,source
 2019-09-28,Antonino brosio,0.576,1.7712,ETD
 2019-09-28,Lionel Rousselot,0.1,0.7,ExoClock observation
 2019-07-22,Claudio lopresti,-0.576,1.1664,ETD
-2019-07-15,J.plazas,-1.152,16.7616,ETD
-2019-07-15,F. lomoz,-6.336,1.944,ETD
 2019-07-15,Luis tremosa,7.344,0.9792,ETD
+2019-07-15,F. lomoz,-6.336,1.944,ETD
+2019-07-15,J.plazas,-1.152,16.7616,ETD
 2019-07-15,F. lomoz,9.072,2.2608,ETD
 2019-07-08,Giuseppe Marino,-2.2,0.6,ExoClock observation
-2019-07-08,Giuseppe marino,-3.456,0.72,ETD
 2019-07-08,Nick Sioulas,-0.8,1.0,ExoClock observation
 2019-07-08,Nick sioulas,-2.304,1.296,ETD
+2019-07-08,Giuseppe marino,-3.456,0.72,ETD
 2019-07-01,Fabio Salvaggio,0.8,0.7,ExoClock observation
 2019-07-01,Yves Jongen,2.5,0.6,ExoClock observation
 2019-07-01,Yves jongen,0.864,0.5904,ETD
@@ -62,9 +62,9 @@ date,observer,oc,oce,source
 2017-10-03,Öztürk et al. 2019,4.1,1.0,ExoClock literature
 2017-09-12,Öztürk et al. 2019,-4.0,0.7,ExoClock literature
 2017-09-10,"O. cooper, e. helou, j. lowenthal, r. o",-4.608,1.9008,ETD
-2017-08-29,"Gährken, bernd",-4.752,1.4256,ETD
-2017-08-29,Marc bretton,-0.864,0.5328,ETD
 2017-08-29,Anaël Wünsche,0.5,0.6,ExoClock observation
+2017-08-29,Marc bretton,-0.864,0.5328,ETD
+2017-08-29,"Gährken, bernd",-4.752,1.4256,ETD
 2017-08-22,"Cécile pouliquen, hervé lerat, clément dhamelincourt",-1.008,0.4464,ETD
 2017-08-22,Michael irzyk,-4.752,0.6336,ETD
 2017-07-30,J garlitz,1.728,0.6768,ETD
@@ -80,10 +80,10 @@ date,observer,oc,oce,source
 2016-08-21,Anaël Wünsche,3.4,0.9,ExoClock observation
 2016-08-14,Anaël Wünsche,2.4,0.3,ExoClock observation
 2016-08-14,Marc bretton,0.432,0.288,ETD
-2016-08-07,Anaël Wünsche,2.6,0.7,ExoClock observation
 2016-08-07,František lomoz,-4.896,1.728,ETD
-2016-08-07,Marc bretton,0.864,0.7632,ETD
 2016-08-07,František lomoz,-1.296,1.0224,ETD
+2016-08-07,Marc bretton,0.864,0.7632,ETD
+2016-08-07,Anaël Wünsche,2.6,0.7,ExoClock observation
 2016-06-28,Aaav astrofili valdera,-10.944,,ETD
 2016-06-14,Marc bretton,3.024,0.8352,ETD
 2016-06-07,Manfred raetz,-1.728,0.5904,ETD
@@ -100,13 +100,13 @@ date,observer,oc,oce,source
 2013-08-12,Benishek v.,2.736,0.7344,ETD
 2013-08-10,Benni p.,-3.456,0.9792,ETD
 2013-07-15,Koch  b.,-1.296,1.2096,ETD
-2013-07-15,Carreño a.,0.288,1.0368,ETD
 2013-07-15,Zibar m.,-0.432,1.008,ETD
+2013-07-15,Carreño a.,0.288,1.0368,ETD
 2013-07-08,Alonso e. d.,-1.44,2.2464,ETD
 2013-07-06,Benni p.,-1.008,0.936,ETD
 2012-10-11,Büchner a.,-1.008,1.1664,ETD
-2012-07-28,Sauer t.,-10.8,0.432,ETD
 2012-07-28,Ayiomamitis a.,-1.584,0.7776,ETD
+2012-07-28,Sauer t.,-10.8,0.432,ETD
 2012-07-21,Marino g.,-0.432,0.6336,ETD
 2012-07-05,Wilkin f.,-2.88,0.7488,ETD
 2011-08-28,Stan shadick,-1.728,0.5184,ETD
@@ -144,10 +144,10 @@ date,observer,oc,oce,source
 2008-07-30,Mendez,-18.864,1.728,ETD
 2008-07-28,Roe,-15.12,1.152,ETD
 2008-07-28,Roe,-20.16,1.44,ETD
-2008-07-23,Johannes ohlert,-1.152,0.3312,ETD
 2008-07-23,Ohlert j.,-1.152,0.3312,ETD
-2008-06-06,Kleidis,1.152,1.584,ETD
+2008-07-23,Johannes ohlert,-1.152,0.3312,ETD
 2008-06-06,Ayiomamitis,1.872,1.584,ETD
+2008-06-06,Kleidis,1.152,1.584,ETD
 2007-05-17,Alonso et al. 2008,-0.2,0.2,ExoClock literature
 2007-05-16,Corot,-1.296,0.2016,ETD
 2005-08-04,Best ii,0.576,4.32,ETD

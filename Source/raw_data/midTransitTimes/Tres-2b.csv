@@ -60,9 +60,9 @@ date,observer,oc,oce,source
 2019-07-16,Riccardo papini,-5.76,1.296,ETD
 2019-07-16,Yves jongen,0.288,2.4048,ETD
 2019-07-16,Yves Jongen,0.7,0.7,ExoClock observation
-2019-06-04,"Martin tylšar, martin mašek",-4.896,2.0592,ETD
 2019-06-04,Yves jongen,0.288,1.4112,ETD
 2019-06-04,Anaël Wünsche,0.7,1.0,ExoClock observation
+2019-06-04,"Martin tylšar, martin mašek",-4.896,2.0592,ETD
 2019-06-04,Yves Jongen,-0.4,1.3,ExoClock observation
 2019-06-04,Anael wunsche,0.864,1.152,ETD
 2019-05-30,Bruno christmann,-1.152,1.4688,ETD
@@ -89,8 +89,8 @@ date,observer,oc,oce,source
 2018-09-25,Adam nowak,32.256,4.4064,ETD
 2018-09-21,Yves Jongen,-0.5,1.7,ExoClock observation
 2018-09-20,Rene roy,-1.44,2.52,ETD
-2018-09-20,Yves jongen,0.864,1.8288,ETD
 2018-09-20,Pere guerra,-2.16,1.1232,ETD
+2018-09-20,Yves jongen,0.864,1.8288,ETD
 2018-08-14,David molina,-0.864,1.008,ETD
 2018-08-14,Janos,-9.648,15.2496,ETD
 2018-07-18,Wonseok kang,-3.6,0.6048,ETD
@@ -215,16 +215,16 @@ date,observer,oc,oce,source
 2013-06-06,Salisbury m.,-1.584,1.0512,ETD
 2013-05-07,Hose k.,-2.016,1.0512,ETD
 2013-04-27,"Kehusmaa p., harlingten c.",-2.448,1.0944,ETD
+2013-04-25,Hentunen v. p.,-3.456,0.7632,ETD
 2013-04-25,"Poddaný s., moudrá m.",-6.336,1.5552,ETD
 2013-04-25,Dittler u.,-9.36,4.4352,ETD
-2013-04-25,"Milada moudrá, stanislav poddaný",-8.352,2.4768,ETD
-2013-04-25,Hentunen v. p.,-3.456,0.7632,ETD
 2013-04-25,Nicolas e.,0.0,1.1952,ETD
+2013-04-25,"Milada moudrá, stanislav poddaný",-8.352,2.4768,ETD
 2012-10-30,Turner et al. 2016,-1.7,0.9,ExoClock literature
 2012-10-12,Sherman j.,-1.152,3.7872,ETD
 2012-10-07,Horta f. g.,-1.44,2.592,ETD
-2012-08-21,Centenera f.,-0.144,2.1168,ETD
 2012-08-21,Scarmato t.,-0.432,1.4112,ETD
+2012-08-21,Centenera f.,-0.144,2.1168,ETD
 2012-08-21,"Mravik j., grnja j.",0.288,3.7872,ETD
 2012-08-16,Scarmato t.,-5.472,0.9072,ETD
 2012-08-16,"Mravik j., grnja j.",4.752,2.7072,ETD
@@ -235,12 +235,12 @@ date,observer,oc,oce,source
 2012-05-29,Ayiomamitis a.,3.024,1.1088,ETD
 2012-05-29,Horta f. g.,-20.304,1.656,ETD
 2012-05-29,Brosio a.,-4.464,2.6928,ETD
-2012-05-24,Fernand emering,0.432,3.6432,ETD
 2012-05-24,Josep gaitan ,1.44,3.8016,ETD
-2012-05-24,Polák j.,-2.16,0.9072,ETD
+2012-05-24,Audejean m.,-1.728,1.5696,ETD
 2012-05-24,Trnka j.,-1.728,1.3248,ETD
 2012-05-24,Gaitan j.,3.168,1.6992,ETD
-2012-05-24,Audejean m.,-1.728,1.5696,ETD
+2012-05-24,Polák j.,-2.16,0.9072,ETD
+2012-05-24,Fernand emering,0.432,3.6432,ETD
 2012-05-20,Filip Walter,1.0,1.0,ExoClock observation
 2012-05-19,Poddaný s.,0.288,0.9936,ETD
 2012-04-07,Carreño a.,0.0,0.9648,ETD
@@ -327,11 +327,11 @@ date,observer,oc,oce,source
 2009-05-28,Naves,-7.488,1.872,ETD
 2009-05-28,Srdoc,-2.592,2.448,ETD
 2009-05-25,Kepler,-1.44,0.072,ETD
-2009-05-23,Srdoc,-3.024,2.16,ETD
-2009-05-23,Marino g.,-1.44,1.0656,ETD
-2009-05-23,Kepler,-1.44,0.0734,ETD
-2009-05-23,Marino g.,-2.016,1.0368,ETD
 2009-05-23,Marino,-0.72,1.296,ETD
+2009-05-23,Srdoc,-3.024,2.16,ETD
+2009-05-23,Kepler,-1.44,0.0734,ETD
+2009-05-23,Marino g.,-1.44,1.0656,ETD
+2009-05-23,Marino g.,-2.016,1.0368,ETD
 2009-05-21,Kepler,-1.44,0.0734,ETD
 2009-05-18,Gregorio,-1.008,1.44,ETD
 2009-05-18,Kepler,-1.44,0.072,ETD
@@ -386,8 +386,8 @@ date,observer,oc,oce,source
 2007-09-21,Raetz et al. 2014,-1.4,5.5,ExoClock literature
 2007-09-21,Raetz et al. 2009,2.3,3.0,ExoClock literature
 2007-09-16,Raetz et al. 2014,0.4,1.8,ExoClock literature
-2007-09-16,Raetz et al. 2014,3.6,5.5,ExoClock literature
 2007-09-16,"V. krushevska, yu. kuznietsova, m. andreev",0.432,0.864,ETD
+2007-09-16,Raetz et al. 2014,3.6,5.5,ExoClock literature
 2007-09-16,Raetz et al. 2009,1.2,1.6,ExoClock literature
 2007-09-16,Manfred raetz,-4.752,2.9376,ETD
 2007-09-11,"V. krushevska, yu. kuznietsova, m. andreev",-2.88,0.6768,ETD

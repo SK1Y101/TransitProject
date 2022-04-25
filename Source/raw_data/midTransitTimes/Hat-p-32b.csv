@@ -81,10 +81,10 @@ date,observer,oc,oce,source
 2018-10-14,Veli-pekka hentunen,1.296,0.6192,ETD
 2018-10-12,Anaël Wünsche,-0.8,1.0,ExoClock observation
 2018-10-12,Luca Naponiello,1.1,0.6,ExoClock observation
-2018-10-12,Anael wunsche,-0.432,1.0368,ETD
 2018-10-12,Nosáľ p.,0.288,,ETD
-2018-10-12,Patrick sogorb,0.72,1.1088,ETD
+2018-10-12,Anael wunsche,-0.432,1.0368,ETD
 2018-10-12,Školník v.,0.288,,ETD
+2018-10-12,Patrick sogorb,0.72,1.1088,ETD
 2018-09-30,Anaël Wünsche,-1.0,0.3,ExoClock observation
 2018-09-29,Marc bretton,-0.144,0.3024,ETD
 2018-09-14,Gerald rousseau,1.584,0.7344,ETD
@@ -136,11 +136,11 @@ date,observer,oc,oce,source
 2015-01-05,Klaus kretzschmar,1.728,2.1456,ETD
 2015-01-01,Wang et al. 2019,0.5,0.7,ExoClock literature
 2014-12-25,Emily wroblewski,-33.264,3.7728,ETD
-2014-12-21,Ramon naves nogues,3.456,1.1232,ETD
+2014-12-21,"A. marino, a, tomacelli, d. d",3.168,2.2896,ETD
 2014-12-21,Tregloan-Reed et al. 2018,-0.2,0.1,ExoClock literature
 2014-12-21,Schott hugo,8.352,3.4704,ETD
 2014-12-21,Fran campos,0.864,0.5616,ETD
-2014-12-21,"A. marino, a, tomacelli, d. d",3.168,2.2896,ETD
+2014-12-21,Ramon naves nogues,3.456,1.1232,ETD
 2014-12-21,Antonio Marino,4.3,1.3,ExoClock observation
 2014-12-17,Wang et al. 2019,1.0,1.2,ExoClock literature
 2014-12-06,Mark salisbury,0.144,0.4464,ETD
@@ -258,13 +258,13 @@ date,observer,oc,oce,source
 2011-10-04,Tregloan-Reed et al. 2018,0.1,0.2,ExoClock literature
 2011-10-02,Přibík v.,-1.872,2.2608,ETD
 2011-09-02,Hui m.,-2.736,3.7728,ETD
-2011-08-25,Tregloan-Reed et al. 2018,-0.2,0.3,ExoClock literature
-2011-08-25,Tregloan-Reed et al. 2018,0.1,0.3,ExoClock literature
 2011-08-25,Tregloan-Reed et al. 2018,0.2,0.3,ExoClock literature
 2011-08-25,Tregloan-Reed et al. 2018,0.3,0.7,ExoClock literature
+2011-08-25,Tregloan-Reed et al. 2018,-0.2,0.3,ExoClock literature
+2011-08-25,Tregloan-Reed et al. 2018,0.1,0.3,ExoClock literature
+2011-08-22,Trnka j.,3.888,0.8352,ETD
 2011-08-22,Zibar m.,2.736,1.224,ETD
 2011-08-22,Lomoz f.,-0.576,2.2176,ETD
-2011-08-22,Trnka j.,3.888,0.8352,ETD
 2011-08-22,"Moudrá m., sobotka p.",-3.6,1.44,ETD
 2011-08-07,Hui m.,6.768,2.2032,ETD
 2007-11-15,Zhao et al. 2014,0.1,0.1,ExoClock literature

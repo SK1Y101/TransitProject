@@ -27,11 +27,11 @@ date,observer,oc,oce,source
 2019-10-22,Martin Crow,2.0,1.7,ExoClock observation
 2019-09-09,Alberto Tomatis,3.2,4.3,ExoClock observation
 2019-08-25,Manfred raetz,7.2,1.8144,ETD
-2019-08-10,Marc bretton,4.176,1.1088,ETD
-2019-08-10,Alberto tomatis,-55.44,58.9104,ETD
-2019-08-10,Alberto tomatis,-3.024,7.6608,ETD
-2019-08-10,Anaël Wünsche,-0.4,1.7,ExoClock observation
 2019-08-10,Janos,-0.432,,ETD
+2019-08-10,Marc bretton,4.176,1.1088,ETD
+2019-08-10,Anaël Wünsche,-0.4,1.7,ExoClock observation
+2019-08-10,Alberto tomatis,-3.024,7.6608,ETD
+2019-08-10,Alberto tomatis,-55.44,58.9104,ETD
 2019-06-26,Yves Jongen,0.3,1.6,ExoClock observation
 2019-06-26,Yves jongen,7.056,2.0304,ETD
 2019-06-26,"F. salvaggio, g. marino, r. papini, m. banfi",4.896,3.024,ETD
@@ -73,9 +73,9 @@ date,observer,oc,oce,source
 2016-07-02,Enrique díez alonso,2.304,4.5936,ETD
 2016-06-17,"Francesco scaggiante, danilo zardin",2.304,2.2032,ETD
 2016-05-05,Matthieu bachschmidt,-20.88,14.3136,ETD
-2015-09-21,Josep gaitan,20.448,2.88,ETD
 2015-09-21,Marc bretton,6.912,1.4976,ETD
 2015-09-21,Marc bretton,6.192,1.0512,ETD
+2015-09-21,Josep gaitan,20.448,2.88,ETD
 2015-09-21,Anaël Wünsche,3.1,1.7,ExoClock observation
 2015-08-13,Paul benni,3.744,3.168,ETD
 2015-07-26,Anaël Wünsche,2.6,2.3,ExoClock observation

@@ -318,10 +318,10 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg", "m
     # check if sma or per are nan
     nonNan = ~archiveData.loc[1:, ["sma", "per"]].isna().any(axis=0)
     # if all semimajor axis values are non-Nan, remove the period section
-    if nonNan[0]:
+    if nonNan[0] and "per" in params:
         params.remove("per")
     # else, if all period values are non-Nan, remove semimajor axis.
-    elif nonNan[1]:
+    elif nonNan[1] and "sma" in params:
         params.remove("sma")
     # otherwise, this will just use a mixture of the two
 
@@ -447,13 +447,13 @@ def _simulateTransitTimes_(simArray, params, transits=1000, prec=1/31557600.0):
     # ensure our timestep is resonable: Take the smallest orbital period:
     # if it is very small, step in units of 0.1 periods.
     # if very large, step in units of 0.001 periods.
-    # if niehter, step hourly
+    # if neither, step hourly
     timestep = max(p_orb*0.001, min(p_orb*0.1, 1/8760))
     # fetch the position from the worker ID
     pos = curProc()._identity[0] if curProc().name != "MainProcess" else None
     # simulate for the chosen number of transits
     TT = _simulateTT_(sim, timestep, transits, pos, prec)
-    # and return the transit times, ensuring they start at zero
+    # and return the transit times
     return np.array(TT)
 
 def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tqdmLeave=True, returnAll=False):

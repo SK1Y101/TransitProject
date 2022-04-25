@@ -29,10 +29,10 @@ date,observer,oc,oce,source
 2020-09-10,Vojtěch Školník,-0.8,0.7,ExoClock observation
 2020-09-09,Školník v.,2.736,0.6336,ETD
 2020-08-20,Yves Jongen,0.0,0.4,ExoClock observation
-2020-08-19,F. lomoz,3.744,1.3248,ETD
-2020-08-19,"M. tylšar, m. mašek",1.008,1.44,ETD
 2020-08-19,Juanjo salamero,2.592,0.5184,ETD
 2020-08-19,Yves jongen,3.744,0.504,ETD
+2020-08-19,F. lomoz,3.744,1.3248,ETD
+2020-08-19,"M. tylšar, m. mašek",1.008,1.44,ETD
 2020-08-12,Expediční ccd skupina,2.88,0.7632,ETD
 2020-08-12,Expediční ccd skupina,6.336,0.72,ETD
 2020-07-29,"Gährken, bernd",5.616,0.7632,ETD
@@ -41,8 +41,8 @@ date,observer,oc,oce,source
 2019-12-06,Anaël Wünsche,1.5,1.0,ExoClock observation
 2019-12-06,Anaël wünsche,4.032,0.7488,ETD
 2019-11-29,Alessandro Nastasi,-0.3,0.9,ExoClock observation
-2019-11-29,Jens jacobsen,3.024,0.36,ETD
 2019-11-29,Mark salisbury,2.88,0.9504,ETD
+2019-11-29,Jens jacobsen,3.024,0.36,ETD
 2019-11-08,Anaël Wünsche,-0.2,0.6,ExoClock observation
 2019-11-08,Anaël wünsche,2.448,0.6192,ETD
 2019-10-25,Iakovos Strikis,0.9,1.4,ExoClock observation
@@ -108,10 +108,10 @@ date,observer,oc,oce,source
 2016-09-23,Pierre le cam,0.864,0.8928,ETD
 2016-09-09,Marc deldem,2.16,1.0512,ETD
 2016-09-09,Marc Deldem,1.9,1.0,ExoClock observation
-2016-09-02,František lomoz,3.456,0.5904,ETD
-2016-09-02,Öztürk et al. 2019,0.7,0.4,ExoClock literature
 2016-09-02,Marc bretton,1.728,0.5328,ETD
+2016-09-02,Öztürk et al. 2019,0.7,0.4,ExoClock literature
 2016-09-02,František lomoz,1.152,0.7632,ETD
+2016-09-02,František lomoz,3.456,0.5904,ETD
 2016-09-02,Anaël Wünsche,0.4,0.4,ExoClock observation
 2016-08-31,Eduardo fernández-lajús,1.728,0.3024,ETD
 2016-08-28,Bruno et al. 2018,-0.4,2.9,ExoClock literature
@@ -196,8 +196,8 @@ date,observer,oc,oce,source
 2013-10-27,Ayiomamitis a.,1.44,0.6336,ETD
 2013-10-25,Benni p.,0.72,0.6768,ETD
 2013-10-20,Mancini et al. 2017,0.3,0.2,ExoClock literature
-2013-10-20,"Sokov e. n., klimanov s.",-0.432,0.7056,ETD
 2013-10-20,Horta f. g.,-0.432,1.1808,ETD
+2013-10-20,"Sokov e. n., klimanov s.",-0.432,0.7056,ETD
 2013-10-06,Zibar m.,0.576,0.9792,ETD
 2013-10-04,Hays b.,2.736,0.3312,ETD
 2013-10-02,Alkema m.,-8.352,1.4112,ETD
