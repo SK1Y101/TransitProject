@@ -7,10 +7,10 @@ date,observer,oc,oce,source
 2021-02-28,Manfred Raetz,2.3,1.3,ExoClock observation
 2021-02-28,Manfred raetz,1.008,1.3824,ETD
 2021-02-24,F. lomoz,-5.616,3.8016,ETD
-2021-02-24,Manfred raetz,-0.144,1.8144,ETD
-2021-02-24,Fabio mortari,-8.064,4.2912,ETD
 2021-02-24,Manfred Raetz,0.0,1.9,ExoClock observation
+2021-02-24,Fabio mortari,-8.064,4.2912,ETD
 2021-02-24,Fabio Mortari,-5.0,4.3,ExoClock observation
+2021-02-24,Manfred raetz,-0.144,1.8144,ETD
 2021-02-24,"Francesco scaggiante, danilo zardin,marco fiaschi",-3.168,4.0608,ETD
 2021-01-12,Mohammad talafha ,4.032,4.5072,ETD
 2021-01-08,"Francesco scaggiante, danilo zardin,marco fiaschi",0.144,2.6208,ETD
@@ -34,9 +34,9 @@ date,observer,oc,oce,source
 2016-02-19,Marc bretton,-4.32,2.016,ETD
 2016-02-19,Anaël Wünsche,-1.3,2.0,ExoClock observation
 2016-01-11,Wang et al. 2019,1.4,2.0,ExoClock literature
-2014-03-11,"Mravik j., grnja j.",5.04,4.6512,ETD
 2014-03-11,František lomoz,7.056,9.5328,ETD
 2014-03-11,Zibar m.,-5.616,2.3616,ETD
+2014-03-11,"Mravik j., grnja j.",5.04,4.6512,ETD
 2014-01-23,Horta f. g.,19.872,3.0384,ETD
 2013-12-03,Bachschmidt m.,-1.44,1.7424,ETD
 2013-01-11,Shadic s.,-0.0,1.3248,ETD

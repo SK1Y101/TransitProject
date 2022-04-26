@@ -174,14 +174,15 @@ def runMinimalSim(target, startTime="2000-01-01", years=4, unperturbed=False):
         target: The transiting planet to simulate.
         startTime: The date to start.
         years: The number of years to simulate for.
-        unperturbed: Whether we should only simulate the target planet. '''
+        unperturbed: Whether we should only simulate the target planet.
+        extraPlanet: Include an extra planet in the simulation. '''
     # construct fake commanline inputs
     class args:
         pass
     args = args()
     args.years = args.simYears = years
-    args.useError = args.limitError = False
     args.precision = float(1E-6 / 31557600)
+    args.limitError = args.useError = False
     args.workers = None
 
     # fetch the parameters for the system
@@ -195,14 +196,15 @@ def runMinimalSim(target, startTime="2000-01-01", years=4, unperturbed=False):
     TTV, TT = runTTVPipeline(df, params, args)
 
     # as we only used one sim setup, fetch the timing
-    TTV, TT = TTV[0], TT[0]
+    TTV, TTVl, TTVu = tp.avMinMax(TTV, 0)
+    TT = TT[0]
 
     # fetch only the TTV within the observation window
-    endWindow = np.where(TT > years)[0][0]
-    TTV, TT = TTV[:endWindow], TT[:endWindow]
+    endWindow = np.where(TT > years)[0][0] if max(TT) > years else len(TT)
+    TTV, TTVl, TTVu, TT = TTV[:endWindow], TTVl[:endWindow], TTVu[:endWindow], TT[:endWindow]
 
     # and return the TTV and times
-    return TTV, TT
+    return TTV, TTVl, TTVu, TT
 
 # define the simulation parameters
 # choice of mass, period or semimajor axis, eccentiricty, inclination, argument of periapsis

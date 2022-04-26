@@ -10,8 +10,8 @@ date,observer,oc,oce,source
 2021-11-20,Paolo Arcangelo Matassa,3.0,2.9,ExoClock observation
 2021-11-13,Andre Kovacs,0.4,3.2,ExoClock observation
 2021-11-05,Giorgio Baj,0.5,0.9,ExoClock observation
-2021-11-05,Robert Roth,1.0,0.3,ExoClock observation
 2021-11-05,Giovanni Battista Casalnuovo,-0.7,0.7,ExoClock observation
+2021-11-05,Robert Roth,1.0,0.3,ExoClock observation
 2021-08-30,Veli-pekka hentunen,18.0,0.9504,ETD
 2021-02-25,Fabio mortari,19.296,2.5488,ETD
 2021-02-25,Fabio Mortari,0.4,2.3,ExoClock observation
@@ -85,9 +85,9 @@ date,observer,oc,oce,source
 2014-09-17,Benni p.,9.648,0.7056,ETD
 2014-01-22,Jacques m.,7.92,1.0368,ETD
 2014-01-11,Salisbury m.,8.064,0.6912,ETD
-2013-12-27,Trnka j.,7.488,1.2384,ETD
 2013-12-27,Lomoz f.,8.352,1.9008,ETD
 2013-12-27,Zibar m.,7.92,0.72,ETD
+2013-12-27,Trnka j.,7.488,1.2384,ETD
 2013-12-16,"Scaggiante f., zardin d.",3.6,1.08,ETD
 2013-12-01,Bachschmidt m.,8.208,0.792,ETD
 2013-12-01,Nicolas e.,8.64,0.6624,ETD
@@ -107,8 +107,8 @@ date,observer,oc,oce,source
 2012-10-10,Salisbury m.,6.048,1.3536,ETD
 2012-09-21,Aupperle m.,12.96,1.9728,ETD
 2012-01-31,Nickel o.,3.456,1.5696,ETD
-2011-12-10,Bourdanov a.,8.496,1.9296,ETD
 2011-12-10,Bourdanov a.,0.288,2.808,ETD
+2011-12-10,Bourdanov a.,8.496,1.9296,ETD
 2011-12-02,Dvorak s.,3.744,1.872,ETD
 2011-12-02,Garlitz j.,2.16,0.6048,ETD
 2011-11-25,Lopesino j.,-1.152,2.4048,ETD
@@ -121,15 +121,15 @@ date,observer,oc,oce,source
 2011-09-30,Hečko a.,0.72,6.1632,ETD
 2011-09-30,Brát l.,4.896,0.8208,ETD
 2011-09-30,Fabrizio marchi e roberto garofalo,6.912,2.2608,ETD
+2011-09-30,Carrion j. a.,6.912,2.2608,ETD
 2011-09-30,Zibar m.,4.896,1.3248,ETD
 2011-09-30,Bachschmidt m.,4.896,1.4112,ETD
-2011-09-30,Carrion j. a.,6.912,2.2608,ETD
 2010-12-10,"Jean strajnic, thomas kmieckowiak and all",2.16,1.2816,ETD
 2010-12-06,"Samuel durrance, stacy irwin",3.744,0.4176,ETD
 2010-11-25,Naves r.,2.88,0.9072,ETD
 2010-11-14,Snaevarr gudmundsson,-3.888,1.8288,ETD
-2010-11-14,Kučáková h.,4.176,1.4688,ETD
 2010-11-14,Scarmato t.,8.496,1.0656,ETD
+2010-11-14,Kučáková h.,4.176,1.4688,ETD
 2010-11-07,Sada et al. 2012,-2.2,0.6,ExoClock literature
 2010-10-11,Shadick s.,4.032,0.6624,ETD
 2010-10-11,Dvorak s.,5.04,1.008,ETD
@@ -138,9 +138,9 @@ date,observer,oc,oce,source
 2009-11-15,Mancini et al. 2015,-1.6,1.5,ExoClock literature
 2009-11-07,Wang et al. 2014,0.9,0.7,ExoClock literature
 2009-10-19,Brát l.,0.576,2.1456,ETD
-2009-09-08,Kučáková h.,0.432,1.872,ETD
-2009-09-08,Brát l.,3.168,0.9648,ETD
 2009-09-08,"Klos m., trnka j.",0.432,0.8784,ETD
+2009-09-08,Brát l.,3.168,0.9648,ETD
+2009-09-08,Kučáková h.,0.432,1.872,ETD
 2009-01-28,Ogmen,-0.288,12.96,ETD
 2008-12-07,Wang et al. 2014,0.2,0.2,ExoClock literature
 2008-11-29,Gary,0.72,1.44,ETD
