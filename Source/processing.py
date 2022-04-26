@@ -90,9 +90,9 @@ def fetchMidTransitTimes(exoplanet):
     # convert to capitalised with no space for exopclock
     exoclockTarget = exoplanet.capitalize().replace(" ", "")
     # if the target does not contain a distinction between name and number, attempt to do so
-    if "-" not in exoclockTarget:
-        numidx = exoclockTarget.index(tp.findFloats(exoclockTarget)[0])
-        exoclockTarget = exoclockTarget[:numidx]+"-"+exoclockTarget[numidx:]
+    #if "-" not in exoclockTarget:
+    #    numidx = exoclockTarget.index(tp.findFloats(exoclockTarget)[0])
+    #    exoclockTarget = exoclockTarget[:numidx]+"-"+exoclockTarget[numidx:]
     # fetch the datafil name for if this planet is available
     dataFile = "/raw_data/midTransitTimes/{}.csv".format(exoclockTarget)
     # load if available
@@ -143,14 +143,15 @@ def checkEphemerides(transitdf, systemdf):
     # offset per orbit in seconds
     offset = lineparam[0] * period
     print("Linear fit suggests it should be: {}.".format(tp.totimestring(period+offset)))
-    # update the midtransit times with the linefit
-    #transitdf["oc"] -= linefit(dateAsFloat)
 
-def plotMidtransits(transitdf, fitfunc, addSim=False):
-    ''' plot the midtransit times to a nice chart.
-        df: The dataframe of midtransit times.'''
+def plotMidtransits(transitdf, fitfunc=None, addSim=False):
+    ''' plot the midtransit times to a nice chart. Also include the residuals to a fit for a function if given
+        transitdf: The dataframe of midtransit times.
+        fitfunc: The function of the fit model
+        addSim: Whether to include the predicted TTv times given the current system layout. '''
     # fetch the sources list
     sources = sorted(transitdf["source"].unique())
+
     # ensure the transits are sorted by date
     transitdf = transitdf.sort_values(by="date", ascending=True)
 
@@ -158,35 +159,8 @@ def plotMidtransits(transitdf, fitfunc, addSim=False):
     dateAsFloat = dateToYearFloat(transitdf["date"])
     dateAsDate = pd.to_datetime(transitdf["date"])
     dateminmax = [min(dateAsFloat), max(dateAsFloat)]
-    # ensure we have one datapoints per hour
+    # ensure we have one datapoint per hour
     daterange = np.arange(*dateminmax, 1/24)
-
-    # compute the fit
-    fitfunc, _, _ = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"], fitfunc,
-                             # ensure the fit it reasonable
-                             bounds = ((-np.inf, -np.inf, -np.inf), (np.inf, np.inf, np.inf)))
-
-    # plot laout
-    fig = plt.figure()
-    ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
-    [ax1, ax2] = ax
-    # plot the grey central area
-    ax1.plot(dateminmax, [0, 0], "lightgray")
-    ax2.plot(dateminmax, [0, 0], "lightgray")
-    # plot the model
-    ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
-
-    def chisq(obs, exp, err):
-        return np.sum((obs-exp)**2 / (err ** 2))
-    # print the chi squared value
-    print("Chi squared value of data:", chisq(transitdf["oc"], [0]*len(transitdf), transitdf["oce"]))
-    print("Chi squared value of fit:", chisq(transitdf["oc"]-fitfunc(dateAsFloat), [0]*len(transitdf), transitdf["oce"]))
-    # plot each datapoint
-    for source in sources:
-        data = transitdf.loc[transitdf["source"]==source]
-        dateAsFloat = dateToYearFloat(data["date"])
-        ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
-        ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
 
     # if we are including the simulation
     if addSim:
@@ -201,12 +175,39 @@ def plotMidtransits(transitdf, fitfunc, addSim=False):
         import simulationPipeline as simP
 
         # and run the simulation
-        TTV, TT = simP.runMinimalSim(planetName, startTime, simYears, False)
+        TTV, TTVl, TTVu, TT = simP.runMinimalSim(planetName, startTime, simYears, False)
 
         # Transit times are in years, convert to datestamps
         TT = pd.to_datetime(startTime) + pd.to_timedelta(TT * 31557600, unit="s")
 
-        # and plot
+    # plot laout
+    fig = plt.figure()
+    if fitfunc:
+        ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
+        [ax1, ax2] = ax
+        # plot the zeros on the main
+        ax1.plot(dateminmax, [0, 0], "lightgray")
+        # plot the zero area on the residuals
+        ax2.plot(dateminmax, [0, 0], "lightgray")
+
+        # plot the model
+        ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
+    else:
+        ax1 = fig.add_subplot()
+        ax1.plot(dateminmax, [0, 0], "lightgray")
+        ax = [ax1]
+
+    # plot each datapoint
+    for source in sources:
+        data = transitdf.loc[transitdf["source"]==source]
+        dateAsFloat = dateToYearFloat(data["date"])
+        ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
+        # if we have a fit function
+        if fitfunc:
+            ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+
+    # and plot the simulated TTV if needed
+    if addSim:
         ax1.plot(TT, TTV / 60, label="Simulated TTV")
 
     #dates = pd.to_datetime(df["date"])
@@ -217,7 +218,8 @@ def plotMidtransits(transitdf, fitfunc, addSim=False):
         axs.set_ylabel("O-C (minutes)")
         axs.set_xlabel("Date of observation")
         axs.legend()
-    ax2.set_title("Residuals from fit")
+    if fitfunc:
+        ax2.set_title("Residuals from fit")
     plt.show()
 
 # execte the program if called
@@ -237,9 +239,37 @@ if __name__ == "__main__":
     # check the ephemerides
     checkEphemerides(transitdf, systemdf)
 
-    # fitting function
-    def fitfunc(x, a, b, c):
-        return a*np.sin(x*(2*np.pi/b)+c)
+    # fit a sine function to the data as a test
+    dateAsFloat = dateToYearFloat(transitdf["date"])
+    x, y, yerr = dateAsFloat, transitdf["oc"], transitdf["oce"]
+    ''' fit x, y, yerr to a model. '''
+
+    def fitModel(x, y, yerr, model, guess=None, bounds=None):
+        # model arguments
+        ar = model.__code__.co_argcount-1
+        # initial guess if needed
+        guess = guess if guess else np.ones(ar)
+        # create an error function
+        errFunc = lambda guess, x, y, yerr: (y-model(x, *guess)) / yerr
+        # fit the function
+        solution = scipy.optimize.least_squares(errFunc, guess, args=(x, y, yerr), bounds=bounds)
+        # and create an output function
+        outFunc = lambda x: model(x, *solution.x)
+        # return the function and the fit parameters
+        return outFunc, solution.x
+
+    # experimental model
+    def model(x, magnitude, period, phase):
+        return magnitude * np.sin(x * 2 * np.pi / period + phase)
+
+    # fit the data to the model
+    #initialGuess = [max(y), 0.25*(max(x)-min(x)), 0, 0]
+    #out = scipy.optimize.least_squares(errFunc, initialGuess, args=(x, y, yerr), bounds=((0, 0, -2*np.pi, -1000), (max(abs(y))*100, abs(max(x)-min(x))*100, 2*np.pi, 1000)))
+    try:
+        fitfunc, fitparams = fitModel(x, y, yerr, model, guess=[max(y), 0.25*(max(x)-min(x)), 0],
+                                    bounds=((0, 0, -2*np.pi), (max(abs(y))*2, 365.25 * 1E3, 2*np.pi)))
+    except:
+        fitfunc=None
 
     # plot the data with the fitting residuals
     plotMidtransits(transitdf, fitfunc, args.addSim)

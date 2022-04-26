@@ -1,4 +1,5 @@
 date,observer,oc,oce,source
+2022-04-23,Jean-Fabien Barrois,-1.9,1.4,ExoClock observation
 2022-03-22,Yves Jongen,-1.1,0.6,ExoClock observation
 2022-03-10,Yves Jongen,-0.9,0.6,ExoClock observation
 2022-03-09,Yves jongen,-2.016,0.5328,ETD
@@ -48,8 +49,8 @@ date,observer,oc,oce,source
 2020-02-11,Yves Jongen,0.7,0.6,ExoClock observation
 2020-02-10,Yves jongen,-5.04,0.5616,ETD
 2020-02-04,Yves Jongen,-1.5,0.9,ExoClock observation
-2020-02-03,Roberto koropecki,-0.432,2.8512,ETD
 2020-02-03,Yves jongen,-2.736,0.8352,ETD
+2020-02-03,Roberto koropecki,-0.432,2.8512,ETD
 2020-01-31,Yves Jongen,-0.5,0.6,ExoClock observation
 2020-01-30,Yves jongen,-1.584,0.6768,ETD
 2020-01-27,Yves Jongen,-1.3,0.6,ExoClock observation
@@ -131,5 +132,5 @@ date,observer,oc,oce,source
 2010-01-02,Tifner f.,-1.296,1.1952,ETD
 2009-12-03,Huitson et al. 2013,0.3,0.9,ExoClock literature
 2008-12-16,Lendl et al. 2013,-0.2,0.3,ExoClock literature
-2008-11-04,Hebb et al. 2010,-0.1,0.3,ExoClock literature
 2008-11-04,"Hebb l. et al, 2010",-1.152,0.288,ETD
+2008-11-04,Hebb et al. 2010,-0.1,0.3,ExoClock literature

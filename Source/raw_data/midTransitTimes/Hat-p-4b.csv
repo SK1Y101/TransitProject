@@ -1,4 +1,5 @@
 date,observer,oc,oce,source
+2022-04-19,Manfred Raetz,-0.2,1.2,ExoClock observation
 2022-04-16,Leon Bewersdorff,-2.5,4.3,ExoClock observation
 2021-04-05,David Wright,-2.1,2.4,ExoClock observation
 2021-04-05,Martin Crow,-2.4,2.3,ExoClock observation
@@ -6,19 +7,19 @@ date,observer,oc,oce,source
 2020-07-07,Anaël wünsche,-9.792,1.7424,ETD
 2020-07-07,Anaël Wünsche,-3.6,3.2,ExoClock observation
 2020-05-19,Alberto garcía sánchez,-1.728,1.8432,ETD
-2020-03-26,John Savage,-3.0,3.0,ExoClock observation
 2020-03-26,Manfred Raetz,1.0,1.9,ExoClock observation
+2020-03-26,John Savage,-3.0,3.0,ExoClock observation
 2020-03-25,Manfred raetz,2.592,2.1312,ETD
 2019-04-30,Veli-pekka hentunen,-5.184,11.4048,ETD
 2019-03-16,Anaël Wünsche,3.4,3.2,ExoClock observation
-2019-03-15,Jean plazas,26.208,,ETD
 2019-03-15,Anael wunsche,3.888,2.232,ETD
+2019-03-15,Jean plazas,26.208,,ETD
 2018-07-17,Wonseok kang,1.872,24.8832,ETD
 2018-04-22,Marc bretton,-1.728,1.368,ETD
-2018-04-19,Yves Jongen,0.2,1.7,ExoClock observation
-2018-04-19,Matthieu bachschmidt,50.4,2.7504,ETD
-2018-04-19,Alessandro Marchini,-0.2,3.5,ExoClock observation
 2018-04-19,Yves jongen,3.744,2.0448,ETD
+2018-04-19,Yves Jongen,0.2,1.7,ExoClock observation
+2018-04-19,Alessandro Marchini,-0.2,3.5,ExoClock observation
+2018-04-19,Matthieu bachschmidt,50.4,2.7504,ETD
 2017-05-30,Mark salisbury,-1.584,1.4112,ETD
 2017-04-11,David molina,-5.904,4.6944,ETD
 2017-04-08,Marc bretton,1.296,0.8352,ETD
@@ -33,17 +34,17 @@ date,observer,oc,oce,source
 2015-05-21,Stan shadick,-1.872,3.528,ETD
 2015-03-09,Jaroslav trnka,-7.344,2.5056,ETD
 2014-04-16,Claudio Lopresti,5.1,5.8,ExoClock observation
-2013-04-02,Veli-pekka hentunen,12.672,,ETD
 2013-04-02,Hentunen v. p.,-4.752,1.5984,ETD
+2013-04-02,Veli-pekka hentunen,12.672,,ETD
 2012-06-03,Shadic s.,16.416,1.9728,ETD
 2012-05-19,Trnka j.,-2.592,3.6576,ETD
-2012-04-09,Shadic s.,0.432,1.7856,ETD
 2012-04-09,Shadic s.,-3.456,2.448,ETD
+2012-04-09,Shadic s.,0.432,1.7856,ETD
 2012-03-28,Fernand emering,-21.024,1.8,ETD
 2011-05-18,Dvorak s.,7.632,3.4128,ETD
 2011-05-03,Trnka j.,0.288,2.0448,ETD
-2010-04-22,Ayiomamitis a.,6.768,4.0464,ETD
 2010-04-22,Lomoz f.,-3.312,3.1104,ETD
+2010-04-22,Ayiomamitis a.,6.768,4.0464,ETD
 2010-04-19,Zambelli r.,1.152,1.9584,ETD
 2010-03-29,Winn et al. 2011,-0.4,1.1,ExoClock literature
 2010-03-19,Shadick s.,18.72,4.1616,ETD

@@ -122,9 +122,9 @@ def _fetchSystem_(target, startTime="2000-01-01"):
     # define the allowed parameters
     params=["mass", "sma", "per", "ecc", "inc", "arg", "mean"]
     # if the target does not contain a distinction between name and number, attempt to do so
-    if "-" not in target:
-        numidx = target.index(findFloats(target)[0])
-        target = target[:numidx]+"-"+target[numidx:]
+    #if "-" not in target:
+    #    numidx = target.index(findFloats(target)[0])
+    #    target = target[:numidx]+"-"+target[numidx:]
     # fetch the central body name
     star = target[:-1]
     # add errors to the paramaters, and map to archive names
@@ -293,9 +293,9 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg", "m
         archiveData = _fetchCustomSystem_(file, exoplanet)
     else:
         # if the target does not contain a distinction between name and number, attempt to do so
-        if "-" not in exoplanet:
-            numidx = exoplanet.index(findFloats(exoplanet)[0])
-            exoplanet = exoplanet[:numidx]+"-"+exoplanet[numidx:]
+        #if "-" not in exoplanet:
+        #    numidx = exoplanet.index(findFloats(exoplanet)[0])
+        #    exoplanet = exoplanet[:numidx]+"-"+exoplanet[numidx:]
         # convert to capitalised with no space for exopclock
         exoclockTarget = exoplanet.capitalize().replace(" ", "")
         # convert name to uppercase (leaving planet delimiter lowercase) and remove spaces for the archive
@@ -318,11 +318,13 @@ def fetchParams(exoplanet, params=["mass", "sma", "per", "ecc", "inc", "arg", "m
     # check if sma or per are nan
     nonNan = ~archiveData.loc[1:, ["sma", "per"]].isna().any(axis=0)
     # if all semimajor axis values are non-Nan, remove the period section
-    if nonNan[0] and "per" in params:
-        params.remove("per")
+    if nonNan[0]:
+        if "per" in params:
+            params.remove("per")
     # else, if all period values are non-Nan, remove semimajor axis.
-    elif nonNan[1] and "sma" in params:
-        params.remove("sma")
+    elif nonNan[1]:
+        if "sma" in params:
+            params.remove("sma")
     # otherwise, this will just use a mixture of the two
 
     # return the archive dataFrame
