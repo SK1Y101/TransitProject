@@ -128,12 +128,12 @@ This is a general overview of the "Write Code" step above, and is of course subj
 - [ ] Processing & Fitting
   - [ ] Determine a simpler model that can produce the sinusoid for a given system layout
     - [ ] Ensure this is accurate to system simulation
-    - [ ] Should be decently fast to run
-    - [ ] Is possible to give to an MCMC fitter
-  - [ ] Linear fit to the visual data
+    - [x] Should be decently fast to run
+    - [x] Is possible to give to an MCMC fitter
+  - [x] Linear fit to the visual data
     - [x] Fit a line to the data
     - [x] compare against exoclock ephemerides
-    - [ ] Search through Residuals for TTV
+    - [x] Search through Residuals for TTV
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [ ] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
   - [ ] Refactor code
@@ -141,17 +141,17 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [ ] Determine accuracy of fit to known data.
   - [ ] Probably run Fourier analysis.
   - [ ] Determine a way of pulling out key frequency terms.
-  - [ ] Map key information to system parameters. ie: frequency to orbital period mapping.
+  - [x] Map key information to system parameters. ie: frequency to orbital period mapping.
   - [ ] Determine if the known parameters of the system adequately map to the observed variation
     - [ ] If not, determine the parameters of the perturbation.
   - [ ] Refactor code
 - [ ] Re-simulate
   - [ ] Use analysis to construct a range of possible system layouts (See Analysis)
-  - [ ] Simulate each system layout (See Simulation step)
+  - [x] Simulate each system layout (See Simulation step)
   - [ ] Re-perform analysis of simulation, determine which, if any, simulated system layouts fit the data.
   - [ ] Refactor code
 - [ ] Pretty outputs
-  - [ ] Graphical representations of all system layouts.
+  - [x] Graphical representations of all system layouts.
   - [ ] Annotated charts of any fit data.
   - [ ] Nice system parameter layout à la [wikipedia](https://en.wikipedia.org/wiki/Earth).
   - [ ] Refactor code
