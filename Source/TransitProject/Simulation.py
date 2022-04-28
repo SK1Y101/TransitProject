@@ -87,10 +87,13 @@ def _fetchCustomSystem_(file, exoplanet):
     cols = nestToLinear([[cols, cols+"_e1", cols+"_e2"] for cols in list(conv.keys())])
     # for each column
     for col in cols:
+        # if that column is not in the csv file
+        if col not in data:
+            continue
         # for each value in the column
         for v, val in enumerate(data[col]):
             # fetch all the numbers in that row
-            floats = findFloats(val)
+            floats = findFloats(str(val))
             # if there are none, move on
             if not floats:
                 continue
@@ -108,10 +111,18 @@ def _fetchCustomSystem_(file, exoplanet):
                 val = val[:val.index(f)]
             # update the dataframe
             data.loc[v, [col]] = thisval
+    # make all empty parameters nan
+    for col in nestToLinear([[cols, cols+"_e1", cols+"_e2"] for cols in params]):
+        if col not in data:
+            data.loc[:, col] = np.NaN
     # fetch all the columns that are meant to be numeric
     numCol = data.columns[data.columns!="name"]
     # convert to numeric
     data.loc[:, numCol] = data.loc[:, numCol].apply(lambda x : pd.to_numeric(x, "coerce"))
+    # fetch the position of the target planet in the dataframe
+    targetIdx = np.where(data["name"]==exoplanet)[0][0]
+    # ensure it is the second value (as star is first)
+    data = moveRowToIdx(data, targetIdx, 1)
     # return the dataframe
     return data
 
@@ -477,13 +488,20 @@ def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tq
         return TT
     return avMinMax(TT, 0)
 
+def planetParams(df):
+    ''' return the parameters for each planet in the dataframe.
+        returns an array of planets, each with (sma, per, reduced mass, ecc, inc, arg)'''
+    return np.array([_planetVars_(df.iloc[0], df.iloc[idx], sum(df["mass"])) for idx in df.index[1:]])
+
 def _planetVars_(star, planet, mTot):
+    ''' fetch all simulation parameters for a planet given keplerian motion. '''
     # gravitational parameter
     Gmu = (planet["mass"]+star["mass"])*6.67408E-11*1.98855E30
     # we require a period or semimajor axis
     if ("sma" not in planet) and ("per" not in planet):
         raise Exception("{} requires a defined semimajor axis, or period. Has neither!".format(planet["name"]))
-    hassma, hasper = ~np.isnan(planet["sma"]), ~np.isnan(planet["per"])
+    # if the value of sma or period is either nan or negative, assume we don't have them
+    hassma, hasper = ~(np.isnan(planet["sma"]) or planet["sma"]<=0), ~(np.isnan(planet["per"]) or planet["per"]<=0)
     # if we have a semimajor axis
     if hassma:
         # convert to metres
@@ -527,6 +545,52 @@ def _outerTTV_(target, perturber):
     # compute the predicted TTV
     return m2 * e2 * p2 * (a1 / a2)**3
 
+def _continuedToFloat_(cont=[1]):
+    ''' convert a continued fraction to a float. '''
+    # start with a numerator 1, and denominator zero
+    n, d = 1, 0
+    # work backwards through the list
+    for v in cont[::-1]:
+        # itteratively find each new term
+        n, d = d+n*v, n
+    # we can only give the precision up to the length of the continued fraction
+    return n/d
+
+def _continuedFrac_(val, terms=20):
+    ''' convert a value to a continued fraction up to the given number of terms. '''
+    # converts to a list of coefficients and next terms
+    def ratio_to_cont(val, terms):
+        # up to the precision limit
+        for x in range(terms+1):
+            # fetch the current fractional part
+            q, r = divmod(val, 1)
+            # yield this term, and the remainder of val
+            yield (q, val)
+            # if we have fully divided, stop here
+            if r==0:
+                return
+            # compute the inverse of the remaining part
+            val = 1/(val-q)
+    # if the value passed was a list
+    if isinstance(val, list):
+        # convert to a float
+        return _continuedToFloat_(val)
+    # fetch the continued fraction expansion for the value
+    cont = [int(coef[0]) for coef in list(ratio_to_cont(val, terms))]
+    # return
+    return cont
+
+def _continuedToApprox_(cont, cutoff=10):
+    ''' convert a continued fraction to an approximation by searching for large terms '''
+    # convert to array
+    cont = np.array(cont)
+    # find large terms
+    if (cont>=cutoff).any():
+        # cut the continued fraction at the first of those terms
+        cont = cont[:np.where(cont>=cutoff)[0][0]]
+    # return the approximation if one was possible
+    return list(cont)
+
 def _resonanceOrder_(target, perturber):
     ''' Compute the resonance order (j) of two planets.
         target: The transiting planet to observe for TTV of.
@@ -534,26 +598,32 @@ def _resonanceOrder_(target, perturber):
     # decompose variables
     p1 = target[1]
     p2 = perturber[1]
-    # greatest common divisor
-    gcd = np.gcd(int(p1), int(p2))
-    # decompose to (any) common multiples
-    j = int(p1 / gcd), int(p2 / gcd)
+    # compute periods as a continued fraction
+    cont = _continuedFrac_(p2 / p1)
+    # find an approximation for the continued fraction
+    acont = _continuedToFloat_(_continuedToApprox_(cont))
+    # decompose to a ratio of the form a:b
+    j = acont.as_integer_ratio()
     # an nth order resonance has value m:m-n, and has j=(m-n) * n ie: n=1, first order resonance
     order = max(j) - min(j)
     # return
-    return order, min(j) * order
+    return order, min(j)
 
 def _resonantTTV_(target, perturber):
     ''' Compute the predicted magnitude of a TTV from a perturbing planet in a resonant orbit.
         target: The transiting planet to observe for TTV of.
         perturber: The perturbing planet that will cause a TTV.'''
     # decompose variables
-    a1, p1, m1, e1, i1, arg1 = target
-    a2, p2, m2, e2, i2, arg2 = perturber
+    a1, p1, mu1, e1, i1, arg1 = target
+    a2, p2, mu2, e2, i2, arg2 = perturber
     # resonance order.
     j = _resonanceOrder_(target, perturber)[1]
     # compute predicted TTV
-    return (p2 / (4.5*j)) * (m1 / (m1+m2))
+    TTV = (p2 / (4.5*j)) * (mu1 / (mu1+mu2))
+    # compute the libration period
+    TT = 0.5 * j**(-4/3) * mu2**(-2/3) * p2
+    # return
+    return TTV, TT
 
 def predictTTVMagnitude(df):
     ''' Calculate the predicted TTV Magnitude due to planets in the system.
@@ -561,15 +631,18 @@ def predictTTVMagnitude(df):
     # compute the reduced mass for each object
     mTotal = sum(df["mass"])
     # and fetch the rquired variables
-    planets = np.array([_planetVars_(df.iloc[0], df.iloc[idx], mTotal) for idx in df.index[1:]])
+    planets = planetParams(df)
     # reference to the target planet
     target, TTV, TTVt = planets[0], [], []
     # compute the TTV due to each planet
     for otherPlanet in planets[1:]:
         # compute any resonances
-        TTV.append(_resonantTTV_(target, otherPlanet))
+        resonanceMag, resonanceTime = _resonantTTV_(target, otherPlanet)
+        # and the magnitude and timescale
+        TTV.append(resonanceMag)
+        TTVt.append(resonanceTime)
         # and the resonance timescale
-        TTVt.append(int(target[1]) * int(otherPlanet[1]) / np.gcd(int(target[1]), int(otherPlanet[1])))
+        #TTVt.append(int(target[1]) * int(otherPlanet[1]) / np.gcd(int(target[1]), int(otherPlanet[1])))
         # if the semimajor axis of the target is larger
         if target[0] > otherPlanet[0]:
             TTV.append(_innerTTV_(target, otherPlanet))
@@ -580,7 +653,7 @@ def predictTTVMagnitude(df):
         TTVt.append(otherPlanet[1])
     # show an inacuracy warning if there are multiple planets in the system
     if len(planets) > 2:
-        print("Warning! TTV Prediction may be innacurate due to system containing more than two planets!")
+        print("Warning! TTV Prediction may be innacurate due to system containing {} planets!".format(len(planets)))
     # compute which TTV effect was largest
     largesteffect = np.array(TTV).argmax()
     # return the TTV prediction and the timescale of the largest effect
@@ -628,7 +701,7 @@ def predictBCEffect(df):
     mTotal = sum(df["mass"])
     mStar = df.iloc[0]["mass"] / mTotal
     # fetch the planetary system variables
-    planets = np.array([_planetVars_(df.iloc[0], df.iloc[idx], mTotal) for idx in df.index[1:]])
+    planets = planetParams(df)
     # fetch the centre of mass offset due to all other planets in the system.
     com = sum(planets[1:, 0] * (1+planets[1:, 3]) * planets[1:, 2]) / (sum(planets[1:, 2]) + mStar)
     # compute the true anomaly the transiting planet must travel to correct for the com shift

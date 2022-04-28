@@ -186,16 +186,20 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
         ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
         [ax1, ax2] = ax
         # plot the zeros on the main
-        ax1.plot(dateminmax, [0, 0], "lightgray")
+        ax1.plot(dateminmax, [0, 0], "gray")
         # plot the zero area on the residuals
-        ax2.plot(dateminmax, [0, 0], "lightgray")
+        ax2.plot(dateminmax, [0, 0], "gray")
 
         # plot the model
         ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
     else:
         ax1 = fig.add_subplot()
-        ax1.plot(dateminmax, [0, 0], "lightgray")
+        ax1.plot(dateminmax, [0, 0], "gray")
         ax = [ax1]
+
+    # plot the standard deviation
+    sig = np.std(transitdf["oc"])
+    ax1.fill_between(dateminmax, [-sig, -sig], [sig, sig], color="lightgray", label="Standard deviation of data")
 
     # plot each datapoint
     for source in sources:
@@ -265,11 +269,29 @@ if __name__ == "__main__":
     # fit the data to the model
     #initialGuess = [max(y), 0.25*(max(x)-min(x)), 0, 0]
     #out = scipy.optimize.least_squares(errFunc, initialGuess, args=(x, y, yerr), bounds=((0, 0, -2*np.pi, -1000), (max(abs(y))*100, abs(max(x)-min(x))*100, 2*np.pi, 1000)))
-    try:
-        fitfunc, fitparams = fitModel(x, y, yerr, model, guess=[max(y), 0.25*(max(x)-min(x)), 0],
-                                    bounds=((0, 0, -2*np.pi), (max(abs(y))*2, 365.25 * 1E3, 2*np.pi)))
-    except:
-        fitfunc=None
+    #try:
+    fitfunc, fitparams = fitModel(x, y, yerr, model, guess=[max(y), 0.25*(max(x)-min(x)), 0],
+                                bounds=((0, 0, 0), (max(abs(y))*2, 365.25 * 1E3, 2*np.pi)))
+
+    '''import pymc3 as pm
+    with pm.Model() as transitModel:
+        # data
+        data = pm.Data("data", y)
+        # parameters
+        mag = pm.Uniform("mag", lower=0, upper=1000)
+        #per = pm.Uniform("per", lower=0.1, upper=1000)
+        per=fitparams[1]
+        phase = fitparams[2]#pm.Uniform("phase", lower=-2*np.pi, upper=2*np.pi)
+        # expected outcome
+        mu = mag * np.sin(x * 2 * np.pi / per + phase)
+        # observation
+        obs = pm.Normal("y", mu=mu, sigma=1, observed=y)
+
+    map_estimate = pm.find_MAP(model=transitModel)
+    print(map_estimate)'''
+
+    #except:
+    #    fitfunc=None
 
     # plot the data with the fitting residuals
     plotMidtransits(transitdf, fitfunc, args.addSim)
