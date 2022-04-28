@@ -135,20 +135,28 @@ def addRow(df, newRow):
     df.loc[len(df.index)] = newRow
     return df
 
+def moveRowToIdx(df, old, new):
+    ''' Move a given row to a given position in a dataframe.
+        df: The dataframe to manipulate
+        old: The row index to move.
+        new: The row index to move to the data to. '''
+    # fetch the dataframe without the target index
+    olddf = df.copy().drop(old)
+    # fetch the row to move
+    row = df.copy().drop([x for x in df.index if x!=old])
+    # change it's index to be inbetween the values we want to insert at
+    row.index = [new-0.5]
+    # insert the row and return
+    return pd.concat([olddf, row], ignore_index=False).sort_index().reset_index(drop=True)
+
 def moveRowToTop(df, targetIdx=None):
     ''' Move a given row to the top of a dataframe.
         df: The dataframe to manipulate
         targetIdx: The row index to move to the top '''
     if targetIdx==None:
         targetIdx = max(df.index)
-    # append an empty row
-    df = addRow(df, np.nan)
-    # shift down
-    df = df.shift(1)
-    # copy target to first row
-    df.loc[0] = df.loc[targetIdx+1]
-    # remove the old value and return
-    return df[df.index != targetIdx+1]
+    # this is a special case of move to index
+    return moveRowToIdx(df, targetIdx, 0)
 
 def readFromFile(fileName):
     ''' Read the contenmt of a file using the standard python functions.

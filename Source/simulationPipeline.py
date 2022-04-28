@@ -141,7 +141,7 @@ def plotSimulation(TTVMinMaxAv, df, args):
     orbitscale = df.iloc[1]["per"]*(1 if asYears else 365.25)
     # plot day/year number
     ax2 = ax.twiny()
-    ax2.set_xlabel("Time".format("Years" if asYears else "Days"))
+    ax2.set_xlabel("Time [{}]".format("Years" if asYears else "Days"))
     ax2.xaxis.set_label_position("bottom")
     ax2.xaxis.tick_bottom()
     ax2.xaxis.set_minor_locator(AutoMinorLocator())
@@ -219,21 +219,23 @@ if __name__ == "__main__":
     # fetch the parameters for the system
     df, params = ts.fetchParams(args.planet, forceUse=args.forceUse, startTime=args.startTime)
 
-    # compute the predicted TTV
-    predTTV = ts.predictTTVMagnitude(df)
-    # convert to useful value
-    print("The predicted TTV for {} is on the order of {}".format(df.iloc[1]["name"], tp.totimestring(predTTV[0])))
-    print("The predicted TTV is cyclic on the order of {}".format(tp.totimestring(predTTV[1])))
+    # predict TTV if there are additonal planets
+    if len(df) > 2:
+        # compute the predicted TTV
+        predTTV = ts.predictTTVMagnitude(df)
+        # convert to useful value
+        print("The predicted TTV for {} is on the order of {}".format(df.iloc[1]["name"], tp.totimestring(predTTV[0])))
+        print("The predicted TTV is cyclic on the order of {}".format(tp.totimestring(predTTV[1])))
 
-    # compute the effect due to GR
-    GRTTV = ts.predictGREffect(df, args.years)
-    print("\nThe effect due to GR is on the order of {:0.2f} {}".format(*tp.tosi(GRTTV[0], "s")))
-    print("The effect due to GR is cyclic on the order of {}".format(tp.totimestring(GRTTV[1])))
+        # compute the effect due to GR
+        GRTTV = ts.predictGREffect(df, args.years)
+        print("\nThe effect due to GR is on the order of {:0.2f} {}".format(*tp.tosi(GRTTV[0], "s")))
+        print("The effect due to GR is cyclic on the order of {}".format(tp.totimestring(GRTTV[1])))
 
-    # compute the effect due to barycentre shift
-    BCTTV = ts.predictBCEffect(df)
-    print("\nThe effect due to Barycentre shift is on the order of {:0.2f} {}".format(*tp.tosi(BCTTV[0], "s")))
-    print("The effect due to Barycentre shift is cyclic on the order of {}".format(tp.totimestring(BCTTV[1])))
+        # compute the effect due to barycentre shift
+        BCTTV = ts.predictBCEffect(df)
+        print("\nThe effect due to Barycentre shift is on the order of {:0.2f} {}".format(*tp.tosi(BCTTV[0], "s")))
+        print("The effect due to Barycentre shift is cyclic on the order of {}".format(tp.totimestring(BCTTV[1])))
 
     # if the planet is to be simulated alone, do that here
     if args.unperturbed:
