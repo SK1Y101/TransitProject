@@ -274,3 +274,8 @@ def fetchExoplanetArchive(table="pscomppars", loc="/raw_data/", stale_time=7):
             saveDataFrame(rtable, loc)
         # call the function with an animated loading output
         animated_loading_function(fetchData, name="Fetching Exoplanet Archive {} Data".format(table.capitalize()))
+
+def fetchTESSData(loc="/raw_data/", stale_time=7):
+    ''' Fetch exoplanet midtransit data from TESS.
+        loc:        The directory to store the table.
+        stale_time: How long to consider the local data fit for use. '''
