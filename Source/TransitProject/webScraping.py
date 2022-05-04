@@ -275,13 +275,16 @@ def fetchExoplanetArchive(table="pscomppars", loc="/raw_data/", stale_time=7):
         # call the function with an animated loading output
         animated_loading_function(fetchData, name="Fetching Exoplanet Archive {} Data".format(table.capitalize()))
 
-def fetchTESSData(loc="/raw_data/", stale_time=7):
+def fetchTESSData(loc="/raw_data/", stale_time=7, target=None):
     ''' Fetch exoplanet midtransit data from TESS.
         loc:        The directory to store the table.
         stale_time: How long to consider the local data fit for use. '''
     from . import tesslc as tlc
     # load the pscomppars table
     df = loadDataFrame("/raw_data/pscomppars.csv")
+    # if we are doing a test run, and only considering one star
+    if target:
+        df = df[df["hostname"] == target.capitalize()]
     # for each star
     for star in tqdm(df["hostname"].unique()):
         # fetch the planets in the system
