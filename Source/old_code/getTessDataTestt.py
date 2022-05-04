@@ -5,7 +5,7 @@ import matplotlib.pylab as plt
 tid = 9725627#261136679#20096620#281541555
 
 for sector in range(1, 100):
-    print("Searching sector {:02}".format(sector))
+    print("Searching sector {:04}".format(sector))
     try:
         url = 'https://archive.stsci.edu/hlsps/tess-data-alerts/hlsp_tess-data-'+\
           'alerts_tess_phot_{:011}-s{:02}_tess_v1_lc.fits'.format(tid, sector)
