@@ -1,24 +1,23 @@
-''' Use Juliet to fetch TESS ligthcurve data
-
-The light curve and target pixel files have the following file naming convention:
-
-hlsp_tess-spoc_tess_phot_<tid>-<sector>_tess_v1_<type>.fits
-
-<tid> = The full, 16-digit, zero-padded TIC ID.
-<sector> = The Sector represented as a 4-digit, zero-padded string, preceded by an 's', e.g., 's0026' for Sector 26.
-<type> = 'lc' for the light curve and 'tp' for the target pixel files.'''
+''' Use Juliet to fetch TESS ligthcurve data '''
+# python modules
 
 from astroquery.mast import Observations
-from matplotlib import pylab as plt
+from matplotlib import pylab as plt #testing purposes
 from astropy.table import join
-from astropy import units as u
 from astropy.io import fits
 import juliet, re, os
+import pandas as pd
 import numpy as np
+
+# my modules
+from . import *
+
+def findFloats(txt):
+    return re.findall(r"[+-]? *(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", txt)
 
 def _mastQuery_(target):
     # start with no target
-    target_name=""
+    target_name = ""
     # check if the object passed was a tess object
     match = re.match("^(tess|tic) ?(\d+)$", target)
     # if it was
@@ -46,10 +45,19 @@ def _downloadlc_(obs, fluxType="PDCSAP_FLUX"):
     # fetch the flux and flux error, normalised by the median
     flux = data[fluxType][mask] / np.median(data[fluxType][mask])
     ferr = data[fluxType+"_ERR"][mask] / np.median(data[fluxType][mask])
+    # compute the units for each column we're searching
+    cols = [np.where(np.array(data.columns.names) == reqCol)[0][0] for reqCol in ["TIME", fluxType, fluxType+"_ERR"]]
+    units = [data.columns.units[col] for col in cols]
     # return the data
-    return time, flux, ferr
+    return time, flux, ferr, units
 
-def lightcurves(target):
+def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
+    # filename for this target
+    lcfname = loc+target.replace(" ","_")+"_lc.csv"
+    # check if we have local and non-stale data to use
+    if checkForFile(lcfname, stale_time):
+        # load the dataframe and return
+        return loadDataFrame(lcfname)
     # fetch mast observations
     obs = _mastQuery_(target)
     # if we had any
@@ -64,21 +72,43 @@ def lightcurves(target):
         res.sort("obs_id")
         # ensure mast knows we are using tess data
         res["obs_collection"] = "TESS"
-        # fetch all the data products that end with the lightcurve filetype
-        mask = np.array([fname.endswith("lc.fits") for fname in res["productFilename"]])
+        # fetch all the lightcurves that aren't the fast-lc
+        mask = np.array([fname.endswith("lc.fits") and not fname.endswith("fast-lc.fits") for fname in res["productFilename"]])
         res = res[mask]
+        # output arrays
+        times, fluxes, ferrs, units = np.array([]), np.array([]), np.array([]), ()
         # for each file found
         for i, item in enumerate(res):
-            # ensure we are using the tess data
+            # ensure we are using the tess data, and the lc, not the
             if item["obs_collection_"] == "TESS":
                 # attempt to fetch the lightcurve data
                 lcdata = _downloadlc_(item)
                 # if it was successful
                 if lcdata:
-                    # unpack times, flux, and flux errors
-                    t, f, ferr = lcdata
-                    # plot temporarily
-                    plt.errorbar(t, f, yerr=ferr, fmt=".")
-                    plt.show()
+                    # unpack times, flux, flux errors, and units
+                    t, f, ferr, unit = lcdata
+                    # append to respective arrays
+                    times = np.append(times, t)
+                    fluxes = np.append(fluxes, f)
+                    ferrs = np.append(ferrs, ferr)
+                    units = unit
+        # create dataframe from the data
+        df = pd.DataFrame()
+        df["Time"], df["Flux"], df["Flux_error"] = times, fluxes, ferrs
+        # convert our times from bjd - 2457000 to bjd
+        bjdoffset = findFloats(unit[0])[0].split(" ")[1]
+        df["Time"] += int(bjdoffset)
+        # save the dataframe
+        saveDataFrame(df, lcfname)
+        # and return it too
+        return df
+    # if there was no observation data
+    raise Exception("No LightCurve Data for {}".format(target))
 
-lightcurves("tic 281541555")
+def tessMidTransits(target, loc, stale_time):
+    # ensure the tess lightcurve folder exists
+    makeFolder(loc)
+    # fetch the lightcurve data
+    df = _lightcurves_(target, loc, stale_time)
+    # fit transits to the lightcurve data using juliet
+    #midTransitTimes = fitTransits(df["Times"])
