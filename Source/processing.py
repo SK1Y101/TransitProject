@@ -183,15 +183,18 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
     # plot laout
     fig = plt.figure()
     if fitfunc:
-        ax = fig.add_gridspec(2, hspace=0).subplots(sharex=True)
-        [ax1, ax2] = ax
+        ax = fig.add_gridspec(len(fitfunc)+1 if isinstance(fitfunc, list) else 2, hspace=0).subplots(sharex=True)
+        ax1, ax2 = ax[:2]
         # plot the zeros on the main
         ax1.plot(dateminmax, [0, 0], "gray")
-        # plot the zero area on the residuals
-        ax2.plot(dateminmax, [0, 0], "gray")
 
         # plot the model
-        ax1.plot(daterange, fitfunc(daterange), "b", label="Model fit")
+        if isinstance(fitfunc, list):
+            for i, ff in enumerate(fitfunc):
+                ax1.plot(daterange, ff(daterange), label=ff.__name__)
+                ax[i+1].plot(dateminmax, [0, 0], "gray")
+        else:
+            ax1.plot(daterange, fitfunc(daterange), "b", label=fitfunc.__name__)
     else:
         ax1 = fig.add_subplot()
         ax1.plot(dateminmax, [0, 0], "gray")
@@ -208,7 +211,11 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
         ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
         # if we have a fit function
         if fitfunc:
-            ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+            if isinstance(fitfunc, list):
+                for i, ff in enumerate(fitfunc):
+                    ax[i+1].errorbar(pd.to_datetime(data["date"]), data["oc"]-ff(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+            else:
+                ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
 
     # and plot the simulated TTV if needed
     if addSim:
@@ -223,7 +230,11 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
         axs.set_xlabel("Date of observation")
         axs.legend()
     if fitfunc:
-        ax2.set_title("Residuals from fit")
+        if isinstance(fitfunc, list):
+            for i, ff in enumerate(fitfunc):
+                ax[i+1].set_title("Residuals from {}".format(ff.__name__))
+        else:
+            ax2.set_title("Residuals from fit")
     plt.show()
 
 # execte the program if called
@@ -245,7 +256,7 @@ if __name__ == "__main__":
 
     # fit a sine function to the data as a test
     dateAsFloat = dateToYearFloat(transitdf["date"])
-    x, y, yerr = dateAsFloat, transitdf["oc"], transitdf["oce"]
+    x, y, yerr = np.array(dateAsFloat), transitdf["oc"].to_numpy(), transitdf["oce"].to_numpy()
     ''' fit x, y, yerr to a model. '''
 
     def fitModel(x, y, yerr, model, guess=None, bounds=None):
@@ -270,28 +281,46 @@ if __name__ == "__main__":
     #initialGuess = [max(y), 0.25*(max(x)-min(x)), 0, 0]
     #out = scipy.optimize.least_squares(errFunc, initialGuess, args=(x, y, yerr), bounds=((0, 0, -2*np.pi, -1000), (max(abs(y))*100, abs(max(x)-min(x))*100, 2*np.pi, 1000)))
     #try:
-    fitfunc, fitparams = fitModel(x, y, yerr, model, guess=[max(y), 0.25*(max(x)-min(x)), 0],
-                                bounds=((0, 0, 0), (max(abs(y))*2, 365.25 * 1E3, 2*np.pi)))
+    #fitfunc, fitparams = fitModel(x, y, yerr, model, guess=[max(y), 0.25*(max(x)-min(x)), 0],
+    #                            bounds=((0, 0, 0), (max(abs(y))*2, 365.25 * 1E3, 2*np.pi)))
 
-    '''import pymc3 as pm
+    #fitfunc.__name__ = "Scipy fit"
+
+    import pymc3 as pm
+    import arviz as az
+
     with pm.Model() as transitModel:
         # data
         data = pm.Data("data", y)
         # parameters
         mag = pm.Uniform("mag", lower=0, upper=1000)
-        #per = pm.Uniform("per", lower=0.1, upper=1000)
-        per=fitparams[1]
-        phase = fitparams[2]#pm.Uniform("phase", lower=-2*np.pi, upper=2*np.pi)
+        per = pm.Uniform("per", lower=0, upper=1000)
+        phase = pm.Normal("phase", mu=np.pi, sigma=1.5)
         # expected outcome
-        mu = mag * np.sin(x * 2 * np.pi / per + phase)
+        mu = model(x, mag, per, phase) #mag * pm.math.sin(x * (2 * np.pi / per) + phase)
         # observation
         obs = pm.Normal("y", mu=mu, sigma=1, observed=y)
 
-    map_estimate = pm.find_MAP(model=transitModel)
-    print(map_estimate)'''
+    with transitModel:
+        trace = pm.sample(1000, init="adapt_diag", return_inferencedata=False, chains=4)
+        az.plot_trace(trace, var_names=["mag", "per", "phase"])
+        print(pm.summary(trace))
 
-    #except:
-    #    fitfunc=None
+    import corner
+    samples = np.vstack([trace[k] for k in ["mag", "per", "phase"]]).T
+    corner.corner(samples, labels=["mag", "per", "phase"])
+
+
+    print("Model estimates")
+    params = []
+    for i, item in enumerate(["Magnitude", "Period", "Phase"]):
+        mcmc = np.percentile(samples[:, i], [16, 50, 84])
+        q = np.diff(mcmc)
+        print("-{:12}: {:0.3f} ± {:0.3f}".format(item, mcmc[1], q[0], q[1]))
+        params.append(mcmc[1])
+
+    fitfunc2 = lambda x: model(x, *params)
+    fitfunc2.__name__ = "MCMC fit"
 
     # plot the data with the fitting residuals
-    plotMidtransits(transitdf, fitfunc, args.addSim)
+    plotMidtransits(transitdf, [fitfunc2], args.addSim)

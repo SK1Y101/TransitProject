@@ -135,10 +135,11 @@ This is a general overview of the "Write Code" step above, and is of course subj
     - [x] compare against exoclock ephemerides
     - [x] Search through Residuals for TTV
   - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
-  - [ ] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
+  - [x] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
   - [ ] Refactor code
 - [ ] Analysis
   - [ ] Determine accuracy of fit to known data.
+    - [ ] BIC Fit from bayesian analysis
   - [ ] Probably run Fourier analysis.
   - [ ] Determine a way of pulling out key frequency terms.
   - [x] Map key information to system parameters. ie: frequency to orbital period mapping.

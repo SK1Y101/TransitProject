@@ -586,8 +586,12 @@ def _continuedToApprox_(cont, cutoff=10):
     cont = np.array(cont)
     # find large terms
     if (cont>=cutoff).any():
+        # terms greater than the cutoff
+        idx = np.where(cont>=cutoff)[0]
+        # if the first term of the fraction is zero, use either the second cutoff point or the whole fraction
+        idx = idx[0] if cont[0] != 0 else idx[1] if len(idx)>1 else len(cont)
         # cut the continued fraction at the first of those terms
-        cont = cont[:np.where(cont>=cutoff)[0][0]]
+        cont = cont[:idx]
     # return the approximation if one was possible
     return list(cont)
 
@@ -607,7 +611,7 @@ def _resonanceOrder_(target, perturber):
     # an nth order resonance has value m:m-n, and has j=(m-n) * n ie: n=1, first order resonance
     order = max(j) - min(j)
     # return
-    return order, min(j)
+    return order, min(j)*order
 
 def _resonantTTV_(target, perturber):
     ''' Compute the predicted magnitude of a TTV from a perturbing planet in a resonant orbit.
@@ -619,9 +623,9 @@ def _resonantTTV_(target, perturber):
     # resonance order.
     j = _resonanceOrder_(target, perturber)[1]
     # compute predicted TTV
-    TTV = (p2 / (4.5*j)) * (mu1 / (mu1+mu2))
+    TTV = (p1 / (4.5*j)) * (mu2 / (mu1+mu2))
     # compute the libration period
-    TT = 0.5 * j**(-4/3) * mu2**(-2/3) * p2
+    TT = 0.5 * j**(-4/3) * mu1**(-2/3) * p1
     # return
     return TTV, TT
 
@@ -641,7 +645,6 @@ def predictTTVMagnitude(df):
         # and the magnitude and timescale
         TTV.append(resonanceMag)
         TTVt.append(resonanceTime)
-        # and the resonance timescale
         #TTVt.append(int(target[1]) * int(otherPlanet[1]) / np.gcd(int(target[1]), int(otherPlanet[1])))
         # if the semimajor axis of the target is larger
         if target[0] > otherPlanet[0]:
