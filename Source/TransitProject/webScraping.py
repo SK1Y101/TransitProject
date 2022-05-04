@@ -190,7 +190,7 @@ def fetchETDData(url, sourceName="", stale_time=7):
         # add the source name
         transit_data["source"]=sourceName
         # convert the date from HJD to YYYY-MM-DD, and the OC from days to minutes
-        transit_data["date"] = HJDtoDate(transit_data["date"]).dt.strftime('%Y-%m-%d')
+        transit_data["date"] = HJDtoDate(transit_data["date"]).dt.strftime('%Y-%m-%d %H:%M%S')
         transit_data["oc"] = round(pd.to_numeric(transit_data["oc"])*1440,4)
         transit_data["oce"] = round(pd.to_numeric(transit_data["oce"])*1440,4)
         # some rows in the dataset were coppied incorrectly, ie: HAT-P-13b has a BJD error of 113 days,
