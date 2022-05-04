@@ -51,9 +51,9 @@ def _downloadlc_(obs, fluxType="PDCSAP_FLUX"):
     # return the data
     return time, flux, ferr, units
 
-def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
+def fetchTESSLC(target, loc="/raw_data/tess_data/", stale_time=7, throwError=False):
     # filename for this target
-    lcfname = loc+target.replace(" ","_")+"/raw_lc.csv"
+    lcfname = loc+target.replace(" ","_").lower()+"/raw_lc.csv"
     # check if we have local and non-stale data to use
     if checkForFile(lcfname, stale_time):
         # load the dataframe and return
@@ -75,8 +75,8 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
         # fetch all the lightcurves that aren't the fast-lc
         mask = np.array([fname.endswith("lc.fits") and not fname.endswith("fast-lc.fits") for fname in res["productFilename"]])
         res = res[mask]
-        # output arrays
-        times, fluxes, ferrs, units = np.array([]), np.array([]), np.array([]), ()
+        # output arrays (and default bjd offset)
+        times, fluxes, ferrs, unit = np.array([]), np.array([]), np.array([]), (2457000,)
         # for each file found
         for i, item in enumerate(res):
             # ensure we are using the tess data, and the lc, not the
@@ -105,7 +105,8 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
         # and return it too
         return df
     # if there was no observation data
-    raise Exception("No LightCurve Data for {}".format(target))
+    if throwError:
+        raise Exception("No LightCurve Data for {}".format(target))
 
 def _lcData_(target, lc, loc="/raw_data/tess_data/"):
     # fetch the directory for this target
@@ -119,13 +120,13 @@ def _lcData_(target, lc, loc="/raw_data/tess_data/"):
     # Define all of the dictionaries
     priors, times, fluxes, fluxes_error = {}, {}, {}, {}
     # Same priors as for the transit-only fit, but we now add the GP priors:
-    params = ['P_p1','t0_p1','r1_p1','r2_p1','q1_TESS','q2_TESS','ecc_p1','omega_p1',\
+    params = ['r1_p1','r2_p1','q1_TESS','q2_TESS','ecc_p1','omega_p1',\
               'rho', 'mdilution_TESS', 'mflux_TESS', 'sigma_w_TESS', \
               'GP_sigma_TESS', 'GP_rho_TESS']
-    dists = ['normal','normal','uniform','uniform','uniform','uniform','fixed','fixed',\
+    dists = ['uniform','uniform','uniform','uniform','fixed','fixed',\
              'loguniform', 'fixed', 'normal', 'loguniform', \
              'loguniform', 'loguniform']
-    hyperps = [[4.7,0.1], [1329.9,0.1], [0.,1], [0.,1.], [0., 1.], [0., 1.], 0.0, 90.,\
+    hyperps = [[0.,1], [0.,1.], [0., 1.], [0., 1.], 0.0, 90.,\
                [100., 10000.], 1.0, [0.,0.1], [0.1, 1000.], \
                [1e-6, 1e6], [1e-3, 1e3]]
     # Populate the priors dictionary:
@@ -133,7 +134,7 @@ def _lcData_(target, lc, loc="/raw_data/tess_data/"):
         priors[param] = {}
         priors[param]['distribution'], priors[param]['hyperparameters'] = dist, hyperp
     # setup the dictionaries for juliet
-    times['TESS'], fluxes['TESS'], fluxes_error['TESS'] = t,f,ferr
+    times['TESS'], fluxes['TESS'], fluxes_error['TESS'] = t, f, ferr
     # ensure the folder exists
     makeFolder(folder)
     # and return the juliet stuff
@@ -148,9 +149,11 @@ def tessMidTransits(target, loc="/raw_data/tess_data/", stale_time=7):
     df = _lightcurves_(target, loc, stale_time)
     # fetch the juliet lightcurve data
     lcdata = _lcData_(target, df, loc)
-    print(lcdata)
-
-    results = lcdata.fit()#sampler="dynesty", nthreads=12)
+    # fetch the phases
+    P,t0 =  4.7423729 ,  2457376.68539
+    phases = juliet.utils.get_phases(df["time"], P, t0)
+    # fetch the results
+    results = lcdata.fit(sampler="dynesty")#, nthreads=4)
     # Extract full model:
     transit_plus_GP_model = results.lc.evaluate('TESS')
 
@@ -158,38 +161,39 @@ def tessMidTransits(target, loc="/raw_data/tess_data/", stale_time=7):
     transit_model = results.lc.model['TESS']['deterministic']
 
     # GP part of the model:
-    gp_model = results.lc.model['TESS']['GP']
+    gp_model = np.array(results.lc.model['TESS']['GP'])
 
     # Now plot. First preambles:
+    import matplotlib.gridspec as gridspec
     fig = plt.figure(figsize=(12,4))
     gs = gridspec.GridSpec(1, 2, width_ratios=[2,1])
     ax1 = plt.subplot(gs[0])
 
     # Plot data
-    ax1.errorbar(dataset.times_lc['TESS'], dataset.data_lc['TESS'], \
-                 yerr = dataset.errors_lc['TESS'], fmt = '.', alpha = 0.1)
+    ax1.errorbar(lcdata.times_lc['TESS'], lcdata.data_lc['TESS'], yerr = lcdata.errors_lc['TESS'], fmt = '.', alpha = 0.1)
 
     # Plot the (full, transit + GP) model:
-    ax1.plot(dataset.times_lc['TESS'], transit_plus_GP_model, color='black',zorder=10)
+    ax1.plot(lcdata.times_lc['TESS'], transit_plus_GP_model, color='black',zorder=10)
 
-    ax1.set_xlim([1328,1350])
-    ax1.set_ylim([0.96,1.04])
-    ax1.set_xlabel('Time (BJD - 2457000)')
+    ax1.set_xlim([2457000 + 1328, 2457000 + 1350])
+    ax1.set_ylim([0.96, 1.04])
+    ax1.set_xlabel('Time (BJD)')
     ax1.set_ylabel('Relative flux')
 
     ax2 = plt.subplot(gs[1])
 
-    # Now plot phase-folded lightcurve but with the GP part removed:
-    ax2.errorbar(phases, dataset.data_lc['TESS'] - gp_model, \
-                 yerr = dataset.errors_lc['TESS'], fmt = '.', alpha = 0.3)
+    # Now plot phase-folded lightcurve but with the GP part removed
+    removed_gp = np.array(lcdata.data_lc['TESS']) - np.array(gp_model)
+    ax2.errorbar(np.array(phases), np.array(lcdata.data_lc['TESS'] - gp_model), yerr = np.array(lcdata.errors_lc['TESS']), fmt = '.', alpha = 0.3)
+    #ax2.errorbar(phases, lcdata.data_lc['TESS'], yerr = lcdata.errors_lc['TESS'], fmt = '.', alpha = 0.3)
 
     # Plot transit-only (divided by mflux) model:
     idx = np.argsort(phases)
-    ax2.plot(phases[idx],transit_model[idx], color='black',zorder=10)
+    ax2.plot(phases[idx], transit_model[idx], color='black',zorder=10)
     ax2.yaxis.set_major_formatter(plt.NullFormatter())
     ax2.set_xlabel('Phases')
-    ax2.set_xlim([-0.03,0.03])
-    ax2.set_ylim([0.96,1.04])
+    ax2.set_xlim([-0.03, 0.03])
+    ax2.set_ylim([0.96, 1.04])
     # fit transits to the lightcurve data using juliet
     #midTransitTimes = fitTransits(df["Times"])
     #plt.errorbar(t, f, yerr=ferr, fmt='.', alpha=0.2)
