@@ -53,7 +53,7 @@ def _downloadlc_(obs, fluxType="PDCSAP_FLUX"):
 
 def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
     # filename for this target
-    lcfname = loc+target.replace(" ","_")+"_lc.csv"
+    lcfname = loc+target.replace(" ","_")+"/raw_lc.csv"
     # check if we have local and non-stale data to use
     if checkForFile(lcfname, stale_time):
         # load the dataframe and return
@@ -98,6 +98,8 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
         # convert our times from bjd - 2457000 to bjd
         bjdoffset = findFloats(unit[0])[0].split(" ")[1]
         df["time"] += int(bjdoffset)
+        # ensure the folder exists
+        makeFolder(lcfname)
         # save the dataframe
         saveDataFrame(df, lcfname)
         # and return it too
@@ -105,55 +107,50 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7):
     # if there was no observation data
     raise Exception("No LightCurve Data for {}".format(target))
 
-def tessMidTransits(target, loc, stale_time):
-    # lowercase the target name
-    target = target.lower()
-    # ensure the tess lightcurve folder exists
-    makeFolder(loc)
-    # fetch the lightcurve data
-    df = _lightcurves_(target, loc, stale_time)
-    print("LC Found")
-    # decompose into time, flux, and error
-    t, f, ferr = np.array(df["time"]), np.array(df["flux"]), np.array(df["flux_e"])
-    # Period and t0 from Anderson et al. (201X):
-    P,t0 =  4.7423729 ,  2457376.68539 - 2457000
-    # Get phases --- identify out-of-transit (oot) times by phasing the data
-    # and selecting all points at absolute phases larger than 0.02:
-    phases = juliet.utils.get_phases(t, P, t0)
-    idx_oot = np.where(np.abs(phases)>0.02)[0]
-    # Save the out-of-transit data into dictionaries so we can feed them to juliet:
-    times, fluxes, fluxes_error = {},{},{}
-    times['TESS'], fluxes['TESS'], fluxes_error['TESS'] = t[idx_oot], f[idx_oot], ferr[idx_oot]
-    # First define the priors:
-    priors = {}
-
+def _lcData_(target, lc, loc="/raw_data/tess_data/"):
+    # fetch the directory for this target
+    folder = loc+target.replace(" ", "_")+"/Transit"
+    # decompose the lc dataframe into time, flux, and error
+    t, f, ferr = np.array(lc["time"]), np.array(lc["flux"]), np.array(lc["flux_e"])
+    # if the juliet fit already exists
+    if os.path.exists(folder):
+        # load from the folder
+        return juliet.load(input_folder = folder)
+    # Define all of the dictionaries
+    priors, times, fluxes, fluxes_error = {}, {}, {}, {}
     # Same priors as for the transit-only fit, but we now add the GP priors:
     params = ['P_p1','t0_p1','r1_p1','r2_p1','q1_TESS','q2_TESS','ecc_p1','omega_p1',\
               'rho', 'mdilution_TESS', 'mflux_TESS', 'sigma_w_TESS', \
               'GP_sigma_TESS', 'GP_rho_TESS']
-
     dists = ['normal','normal','uniform','uniform','uniform','uniform','fixed','fixed',\
              'loguniform', 'fixed', 'normal', 'loguniform', \
              'loguniform', 'loguniform']
-
     hyperps = [[4.7,0.1], [1329.9,0.1], [0.,1], [0.,1.], [0., 1.], [0., 1.], 0.0, 90.,\
                [100., 10000.], 1.0, [0.,0.1], [0.1, 1000.], \
                [1e-6, 1e6], [1e-3, 1e3]]
-
     # Populate the priors dictionary:
     for param, dist, hyperp in zip(params, dists, hyperps):
         priors[param] = {}
         priors[param]['distribution'], priors[param]['hyperparameters'] = dist, hyperp
-
-    print("Params set")
-
+    # setup the dictionaries for juliet
     times['TESS'], fluxes['TESS'], fluxes_error['TESS'] = t,f,ferr
-    dataset = juliet.load(priors=priors, t_lc = times, y_lc = fluxes, \
-                          yerr_lc = fluxes_error, GP_regressors_lc = times, \
-                          out_folder = '{}_transitGP'.format(target.replace(" ","_")), verbose = True)
-    print("Dataset saved")
+    # ensure the folder exists
+    makeFolder(folder)
+    # and return the juliet stuff
+    return juliet.load(priors=priors, t_lc = times, y_lc = fluxes, \
+                       yerr_lc = fluxes_error, GP_regressors_lc = times, \
+                       out_folder = folder)
 
-    results = dataset.fit()
+def tessMidTransits(target, loc="/raw_data/tess_data/", stale_time=7):
+    # lowercase the target name, and filepath prepended
+    target, loc = target.lower(), os.getcwd()+loc if loc[0]=="/" else loc
+    # fetch the lightcurve data
+    df = _lightcurves_(target, loc, stale_time)
+    # fetch the juliet lightcurve data
+    lcdata = _lcData_(target, df, loc)
+    print(lcdata)
+
+    results = lcdata.fit()#sampler="dynesty", nthreads=12)
     # Extract full model:
     transit_plus_GP_model = results.lc.evaluate('TESS')
 
