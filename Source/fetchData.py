@@ -15,7 +15,7 @@ Goals: Collect midtransit times from ETD and ExoClock
        Only download data occasionally (minimise network overhead)
 '''
 
-
+'''
 # ETD (Lightcurves)
 ws.fetchETDData("http://var2.astro.cz/ETD/index.php?lang=en", sourceName="ETD")
 
@@ -32,7 +32,7 @@ ws.fetchExoClockData("https://www.exoclock.space/database/etd", sourceName="ExoC
 # Composite information
 ws.fetchExoplanetArchive("pscomppars")
 # all information
-ws.fetchExoplanetArchive("ps")
+ws.fetchExoplanetArchive("ps")'''
 
 # Transiting Exoplanets Survey Satelite
 ws.fetchTESSData()
