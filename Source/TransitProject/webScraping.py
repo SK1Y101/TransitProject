@@ -281,4 +281,4 @@ def fetchTESSData(loc="/raw_data/", stale_time=7):
         stale_time: How long to consider the local data fit for use. '''
     from . import tesslc as tlc
     # fetch the raw flux data
-    tlc.tessMidTransits("tic 281541555", loc+"/tess_data/", stale_time)
+    tlc.tessMidTransits("tic 281541555", loc+"tess_data/", stale_time)
