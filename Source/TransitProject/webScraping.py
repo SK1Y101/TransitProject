@@ -280,5 +280,17 @@ def fetchTESSData(loc="/raw_data/", stale_time=7):
         loc:        The directory to store the table.
         stale_time: How long to consider the local data fit for use. '''
     from . import tesslc as tlc
-    # fetch the raw flux data
-    tlc.tessMidTransits("tic 281541555", loc+"tess_data/", stale_time)
+    # load the pscomppars table
+    df = loadDataFrame("/raw_data/pscomppars.csv")
+    # for each star
+    for star in tqdm(df["hostname"].unique()):
+        # fetch the planets in the system
+        planets = df[df["hostname"] == star]
+        # fetch the star TIC
+        tid = planets.iloc[0]["tic_id"].lower()
+        # if we have a null id
+        if "nan" in tid:
+            # skip
+            continue
+        # fetch the lightcurves
+        tlc.fetchTESSLC(tid)
