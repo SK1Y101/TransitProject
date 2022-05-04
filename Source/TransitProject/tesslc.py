@@ -12,9 +12,6 @@ import numpy as np
 # my modules
 from . import *
 
-def findFloats(txt):
-    return re.findall(r"[+-]? *(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?", txt)
-
 def _mastQuery_(target):
     # start with no target
     target_name = ""
@@ -76,7 +73,7 @@ def fetchTESSLC(target, loc="/raw_data/tess_data/", stale_time=7, throwError=Fal
         mask = np.array([fname.endswith("lc.fits") and not fname.endswith("fast-lc.fits") for fname in res["productFilename"]])
         res = res[mask]
         # output arrays (and default bjd offset)
-        times, fluxes, ferrs, unit = np.array([]), np.array([]), np.array([]), (2457000,)
+        times, fluxes, ferrs, unit = np.array([]), np.array([]), np.array([]), ("BJD - 2457000",)
         # for each file found
         for i, item in enumerate(res):
             # ensure we are using the tess data, and the lc, not the
