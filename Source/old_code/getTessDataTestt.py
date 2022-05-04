@@ -2,7 +2,7 @@ import juliet
 import numpy as np
 import matplotlib.pylab as plt
 
-tid = 261136679#20096620#281541555
+tid = 9725627#261136679#20096620#281541555
 
 for sector in range(1, 100):
     print("Searching sector {:02}".format(sector))
