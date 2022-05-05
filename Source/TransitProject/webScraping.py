@@ -299,7 +299,7 @@ def fetchTESSLC(loc="/raw_data/", stale_time=7, target=None):
     # load the dataframe
     stars, df = tessTargets(target=target)
     # for each star
-    for star in tqdm(stars, description="Lightcurve Data"):
+    for star in tqdm(stars, desc="Lightcurve Data"):
         # fetch the planets in the system
         planets = df[df["hostname"] == star]
         # fetch the star TIC
@@ -321,7 +321,7 @@ def fetchTESSTTV(loc="/raw_data/", stale_time=7, target=None):
     # load the dataframe
     stars, df = tessTargets(target=target)
     # for each star
-    for star in tqdm(stars, description="MidTransit Data"):
+    for star in tqdm(stars, desc="MidTransit Data"):
         # fetch the planets in the system
         planets = df[df["hostname"] == star]
         # fetch the star TIC
