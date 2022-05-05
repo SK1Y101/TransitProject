@@ -107,6 +107,22 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7, throwError=F
     else:
         return pd.DataFrame()
 
+def fetchExpectedEpochs(planet, times):
+    # compute the earliest time in the times array
+    initial_t = np.min(times)
+    # fetch the orbital period and initial epoch
+    per, t0 = planet["pl_orbper"], planet["pl_tranmid"]
+    # compute how many orbits the planet made between t0 and the start of the dataset
+    ndif = (t0 - initial_t) // per
+    # for all possible transits that could have been observed
+    t_exp = np.arange(t0-ndif*per, np.max(times), per)
+    # compute the minimum distance between the transit and the array of time datapoint
+    t_dist = [np.abs(times - t).min() for t in t_exp]
+    # find only the transits that are within the data
+    transits = np.where(t_dist < (times[1]-times[0]))[0]
+    # return the epoch times and epoch number
+    return t_exp, transits
+
 def fetchJulietPriors(df, times):
     # define the standard priors that are consistent between models
     param = ["q1_TESS", "q2_TESS", "rho", "mdilution_TESS", "mflux_TESS", "sigma_w_TESS", "GP_sigma_TESS", "GP_rho_TESS"]
@@ -114,8 +130,6 @@ def fetchJulietPriors(df, times):
     hypes = [[0., 1.], [0., 1.], [100., 10000.], 1.0, [0.,0.1], [0.1, 1000.], [1e-6, 1e6], [1e-3, 1e3]]
     # sort by increasing semimajor axis (or increasing period)
     df = df.sort_values(by="pl_orbsmax")
-    # compute the earliest time in the times array
-    initial_t = np.min(times)
     # for each planet in the system
     for i, idx in enumerate(df.index):
         # fetch this planet
@@ -127,19 +141,8 @@ def fetchJulietPriors(df, times):
         param += "r1_p{0},r2_p{0},ecc_p{0},omega_p{0}".format(i+1).split(",")
         dists += ["uniform", "uniform", "fixed", "fixed"]
         hypes += [[0., 1.], [0., 1.], 0., 90.]
-        # fetch the orbital period and initial epoch
-        per, t0 = pl["pl_orbper"], pl["pl_tranmid"]
-        # fetch the size of a standard deviation by considering the distance between the upper and lower errors
-        persig = 0.5*(abs(pl["pl_orbpererr1"]) + abs(pl["pl_orbpererr2"]))
-        t0sig = 0.5*(abs(pl["pl_tranmiderr1"]) + abs(pl["pl_tranmiderr2"]))
-        # compute how many orbits the planet made between t0 and the start of the dataset
-        ndif = (t0 - initial_t) // per
-        # for all possible transits that could have been observed
-        t_exp = np.arange(t0-ndif*per, np.max(times), per)
-        # compute the minimum distance between the transit and the array of time datapoint
-        t_dist = [np.abs(times - t).min() for t in t_exp]
-        # find only the transits that are within the data
-        transits = np.where(t_dist < (times[1]-times[0]))[0]
+        # find the expected transits that are within the data
+        t_exp, transits = fetchExpectedEpochs(pl, times)
         # for each transit, add the predicted transit time to the prior parameters
         param += list(["T_p{0}_TESS_{1}".format(i+1, t) for t in transits])
         hypes += list([[round(t_exp[t],1), .2] for t in transits])
@@ -170,13 +173,32 @@ def _lcData_(target, lc, planetdf, loc="/raw_data/tess_data/"):
                        yerr_lc = fluxes_error, GP_regressors_lc = times, \
                        out_folder = os.getcwd()+folder)
 
-def tessLCData(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
+def plotLC(target, lcdata, model):
+    # figure size
+    fig = plt.figure(figsize=(12,4))
+    # Plot data
+    plt.errorbar(lcdata.times_lc["TESS"], lcdata.data_lc["TESS"], yerr=lcdata.errors_lc["TESS"], \
+                 fmt=".", alpha=0.1, label="TESS Data")
+    # Plot the model curve
+    plt.plot(lcdata.times_lc["TESS"], model, color="k", zorder=10, label="Lightcurve fit")
+    # fetch the maximum deviation of the model
+    lim = max(abs(model-1))
+    ylim = float(lim + np.average(abs(lcdata.errors_lc["TESS"])))
+    # set the limits
+    plt.ylim([1-ylim, 1+ylim])
+    plt.xlabel("Time (BJD)")
+    plt.ylabel("Relative flux")
+    plt.title("TESS Lightcurve data for {}".format(target))
+    plt.legend()
+    plt.show()
+
+def tessLCData(target, planetdf, loc="/raw_data/tess_data/", stale_time=7, returnData=False):
     # lowercase the target name, and filepath prepended
     target = target.lower()
     # fetch the lightcurve data
     df = _lightcurves_(target, loc, stale_time)
-    # if there wasn't any for this planetary system
-    if df.empty:
+    # if there wasn't any for this planetary system, or we don't want to return the data
+    if (df.empty) or (not returnData):
         # return empty
         return pd.DataFrame(), pd.DataFrame()
     # fetch the juliet lightcurve data
@@ -188,60 +210,15 @@ def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
     # lowercase the target name, and filepath prepended
     target = target.lower()
     # fetch the Lightcurve data
-    df, lcdata = tessLCData(target, planetdf, loc, stale_time)
+    df, lcdata = tessLCData(target, planetdf, loc, stale_time, returnData=True)
     # if there wasn't any for this planetary system
     if df.empty:
         return
-    # fetch the phases
-    #P,t0 =  4.7423729 ,  2457376.68539
-    #phases = juliet.utils.get_phases(df["time"], P, t0)
     # fetch the results
     results = lcdata.fit(sampler="dynesty")#, nthreads=4)
-    # Extract full model:
-    transit_plus_GP_model = results.lc.evaluate("TESS")
-
-    # Deterministic part of the model (in our case transit divided by mflux):
-    transit_model = results.lc.model["TESS"]["deterministic"]
-
-    # GP part of the model:
-    gp_model = np.array(results.lc.model["TESS"]["GP"])
-
-    # Now plot. First preambles:
-    import matplotlib.gridspec as gridspec
-    fig = plt.figure(figsize=(12,4))
-    gs = gridspec.GridSpec(1, 2, width_ratios=[2,1])
-    ax1 = plt.subplot(gs[0])
-
-    # Plot data
-    ax1.errorbar(lcdata.times_lc["TESS"], lcdata.data_lc["TESS"], yerr = lcdata.errors_lc["TESS"], fmt = ".", alpha = 0.1)
-
-    # Plot the (full, transit + GP) model:
-    ax1.plot(lcdata.times_lc["TESS"], transit_plus_GP_model, color="black",zorder=10)
-
-    ax1.set_xlim([2457000 + 1328, 2457000 + 1350])
-    ax1.set_ylim([0.96, 1.04])
-    ax1.set_xlabel("Time (BJD)")
-    ax1.set_ylabel("Relative flux")
-
-    #ax2 = plt.subplot(gs[1])
-
-    # Now plot phase-folded lightcurve but with the GP part removed
-    #removed_gp = np.array(lcdata.data_lc["TESS"]) - np.array(gp_model)
-    #ax2.errorbar(np.array(phases), np.array(lcdata.data_lc["TESS"] - gp_model), yerr = np.array(lcdata.errors_lc["TESS"]), fmt = ".", alpha = 0.3)
-    #ax2.errorbar(phases, lcdata.data_lc["TESS"], yerr = lcdata.errors_lc["TESS"], fmt = ".", alpha = 0.3)
-
-    # Plot transit-only (divided by mflux) model:
-    #idx = np.argsort(phases)
-    #ax2.plot(phases[idx], transit_model[idx], color="black",zorder=10)
-    #ax2.yaxis.set_major_formatter(plt.NullFormatter())
-    #ax2.set_xlabel("Phases")
-    #ax2.set_xlim([-0.03, 0.03])
-    #ax2.set_ylim([0.96, 1.04])
-    # fit transits to the lightcurve data using juliet
-    #midTransitTimes = fitTransits(df["Times"])
-    #plt.errorbar(t, f, yerr=ferr, fmt=".", alpha=0.2)
-    #plt.xlabel("Time (BJD)")
-    #plt.ylabel("Relative flux")
-    #plt.xlim((2457000 + 1325, 2457000+1355))
-    #plt.ylim((0.94, 1.06))
-    plt.show()
+    # fetch the transits
+    print(results.posteriors)
+    # fetch the transit model
+    model = results.lc.evaluate("TESS")
+    # plot the fit
+    plotLC(target, lcdata, model)
