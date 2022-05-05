@@ -1,6 +1,6 @@
-date,observer,oc,oce,source
-2019-07-05,Janos,5.472,7.6176,ETD
-2019-07-05,Arena c. - gruppo astrofili catanesi,-6.768,1.44,ETD
-2018-10-14,F. lomoz,-19.44,7.3728,ETD
-2018-07-12,Pere guerra,26.208,10.728,ETD
-2015-02-04,Talens et al. (2018),-5.472,0.432,ETD
+date,observer,oc,oceu,ocel,source
+2019-07-05 10:14:09.600000000,Janos,5.472,7.6176,7.6176,ETD
+2019-07-05 10:01:48.288000000,Arena c. - gruppo astrofili catanesi,-6.768,1.44,1.44,ETD
+2018-10-14 09:01:33.312000256,F. lomoz,-19.44,7.3728,7.3728,ETD
+2018-07-12 14:33:33.695999744,Pere guerra,26.208,10.728,10.728,ETD
+2015-02-04 10:15:44.640000256,Talens et al. (2018),-5.472,0.432,0.432,ETD

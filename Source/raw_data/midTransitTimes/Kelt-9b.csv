@@ -1,6 +1,6 @@
-date,observer,oc,oce,source
-2020-04-08,Jean plazas,-0.288,,ETD
-2019-08-27,Arena c. - gruppo astrofili catanesi,1.584,2.8512,ETD
-2018-10-23,Pere guerra,12.96,29.4192,ETD
-2018-10-03,Sjoerd dufoer,-879.984,65.3328,ETD
-2015-03-13,Gaudi et al. (2017),0.0,0.2016,ETD
+date,observer,oc,oceu,ocel,source
+2020-04-08 13:42:16.992000000,Jean plazas,-0.288,,,ETD
+2019-08-27 10:35:52.512000000,Arena c. - gruppo astrofili catanesi,1.584,2.8512,2.8512,ETD
+2018-10-23 09:01:01.344000000,Pere guerra,12.96,29.4192,29.4192,ETD
+2018-10-03 12:01:32.447999744,Sjoerd dufoer,-879.984,65.3328,65.3328,ETD
+2015-03-13 16:27:26.208000000,Gaudi et al. (2017),0.0,0.2016,0.2016,ETD

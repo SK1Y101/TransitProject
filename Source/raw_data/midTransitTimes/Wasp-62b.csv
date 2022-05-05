@@ -1,18 +1,9 @@
-date,observer,oc,oce,source
-2022-02-17,Yves Jongen,-0.6,1.7,ExoClock observation
-2022-02-16,Yves jongen,-0.72,1.5552,ETD
-2021-12-03,"Eduardo fernández-lajús, romina p. di sisto",-4.752,1.4688,ETD
-2021-01-07,Yves Jongen,-0.8,0.9,ExoClock observation
-2021-01-06,Yves jongen,-1.584,0.9072,ETD
-2020-12-16,Yves Jongen,-2.7,1.7,ExoClock observation
-2020-12-15,Yves jongen,-3.456,1.584,ETD
-2020-11-15,Yves Jongen,0.9,1.2,ExoClock observation
-2020-11-14,Yves jongen,0.432,1.3392,ETD
-2020-10-24,Yves Jongen,0.3,2.0,ExoClock observation
-2020-10-23,Yves jongen,-0.576,2.3472,ETD
-2020-02-20,Yves Jongen,-2.4,3.0,ExoClock observation
-2020-02-19,Yves jongen,-5.904,3.6432,ETD
-2017-04-14,Skaf et al. 2020,1.3,0.4,ExoClock literature
-2011-10-20,Hellier et al. 2012,0.3,0.4,ExoClock literature
-2011-10-20,Hellier et al. (2012),-1.152,0.432,ETD
-2011-07-24,Brown et al. 2017,-0.7,0.7,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2022-02-16 14:24:12.096000256,Yves jongen,-0.72,1.5552,1.5552,ETD
+2021-12-03 14:15:55.295999744,"Eduardo fernández-lajús, romina p. di sisto",-4.752,1.4688,1.4688,ETD
+2021-01-06 16:49:41.088000000,Yves jongen,-1.584,0.9072,0.9072,ETD
+2020-12-15 15:21:54.143999744,Yves jongen,-3.456,1.584,1.584,ETD
+2020-11-14 18:13:26.112000000,Yves jongen,0.432,1.3392,1.3392,ETD
+2020-10-23 16:46:30.144000256,Yves jongen,-0.576,2.3472,2.3472,ETD
+2020-02-19 15:02:22.559999744,Yves jongen,-5.904,3.6432,3.6432,ETD
+2011-10-20 09:24:28.800000000,Hellier et al. (2012),-1.152,0.432,0.432,ETD

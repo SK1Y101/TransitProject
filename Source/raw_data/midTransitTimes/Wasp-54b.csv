@@ -1,7 +1,6 @@
-date,observer,oc,oce,source
-2022-04-04,Yves Jongen,-73.3,2.4,ExoClock observation
-2021-04-07,Yves Jongen,-72.4,2.6,ExoClock observation
-2021-04-06,Yves jongen,-73.872,3.096,ETD
-2021-04-06,Anaël wünsche,-75.6,1.7136,ETD
-2020-03-07,Jean plazas,-54.144,54.3024,ETD
-2010-11-21,Faedi et al. (2013),-0.0,1.152,ETD
+date,observer,oc,oceu,ocel,source
+2022-04-03 15:41:41.280000000,Yves jongen,-73.872,2.3328,2.3328,ETD
+2021-04-06 16:13:54.048000000,Yves jongen,-73.872,3.096,3.096,ETD
+2021-04-06 16:12:12.096000000,Anaël wünsche,-75.6,1.7136,1.7136,ETD
+2020-03-07 11:16:09.983999744,Jean plazas,-54.144,54.3024,54.3024,ETD
+2010-11-21 01:02:55.680000256,Faedi et al. (2013),-0.0,1.152,1.152,ETD

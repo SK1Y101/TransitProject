@@ -1,19 +1,13 @@
-date,observer,oc,oce,source
-2020-11-20,Leon Bewersdorff,0.5,1.2,ExoClock observation
-2020-10-20,Carmelo Falco,-0.5,0.6,ExoClock observation
-2020-09-19,"Teemu willamo, tuomas salo",-3.6,3.5424,ETD
-2019-07-23,"M. tylšar, m. mašek, r. novák",2.16,1.7856,ETD
-2019-07-23,"Francesco scaggiante, danilo zardin",6.912,1.1376,ETD
-2018-11-17,Manfred Raetz,0.9,0.9,ExoClock observation
-2018-11-17,Manfred raetz,-0.144,0.9648,ETD
-2017-08-19,Anaël Wünsche,-0.2,1.2,ExoClock observation
-2017-08-19,Marc bretton,-1.584,1.3104,ETD
-2016-06-21,David molina,-1.728,1.512,ETD
-2015-08-16,Yenal ogmen,0.432,0.7776,ETD
-2014-06-18,Barbieri l.,12.24,2.8368,ETD
-2013-11-24,Tsiaras et al. 2018,0.0,0.1,ExoClock literature
-2012-09-15,"Gillier ch., montaigut r., golovanow s.",-1.872,0.5616,ETD
-2011-10-20,Kirkham j.,-4.464,1.08,ETD
-2010-09-12,Naves r.,1.296,0.9792,ETD
-2008-11-30,Howard et al. 2012,-0.1,0.3,ExoClock literature
-2008-11-30,"A. w. howard et al., 2010",-1.296,0.288,ETD
+date,observer,oc,oceu,ocel,source
+2020-09-19 08:04:56.928000256,"Teemu willamo, tuomas salo",-3.6,3.5424,3.5424,ETD
+2019-07-23 11:08:19.967999744,"Francesco scaggiante, danilo zardin",6.912,1.1376,1.1376,ETD
+2019-07-23 11:03:34.848000000,"M. tylšar, m. mašek, r. novák",2.16,1.7856,1.7856,ETD
+2018-11-17 08:01:34.752000256,Manfred raetz,-0.144,0.9648,0.9648,ETD
+2017-08-19 10:30:28.512000256,Marc bretton,-1.584,1.3104,1.3104,ETD
+2016-06-21 13:23:16.511999744,David molina,-1.728,1.512,1.512,ETD
+2015-08-16 09:40:46.847999744,Yenal ogmen,0.432,0.7776,0.7776,ETD
+2014-06-18 12:45:25.920000000,Barbieri l.,12.24,2.8368,2.8368,ETD
+2012-09-15 12:46:57.504000256,"Gillier ch., montaigut r., golovanow s.",-1.872,0.5616,0.5616,ETD
+2011-10-20 16:44:40.416000000,Kirkham j.,-4.464,1.08,1.08,ETD
+2010-09-12 11:58:27.552000256,Naves r.,1.296,0.9792,0.9792,ETD
+2008-11-30 04:04:00.480000000,"A. w. howard et al., 2010",-1.296,0.288,0.288,ETD

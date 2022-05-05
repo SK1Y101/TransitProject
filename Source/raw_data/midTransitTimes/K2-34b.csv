@@ -1,16 +1,13 @@
-date,observer,oc,oce,source
-2022-01-06,Yves Jongen,5.4,2.4,ExoClock observation
-2022-01-05,Yves jongen,14.832,2.4768,ETD
-2021-12-25,Yves Jongen,7.0,3.6,ExoClock observation
-2021-12-24,Yves jongen,18.864,2.6784,ETD
-2021-12-16,Yves Jongen,5.6,2.9,ExoClock observation
-2021-12-15,Yves jongen,17.712,2.5488,ETD
-2019-02-25,"Friedli, thomas karl + kropf, simon",16.56,7.5024,ETD
-2019-02-22,"Friedli, thomas karl + kropf, simon",-7.056,35.3808,ETD
-2019-02-19,"Friedli, thomas karl + kropf, simon",-1.008,11.4336,ETD
-2019-02-16,"Friedli, thomas karl + kropf, simon",0.432,16.7616,ETD
-2019-02-13,Yves jongen,-2.16,1.8288,ETD
-2019-02-13,"Friedli, thomas karl + kropf, simon",4.752,7.2432,ETD
-2019-01-26,"Friedli, thomas karl + kropf, simon",12.816,12.744,ETD
-2017-12-20,Kevin b. alton,13.392,1.4544,ETD
-2015-04-28,Lillo-box et al. (2016),0.0,0.3168,ETD
+date,observer,oc,oceu,ocel,source
+2022-01-05 18:38:44.159999744,Yves jongen,14.832,2.4768,2.4768,ETD
+2021-12-24 19:08:04.992000000,Yves jongen,18.864,2.6784,2.6784,ETD
+2021-12-15 19:25:57.216000256,Yves jongen,17.712,2.5488,2.5488,ETD
+2019-02-25 07:28:18.911999744,"Friedli, thomas karl + kropf, simon",16.56,7.5024,7.5024,ETD
+2019-02-22 07:11:00.384000256,"Friedli, thomas karl + kropf, simon",-7.056,35.3808,35.3808,ETD
+2019-02-19 07:23:21.695999744,"Friedli, thomas karl + kropf, simon",-1.008,11.4336,11.4336,ETD
+2019-02-16 07:31:03.936000256,"Friedli, thomas karl + kropf, simon",0.432,16.7616,16.7616,ETD
+2019-02-13 07:41:45.023999744,"Friedli, thomas karl + kropf, simon",4.752,7.2432,7.2432,ETD
+2019-02-13 07:34:48.576000256,Yves jongen,-2.16,1.8288,1.8288,ETD
+2019-01-26 08:27:43.776000256,"Friedli, thomas karl + kropf, simon",12.816,12.744,12.744,ETD
+2017-12-20 22:35:59.423999744,Kevin b. alton,13.392,1.4544,1.4544,ETD
+2015-04-28 08:25:54.048000256,Lillo-box et al. (2016),0.0,0.3168,0.3168,ETD

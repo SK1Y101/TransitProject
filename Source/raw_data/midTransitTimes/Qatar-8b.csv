@@ -1,12 +1,5 @@
-date,observer,oc,oce,source
-2022-04-16,Yves Jongen,0.7,2.4,ExoClock observation
-2022-02-26,Vikrant Kumar Agnihotri,-1.6,3.5,ExoClock observation
-2022-02-26,Veli-pekka hentunen,-165.456,,ETD
-2022-02-23,Simon Dawes,2.0,2.0,ExoClock observation
-2022-02-22,Yves jongen,-174.96,1.3968,ETD
-2022-02-11,Veli-pekka hentunen,-240.048,,ETD
-2022-01-16,Yves Jongen,1.1,2.0,ExoClock observation
-2022-01-16,Andras Dan,1.5,1.6,ExoClock observation
-2022-01-16,Mark Phillips,4.9,3.5,ExoClock observation
-2021-12-07,Adrian Jones,6.5,2.9,ExoClock observation
-2021-12-07,Paolo Arcangelo Matassa,5.2,2.0,ExoClock observation
+date,observer,oc,oceu,ocel,source
+2022-04-15 13:14:38.976000000,Yves jongen,-177.264,1.1952,1.1952,ETD
+2022-02-26 06:22:34.751999744,Veli-pekka hentunen,-165.456,,,ETD
+2022-02-22 13:03:33.695999744,Yves jongen,-174.96,1.3968,1.3968,ETD
+2022-02-11 08:29:53.376000000,Veli-pekka hentunen,-240.048,,,ETD

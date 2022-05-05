@@ -1,359 +1,196 @@
-date,observer,oc,oce,source
-2022-04-17,Paolo Arcangelo Matassa,1.9,3.0,ExoClock observation
-2022-04-17,Efrem Frigeni,1.6,1.2,ExoClock observation
-2022-04-08,Martin Mifsud,-1.7,0.9,ExoClock observation
-2022-04-04,Paolo Arcangelo Matassa,-2.7,4.3,ExoClock observation
-2022-04-04,Francesco Conti,-3.9,1.7,ExoClock observation
-2022-03-26,Bernhard Wenzel,1.2,1.6,ExoClock observation
-2022-03-26,Anaël Wünsche,0.6,0.4,ExoClock observation
-2022-03-22,Claudio Lopresti,-2.3,1.9,ExoClock observation
-2022-03-17,Leon Bewersdorff,-0.4,0.2,ExoClock observation
-2022-03-13,Paolo Arcangelo Matassa,-0.6,1.6,ExoClock observation
-2022-03-13,Antonio Marino,-1.2,1.3,ExoClock observation
-2022-03-13,Leon Bewersdorff,-0.8,0.4,ExoClock observation
-2022-03-04,Jacques Michelet,0.0,0.7,ExoClock observation
-2022-03-04,Sebastien Brouillard,-1.4,1.2,ExoClock observation
-2022-03-04,Anaël wünsche,-3.312,0.3888,ETD
-2022-03-04,Neil Dodd,-0.3,0.7,ExoClock observation
-2022-02-27,F. lomoz,-2.016,1.0368,ETD
-2022-02-18,Josh Jones,-2.1,1.2,ExoClock observation
-2022-02-10,jean pascal vignes,-1.9,0.4,ExoClock observation
-2022-02-09,Andre Kovacs,0.5,0.3,ExoClock observation
-2022-02-06,Ivo Peretto,-1.1,0.6,ExoClock observation
-2022-02-05,Miguel angel alava,-0.576,1.6272,ETD
-2022-02-02,Paolo Arcangelo Matassa,-1.1,1.0,ExoClock observation
-2022-01-28,Kevin Johnson,0.4,1.4,ExoClock observation
-2022-01-28,Stefano Lora,-0.6,2.4,ExoClock observation
-2022-01-27,Andre Kovacs,-0.1,2.2,ExoClock observation
-2022-01-24,Yves Jongen,-0.4,0.6,ExoClock observation
-2022-01-23,Yves jongen,-1.152,0.4608,ETD
-2022-01-22,Roger Dymock,2.9,2.4,ExoClock observation
-2022-01-14,Miguel angel alava,-9.648,1.3392,ETD
-2022-01-05,Miguel angel alava,-8.784,1.44,ETD
-2021-12-05,Andre Kovacs,-2.6,1.9,ExoClock observation
-2021-12-02,aziz kaeouach,-0.8,0.7,ExoClock observation
-2021-05-16,Salvo massaro,-1.008,3.096,ETD
-2021-05-12,Salvo massaro,4.32,6.8112,ETD
-2021-05-03,Dominique daniel,-3.6,0.9072,ETD
-2021-05-03,Dominique DANIEL,-1.4,1.0,ExoClock observation
-2021-04-20,Stéphane montchaud,7.92,2.2032,ETD
-2021-04-11,Anaël Wünsche,0.7,0.6,ExoClock observation
-2021-04-10,Anaël wünsche,-2.16,0.8064,ETD
-2021-04-07,Tõnis Eenmäe,-1.9,1.2,ExoClock observation
-2021-04-07,Valère Perroud,-1.7,2.3,ExoClock observation
-2021-03-20,Didier Laloum,-2.6,1.6,ExoClock observation
-2021-03-20,Yves jongen,-1.152,0.6624,ETD
-2021-03-20,Yves Jongen,0.5,0.7,ExoClock observation
-2021-03-15,Paul benni,-1.728,0.72,ETD
-2021-03-11,Andre Kovacs,-2.1,2.9,ExoClock observation
-2021-03-07,Claudio Lopresti,-1.4,0.9,ExoClock observation
-2021-03-07,Jens jacobsen,-2.016,1.4112,ETD
-2021-03-07,Ivo Peretto,-0.5,0.3,ExoClock observation
-2021-03-07,Marsec marana space explorer center,-1.728,0.4176,ETD
-2021-03-03,Leon Bewersdorff,3.0,1.4,ExoClock observation
-2021-03-03,Leon Bewersdorff,0.9,3.6,ExoClock observation
-2021-02-21,Roger Dymock,-1.2,1.9,ExoClock observation
-2021-02-21,Andre Kovacs,0.5,1.3,ExoClock observation
-2021-02-20,Roger dymock,-1.44,1.5264,ETD
-2021-02-13,Claudio Lopresti,1.4,1.0,ExoClock observation
-2021-02-13,Jens jacobsen,7.488,2.4768,ETD
-2021-02-08,Yves Jongen,0.5,0.4,ExoClock observation
-2021-02-07,Yves jongen,-0.288,0.3456,ETD
-2021-01-26,Yves Jongen,0.6,0.4,ExoClock observation
-2021-01-25,Yves jongen,-0.432,0.4176,ETD
-2021-01-23,Kuldip Vora,-3.8,1.6,ExoClock observation
-2021-01-17,Yves Jongen,0.6,0.6,ExoClock observation
-2021-01-16,Yves jongen,-0.432,0.504,ETD
-2020-12-27,Jean-Claude MARIO,-0.4,0.7,ExoClock observation
-2020-12-26,Jean-claude mario,-0.864,0.72,ETD
-2020-12-17,Martin Fowler,3.8,1.7,ExoClock observation
-2020-11-30,Yves Jongen,0.4,0.4,ExoClock observation
-2020-11-29,Yves jongen,-0.576,0.432,ETD
-2020-11-25,Roger Dymock,-5.8,2.7,ExoClock observation
-2020-11-24,Roger dymock,-6.768,2.9808,ETD
-2020-06-05,Yves jongen,-0.144,0.4896,ETD
-2020-05-14,Yves jongen,-0.144,0.4464,ETD
-2020-05-05,Yves jongen,-1.44,0.5472,ETD
-2020-05-01,Yves jongen,-0.576,0.5328,ETD
-2020-04-23,Alberto Tomatis,-1.0,0.6,ExoClock observation
-2020-04-23,Mauro Caló,1.1,1.0,ExoClock observation
-2020-04-14,Fernand emering,-9.792,5.7312,ETD
-2020-04-14,Anaël Wünsche,-1.3,0.4,ExoClock observation
-2020-04-14,Geoffrey Thurston,-1.7,1.2,ExoClock observation
-2020-04-14,Marc bretton,-2.16,0.4032,ETD
-2020-04-14,Martin Crow,-0.9,1.3,ExoClock observation
-2020-04-14,Laloum didier,-0.432,2.0736,ETD
-2020-04-14,Jean-Baptiste Marquette,-1.9,1.3,ExoClock observation
-2020-04-14,Anaël Wünsche,0.0,0.7,ExoClock observation
-2020-04-14,Anaël wünsche,-0.432,0.7776,ETD
-2020-04-10,"Francesco scaggiante, danilo zardin,marco fiaschi",-2.736,1.3824,ETD
-2020-04-10,Yves jongen,-0.0,0.6624,ETD
-2020-04-10,Francois Hurter,-3.8,1.0,ExoClock observation
-2020-04-09,Yves jongen,-0.72,0.3888,ETD
-2020-04-08,Yves jongen,-0.432,0.3744,ETD
-2020-04-01,Francois Hurter,-2.2,1.3,ExoClock observation
-2020-03-28,Pavel pintr,1.584,0.864,ETD
-2020-03-28,Yves jongen,-2.736,0.864,ETD
-2020-03-23,Michael theusner,3.744,1.9584,ETD
-2020-03-23,Geoffrey Thurston,0.9,0.7,ExoClock observation
-2020-03-19,Mauro Caló,-1.2,0.9,ExoClock observation
-2020-03-19,Claudio Lopresti,0.4,1.3,ExoClock observation
-2020-03-19,"Francesco scaggiante, danilo zardin,marco fiaschi",-2.16,0.6048,ETD
-2020-03-14,Anaël Wünsche,-2.1,0.3,ExoClock observation
-2020-03-14,Marc bretton,-2.88,0.3312,ETD
-2020-02-25,Yves jongen,-1.296,0.4464,ETD
-2020-02-25,Martin Fowler,0.0,2.6,ExoClock observation
-2020-02-20,Yves jongen,2.736,0.5184,ETD
-2020-02-17,Stephen Futcher,-0.1,0.4,ExoClock observation
-2020-02-17,Stephen futcher,-2.88,0.3888,ETD
-2020-02-12,F. lomoz,-3.6,1.0656,ETD
-2020-02-12,F. lomoz,-1.44,0.864,ETD
-2020-02-07,Yves jongen,-1.872,0.3744,ETD
-2020-01-30,Giovanni battista casalnuovo,-14.688,0.9936,ETD
-2020-01-29,Yves jongen,1.44,0.4896,ETD
-2020-01-25,Roger Dymock,-1.5,1.7,ExoClock observation
-2020-01-18,Mark Phillips,-1.8,1.2,ExoClock observation
-2020-01-17,Yves jongen,-0.864,0.5904,ETD
-2020-01-08,Yves jongen,-2.448,0.4896,ETD
-2020-01-04,Antoine chedid,-5.328,0.72,ETD
-2019-12-31,Pavel Pintr,1.4,0.9,ExoClock observation
-2019-12-31,Yves jongen,-10.512,0.8208,ETD
-2019-12-30,Pavel pintr,-1.872,0.8928,ETD
-2019-11-12,Yves jongen,-1.296,0.6048,ETD
-2019-04-14,Yves jongen,-0.432,0.4608,ETD
-2019-03-27,Anaël Wünsche,3.3,0.9,ExoClock observation
-2019-03-27,Anael wunsche,2.304,0.792,ETD
-2019-03-23,F. lomoz,-3.168,0.9072,ETD
-2019-03-23,Josep gaitan,-0.288,0.8352,ETD
-2019-03-23,F. lomoz,-0.864,1.0944,ETD
-2019-03-23,"Francesco scaggiante, danilo zardin",-2.88,0.792,ETD
-2019-03-23,Yves jongen,-0.288,0.4608,ETD
-2019-03-18,F. lomoz,-3.024,1.1376,ETD
-2019-03-18,F. lomoz,-4.896,1.1664,ETD
-2019-03-01,Yves jongen,0.0,0.7632,ETD
-2019-03-01,Emmanuel arbouch,4.464,2.6784,ETD
-2019-02-24,Yves jongen,-0.0,0.7056,ETD
-2019-02-20,Yves jongen,-1.008,1.2384,ETD
-2019-02-16,M.hoecherl,8.928,0.8208,ETD
-2019-02-16,Claudio lopresti,-1.728,0.792,ETD
-2019-02-15,Mattia spagnol,-5.328,1.0656,ETD
-2019-02-12,Anaël Wünsche,1.4,0.4,ExoClock observation
-2019-02-11,Yves jongen,-0.432,0.5184,ETD
-2019-02-11,Marc bretton,0.144,0.4032,ETD
-2019-02-07,Yves jongen,2.016,0.5904,ETD
-2019-01-20,Yves jongen,-0.864,0.5616,ETD
-2019-01-02,Yves jongen,3.024,0.6048,ETD
-2018-12-28,Fertil jonathan,-1.44,1.0656,ETD
-2018-12-07,Yves jongen,-1.296,0.6336,ETD
-2018-11-28,Sjoerd dufoer,-0.432,1.4976,ETD
-2018-04-21,Stéphane montchaud ,2.88,1.7424,ETD
-2018-04-21,"Nico montigiani, massimiliano mannucci",-0.576,0.432,ETD
-2018-04-20,Serge bergeron,-1.296,1.0512,ETD
-2018-04-17,Yves jongen,6.336,0.4608,ETD
-2018-04-05,Nadia jaszczynska,-13.392,7.488,ETD
-2018-03-26,Yves jongen,8.784,1.1376,ETD
-2018-03-13,Jongen yves,-0.72,0.4896,ETD
-2018-03-13,Jongen yves,7.056,0.4896,ETD
-2018-03-08,Jongen yves,-1.44,0.4896,ETD
-2018-02-23,F. lomoz,-9.216,1.224,ETD
-2018-02-23,František lomoz,-0.288,1.7568,ETD
-2018-02-21,Andy thrasher / ruben barbosa,-2.016,1.1664,ETD
-2018-02-06,Mohammad talafha,4.752,2.2176,ETD
-2018-02-02,Mohammad fadel talafha,3.168,,ETD
-2018-01-01,Gabriel murawski,8.928,1.6272,ETD
-2017-12-23,Mattia spagnol,-3.168,1.6704,ETD
-2017-03-29,Marc bretton,-1.584,0.8064,ETD
-2017-03-29,"Francesco scaggiante, danilo zardin",-0.864,0.6048,ETD
-2017-03-27,Martin fowler,3.456,1.0656,ETD
-2017-03-16,Anaël Wünsche,-1.8,0.9,ExoClock observation
-2017-03-16,M. höcherl,-1.872,1.5264,ETD
-2017-03-16,Aaav astrofili valdera,2.448,,ETD
-2017-03-16,Josep gaitan ,-2.88,1.224,ETD
-2017-03-16,Marc bretton,-2.88,0.7344,ETD
-2017-03-16,"Francesco scaggiante, danilo zardin",-1.152,1.1808,ETD
-2017-03-16,Arar ravenna,-1.44,0.432,ETD
-2017-03-16,Josep gaitan ,-2.736,1.4544,ETD
-2017-03-07,Aaav astrofili valdera,1.584,,ETD
-2017-02-13,František lomoz,1.152,1.224,ETD
-2017-02-13,František lomoz,-5.328,0.864,ETD
-2017-02-06,Koji shimizu ,-2.16,0.6768,ETD
-2016-12-27,ERIC MINY,1.3,0.9,ExoClock observation
-2016-12-26,Blois sologne astronomie,-0.432,0.9072,ETD
-2016-04-23,David molina,-0.864,0.72,ETD
-2016-04-23,"David molina, antoni vives sureda",-1.008,1.2816,ETD
-2016-04-04,Jacob isbell and jack dolde,-0.72,0.8496,ETD
-2016-04-01,František lomoz,1.872,1.224,ETD
-2016-04-01,František lomoz,0.576,1.368,ETD
-2016-04-01,David molina,-0.432,1.0224,ETD
-2016-03-26,Jacob isbell and jack dolde,-1.872,0.6768,ETD
-2016-03-21,Jacob isbell and jack dolde,-1.152,1.9008,ETD
-2016-03-14,Enrique díez alonso,-1.44,0.8784,ETD
-2016-03-13,Jacob isbell and jack dolde,-1.296,1.2816,ETD
-2016-02-29,John l,-7.056,1.2672,ETD
-2016-02-15,Jacob isbell and jack dolde,-2.016,0.5472,ETD
-2016-02-04,Hoyer et al. 2016,0.6,0.6,ExoClock literature
-2015-11-13,Esposito et al. 2017,1.5,0.2,ExoClock literature
-2015-05-01,Hoyer et al. 2016,-0.1,0.8,ExoClock literature
-2015-04-30,Jean-francois gout,0.0,5.2704,ETD
-2015-04-18,Marc bretton,-0.0,0.9216,ETD
-2015-04-14,Marc bretton,2.16,0.7776,ETD
-2015-04-14,Anaël Wünsche,3.4,0.9,ExoClock observation
-2015-03-27,Jose maria fernandez andujar,-5.904,1.6848,ETD
-2015-03-27,Fran campos,-0.72,2.2032,ETD
-2015-03-18,Marc bretton,-2.016,0.4464,ETD
-2015-03-18,Anaël Wünsche,-0.6,0.4,ExoClock observation
-2015-03-14,"Francesco scaggiante, danilo zardin",-3.6,1.0224,ETD
-2015-03-04,"Lukas fragodt, ryan dewitt, george derugin",0.144,4.2336,ETD
-2015-02-11,Marc bretton,-1.728,0.864,ETD
-2015-02-11,Hoyer et al. 2016,-0.2,0.3,ExoClock literature
-2015-02-11,Hoyer et al. 2016,-0.6,0.4,ExoClock literature
-2015-02-11,Marc bretton,-0.432,0.3456,ETD
-2015-02-07,Marc bretton,6.912,4.3488,ETD
-2015-01-19,Jiang et al. 2016,-1.1,0.3,ExoClock literature
-2015-01-15,Jiang et al. 2016,-2.1,0.4,ExoClock literature
-2015-01-06,Jiang et al. 2016,-0.5,0.3,ExoClock literature
-2014-12-29,Hoyer et al. 2016,-1.0,0.6,ExoClock literature
-2014-12-29,Hoyer et al. 2016,-0.0,0.3,ExoClock literature
-2014-12-24,Jiang et al. 2016,-1.5,0.4,ExoClock literature
-2014-12-20,"Christophe andre, jacques clement, jean-philippe nougayrede",-1.584,0.4608,ETD
-2014-12-19,Paul benni,-1.152,0.4896,ETD
-2014-06-25,Hoyer et al. 2016,-0.4,0.7,ExoClock literature
-2014-05-26,Hoyer et al. 2016,-0.2,1.3,ExoClock literature
-2014-05-26,Hoyer et al. 2016,0.0,1.5,ExoClock literature
-2014-05-13,Hoyer et al. 2016,0.3,0.7,ExoClock literature
-2014-05-13,Hoyer et al. 2016,-0.4,0.4,ExoClock literature
-2014-05-08,Hoyer et al. 2016,0.3,0.4,ExoClock literature
-2014-05-08,Hoyer et al. 2016,-0.6,0.6,ExoClock literature
-2014-04-30,Hoyer et al. 2016,-0.4,0.5,ExoClock literature
-2014-04-17,"Francesco scaggiante, danilo zardin",0.0,1.9296,ETD
-2014-04-17,Corfini g.,-2.016,0.648,ETD
-2014-04-17,Barbieri l.,-0.0,1.0944,ETD
-2014-04-07,Jiang et al. 2016,-0.6,0.2,ExoClock literature
-2014-03-17,Marino g.,-2.16,0.8496,ETD
-2014-03-16,Jiang et al. 2016,-1.5,0.7,ExoClock literature
-2014-03-13,Lomoz f.,-6.048,1.3104,ETD
-2014-03-13,Lomoz f.,2.448,1.7136,ETD
-2014-03-12,Jiang et al. 2016,-0.7,0.3,ExoClock literature
-2014-03-08,Bachschmidt m.,-2.016,1.1088,ETD
-2014-02-23,Marino g.,-0.432,0.648,ETD
-2014-02-23,Bernd g.,3.168,0.9936,ETD
-2014-01-22,Benni p.,-1.872,0.5184,ETD
-2014-01-04,Benni p.,-3.312,0.7632,ETD
-2013-12-31,Benni p.,-0.432,0.4608,ETD
-2013-05-28,Chen et al. 2014,-1.1,0.6,ExoClock literature
-2013-05-27,Evans p.,-2.16,0.5328,ETD
-2013-05-07,Tony angel and caisey harlingten,8.208,6.9264,ETD
-2013-04-27,Majewski r.,2.304,1.3968,ETD
-2013-04-24,Alonso e. d.,7.776,1.3968,ETD
-2013-04-24,Dittler u.,-2.592,1.4688,ETD
-2013-04-20,Esposito et al. 2017,-0.0,0.1,ExoClock literature
-2013-04-20,Jacobsen j.,-10.08,2.448,ETD
-2013-04-18,Chassy a.,2.304,2.8656,ETD
-2013-04-15,Esposito et al. 2017,0.7,0.2,ExoClock literature
-2013-04-05,Chen et al. 2014,1.0,0.9,ExoClock literature
-2013-04-04,Evans p.,-0.432,0.6624,ETD
-2013-03-23,Singh p.,16.272,2.2752,ETD
-2013-03-16,Chen et al. 2014,0.3,1.8,ExoClock literature
-2013-03-16,Büchner a.,-1.008,1.0944,ETD
-2013-02-12,Chen et al. 2014,-1.3,3.1,ExoClock literature
-2013-02-11,Evans p.,-1.872,1.6272,ETD
-2013-02-05,Chen et al. 2014,0.6,1.2,ExoClock literature
-2013-02-04,Staab d.,-2.304,2.6064,ETD
-2013-02-04,Haro j. l.,-0.432,0.5616,ETD
-2013-02-03,Chen et al. 2014,0.3,1.3,ExoClock literature
-2013-02-02,Evans p.,-0.72,1.0368,ETD
-2013-01-20,"Kehusmaa p., harlingten c.",-2.304,0.5616,ETD
-2013-01-09,Murgas et al. 2014,0.5,0.1,ExoClock literature
-2013-01-09,Murgas et al. 2014,0.6,0.1,ExoClock literature
-2012-12-27,Chen et al. 2014,-0.3,1.9,ExoClock literature
-2012-12-26,Lopesino j.,-1.44,1.2528,ETD
-2012-12-22,Chen et al. 2014,-1.5,3.6,ExoClock literature
-2012-12-21,"Chapman a,  díaz n. d.",-3.024,0.9792,ETD
-2012-11-18,Liyun zhang qingfeng pi & aiying zhou,-1.44,0.9648,ETD
-2012-11-18,"Liyun zhang., qingfeng pi & aiying zhou",-1.44,0.9648,ETD
-2012-04-18,Murgas et al. 2014,1.4,0.2,ExoClock literature
-2012-04-17,Hall g.,1.44,0.72,ETD
-2012-03-28,Chen et al. 2014,1.5,1.3,ExoClock literature
-2012-03-28,Zibar m.,0.432,0.8208,ETD
-2012-03-24,Jiang et al. 2016,0.4,0.8,ExoClock literature
-2012-03-19,Chen et al. 2014,2.1,2.0,ExoClock literature
-2012-03-19,Lomoz f.,-1.008,1.5696,ETD
-2012-03-19,Lomoz f.,2.736,1.4544,ETD
-2012-03-14,Emering f.,-3.744,0.2736,ETD
-2012-03-14,Schteinman g. m.,-1.872,0.504,ETD
-2012-03-14,Chen et al. 2014,-0.4,0.9,ExoClock literature
-2012-03-14,Chen et al. 2014,1.8,2.6,ExoClock literature
-2012-03-14,Carreño a.,0.864,2.2464,ETD
-2012-03-10,René r.,6.48,1.2384,ETD
-2012-03-10,Gonzalez j.,-1.152,0.9792,ETD
-2012-03-10,Chen et al. 2014,1.2,1.1,ExoClock literature
-2012-03-10,Chen et al. 2014,-0.3,1.5,ExoClock literature
-2012-03-10,Chen et al. 2014,0.5,1.2,ExoClock literature
-2012-03-10,Garcia f.,0.72,0.7344,ETD
-2012-03-10,Nicolas e.,-0.72,0.576,ETD
-2012-03-10,Chen et al. 2014,-0.4,1.5,ExoClock literature
-2012-02-26,Lomoz f.,-0.432,1.0224,ETD
-2012-02-26,Chen et al. 2014,0.5,1.5,ExoClock literature
-2012-02-26,Martineli f.,-0.144,0.6768,ETD
-2012-02-26,Chen et al. 2014,0.3,1.7,ExoClock literature
-2012-02-26,Chen et al. 2014,1.0,0.8,ExoClock literature
-2012-02-26,Lomoz f.,0.72,1.8144,ETD
-2012-02-26,Horta f. g.,6.336,0.9216,ETD
-2012-02-26,Chen et al. 2014,0.5,2.2,ExoClock literature
-2012-02-22,Murgas et al. 2014,0.8,0.8,ExoClock literature
-2012-02-22,Chen et al. 2014,0.2,0.8,ExoClock literature
-2012-02-22,Chen et al. 2014,0.9,1.3,ExoClock literature
-2012-02-21,Gonzalez j.,-0.864,0.576,ETD
-2012-02-21,Nicolas e.,-0.144,0.6336,ETD
-2012-02-09,Murgas et al. 2014,0.9,0.5,ExoClock literature
-2012-01-30,František lomoz,-4.752,2.2464,ETD
-2012-01-30,Lomoz f.,3.744,1.7568,ETD
-2012-01-18,Chen et al. 2014,-0.9,2.8,ExoClock literature
-2012-01-17,René r.,-0.144,1.5264,ETD
-2012-01-13,Chen et al. 2014,0.7,1.0,ExoClock literature
-2012-01-13,Ayiomamitis a.,0.144,0.72,ETD
-2012-01-12,Naves r.,1.152,0.7488,ETD
-2012-01-08,Chen et al. 2014,0.1,0.1,ExoClock literature
-2012-01-08,Chen et al. 2014,0.4,0.3,ExoClock literature
-2012-01-08,Chen et al. 2014,0.4,0.4,ExoClock literature
-2012-01-08,Chen et al. 2014,0.2,0.2,ExoClock literature
-2012-01-08,Chen et al. 2014,0.3,0.3,ExoClock literature
-2012-01-08,Chen et al. 2014,-0.1,0.1,ExoClock literature
-2012-01-08,Chen et al. 2014,-0.1,0.3,ExoClock literature
-2012-01-08,Chen et al. 2014,-0.5,0.1,ExoClock literature
-2012-01-08,Chen et al. 2014,-0.2,0.1,ExoClock literature
-2012-01-08,Chen et al. 2014,-0.5,0.2,ExoClock literature
-2012-01-06,Chen et al. 2014,-0.5,0.5,ExoClock literature
-2012-01-06,Starr p.,-2.016,0.36,ETD
-2011-12-22,Murgas et al. 2014,0.8,0.3,ExoClock literature
-2011-11-26,Esposito et al. 2017,1.6,0.3,ExoClock literature
-2011-06-14,Gillon et al. 2012,0.7,0.2,ExoClock literature
-2011-05-19,Gillon et al. 2012,0.8,0.2,ExoClock literature
-2011-05-10,Gillon et al. 2012,0.4,0.2,ExoClock literature
-2011-05-07,Sun et al. 2018,0.4,3.2,ExoClock literature
-2011-05-04,Shadic s.,0.72,1.152,ETD
-2011-05-01,Gillon et al. 2012,0.9,0.3,ExoClock literature
-2011-04-30,"Tanya dax, stacy irwin",-3.456,0.5616,ETD
-2011-04-24,Sun et al. 2018,1.0,0.9,ExoClock literature
-2011-04-18,Gillon et al. 2012,-0.4,0.4,ExoClock literature
-2011-04-14,Gillon et al. 2012,-0.2,0.3,ExoClock literature
-2011-04-01,Gillon et al. 2012,-1.4,0.3,ExoClock literature
-2011-03-23,Gillon et al. 2012,0.2,0.3,ExoClock literature
-2011-03-22,Gillon et al. 2012,-0.8,0.2,ExoClock literature
-2011-03-09,Gillon et al. 2012,0.8,0.2,ExoClock literature
-2011-02-15,Gillon et al. 2012,-0.8,0.2,ExoClock literature
-2011-02-07,Gillon et al. 2012,-0.7,0.2,ExoClock literature
-2011-01-29,Gillon et al. 2012,-0.2,0.2,ExoClock literature
-2011-01-24,Gillon et al. 2012,0.3,0.6,ExoClock literature
-2011-01-20,Gillon et al. 2012,-0.6,0.2,ExoClock literature
-2011-01-15,Gillon et al. 2012,0.2,0.2,ExoClock literature
-2011-01-07,Gillon et al. 2012,-0.9,0.3,ExoClock literature
-2011-01-02,Gillon et al. 2012,-0.5,0.3,ExoClock literature
-2010-12-29,Gillon et al. 2012,-0.5,0.3,ExoClock literature
-2010-12-29,Gillon et al. 2012,0.3,0.2,ExoClock literature
-2010-12-20,Gillon et al. 2012,-0.3,0.2,ExoClock literature
-2010-12-16,Gillon et al. 2012,-0.3,0.3,ExoClock literature
-2010-12-07,Gillon et al. 2012,-0.6,0.6,ExoClock literature
-2010-11-28,Hellier et al. 2011,-0.2,0.2,ExoClock literature
-2010-11-28,Hoyer et al. 2016,-0.1,0.1,ExoClock literature
-2010-11-27,Hellier et al. 2011,-1.296,0.2016,ETD
+date,observer,oc,oceu,ocel,source
+2022-04-29 13:10:42.239999744,Vignes jean pascal,-2.16,0.792,0.792,ETD
+2022-04-27 22:09:11.519999744,Carl r knight,-0.864,0.2448,0.2448,ETD
+2022-03-26 09:12:29.952000000,Bernhard wenzel,-1.44,1.8576,1.8576,ETD
+2022-03-04 10:02:46.176000000,Anaël wünsche,-3.312,0.3888,0.3888,ETD
+2022-02-27 12:55:37.632000256,F. lomoz,-2.016,1.0368,1.0368,ETD
+2022-02-14 12:34:25.824000256,"Nahurna a., solomakha m., lobodenko m., baransky a.",-0.72,0.72,0.72,ETD
+2022-02-05 13:49:14.303999744,Miguel angel alava,-0.576,1.6272,1.6272,ETD
+2022-01-23 13:26:07.584000000,Yves jongen,-1.152,0.4608,0.4608,ETD
+2022-01-14 14:32:15.936000000,Miguel angel alava,-9.648,1.3392,1.3392,ETD
+2022-01-05 15:47:45.024000000,Miguel angel alava,-8.784,1.44,1.44,ETD
+2021-05-16 09:11:28.608000000,Salvo massaro,-1.008,3.096,3.096,ETD
+2021-05-12 07:39:50.976000256,Salvo massaro,4.32,6.8112,6.8112,ETD
+2021-05-03 08:46:28.704000000,Dominique daniel,-3.6,0.9072,0.9072,ETD
+2021-04-20 08:35:34.656000000,Stéphane montchaud,7.92,2.2032,2.2032,ETD
+2021-04-10 14:08:32.927999744,Anaël wünsche,-2.16,0.8064,0.8064,ETD
+2021-03-20 10:33:12.671999744,Yves jongen,-1.152,0.6624,0.6624,ETD
+2021-03-15 13:24:12.672000000,Paul benni,-1.728,0.72,0.72,ETD
+2021-03-07 10:10:06.816000256,Marsec marana space explorer center,-1.728,0.4176,0.4176,ETD
+2021-03-07 10:09:50.399999744,Jens jacobsen,-2.016,1.4112,1.4112,ETD
+2021-02-20 18:45:09.504000000,Roger dymock,-1.44,1.5264,1.5264,ETD
+2021-02-13 11:11:30.912000256,Jens jacobsen,7.488,2.4768,2.4768,ETD
+2021-02-07 18:23:49.920000000,Yves jongen,-0.288,0.3456,0.3456,ETD
+2021-01-25 18:01:13.439999744,Yves jongen,-0.432,0.4176,0.4176,ETD
+2021-01-16 19:15:50.687999744,Yves jongen,-0.432,0.504,0.504,ETD
+2020-12-26 15:38:54.528000000,Jean-claude mario,-0.864,0.72,0.72,ETD
+2020-11-29 19:22:54.912000000,Yves jongen,-0.576,0.432,0.432,ETD
+2020-11-24 22:08:19.679999744,Roger dymock,-6.768,2.9808,2.9808,ETD
+2020-06-05 11:17:34.656000256,Yves jongen,-0.144,0.4896,0.4896,ETD
+2020-05-14 12:09:39.744000000,Yves jongen,-0.144,0.4464,0.4464,ETD
+2020-05-05 13:22:56.640000000,Yves jongen,-1.44,0.5472,0.5472,ETD
+2020-05-01 11:46:45.984000256,Yves jongen,-0.576,0.5328,0.5328,ETD
+2020-04-14 09:47:32.064000000,Laloum didier,-0.432,2.0736,2.0736,ETD
+2020-04-14 09:47:26.880000000,Anaël wünsche,-0.432,0.7776,0.7776,ETD
+2020-04-14 09:45:45.791999744,Marc bretton,-2.16,0.4032,0.4032,ETD
+2020-04-14 09:38:12.192000256,Fernand emering,-9.792,5.7312,5.7312,ETD
+2020-04-10 08:10:55.488000256,Yves jongen,-0.0,0.6624,0.6624,ETD
+2020-04-10 08:08:09.600000000,"Francesco scaggiante, danilo zardin,marco fiaschi",-2.736,1.3824,1.3824,ETD
+2020-04-09 12:38:46.752000000,Yves jongen,-0.72,0.3888,0.3888,ETD
+2020-04-08 17:07:41.087999744,Yves jongen,-0.432,0.3744,0.3744,ETD
+2020-03-28 07:50:04.415999744,Pavel pintr,1.584,0.864,0.864,ETD
+2020-03-28 07:45:40.895999744,Yves jongen,-2.736,0.864,0.864,ETD
+2020-03-23 10:43:46.848000256,Michael theusner,3.744,1.9584,1.9584,ETD
+2020-03-19 09:00:53.568000000,"Francesco scaggiante, danilo zardin,marco fiaschi",-2.16,0.6048,0.6048,ETD
+2020-03-14 11:51:46.656000256,Marc bretton,-2.88,0.3312,0.3312,ETD
+2020-02-25 14:22:26.687999744,Yves jongen,-1.296,0.4464,0.4464,ETD
+2020-02-20 17:18:07.488000000,Yves jongen,2.736,0.5184,0.5184,ETD
+2020-02-17 11:06:51.840000000,Stephen futcher,-2.88,0.3888,0.3888,ETD
+2020-02-12 13:59:51.071999744,F. lomoz,-1.44,0.864,0.864,ETD
+2020-02-12 13:57:44.927999744,F. lomoz,-3.6,1.0656,1.0656,ETD
+2020-02-07 16:51:02.303999744,Yves jongen,-1.872,0.3744,0.3744,ETD
+2020-01-30 13:24:15.264000256,Giovanni battista casalnuovo,-14.688,0.9936,0.9936,ETD
+2020-01-29 18:08:54.816000000,Yves jongen,1.44,0.4896,0.4896,ETD
+2020-01-17 13:15:32.544000000,Yves jongen,-0.864,0.5904,0.5904,ETD
+2020-01-08 14:28:34.751999744,Yves jongen,-2.448,0.4896,0.4896,ETD
+2020-01-04 12:48:36.000000256,Antoine chedid,-5.328,0.72,0.72,ETD
+2019-12-31 11:06:28.511999744,Yves jongen,-10.512,0.8208,0.8208,ETD
+2019-12-30 15:43:44.831999744,Pavel pintr,-1.872,0.8928,0.8928,ETD
+2019-11-12 15:51:32.256000256,Yves jongen,-1.296,0.6048,0.6048,ETD
+2019-04-14 08:16:15.168000256,Yves jongen,-0.432,0.4608,0.4608,ETD
+2019-03-27 10:48:04.320000000,Anael wunsche,2.304,0.792,0.792,ETD
+2019-03-23 09:08:33.216000256,Yves jongen,-0.288,0.4608,0.4608,ETD
+2019-03-23 09:08:33.216000256,Josep gaitan,-0.288,0.8352,0.8352,ETD
+2019-03-23 09:07:55.200000000,F. lomoz,-0.864,1.0944,1.0944,ETD
+2019-03-23 09:06:00.288000000,"Francesco scaggiante, danilo zardin",-2.88,0.792,0.792,ETD
+2019-03-23 09:05:38.688000256,F. lomoz,-3.168,0.9072,0.9072,ETD
+2019-03-18 11:57:19.296000256,F. lomoz,-3.024,1.1376,1.1376,ETD
+2019-03-18 11:55:28.704000000,F. lomoz,-4.896,1.1664,1.1664,ETD
+2019-03-01 10:05:20.832000256,Emmanuel arbouch,4.464,2.6784,2.6784,ETD
+2019-03-01 10:00:58.176000000,Yves jongen,0.0,0.7632,0.7632,ETD
+2019-02-24 12:52:30.144000256,Yves jongen,-0.0,0.7056,0.7056,ETD
+2019-02-20 11:14:34.080000000,Yves jongen,-1.008,1.2384,1.2384,ETD
+2019-02-16 09:47:23.424000256,M.hoecherl,8.928,0.8208,0.8208,ETD
+2019-02-16 09:36:42.336000000,Claudio lopresti,-1.728,0.792,0.792,ETD
+2019-02-15 14:01:48.576000000,Mattia spagnol,-5.328,1.0656,1.0656,ETD
+2019-02-11 12:30:10.944000256,Marc bretton,0.144,0.4032,0.4032,ETD
+2019-02-11 12:29:36.383999744,Yves jongen,-0.432,0.5184,0.5184,ETD
+2019-02-07 10:55:02.496000000,Yves jongen,2.016,0.5904,0.5904,ETD
+2019-01-20 13:21:19.872000000,Yves jongen,-0.864,0.5616,0.5616,ETD
+2019-01-02 15:54:26.784000256,Yves jongen,3.024,0.6048,0.6048,ETD
+2018-12-28 18:41:31.776000000,Fertil jonathan,-1.44,1.0656,1.0656,ETD
+2018-12-07 15:05:09.311999744,Yves jongen,-1.296,0.6336,0.6336,ETD
+2018-11-28 16:20:38.399999744,Sjoerd dufoer,-0.432,1.4976,1.4976,ETD
+2018-04-21 10:02:22.847999744,Stéphane montchaud ,2.88,1.7424,1.7424,ETD
+2018-04-21 09:58:52.032000000,"Nico montigiani, massimiliano mannucci",-0.576,0.432,0.432,ETD
+2018-04-20 14:26:46.751999744,Serge bergeron,-1.296,1.0512,1.0512,ETD
+2018-04-17 08:28:48.576000000,Yves jongen,6.336,0.4608,0.4608,ETD
+2018-04-05 22:49:28.991999744,Nadia jaszczynska,-13.392,7.488,7.488,ETD
+2018-03-26 09:23:22.272000000,Yves jongen,8.784,1.1376,1.1376,ETD
+2018-03-13 08:59:08.160000000,Jongen yves,7.056,0.4896,0.4896,ETD
+2018-03-13 08:51:27.648000000,Jongen yves,-0.72,0.4896,0.4896,ETD
+2018-03-08 11:42:13.824000000,Jongen yves,-1.44,0.4896,0.4896,ETD
+2018-02-23 11:21:03.744000000,František lomoz,-0.288,1.7568,1.7568,ETD
+2018-02-23 11:12:06.336000256,F. lomoz,-9.216,1.224,1.224,ETD
+2018-02-21 20:16:23.808000000,Andy thrasher / ruben barbosa,-2.016,1.1664,1.1664,ETD
+2018-02-06 09:26:39.264000256,Mohammad talafha,4.752,2.2176,2.2176,ETD
+2018-02-02 07:47:59.999999744,Mohammad fadel talafha,3.168,,,ETD
+2018-01-01 14:29:03.264000000,Gabriel murawski,8.928,1.6272,1.6272,ETD
+2017-12-23 15:31:27.839999744,Mattia spagnol,-3.168,1.6704,1.6704,ETD
+2017-03-29 09:19:33.312000000,"Francesco scaggiante, danilo zardin",-0.864,0.6048,0.6048,ETD
+2017-03-29 09:18:49.248000000,Marc bretton,-1.584,0.8064,0.8064,ETD
+2017-03-27 18:21:00.576000000,Martin fowler,3.456,1.0656,1.0656,ETD
+2017-03-16 09:00:21.599999744,Aaav astrofili valdera,2.448,,,ETD
+2017-03-16 08:56:49.919999744,"Francesco scaggiante, danilo zardin",-1.152,1.1808,1.1808,ETD
+2017-03-16 08:56:28.320000000,Arar ravenna,-1.44,0.432,0.432,ETD
+2017-03-16 08:56:06.720000256,M. höcherl,-1.872,1.5264,1.5264,ETD
+2017-03-16 08:55:09.695999744,Josep gaitan ,-2.736,1.4544,1.4544,ETD
+2017-03-16 08:55:00.191999744,Josep gaitan ,-2.88,1.224,1.224,ETD
+2017-03-16 08:54:58.463999744,Marc bretton,-2.88,0.7344,0.7344,ETD
+2017-03-07 10:14:02.688000256,Aaav astrofili valdera,1.584,,,ETD
+2017-02-13 11:05:45.312000256,František lomoz,1.152,1.224,1.224,ETD
+2017-02-13 10:59:15.648000256,František lomoz,-5.328,0.864,0.864,ETD
+2017-02-06 03:19:47.136000256,Koji shimizu ,-2.16,0.6768,0.6768,ETD
+2016-12-26 15:40:00.191999744,Blois sologne astronomie,-0.432,0.9072,0.9072,ETD
+2016-04-23 08:33:12.096000000,David molina,-0.864,0.72,0.72,ETD
+2016-04-23 08:32:58.271999744,"David molina, antoni vives sureda",-1.008,1.2816,1.2816,ETD
+2016-04-04 15:30:57.600000256,Jacob isbell and jack dolde,-0.72,0.8496,0.8496,ETD
+2016-04-01 09:28:01.344000256,František lomoz,1.872,1.224,1.224,ETD
+2016-04-01 09:26:39.264000256,František lomoz,0.576,1.368,1.368,ETD
+2016-04-01 09:25:44.832000000,David molina,-0.432,1.0224,1.0224,ETD
+2016-03-26 16:44:25.728000256,Jacob isbell and jack dolde,-1.872,0.6768,0.6768,ETD
+2016-03-21 19:36:47.807999744,Jacob isbell and jack dolde,-1.152,1.9008,1.9008,ETD
+2016-03-14 11:53:51.935999744,Enrique díez alonso,-1.44,0.8784,0.8784,ETD
+2016-03-13 16:22:33.312000256,Jacob isbell and jack dolde,-1.296,1.2816,1.2816,ETD
+2016-02-29 15:54:23.328000256,John l,-7.056,1.2672,1.2672,ETD
+2016-02-15 20:05:29.760000000,Jacob isbell and jack dolde,-2.016,0.5472,0.5472,ETD
+2015-04-30 14:45:26.495999744,Jean-francois gout,0.0,5.2704,5.2704,ETD
+2015-04-18 09:54:19.008000000,Marc bretton,-0.0,0.9216,0.9216,ETD
+2015-04-14 08:19:33.888000256,Marc bretton,2.16,0.7776,0.7776,ETD
+2015-03-27 10:45:43.488000000,Fran campos,-0.72,2.2032,2.2032,ETD
+2015-03-27 10:40:37.632000256,Jose maria fernandez andujar,-5.904,1.6848,1.6848,ETD
+2015-03-18 11:59:04.704000256,Marc bretton,-2.016,0.4464,0.4464,ETD
+2015-03-14 10:20:29.760000000,"Francesco scaggiante, danilo zardin",-3.6,1.0224,1.0224,ETD
+2015-03-04 16:07:17.472000256,"Lukas fragodt, ryan dewitt, george derugin",0.144,4.2336,4.2336,ETD
+2015-02-11 12:30:19.584000000,Marc bretton,-0.432,0.3456,0.3456,ETD
+2015-02-11 12:28:56.640000256,Marc bretton,-1.728,0.864,0.864,ETD
+2015-02-07 11:00:38.592000000,Marc bretton,6.912,4.3488,4.3488,ETD
+2014-12-20 15:27:55.296000000,"Christophe andre, jacques clement, jean-philippe nougayrede",-1.584,0.4608,0.4608,ETD
+2014-12-19 19:56:57.408000000,Paul benni,-1.152,0.4896,0.4896,ETD
+2014-04-17 08:23:10.752000256,"Francesco scaggiante, danilo zardin",0.0,1.9296,1.9296,ETD
+2014-04-17 08:23:03.839999744,Barbieri l.,-0.0,1.0944,1.0944,ETD
+2014-04-17 08:21:08.064000256,Corfini g.,-2.016,0.648,0.648,ETD
+2014-03-17 10:27:41.759999744,Marino g.,-2.16,0.8496,0.8496,ETD
+2014-03-13 08:55:16.608000256,Lomoz f.,2.448,1.7136,1.7136,ETD
+2014-03-13 08:46:48.576000000,Lomoz f.,-6.048,1.3104,1.3104,ETD
+2014-03-08 11:42:25.056000000,Bachschmidt m.,-2.016,1.1088,1.1088,ETD
+2014-02-23 11:25:08.255999744,Bernd g.,3.168,0.9936,0.9936,ETD
+2014-02-23 11:21:30.528000256,Marino g.,-0.432,0.648,0.648,ETD
+2014-01-22 17:55:24.383999744,Benni p.,-1.872,0.5184,0.5184,ETD
+2014-01-04 20:23:01.248000000,Benni p.,-3.312,0.7632,0.7632,ETD
+2013-12-31 18:48:50.688000256,Benni p.,-0.432,0.4608,0.4608,ETD
+2013-05-27 18:31:17.472000000,Evans p.,-2.16,0.5328,0.5328,ETD
+2013-05-07 10:36:33.984000000,Tony angel and caisey harlingten,8.208,6.9264,6.9264,ETD
+2013-04-27 16:13:48.864000000,Majewski r.,2.304,1.3968,1.3968,ETD
+2013-04-24 10:13:42.815999744,Alonso e. d.,7.776,1.3968,1.3968,ETD
+2013-04-24 10:03:16.416000256,Dittler u.,-2.592,1.4688,1.4688,ETD
+2013-04-20 08:18:47.232000256,Jacobsen j.,-10.08,2.448,2.448,ETD
+2013-04-18 17:28:25.247999744,Chassy a.,2.304,2.8656,2.8656,ETD
+2013-04-04 21:31:46.848000000,Evans p.,-0.432,0.6624,0.6624,ETD
+2013-03-23 16:57:31.104000000,Singh p.,16.272,2.2752,2.2752,ETD
+2013-03-16 08:57:37.440000256,Büchner a.,-1.008,1.0944,1.0944,ETD
+2013-02-11 20:00:35.136000256,Evans p.,-1.872,1.6272,1.6272,ETD
+2013-02-04 12:19:24.672000000,Haro j. l.,-0.432,0.5616,0.5616,ETD
+2013-02-04 12:17:32.351999744,Staab d.,-2.304,2.6064,2.6064,ETD
+2013-02-02 21:16:18.912000000,Evans p.,-0.72,1.0368,1.0368,ETD
+2013-01-20 20:52:16.895999744,"Kehusmaa p., harlingten c.",-2.304,0.5616,0.5616,ETD
+2012-12-26 15:39:41.184000256,Lopesino j.,-1.44,1.2528,1.2528,ETD
+2012-12-21 18:29:40.704000000,"Chapman a,  díaz n. d.",-3.024,0.9792,0.9792,ETD
+2012-11-18 10:03:44.927999744,"Liyun zhang., qingfeng pi & aiying zhou",-1.44,0.9648,0.9648,ETD
+2012-11-18 10:03:44.927999744,Liyun zhang qingfeng pi & aiying zhou,-1.44,0.9648,0.9648,ETD
+2012-04-17 15:56:19.103999744,Hall g.,1.44,0.72,0.72,ETD
+2012-03-28 07:50:11.328000256,Zibar m.,0.432,0.8208,0.8208,ETD
+2012-03-19 09:07:05.952000256,Lomoz f.,2.736,1.4544,1.4544,ETD
+2012-03-19 09:03:20.448000000,Lomoz f.,-1.008,1.5696,1.5696,ETD
+2012-03-14 11:56:50.784000000,Carreño a.,0.864,2.2464,2.2464,ETD
+2012-03-14 11:54:00.576000256,Schteinman g. m.,-1.872,0.504,0.504,ETD
+2012-03-14 11:52:07.392000256,Emering f.,-3.744,0.2736,0.2736,ETD
+2012-03-10 10:25:23.520000000,René r.,6.48,1.2384,1.2384,ETD
+2012-03-10 10:19:35.327999744,Garcia f.,0.72,0.7344,0.7344,ETD
+2012-03-10 10:18:11.520000256,Nicolas e.,-0.72,0.576,0.576,ETD
+2012-03-10 10:17:48.192000000,Gonzalez j.,-1.152,0.9792,0.9792,ETD
+2012-02-26 10:02:47.904000000,Horta f. g.,6.336,0.9216,0.9216,ETD
+2012-02-26 09:57:10.080000000,Lomoz f.,0.72,1.8144,1.8144,ETD
+2012-02-26 09:56:19.968000000,Martineli f.,-0.144,0.6768,0.6768,ETD
+2012-02-26 09:56:04.416000000,Lomoz f.,-0.432,1.0224,1.0224,ETD
+2012-02-21 12:47:50.207999744,Nicolas e.,-0.144,0.6336,0.6336,ETD
+2012-02-21 12:47:07.008000256,Gonzalez j.,-0.864,0.576,0.576,ETD
+2012-01-30 13:43:56.352000256,Lomoz f.,3.744,1.7568,1.7568,ETD
+2012-01-30 13:35:24.000000256,František lomoz,-4.752,2.2464,2.2464,ETD
+2012-01-17 13:17:36.960000000,René r.,-0.144,1.5264,1.5264,ETD
+2012-01-13 11:40:47.424000256,Ayiomamitis a.,0.144,0.72,0.72,ETD
+2012-01-12 16:10:31.008000256,Naves r.,1.152,0.7488,0.7488,ETD
+2012-01-06 03:56:05.280000256,Starr p.,-2.016,0.36,0.36,ETD
+2011-05-04 16:23:49.344000256,Shadic s.,0.72,1.152,1.152,ETD
+2011-04-30 14:42:31.104000000,"Tanya dax, stacy irwin",-3.456,0.5616,0.5616,ETD
+2010-11-27 20:49:32.736000256,Hellier et al. 2011,-1.296,0.2016,0.2016,ETD

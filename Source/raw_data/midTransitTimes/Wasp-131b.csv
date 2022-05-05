@@ -1,6 +1,4 @@
-date,observer,oc,oce,source
-2022-04-23,Yves Jongen,-10.6,5.8,ExoClock observation
-2021-03-25,Yves Jongen,-5.9,2.3,ExoClock observation
-2021-03-24,Yves jongen,-5.184,2.6496,ETD
-2020-04-29,Phil Evans,-4.4,1.9,ExoClock observation
-2014-09-18,Hellier et al. (2016),0.0,0.576,ETD
+date,observer,oc,oceu,ocel,source
+2022-04-22 14:09:22.176000000,Yves jongen,-11.088,5.3424,5.3424,ETD
+2021-03-24 18:20:36.384000000,Yves jongen,-5.184,2.6496,2.6496,ETD
+2014-09-18 19:45:59.040000256,Hellier et al. (2016),0.0,0.576,0.576,ETD

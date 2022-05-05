@@ -1,9 +1,10 @@
-date,observer,oc,oce,source
-2021-04-26,Manfred raetz,29.376,1.2816,ETD
-2021-03-10,Veli-pekka hentunen,18.72,1.3248,ETD
-2021-03-02,Veli-pekka hentunen,20.016,2.1312,ETD
-2021-02-22,Manfred raetz,-6.336,3.6432,ETD
-2021-01-14,Veli-pekka hentunen,6.192,2.088,ETD
-2020-09-14,Veli-pekka hentunen,-45.792,2.0736,ETD
-2020-07-21,Jean plazas,42.912,5.3424,ETD
-2020-07-21,Jean plazas,0.72,,ETD
+date,observer,oc,oceu,ocel,source
+2022-01-26 15:53:01.248000000,Miguel angel alava,33.984,5.1696,5.1696,ETD
+2021-04-26 12:50:14.496000256,Manfred raetz,29.376,1.2816,1.2816,ETD
+2021-03-10 08:43:11.712000000,Veli-pekka hentunen,18.72,1.3248,1.3248,ETD
+2021-03-02 12:05:09.311999744,Veli-pekka hentunen,20.016,2.1312,2.1312,ETD
+2021-02-22 14:59:30.624000000,Manfred raetz,-6.336,3.6432,3.6432,ETD
+2021-01-14 07:55:04.224000000,Veli-pekka hentunen,6.192,2.088,2.088,ETD
+2020-09-14 10:52:40.800000000,Veli-pekka hentunen,-45.792,2.0736,2.0736,ETD
+2020-07-21 11:45:47.231999744,Jean plazas,42.912,5.3424,5.3424,ETD
+2020-07-21 11:03:33.120000000,Jean plazas,0.72,,,ETD

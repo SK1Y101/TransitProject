@@ -1,7 +1,4 @@
-date,observer,oc,oce,source
-2022-02-08,Claudio Lopresti,-24.7,3.0,ExoClock observation
-2021-11-30,Alessandro Marchini,-17.7,2.6,ExoClock observation
-2021-11-30,Alessandro marchini,-26.784,1.9296,ETD
-2021-11-18,Taewoo Kim,-18.0,1.6,ExoClock observation
-2021-03-20,Jean plazas,7.344,5.1264,ETD
-2014-01-03,Benni p.,-7.776,2.2464,ETD
+date,observer,oc,oceu,ocel,source
+2021-11-30 11:16:09.983999744,Alessandro marchini,-26.784,1.9296,1.9296,ETD
+2021-03-20 10:31:03.936000256,Jean plazas,7.344,5.1264,5.1264,ETD
+2014-01-03 14:25:53.183999744,Benni p.,-7.776,2.2464,2.2464,ETD

@@ -1,9 +1,6 @@
-date,observer,oc,oce,source
-2022-01-09,Yves Jongen,11.9,2.3,ExoClock observation
-2022-01-08,Yves jongen,14.256,3.024,ETD
-2021-12-19,jean pascal vignes,17.6,5.8,ExoClock observation
-2021-12-19,Yves Jongen,13.6,2.3,ExoClock observation
-2021-12-18,Yves jongen,17.712,2.52,ETD
-2021-09-26,Yves Jongen,11.9,1.7,ExoClock observation
-2021-09-25,Yves jongen,13.968,3.0528,ETD
-2014-05-17,Bento et al. (2018),0.0,2.016,ETD
+date,observer,oc,oceu,ocel,source
+2022-01-08 16:53:53.376000000,Yves jongen,14.256,3.024,3.024,ETD
+2021-12-18 17:52:46.272000256,Vignes jean-pascal,27.36,4.4352,4.4352,ETD
+2021-12-18 17:43:08.256000000,Yves jongen,17.712,2.52,2.52,ETD
+2021-09-25 20:42:20.735999744,Yves jongen,13.968,3.0528,3.0528,ETD
+2014-05-17 17:22:33.600000256,Bento et al. (2018),0.0,2.016,2.016,ETD

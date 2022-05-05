@@ -1,44 +1,31 @@
-date,observer,oc,oce,source
-2021-11-06,Giovanni Battista Casalnuovo,-3.4,2.2,ExoClock observation
-2021-08-30,Carmelo Falco,-3.0,1.7,ExoClock observation
-2020-09-16,Yves jongen,-5.328,2.2032,ETD
-2020-09-14,Yves Jongen,0.1,1.0,ExoClock observation
-2020-09-13,Yves jongen,-1.296,0.9792,ETD
-2020-08-20,Taewoo Kim,-1.1,1.2,ExoClock observation
-2020-08-18,Iakovos Strikis,-0.4,2.2,ExoClock observation
-2019-09-04,Pere guerra,-1.872,1.0656,ETD
-2018-12-20,Dimitrios Deligeorgopoulos,-0.8,3.2,ExoClock observation
-2018-09-02,Gabriel murawski,2.88,3.6432,ETD
-2017-08-31,Salvatore pluchino,-0.144,3.5856,ETD
-2016-10-06,Pierre le cam,-5.472,1.9296,ETD
-2016-09-28,Josep gaitan,2.736,2.2608,ETD
-2016-08-18,David molina,-0.864,1.3968,ETD
-2015-12-01,Stan shadick,-3.312,2.4192,ETD
-2015-11-04,Anaël Wünsche,1.0,0.4,ExoClock observation
-2015-11-04,Marc bretton,-0.72,0.4752,ETD
-2015-11-01,Robert majewski,2.448,3.1968,ETD
-2014-08-26,Gaitan j.,-14.4,7.8624,ETD
-2013-12-08,René r.,-3.312,4.248,ETD
-2013-11-08,Benni p.,0.72,1.224,ETD
-2013-10-31,Zibar m.,3.888,2.0592,ETD
-2013-10-28,Benni p.,-2.736,1.152,ETD
-2013-08-18,Evans p.,0.72,1.3392,ETD
-2012-11-20,Sun et al. 2015,2.0,0.9,ExoClock literature
-2012-11-20,Sun et al. 2015,2.0,2.0,ExoClock literature
-2012-01-01,Shadic s.,8.064,3.2544,ETD
-2011-10-15,Sada et al. 2012,-2.1,0.5,ExoClock literature
-2011-10-09,"Ivanov a. v., sokov e. n.",-2.88,2.5056,ETD
-2011-09-28,Gillier ch.,4.464,2.4048,ETD
-2011-08-29,Vanhuysse m.,0.288,1.0944,ETD
-2011-08-29,Vrašťák m.,0.144,1.0368,ETD
-2010-12-14,Husar d.,-4.608,5.5728,ETD
-2010-12-11,Stacy irwin,-13.68,1.368,ETD
-2010-12-11,Shawn dvorak,-1.872,1.7568,ETD
-2010-11-17,Curtis i.,-9.792,4.0032,ETD
-2010-11-14,Lomoz f.,-2.592,2.2608,ETD
-2010-11-06,Sun et al. 2015,0.9,1.1,ExoClock literature
-2010-11-06,Sun et al. 2015,0.3,2.7,ExoClock literature
-2010-10-31,Shadick s.,0.432,1.8576,ETD
-2010-10-26,"Gajdoš š., világi j.",0.72,1.4544,ETD
-2009-11-15,Maxted et al. 2010,0.4,0.7,ExoClock literature
-2009-11-15,"P. f. l maxted et al., 2010",-0.576,0.72,ETD
+date,observer,oc,oceu,ocel,source
+2020-09-16 10:11:41.855999744,Yves jongen,-5.328,2.2032,2.2032,ETD
+2020-09-13 17:00:53.280000000,Yves jongen,-1.296,0.9792,0.9792,ETD
+2019-09-04 12:47:34.656000256,Pere guerra,-1.872,1.0656,1.0656,ETD
+2018-09-02 12:24:14.975999744,Gabriel murawski,2.88,3.6432,3.6432,ETD
+2017-08-31 11:53:02.688000256,Salvatore pluchino,-0.144,3.5856,3.5856,ETD
+2016-10-06 12:47:55.392000256,Pierre le cam,-5.472,1.9296,1.9296,ETD
+2016-09-28 09:11:26.880000000,Josep gaitan,2.736,2.2608,2.2608,ETD
+2016-08-18 14:24:46.656000000,David molina,-0.864,1.3968,1.3968,ETD
+2015-12-01 14:34:15.168000000,Stan shadick,-3.312,2.4192,2.4192,ETD
+2015-11-04 10:08:08.447999744,Marc bretton,-0.72,0.4752,0.4752,ETD
+2015-11-01 16:56:26.304000256,Robert majewski,2.448,3.1968,3.1968,ETD
+2014-08-26 10:14:28.608000256,Gaitan j.,-14.4,7.8624,7.8624,ETD
+2013-12-08 10:37:35.328000000,René r.,-3.312,4.248,4.248,ETD
+2013-11-08 12:57:58.464000256,Benni p.,0.72,1.224,1.224,ETD
+2013-10-31 09:16:28.416000256,Zibar m.,3.888,2.0592,2.0592,ETD
+2013-10-28 15:55:02.208000256,Benni p.,-2.736,1.152,1.152,ETD
+2013-08-18 23:31:44.832000000,Evans p.,0.72,1.3392,1.3392,ETD
+2012-01-01 14:21:32.256000256,Shadic s.,8.064,3.2544,3.2544,ETD
+2011-10-09 07:29:23.712000256,"Ivanov a. v., sokov e. n.",-2.88,2.5056,2.5056,ETD
+2011-09-28 10:37:16.320000000,Gillier ch.,4.464,2.4048,2.4048,ETD
+2011-08-29 12:49:25.248000000,Vanhuysse m.,0.288,1.0944,1.0944,ETD
+2011-08-29 12:49:17.471999744,Vrašťák m.,0.144,1.0368,1.0368,ETD
+2010-12-14 06:11:29.472000256,Husar d.,-4.608,5.5728,5.5728,ETD
+2010-12-11 12:59:16.224000000,Shawn dvorak,-1.872,1.7568,1.7568,ETD
+2010-12-11 12:47:27.743999744,Stacy irwin,-13.68,1.368,1.368,ETD
+2010-11-17 01:37:31.008000000,Curtis i.,-9.792,4.0032,4.0032,ETD
+2010-11-14 08:29:52.511999744,Lomoz f.,-2.592,2.2608,2.2608,ETD
+2010-10-31 18:18:33.695999744,Shadick s.,0.432,1.8576,1.8576,ETD
+2010-10-26 07:49:03.936000000,"Gajdoš š., világi j.",0.72,1.4544,1.4544,ETD
+2009-11-15 01:18:37.440000256,"P. f. l maxted et al., 2010",-0.576,0.72,0.72,ETD

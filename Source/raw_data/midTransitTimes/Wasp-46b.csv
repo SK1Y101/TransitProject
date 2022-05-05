@@ -1,78 +1,51 @@
-date,observer,oc,oce,source
-2021-10-17,Yves Jongen,-1.6,0.7,ExoClock observation
-2021-10-16,Yves jongen,-2.592,0.6768,ETD
-2021-08-17,Yves jongen,-16.704,10.656,ETD
-2021-07-26,Yves Jongen,-1.3,0.6,ExoClock observation
-2021-07-25,Yves jongen,-2.16,0.648,ETD
-2021-07-16,Yves Jongen,-0.9,0.6,ExoClock observation
-2021-07-15,Yves jongen,-2.016,0.6336,ETD
-2021-06-30,Yves Jongen,1.4,1.4,ExoClock observation
-2021-06-29,Yves jongen,-0.576,1.3248,ETD
-2021-06-20,Yves Jongen,-1.7,0.7,ExoClock observation
-2021-06-19,Yves jongen,-2.16,0.5472,ETD
-2021-06-13,Yves Jongen,-0.2,0.6,ExoClock observation
-2021-06-12,Yves jongen,-1.152,0.5328,ETD
-2021-06-10,Yves Jongen,-1.7,0.7,ExoClock observation
-2021-06-09,Yves jongen,-1.008,0.7776,ETD
-2021-06-04,Carl r knight,0.144,0.4608,ETD
-2021-05-25,Carl r knight,-2.304,0.4608,ETD
-2021-05-24,Yves Jongen,-1.3,0.6,ExoClock observation
-2021-05-23,Yves jongen,-2.16,0.576,ETD
-2021-05-14,Yves Jongen,-0.6,0.7,ExoClock observation
-2021-05-13,Yves jongen,-1.728,0.6048,ETD
-2021-05-11,Yves Jongen,0.6,0.7,ExoClock observation
-2021-05-10,Yves jongen,-0.576,0.7056,ETD
-2021-05-01,Yves Jongen,0.2,0.9,ExoClock observation
-2021-04-30,Yves jongen,-1.584,0.9504,ETD
-2020-10-13,Yves Jongen,0.3,0.6,ExoClock observation
-2020-10-12,Yves jongen,-0.864,0.5184,ETD
-2020-09-23,Yves Jongen,-1.1,0.6,ExoClock observation
-2020-09-22,Yves jongen,-2.016,0.4608,ETD
-2020-07-25,Carl r knight,-2.16,0.36,ETD
-2020-07-12,Yves Jongen,0.0,0.9,ExoClock observation
-2020-07-11,Yves jongen,-0.864,0.72,ETD
-2020-07-09,Yves Jongen,-1.2,0.7,ExoClock observation
-2020-07-08,Yves jongen,-1.296,0.7344,ETD
-2020-05-07,Yves Jongen,0.2,0.6,ExoClock observation
-2020-05-06,Yves jongen,-0.288,0.7776,ETD
-2018-09-26,Carl r knight,-5.472,0.6336,ETD
-2018-07-03,Carl r knight,-0.72,0.5904,ETD
-2018-06-18,"Eduardo fernández-lajús, romina p. di sisto",-4.176,0.7488,ETD
-2017-10-18,Phil evans,-2.304,0.8784,ETD
-2017-09-20,Carl r knight,-4.896,4.3488,ETD
-2017-09-15,Phil evans,-1.584,0.864,ETD
-2017-08-26,"Eduardo fernández-lajús, romina p. di sisto",-3.456,0.4464,ETD
-2017-06-27,Phil evans,-3.024,2.3472,ETD
-2017-04-12,Phil evans,-2.16,1.0224,ETD
-2016-08-09,"Quiñones c., melia r., colazo c.",-2.736,0.2304,ETD
-2016-07-31,Petrucci et al. 2018,-2.2,0.6,ExoClock literature
-2016-07-23,"Villarreal c., quiñones c.",-4.752,0.3168,ETD
-2016-06-11,Petrucci et al. 2018,-0.5,0.4,ExoClock literature
-2015-09-28,"Martin mašek, kateřina hoňková, jakub juryšek",-4.608,1.224,ETD
-2015-09-09,Petrucci et al. 2018,-2.8,2.6,ExoClock literature
-2014-10-18,Petrucci et al. 2018,3.2,1.1,ExoClock literature
-2014-10-11,Evans p.,-2.88,1.1952,ETD
-2014-08-25,"Eduardo fernández-lajús, romina p. di sisto",-3.6,0.432,ETD
-2014-08-23,Petrucci et al. 2018,2.1,1.4,ExoClock literature
-2014-08-15,"Mašek m., hoňková k., juryšek j.",-2.592,0.7056,ETD
-2014-08-12,"Mašek m., hoňková k., juryšek j.",1.44,0.936,ETD
-2014-07-24,Petrucci et al. 2018,2.2,0.7,ExoClock literature
-2013-11-12,"Schneiter m,, villarreal c., colazo c.",3.456,0.3888,ETD
-2013-11-12,"Matias schneiter, carolina villarreal , carlos colazo",-4.032,,ETD
-2013-10-23,"Schneiter m,, villarreal c., colazo c.",4.176,0.4464,ETD
-2013-10-23,"Matias schneiter, carolina villarreal , carlos colazo, raul melia",-4.608,,ETD
-2013-08-29,Petrucci et al. 2018,1.6,0.2,ExoClock literature
-2013-08-15,Evans p.,-1.008,0.9648,ETD
-2013-08-05,Evans p.,-0.432,0.9648,ETD
-2013-08-02,Moyano et al. 2017,-0.5,0.4,ExoClock literature
-2013-07-30,Moyano et al. 2017,-0.9,0.5,ExoClock literature
-2012-10-26,Carlos colazo,2.016,0.8928,ETD
-2012-10-26,Colazo c. a.,2.016,0.8928,ETD
-2012-07-25,"Schneiter m, colazo c.",-6.192,0.2304,ETD
-2012-07-21,Sauer t.,-0.432,0.6048,ETD
-2012-06-29,Evans p.,-9.072,1.3104,ETD
-2011-08-15,Moyano et al. 2017,-2.4,0.4,ExoClock literature
-2011-07-14,Curtis i.,0.0,1.4112,ETD
-2011-06-29,"De pree, makely, gruber",8.64,3.0528,ETD
-2010-07-14,Anderson et al. 2012,-0.5,0.3,ExoClock literature
-2010-07-14,"D. r. anderson et al., 2011",-1.584,0.288,ETD
+date,observer,oc,oceu,ocel,source
+2021-10-16 15:14:24.863999744,Yves jongen,-2.592,0.6768,0.6768,ETD
+2021-08-17 13:11:25.439999744,Yves jongen,-16.704,10.656,10.656,ETD
+2021-07-25 16:10:12.863999744,Yves jongen,-2.16,0.648,0.648,ETD
+2021-07-15 15:52:08.543999744,Yves jongen,-2.016,0.6336,0.6336,ETD
+2021-06-29 22:16:29.567999744,Yves jongen,-0.576,1.3248,1.3248,ETD
+2021-06-19 21:56:42.432000256,Yves jongen,-2.16,0.5472,0.5472,ETD
+2021-06-12 18:19:07.392000000,Yves jongen,-1.152,0.5328,0.5328,ETD
+2021-06-09 21:39:45.503999744,Yves jongen,-1.008,0.7776,0.7776,ETD
+2021-06-04 04:21:53.568000000,Carl r knight,0.144,0.4608,0.4608,ETD
+2021-05-25 04:01:18.912000000,Carl r knight,-2.304,0.4608,0.4608,ETD
+2021-05-23 17:41:43.583999744,Yves jongen,-2.16,0.576,0.576,ETD
+2021-05-13 17:24:04.320000000,Yves jongen,-1.728,0.6048,0.6048,ETD
+2021-05-10 20:45:46.368000256,Yves jongen,-0.576,0.7056,0.7056,ETD
+2021-04-30 20:26:36.384000000,Yves jongen,-1.584,0.9504,0.9504,ETD
+2020-10-12 14:24:12.096000256,Yves jongen,-0.864,0.5184,0.5184,ETD
+2020-09-22 13:46:44.832000000,Yves jongen,-2.016,0.4608,0.4608,ETD
+2020-07-25 22:17:30.911999744,Carl r knight,-2.16,0.36,0.36,ETD
+2020-07-11 15:01:22.080000000,Yves jongen,-0.864,0.72,0.72,ETD
+2020-07-08 18:21:25.632000256,Yves jongen,-1.296,0.7344,0.7344,ETD
+2020-05-06 19:54:08.928000256,Yves jongen,-0.288,0.7776,0.7776,ETD
+2018-09-26 22:37:29.280000000,Carl r knight,-5.472,0.6336,0.6336,ETD
+2018-07-03 02:58:05.088000000,Carl r knight,-0.72,0.5904,0.5904,ETD
+2018-06-18 19:37:10.271999744,"Eduardo fernández-lajús, romina p. di sisto",-4.176,0.7488,0.7488,ETD
+2017-10-18 15:43:56.928000000,Phil evans,-2.304,0.8784,0.8784,ETD
+2017-09-20 01:06:40.320000256,Carl r knight,-4.896,4.3488,4.3488,ETD
+2017-09-15 18:10:44.544000000,Phil evans,-1.584,0.864,0.864,ETD
+2017-08-26 17:32:36.672000000,"Eduardo fernández-lajús, romina p. di sisto",-3.456,0.4464,0.4464,ETD
+2017-06-27 15:44:06.432000000,Phil evans,-3.024,2.3472,2.3472,ETD
+2017-04-12 20:18:55.007999744,Phil evans,-2.16,1.0224,1.0224,ETD
+2016-08-09 19:43:45.984000000,"Quiñones c., melia r., colazo c.",-2.736,0.2304,0.2304,ETD
+2016-07-23 15:45:00.000000000,"Villarreal c., quiñones c.",-4.752,0.3168,0.3168,ETD
+2015-09-28 17:00:16.128000000,"Martin mašek, kateřina hoňková, jakub juryšek",-4.608,1.224,1.224,ETD
+2014-10-11 20:06:58.752000000,Evans p.,-2.88,1.1952,1.1952,ETD
+2014-08-25 15:14:55.968000256,"Eduardo fernández-lajús, romina p. di sisto",-3.6,0.432,0.432,ETD
+2014-08-15 14:57:48.672000256,"Mašek m., hoňková k., juryšek j.",-2.592,0.7056,0.7056,ETD
+2014-08-12 18:22:18.335999744,"Mašek m., hoňková k., juryšek j.",1.44,0.936,0.936,ETD
+2013-11-12 13:34:47.712000000,"Schneiter m,, villarreal c., colazo c.",3.456,0.3888,0.3888,ETD
+2013-11-12 13:27:14.111999744,"Matias schneiter, carolina villarreal , carlos colazo",-4.032,,,ETD
+2013-10-23 12:59:09.312000256,"Schneiter m,, villarreal c., colazo c.",4.176,0.4464,0.4464,ETD
+2013-10-23 12:50:24.000000256,"Matias schneiter, carolina villarreal , carlos colazo, raul melia",-4.608,,,ETD
+2013-08-15 21:06:42.624000000,Evans p.,-1.008,0.9648,0.9648,ETD
+2013-08-05 20:49:10.272000000,Evans p.,-0.432,0.9648,0.9648,ETD
+2012-10-26 15:43:50.016000256,Colazo c. a.,2.016,0.8928,0.8928,ETD
+2012-10-26 15:43:50.016000256,Carlos colazo,2.016,0.8928,0.8928,ETD
+2012-07-25 16:12:50.976000000,"Schneiter m, colazo c.",-6.192,0.2304,0.2304,ETD
+2012-07-21 09:19:22.944000256,Sauer t.,-0.432,0.6048,0.6048,ETD
+2012-06-29 22:14:36.383999744,Evans p.,-9.072,1.3104,1.3104,ETD
+2011-07-14 01:28:41.375999744,Curtis i.,0.0,1.4112,1.4112,ETD
+2011-06-29 18:19:56.640000256,"De pree, makely, gruber",8.64,3.0528,3.0528,ETD
+2010-07-14 07:34:21.792000000,"D. r. anderson et al., 2011",-1.584,0.288,0.288,ETD

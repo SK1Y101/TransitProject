@@ -131,7 +131,7 @@ def fetchJulietPriors(df, times):
     # sort by increasing semimajor axis (or increasing period)
     df = df.sort_values(by="pl_orbsmax")
     # for each planet in the system
-    for i, idx in enumerate(df.index):
+    for i, _ in enumerate(df.index):
         # fetch this planet
         pl = df.iloc[i]
         # if the planet is non-transiting, we don't need to fit for it
@@ -206,6 +206,34 @@ def tessLCData(target, planetdf, loc="/raw_data/tess_data/", stale_time=7, retur
     # return the lc data
     return df, lcdata
 
+def _tessOC_(res, pl=1):
+    # posterior samples for this result
+    samples = res.posteriors['posterior_samples']
+    # define the search string
+    search = "T_p{}_TESS_".format(pl)
+    # fetch the transit numbers
+    transits = np.array([int(k.split("_")[-1]) for k in samples.keys() if search in k])
+    # if we didn't have any transits for this planet, stop here
+    if not transits.size:
+        return np.array([]), None, None, None
+    # initialise OC and OC error arrays
+    OC = np.zeros(len(transits))
+    OCu, OCl, times = np.copy(OC), np.copy(OC), np.copy(OC)
+    # for each transit
+    for i, t in enumerate(transits):
+        # compute the expected time from t = t0 + n*P
+        exp = samples["t0_p{}".format(pl)] + t*samples["P_p{}".format(pl)]
+        # fetch the observed time
+        obs = samples["T_p{}_TESS_{}".format(pl, t)]
+        # apply the median to the times array
+        times[i] = np.median(obs)
+        # compute OC quantiles in minutes
+        oc, ocu, ocl = juliet.utils.get_quantiles((obs - exp)*24*60)
+        # apply to the array of OC times
+        OC[i], OCu[i], OCl[i] = oc, ocu-oc, oc-ocl
+    # return the array of transit times, array of OC values, 2d array of errors, and array of transits
+    return times, OC, OCu, OCl, transits
+
 def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
     # lowercase the target name, and filepath prepended
     target = target.lower()
@@ -216,9 +244,24 @@ def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
         return
     # fetch the results
     results = lcdata.fit(sampler="dynesty")#, nthreads=4)
-    # fetch the transits
-    print(results.posteriors)
+    # dictionary of midtransit details to return
+    planetTimes = {}
+    # for each of the planets in the system
+    for i, _ in enumerate(planetdf.index):
+        # fetch the transits
+        tvals = _tessOC_(results, 1)
+        # if the output is empty, skip
+        if not tvals[0].size:
+            continue
+        # decompose into found values
+        t, oc, oceu, ocel, epoch = tvals
+        # fetch this exoplanet name
+        pname = planetdf.iloc[i]["pl_name"]
+        # append these values to the output dictionary
+        planetTimes[pname] = {"times":t, "oc":oc, "oceu":oceu, "ocel":ocel, "eopch":epoch}
+    # return the midtransit times dictionary
+    return planetTimes
     # fetch the transit model
-    model = results.lc.evaluate("TESS")
+    #model = results.lc.evaluate("TESS")
     # plot the fit
-    plotLC(target, lcdata, model)
+    #plotLC(target, lcdata, model)

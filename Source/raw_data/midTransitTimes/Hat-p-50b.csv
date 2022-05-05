@@ -1,11 +1,7 @@
-date,observer,oc,oce,source
-2021-01-09,Yves Jongen,-0.7,4.3,ExoClock observation
-2021-01-08,Yves jongen,-10.656,2.448,ETD
-2020-12-08,Tõnis Eenmäe,1.4,2.6,ExoClock observation
-2020-11-17,Yves Jongen,-1.2,2.3,ExoClock observation
-2020-11-16,Yves jongen,-2.16,2.1312,ETD
-2019-10-29,Pere guerra,3.168,1.9584,ETD
-2019-02-12,Pere guerra,-6.336,2.1456,ETD
-2018-02-15,"Francesco scaggiante, danilo zardin",6.336,3.6864,ETD
-2012-12-24,Hartman et al. 2015,-0.1,0.5,ExoClock literature
-2012-12-23,Hartman et al. 2015,-1.152,0.5184,ETD
+date,observer,oc,oceu,ocel,source
+2021-01-08 16:58:07.391999744,Yves jongen,-10.656,2.448,2.448,ETD
+2020-11-16 15:20:04.415999744,Yves jongen,-2.16,2.1312,2.1312,ETD
+2019-10-29 15:16:26.688000256,Pere guerra,3.168,1.9584,1.9584,ETD
+2019-02-12 12:05:14.496000256,Pere guerra,-6.336,2.1456,2.1456,ETD
+2018-02-15 08:38:44.736000256,"Francesco scaggiante, danilo zardin",6.336,3.6864,3.6864,ETD
+2012-12-23 21:50:17.952000256,Hartman et al. 2015,-1.152,0.5184,0.5184,ETD

@@ -1,9 +1,8 @@
-date,observer,oc,oce,source
-2022-04-08,Yves Jongen,0.7,0.7,ExoClock observation
-2022-03-23,Leon Bewersdorff,-0.3,1.0,ExoClock observation
-2021-07-03,Massaro salvatore,-3.888,3.3264,ETD
-2020-05-20,Anaël wünsche,-3.024,1.1664,ETD
-2019-08-06,Claudio lopresti,118.944,29.0016,ETD
-2019-08-06,Antonino brosio,-3.312,2.8944,ETD
-2019-06-30,Arena c.,1.872,2.9808,ETD
-2017-06-13,Barkaoui et al. (2018),0.0,0.576,ETD
+date,observer,oc,oceu,ocel,source
+2022-04-07 20:26:45.023999744,Yves jongen,0.72,0.8208,0.8208,ETD
+2021-07-03 08:56:33.504000000,Massaro salvatore,-3.888,3.3264,3.3264,ETD
+2020-05-20 12:17:47.039999744,Anaël wünsche,-3.024,1.1664,1.1664,ETD
+2019-08-06 11:06:31.104000000,Claudio lopresti,118.944,29.0016,29.0016,ETD
+2019-08-06 09:04:19.199999744,Antonino brosio,-3.312,2.8944,2.8944,ETD
+2019-06-30 08:36:29.951999744,Arena c.,1.872,2.9808,2.9808,ETD
+2017-06-13 11:05:16.800000000,Barkaoui et al. (2018),0.0,0.576,0.576,ETD

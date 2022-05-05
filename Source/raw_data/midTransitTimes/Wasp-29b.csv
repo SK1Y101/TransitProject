@@ -1,24 +1,12 @@
-date,observer,oc,oce,source
-2021-10-26,Anaël Wünsche,1.1,1.0,ExoClock observation
-2021-10-25,Anaël wünsche,-29.52,0.8928,ETD
-2021-10-18,Anaël Wünsche,2.0,1.0,ExoClock observation
-2021-10-17,Anaël wünsche,-29.232,1.008,ETD
-2021-09-09,Yves Jongen,1.0,1.2,ExoClock observation
-2021-09-08,Yves jongen,-29.376,1.368,ETD
-2021-09-04,Anaël wünsche,-28.08,0.6624,ETD
-2021-07-08,Yves Jongen,2.2,1.4,ExoClock observation
-2021-07-07,Yves jongen,-29.088,1.008,ETD
-2021-07-07,"Eduardo fernández lajús, romina p. di sisto",-18.144,0.5616,ETD
-2020-09-17,Yves Jongen,-0.8,2.6,ExoClock observation
-2020-09-16,Yves jongen,-29.664,1.5264,ETD
-2020-09-13,Yves Jongen,3.4,1.3,ExoClock observation
-2020-09-13,Phil Evans,-0.8,0.6,ExoClock observation
-2020-09-12,Yves jongen,-24.912,1.5264,ETD
-2020-09-05,Yves Jongen,1.1,1.6,ExoClock observation
-2020-09-04,Yves jongen,-27.648,1.1952,ETD
-2011-09-25,Gibson et al. 2013,0.1,0.2,ExoClock literature
-2010-09-06,Dragomir et al. 2011,-0.7,1.1,ExoClock literature
-2010-09-05,"Dragomir et al., 2011",-1.872,1.0512,ETD
-2010-09-02,Dragomir et al. 2011,-0.8,1.0,ExoClock literature
-2010-05-03,Hellier et al. 2010,-1.7,5.8,ExoClock literature
-2007-05-28,C. hellier et al. 2010,0.0,2.16,ETD
+date,observer,oc,oceu,ocel,source
+2021-10-25 14:47:33.504000000,Anaël wünsche,-29.52,0.8928,0.8928,ETD
+2021-10-17 18:30:20.448000256,Anaël wünsche,-29.232,1.008,1.008,ETD
+2021-09-08 13:02:56.543999744,Yves jongen,-29.376,1.368,1.368,ETD
+2021-09-04 14:55:23.520000000,Anaël wünsche,-28.08,0.6624,0.6624,ETD
+2021-07-07 18:54:23.328000256,"Eduardo fernández lajús, romina p. di sisto",-18.144,0.5616,0.5616,ETD
+2021-07-07 18:43:21.504000000,Yves jongen,-29.088,1.008,1.008,ETD
+2020-09-16 13:47:44.448000256,Yves jongen,-29.664,1.5264,1.5264,ETD
+2020-09-12 15:43:47.424000000,Yves jongen,-24.912,1.5264,1.5264,ETD
+2020-09-04 19:23:33.792000000,Yves jongen,-27.648,1.1952,1.1952,ETD
+2010-09-05 18:17:57.408000256,"Dragomir et al., 2011",-1.872,1.0512,1.0512,ETD
+2007-05-28 07:55:55.199999744,C. hellier et al. 2010,0.0,2.16,2.16,ETD

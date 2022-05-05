@@ -1,9 +1,9 @@
-date,observer,oc,oce,source
-2022-01-19,Aziz kaeouach,30.816,3.24,ETD
-2019-01-12,Sjoerd dufoer,16.272,3.024,ETD
-2017-01-01,František lomoz,39.456,6.7824,ETD
-2015-12-19,Matthieu bachschmidt,-7.776,6.0048,ETD
-2014-12-22,Ferran grau horta,26.064,3.9456,ETD
-2014-02-17,"Dittler, ullrich",11.808,25.6032,ETD
-2012-01-21,Garcia r.,6.912,2.736,ETD
-2007-10-24,Gillon et al. 2010,0.0,0.5184,ETD
+date,observer,oc,oceu,ocel,source
+2022-01-19 10:01:26.688000256,Aziz kaeouach,30.816,3.24,3.24,ETD
+2019-01-12 11:18:35.136000000,Sjoerd dufoer,16.272,3.024,3.024,ETD
+2017-01-01 12:58:07.104000000,František lomoz,39.456,6.7824,6.7824,ETD
+2015-12-19 13:11:54.815999744,Matthieu bachschmidt,-7.776,6.0048,6.0048,ETD
+2014-12-22 14:00:57.600000256,Ferran grau horta,26.064,3.9456,3.9456,ETD
+2014-02-17 07:37:12.864000000,"Dittler, ullrich",11.808,25.6032,25.6032,ETD
+2012-01-21 09:34:19.776000256,Garcia r.,6.912,2.736,2.736,ETD
+2007-10-24 15:02:58.848000256,Gillon et al. 2010,0.0,0.5184,0.5184,ETD
