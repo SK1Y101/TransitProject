@@ -104,6 +104,8 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7, throwError=F
     # if there was no observation data
     if throwError:
         raise Exception("No LightCurve Data for {}".format(target))
+    else:
+        return pd.DataFrame()
 
 def fetchJulietPriors(df, times):
     # define the standard priors that are consistent between models
@@ -168,13 +170,28 @@ def _lcData_(target, lc, planetdf, loc="/raw_data/tess_data/"):
                        yerr_lc = fluxes_error, GP_regressors_lc = times, \
                        out_folder = os.getcwd()+folder)
 
-def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
+def tessLCData(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
     # lowercase the target name, and filepath prepended
     target = target.lower()
     # fetch the lightcurve data
     df = _lightcurves_(target, loc, stale_time)
+    # if there wasn't any for this planetary system
+    if df.empty:
+        # return empty
+        return pd.DataFrame(), pd.DataFrame()
     # fetch the juliet lightcurve data
     lcdata = _lcData_(target, df, planetdf, loc)
+    # return the lc data
+    return df, lcdata
+
+def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
+    # lowercase the target name, and filepath prepended
+    target = target.lower()
+    # fetch the Lightcurve data
+    df, lcdata = tessLCData(target, planetdf, loc, stale_time)
+    # if there wasn't any for this planetary system
+    if df.empty:
+        return
     # fetch the phases
     #P,t0 =  4.7423729 ,  2457376.68539
     #phases = juliet.utils.get_phases(df["time"], P, t0)

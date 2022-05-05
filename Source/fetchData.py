@@ -35,4 +35,7 @@ ws.fetchExoplanetArchive("pscomppars")
 ws.fetchExoplanetArchive("ps")'''
 
 # Transiting Exoplanets Survey Satelite
-ws.fetchTESSData(target="tic 281541555")
+# fetch the lightcurves for every planetary target
+ws.fetchTESSLC(target="tic 281541555")
+# fetch the midtransit times
+ws.fetchTESSTTV(target="tic 281541555")
