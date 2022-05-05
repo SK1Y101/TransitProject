@@ -105,7 +105,7 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7, throwError=F
     if throwError:
         raise Exception("No LightCurve Data for {}".format(target))
 
-def fetchStandardJulietPriors(df, t):
+def fetchJulietPriors(df, times):
     # define the standard priors that are consistent between models
     param = ["q1_TESS", "q2_TESS", "rho", "mdilution_TESS", "mflux_TESS", "sigma_w_TESS", "GP_sigma_TESS", "GP_rho_TESS"]
     dists = ["uniform", "uniform", "loguniform", "fixed", "normal", "loguniform", "loguniform", "loguniform"]
@@ -113,7 +113,7 @@ def fetchStandardJulietPriors(df, t):
     # sort by increasing semimajor axis (or increasing period)
     df = df.sort_values(by="pl_orbsmax")
     # compute the earliest time in the times array
-    initial_t = np.min(t)
+    initial_t = np.min(times)
     # for each planet in the system
     for i, idx in enumerate(df.index):
         # fetch this planet
@@ -121,18 +121,27 @@ def fetchStandardJulietPriors(df, t):
         # if the planet is non-transiting, we don't need to fit for it
         if not pl["tran_flag"]:
             continue
+        # compile the required priors
+        param += "r1_p{0},r2_p{0},ecc_p{0},omega_p{0}".format(i+1).split(",")
+        dists += ["uniform", "uniform", "fixed", "fixed"]
+        hypes += [[0., 1.], [0., 1.], 0., 90.]
         # fetch the orbital period and initial epoch
         per, t0 = pl["pl_orbper"], pl["pl_tranmid"]
         # fetch the size of a standard deviation by considering the distance between the upper and lower errors
-        persig, t0sig = 0.5*(pl["pl_orbpererr1"]-pl["pl_orbpererr2"]), 0.5*(pl["pl_tranmiderr1"]-pl["pl_tranmiderr2"])
+        persig = 0.5*(abs(pl["pl_orbpererr1"]) + abs(pl["pl_orbpererr2"]))
+        t0sig = 0.5*(abs(pl["pl_tranmiderr1"]) + abs(pl["pl_tranmiderr2"]))
         # compute how many orbits the planet made between t0 and the start of the dataset
         ndif = (t0 - initial_t) // per
-        # rewind t0 as far as possible, and compund the sigma terms
-        t0, t0sig = t0-ndif*per, t0sig*ndif
-        # fetch the priors on its values
-        param += "P_p{0}, t0_p{0}, r1_p{0}, r2_p{0}, ecc_p{0}, omega_p{0}".format(i+1).split(",")
-        dists += ["normal", "normal", "uniform", "uniform", "fixed", "fixed"]
-        hypes += [[per, persig], [t0, t0sig], [0., 1.], [0., 1.], 0., 90.]
+        # for all possible transits that could have been observed
+        t_exp = np.arange(t0-ndif*per, np.max(times), per)
+        # compute the minimum distance between the transit and the array of time datapoint
+        t_dist = [np.abs(times - t).min() for t in t_exp]
+        # find only the transits that are within the data
+        transits = np.where(t_dist < (times[1]-times[0]))[0]
+        # for each transit, add the predicted transit time to the prior parameters
+        param += list(["T_p{0}_TESS_{1}".format(i+1, t) for t in transits])
+        hypes += list([[round(t_exp[t],1), .2] for t in transits])
+        dists += list(["normal" for t in transits])
     # build the priors dictionary
     return juliet.utils.generate_priors(param, dists, hypes)
 
@@ -143,25 +152,25 @@ def _lcData_(target, lc, planetdf, loc="/raw_data/tess_data/"):
     t, f, ferr = np.array(lc["time"]), np.array(lc["flux"]), np.array(lc["flux_e"])
     # if the juliet fit already exists
     if os.path.exists(folder):
-        # load from the folder
-        return juliet.load(input_folder = folder)
+        # load from the folder. prepend the syspath as juliet uses absolute filepaths
+        return juliet.load(input_folder = os.getcwd()+folder)
     else:
         # ensure the output folder exists
         makeFolder(folder)
     # fetch the priors for the juliet model
-    priors = fetchStandardJulietPriors(planetdf, t)
+    priors = fetchJulietPriors(planetdf, t)
     # Define all of the dictionaries
     times, fluxes, fluxes_error = {}, {}, {}
     # setup the dictionaries for juliet
     times["TESS"], fluxes["TESS"], fluxes_error["TESS"] = t, f, ferr
-    # and return the juliet stuff
+    # and return the juliet stuff. prepend the syspath as juliet uses absolute filepaths
     return juliet.load(priors = priors, t_lc = times, y_lc = fluxes, \
                        yerr_lc = fluxes_error, GP_regressors_lc = times, \
-                       out_folder = folder)
+                       out_folder = os.getcwd()+folder)
 
 def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
     # lowercase the target name, and filepath prepended
-    target, loc = target.lower(), os.getcwd()+loc if loc[0]=="/" else loc
+    target = target.lower()
     # fetch the lightcurve data
     df = _lightcurves_(target, loc, stale_time)
     # fetch the juliet lightcurve data
