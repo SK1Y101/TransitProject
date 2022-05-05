@@ -1,5 +1,4 @@
-date,observer,oc,oce,source
-2021-10-31,Bernhard wenzel,-0.288,,ETD
-2020-12-07,Rauno Neito,10.0,4.3,ExoClock observation
-2017-10-14,Claudio arena,-20.88,6.9984,ETD
-2012-12-27,Horta f. g.,-1743.408,0.9504,ETD
+date,observer,oc,oceu,ocel,source
+2021-10-31 10:24:57.600000000,Bernhard wenzel,-0.288,,,ETD
+2017-10-14 10:46:59.520000000,Claudio arena,-20.88,6.9984,6.9984,ETD
+2012-12-27 08:05:36.671999744,Horta f. g.,-1743.408,0.9504,0.9504,ETD

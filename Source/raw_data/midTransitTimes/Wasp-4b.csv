@@ -1,134 +1,69 @@
-date,observer,oc,oce,source
-2021-12-07,Yves Jongen,-0.7,0.4,ExoClock observation
-2021-12-06,Yves jongen,-1.872,0.3888,ETD
-2021-10-05,Yves Jongen,-1.0,0.4,ExoClock observation
-2021-10-04,Yves jongen,-2.16,0.4032,ETD
-2021-10-01,Yves Jongen,-0.3,0.4,ExoClock observation
-2021-09-30,Yves jongen,-0.864,0.3744,ETD
-2021-09-27,Yves Jongen,-0.8,0.6,ExoClock observation
-2021-09-26,Yves jongen,-2.016,0.5184,ETD
-2021-09-23,Yves Jongen,-1.1,0.7,ExoClock observation
-2021-09-22,Anaël wünsche,-1.728,0.5904,ETD
-2021-09-22,Yves jongen,-1.152,0.6768,ETD
-2021-09-03,Yves Jongen,1.1,0.9,ExoClock observation
-2021-09-02,Yves jongen,0.0,0.8208,ETD
-2021-08-27,Anaël Wünsche,-0.4,0.6,ExoClock observation
-2021-08-26,Anaël wünsche,-1.872,0.5472,ETD
-2021-08-11,Yves Jongen,0.7,0.6,ExoClock observation
-2021-08-10,Yves jongen,-0.432,0.576,ETD
-2021-08-03,Yves Jongen,-0.7,0.6,ExoClock observation
-2021-08-02,Yves jongen,-1.728,0.576,ETD
-2021-06-02,Carl r knight,-3.024,0.3312,ETD
-2020-12-20,Yves Jongen,-0.6,0.9,ExoClock observation
-2020-12-19,Yves jongen,-1.872,0.792,ETD
-2020-12-08,Yves Jongen,-1.7,0.6,ExoClock observation
-2020-12-07,Yves jongen,-3.312,0.576,ETD
-2020-10-02,Yves Jongen,-0.5,0.6,ExoClock observation
-2020-10-01,Yves jongen,-1.008,0.5472,ETD
-2020-09-19,Yves jongen,-3.6,0.8064,ETD
-2020-09-16,Yves Jongen,-0.4,0.9,ExoClock observation
-2020-09-15,Yves jongen,-1.728,0.8784,ETD
-2020-09-12,Yves Jongen,2.2,0.6,ExoClock observation
-2020-09-11,Yves jongen,0.864,0.5616,ETD
-2020-08-16,Phil Evans,0.1,0.6,ExoClock observation
-2020-08-16,Yves Jongen,-1.2,0.6,ExoClock observation
-2020-08-15,Yves jongen,-2.304,0.5328,ETD
-2020-06-06,Yves Jongen,-0.2,0.7,ExoClock observation
-2020-06-05,Yves jongen,-0.144,0.6336,ETD
-2019-12-10,Yves Jongen,1.4,0.4,ExoClock observation
-2019-12-09,Yves jongen,0.144,0.432,ETD
-2019-09-21,Roberto koropecki,2.016,,ETD
-2019-09-21,Roberto r koropecki,0.576,2.4624,ETD
-2019-06-19,Southworth et al. 2019,-0.5,0.3,ExoClock literature
-2018-10-14,Carl r knight,0.144,0.4464,ETD
-2018-08-27,Southworth et al. 2019,-0.1,0.1,ExoClock literature
-2018-08-19,Southworth et al. 2019,-0.6,0.1,ExoClock literature
-2018-08-15,Southworth et al. 2019,-0.3,0.2,ExoClock literature
-2018-08-12,Carl r knight,-1.008,0.3456,ETD
-2017-09-23,H. durantini luca; p. báez; c. colazo,-2.016,0.6336,ETD
-2017-09-23,Phil evans,-1.44,0.72,ETD
-2017-09-07,Phil evans,-1.872,0.6768,ETD
-2017-08-28,Southworth et al. 2019,-0.1,0.2,ExoClock literature
-2017-08-08,Southworth et al. 2019,0.2,0.3,ExoClock literature
-2017-07-26,Phil evans,-0.288,0.9936,ETD
-2016-10-17,Southworth et al. 2019,0.2,0.3,ExoClock literature
-2016-10-13,Southworth et al. 2019,-0.4,0.2,ExoClock literature
-2016-08-25,Southworth et al. 2019,-0.2,0.1,ExoClock literature
-2016-08-21,Southworth et al. 2019,-0.3,0.2,ExoClock literature
-2016-08-13,Southworth et al. 2019,-0.1,0.1,ExoClock literature
-2015-08-31,Southworth et al. 2019,0.1,0.1,ExoClock literature
-2015-08-27,Southworth et al. 2019,-0.5,0.1,ExoClock literature
-2015-08-23,Southworth et al. 2019,-0.1,0.1,ExoClock literature
-2015-08-14,"Eduardo fernández-lajús, romina p. di sisto",-2.592,0.2016,ETD
-2014-10-25,Quiñones c.,-1.728,1.1376,ETD
-2014-10-25,Quiñones c.,1.44,0.9936,ETD
-2014-10-25,Quiñones c.,0.864,0.864,ETD
-2014-09-24,Huitson et al. 2017,0.2,0.1,ExoClock literature
-2014-09-07,Quiñones c.,-3.888,0.5472,ETD
-2014-09-07,Quiñones c.,-2.016,0.8496,ETD
-2014-09-07,Quiñones c.,-4.608,0.9216,ETD
-2014-08-19,"Eduardo fernández-lajús, romina p. di sisto",-2.736,0.3024,ETD
-2014-08-19,"Colazo c. a., villarreal c.",-1.008,0.1152,ETD
-2014-08-19,"Eduardo fernández-lajús, romina p. di sisto",-2.592,0.2592,ETD
-2014-08-15,"Mašek m., hoňková k., juryšek j.",-0.144,0.504,ETD
-2014-08-03,"Eduardo fernández-lajús, romina p. di sisto",-0.288,0.3888,ETD
-2013-12-12,Miler e.,-0.288,0.4752,ETD
-2013-10-11,Huitson et al. 2017,0.4,0.1,ExoClock literature
-2013-10-06,Miler e.,-2.592,0.4032,ETD
-2013-09-20,"Colazo c. a., schneiter, e. m.",-0.576,0.2736,ETD
-2013-09-20,C. villarreal d,-0.576,0.2736,ETD
-2012-10-16,Huitson et al. 2017,0.3,0.1,ExoClock literature
-2012-09-10,Evans p.,-0.72,0.9504,ETD
-2011-10-10,Huitson et al. 2017,0.3,0.1,ExoClock literature
-2011-10-01,Tifner f.,1.584,1.2816,ETD
-2011-09-28,Hoyer et al. 2013,0.5,0.6,ExoClock literature
-2011-09-24,Hoyer et al. 2013,0.9,0.6,ExoClock literature
-2011-09-16,Evans p.,-2.304,1.0368,ETD
-2011-08-25,Tg tan,-1.296,0.576,ETD
-2010-11-05,Curtis i.,-0.432,0.6336,ETD
-2010-11-01,Tan tg,-0.432,0.5616,ETD
-2010-10-07,Curtis i.,-2.304,0.8208,ETD
-2010-10-03,Curtis i.,-1.008,0.9216,ETD
-2010-10-03,Milne g.,-1.44,0.4896,ETD
-2010-09-29,Hoyer et al. 2013,0.8,0.7,ExoClock literature
-2010-08-16,"Eduardo fernández-lajús, romina p. di sisto",-1.296,0.1584,ETD
-2010-08-10,Milne g.,-2.16,0.9648,ETD
-2010-07-07,Sauer t.,-0.72,0.3888,ETD
-2009-10-28,Hoyer et al. 2013,0.5,0.6,ExoClock literature
-2009-09-26,Sanchis-Ojeda et al. 2011,-0.1,0.1,ExoClock literature
-2009-09-22,Hoyer et al. 2013,1.4,0.3,ExoClock literature
-2009-09-21,Tifner,-0.576,1.152,ETD
-2009-09-10,"Dragomir et al., 2011",-0.144,5.472,ETD
-2009-08-10,Sanchis-Ojeda et al. 2011,-0.1,0.1,ExoClock literature
-2009-08-06,Sanchis-Ojeda et al. 2011,0.1,0.1,ExoClock literature
-2009-08-02,Sanchis-Ojeda et al. 2011,0.2,0.1,ExoClock literature
-2009-07-29,Hoyer et al. 2013,1.1,0.3,ExoClock literature
-2008-10-13,Dragomir et al. 2011,0.1,1.0,ExoClock literature
-2008-10-12,"Dragomir et al., 2011",0.144,1.0224,ETD
-2008-10-09,Winn et al. 2009,0.2,0.1,ExoClock literature
-2008-10-08,Winn et al 2009,-0.864,0.1037,ETD
-2008-10-01,Southworth et al. 2009,-0.3,0.2,ExoClock literature
-2008-10-01,Hoyer et al. 2013,0.4,0.5,ExoClock literature
-2008-09-23,Hoyer et al. 2013,0.5,0.7,ExoClock literature
-2008-09-23,Southworth et al. 2009,-0.6,0.2,ExoClock literature
-2008-09-22,Tifner,-3.744,2.16,ETD
-2008-09-19,Hoyer et al. 2013,1.1,0.6,ExoClock literature
-2008-08-27,Hoyer et al. 2013,0.3,0.4,ExoClock literature
-2008-08-23,Hoyer et al. 2013,0.8,0.3,ExoClock literature
-2008-08-23,Southworth et al. 2009,-0.1,0.2,ExoClock literature
-2008-08-19,Winn et al. 2009,-0.1,0.1,ExoClock literature
-2008-08-19,Sanchis-Ojeda et al. 2011,-0.3,0.1,ExoClock literature
-2008-08-19,Southworth et al. 2009,-0.2,0.1,ExoClock literature
-2008-08-18,Winn et al 2009,-1.152,0.0792,ETD
-2007-10-23,Gillon et al. 2009,-0.1,0.1,ExoClock literature
-2007-10-22,Gillon et al. 2008,-1.152,0.0734,ETD
-2007-09-27,Gillon et al. 2009,-1.4,0.5,ExoClock literature
-2007-09-27,Gillon et al. 2008,-2.448,0.4752,ETD
-2007-09-25,Gillon et al. 2009,-0.3,0.3,ExoClock literature
-2007-09-24,Gillon et al.,-1.44,0.3168,ETD
-2007-09-22,Wilson et al. 2008,-2.2,0.4,ExoClock literature
-2007-09-21,Gillon et al. 2009,-1.0,1.1,ExoClock literature
-2007-09-21,Wilson et al 2008,-3.312,0.36,ETD
-2007-09-20,Gillon et al.,-2.16,1.08,ETD
-2006-08-15,Gillon et al. 2009,0.2,1.1,ExoClock literature
-2006-08-15,Gillon et al,-0.864,1.1664,ETD
+date,observer,oc,oceu,ocel,source
+2021-12-06 13:51:08.352000000,Yves jongen,-1.872,0.3888,0.3888,ETD
+2021-10-04 16:19:16.320000256,Yves jongen,-2.16,0.4032,0.4032,ETD
+2021-09-30 15:59:27.456000000,Yves jongen,-0.864,0.3744,0.3744,ETD
+2021-09-26 15:37:10.848000256,Yves jongen,-2.016,0.5184,0.5184,ETD
+2021-09-22 15:16:51.744000000,Yves jongen,-1.152,0.6768,0.6768,ETD
+2021-09-22 15:16:13.728000256,Anaël wünsche,-1.728,0.5904,0.5904,ETD
+2021-09-02 13:32:15.648000000,Yves jongen,0.0,0.8208,0.8208,ETD
+2021-08-26 20:55:02.784000000,Anaël wünsche,-1.872,0.5472,0.5472,ETD
+2021-08-10 19:31:54.048000256,Yves jongen,-0.432,0.576,0.576,ETD
+2021-08-02 18:48:14.399999744,Yves jongen,-1.728,0.576,0.576,ETD
+2021-06-02 05:22:31.008000000,Carl r knight,-3.024,0.3312,0.3312,ETD
+2020-12-19 14:56:06.720000256,Yves jongen,-1.872,0.792,0.792,ETD
+2020-12-07 13:51:09.216000256,Yves jongen,-3.312,0.576,0.576,ETD
+2020-10-01 16:00:49.536000256,Yves jongen,-1.008,0.5472,0.5472,ETD
+2020-09-19 14:54:47.231999744,Yves jongen,-3.6,0.8064,0.8064,ETD
+2020-09-15 14:35:28.607999744,Yves jongen,-1.728,0.8784,0.8784,ETD
+2020-09-11 14:16:55.776000256,Yves jongen,0.864,0.5616,0.5616,ETD
+2020-08-15 19:52:42.527999744,Yves jongen,-2.304,0.5328,0.5328,ETD
+2020-06-05 21:41:01.535999744,Yves jongen,-0.144,0.6336,0.6336,ETD
+2019-12-09 13:56:12.480000000,Yves jongen,0.144,0.432,0.432,ETD
+2019-09-21 15:01:54.048000256,Roberto koropecki,2.016,,,ETD
+2019-09-21 15:00:27.648000000,Roberto r koropecki,0.576,2.4624,2.4624,ETD
+2018-10-14 00:54:23.328000256,Carl r knight,0.144,0.4464,0.4464,ETD
+2018-08-12 03:21:37.728000000,Carl r knight,-1.008,0.3456,0.3456,ETD
+2017-09-23 15:01:27.264000000,Phil evans,-1.44,0.72,0.72,ETD
+2017-09-23 15:00:50.976000256,H. durantini luca; p. báez; c. colazo,-2.016,0.6336,0.6336,ETD
+2017-09-07 13:36:17.568000256,Phil evans,-1.872,0.6768,0.6768,ETD
+2017-07-26 17:52:12.576000256,Phil evans,-0.288,0.9936,0.9936,ETD
+2015-08-14 19:17:36.096000256,"Eduardo fernández-lajús, romina p. di sisto",-2.592,0.2016,0.2016,ETD
+2014-10-25 17:36:56.736000000,Quiñones c.,1.44,0.9936,0.9936,ETD
+2014-10-25 17:36:26.496000000,Quiñones c.,0.864,0.864,0.864,ETD
+2014-10-25 17:33:45.792000256,Quiñones c.,-1.728,1.1376,1.1376,ETD
+2014-09-07 13:19:34.464000000,Quiñones c.,-2.016,0.8496,0.8496,ETD
+2014-09-07 13:17:38.687999744,Quiñones c.,-3.888,0.5472,0.5472,ETD
+2014-09-07 13:16:58.944000256,Quiñones c.,-4.608,0.9216,0.9216,ETD
+2014-08-19 19:41:49.344000000,"Colazo c. a., villarreal c.",-1.008,0.1152,0.1152,ETD
+2014-08-19 19:40:15.168000256,"Eduardo fernández-lajús, romina p. di sisto",-2.592,0.2592,0.2592,ETD
+2014-08-19 19:40:09.984000256,"Eduardo fernández-lajús, romina p. di sisto",-2.736,0.3024,0.3024,ETD
+2014-08-15 19:21:30.240000256,"Mašek m., hoňková k., juryšek j.",-0.144,0.504,0.504,ETD
+2014-08-03 18:17:51.360000000,"Eduardo fernández-lajús, romina p. di sisto",-0.288,0.3888,0.3888,ETD
+2013-12-12 13:43:39.072000000,Miler e.,-0.288,0.4752,0.4752,ETD
+2013-10-06 15:48:34.272000256,Miler e.,-2.592,0.4032,0.4032,ETD
+2013-09-20 14:26:00.096000256,"Colazo c. a., schneiter, e. m.",-0.576,0.2736,0.2736,ETD
+2013-09-20 14:26:00.096000256,C. villarreal d,-0.576,0.2736,0.2736,ETD
+2012-09-10 21:30:59.328000256,Evans p.,-0.72,0.9504,0.9504,ETD
+2011-10-01 15:13:30.432000256,Tifner f.,1.584,1.2816,1.2816,ETD
+2011-09-16 21:52:01.632000000,Evans p.,-2.304,1.0368,1.0368,ETD
+2011-08-25 03:53:08.160000000,Tg tan,-1.296,0.576,0.576,ETD
+2010-11-05 02:09:16.992000256,Curtis i.,-0.432,0.6336,0.6336,ETD
+2010-11-01 01:48:06.912000256,Tan tg,-0.432,0.5616,0.5616,ETD
+2010-10-07 23:39:19.296000000,Curtis i.,-2.304,0.8208,0.8208,ETD
+2010-10-03 23:19:27.840000256,Curtis i.,-1.008,0.9216,0.9216,ETD
+2010-10-03 23:19:07.104000000,Milne g.,-1.44,0.4896,0.4896,ETD
+2010-08-16 19:05:15.647999744,"Eduardo fernández-lajús, romina p. di sisto",-1.296,0.1584,0.1584,ETD
+2010-08-10 02:29:10.176000000,Milne g.,-2.16,0.9648,0.9648,ETD
+2010-07-07 15:34:18.048000256,Sauer t.,-0.72,0.3888,0.3888,ETD
+2009-09-21 14:10:53.760000256,Tifner,-0.576,1.152,1.152,ETD
+2009-09-10 21:14:49.920000256,"Dragomir et al., 2011",-0.144,5.472,5.472,ETD
+2008-10-12 15:58:54.624000256,"Dragomir et al., 2011",0.144,1.0224,1.0224,ETD
+2008-10-08 15:36:42.336000000,Winn et al 2009,-0.864,0.1037,0.1037,ETD
+2008-09-22 14:09:10.079999744,Tifner,-3.744,2.16,2.16,ETD
+2008-08-18 19:08:23.049599744,Winn et al 2009,-1.152,0.0792,0.0792,ETD
+2007-10-22 16:41:23.424000000,Gillon et al. 2008,-1.152,0.0734,0.0734,ETD
+2007-09-27 06:26:05.568000000,Gillon et al. 2008,-2.448,0.4752,0.4752,ETD
+2007-09-24 14:13:06.816000000,Gillon et al.,-1.44,0.3168,0.3168,ETD
+2007-09-21 21:57:04.896000256,Wilson et al 2008,-3.312,0.36,0.36,ETD
+2007-09-20 13:51:11.808000000,Gillon et al.,-2.16,1.08,1.08,ETD
+2006-08-15 02:36:25.632000256,Gillon et al,-0.864,1.1664,1.1664,ETD

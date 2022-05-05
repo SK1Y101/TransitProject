@@ -1,4 +1,3 @@
-date,observer,oc,oce,source
-2022-04-12,Yves Jongen,10.0,1.9,ExoClock observation
-2022-04-12,jean pascal vignes,4.4,3.5,ExoClock observation
-2015-01-06,Espinoza et al. (2016),0.0,1.584,ETD
+date,observer,oc,oceu,ocel,source
+2022-04-11 17:31:13.728000256,Yves jongen,9.936,2.2032,2.2032,ETD
+2015-01-06 08:05:51.359999744,Espinoza et al. (2016),0.0,1.584,1.584,ETD

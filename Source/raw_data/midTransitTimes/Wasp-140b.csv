@@ -1,21 +1,15 @@
-date,observer,oc,oce,source
-2021-11-30,Yves Jongen,0.2,0.7,ExoClock observation
-2021-11-29,Roberto koropecki,2.88,1.3824,ETD
-2021-11-29,Yves jongen,0.864,0.72,ETD
-2021-11-20,Roberto koropecki,4.032,3.024,ETD
-2021-01-03,Yves Jongen,2.2,0.6,ExoClock observation
-2021-01-02,Yves jongen,2.304,0.6768,ETD
-2020-12-07,Yves Jongen,0.3,1.4,ExoClock observation
-2020-12-06,Yves jongen,-0.144,1.4112,ETD
-2020-11-26,Yves Jongen,-1.4,0.6,ExoClock observation
-2020-11-25,Yves jongen,-1.008,0.7344,ETD
-2020-11-05,F. lomoz,1.728,3.4992,ETD
-2020-11-05,F. lomoz,9.936,3.5424,ETD
-2020-10-27,Miguel sanchez,10.656,1.9584,ETD
-2020-02-25,Yves Jongen,2.1,1.3,ExoClock observation
-2020-02-24,Yves jongen,3.024,1.0368,ETD
-2017-11-23,"C. colazo, r. melia, m. starck",4.464,0.7488,ETD
-2017-11-21,Francis dauriac florent cazalaa jacques croiziers,-8.064,1.6272,ETD
-2017-01-01,František lomoz,1.152,1.0656,ETD
-2014-09-11,Hellier et al. (2016),0.0,0.216,ETD
-2014-09-11,Hellier et al. 2017,-0.0,0.2,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2021-11-29 13:51:41.183999744,Roberto koropecki,2.88,1.3824,1.3824,ETD
+2021-11-29 13:49:45.408000256,Yves jongen,0.864,0.72,0.72,ETD
+2021-11-20 15:13:36.479999744,Roberto koropecki,4.032,3.024,3.024,ETD
+2021-01-02 15:38:25.152000256,Yves jongen,2.304,0.6768,0.6768,ETD
+2020-12-06 19:38:02.976000000,Yves jongen,-0.144,1.4112,1.4112,ETD
+2020-11-25 15:18:12.959999744,Yves jongen,-1.008,0.7344,0.7344,ETD
+2020-11-05 12:30:44.640000256,F. lomoz,9.936,3.5424,3.5424,ETD
+2020-11-05 12:22:31.295999744,F. lomoz,1.728,3.4992,3.4992,ETD
+2020-10-27 13:52:15.744000256,Miguel sanchez,10.656,1.9584,1.9584,ETD
+2020-02-24 14:44:48.480000000,Yves jongen,3.024,1.0368,1.0368,ETD
+2017-11-23 18:33:55.584000000,"C. colazo, r. melia, m. starck",4.464,0.7488,0.7488,ETD
+2017-11-21 12:41:30.048000000,Francis dauriac florent cazalaa jacques croiziers,-8.064,1.6272,1.6272,ETD
+2017-01-01 07:37:23.231999744,František lomoz,1.152,1.0656,1.0656,ETD
+2014-09-11 08:25:30.719999744,Hellier et al. (2016),0.0,0.216,0.216,ETD

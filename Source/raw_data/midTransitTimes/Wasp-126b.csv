@@ -1,18 +1,10 @@
-date,observer,oc,oce,source
-2022-03-11,Yves Jongen,-0.8,2.6,ExoClock observation
-2022-03-10,Yves jongen,-3.456,2.5776,ETD
-2021-10-27,Anaël Wünsche,3.8,2.3,ExoClock observation
-2021-10-26,Anaël wünsche,1.728,1.9152,ETD
-2021-10-04,jean pascal vignes,-3.8,4.3,ExoClock observation
-2021-02-06,Yves Jongen,-3.1,1.9,ExoClock observation
-2021-02-05,Yves jongen,-6.48,2.0448,ETD
-2020-11-29,Yves Jongen,-3.9,1.9,ExoClock observation
-2020-11-28,Yves jongen,-3.456,1.44,ETD
-2020-11-19,Yves Jongen,1.1,2.4,ExoClock observation
-2020-11-18,Yves jongen,-2.016,2.088,ETD
-2020-11-06,Yves Jongen,3.9,2.2,ExoClock observation
-2020-11-05,Yves jongen,3.6,2.5776,ETD
-2020-09-01,Yves Jongen,0.4,2.4,ExoClock observation
-2020-08-31,Yves jongen,-1.008,2.2896,ETD
-2014-08-20,Maxted et al. 2016,-0.1,0.9,ExoClock literature
-2014-08-20,Maxted et al. (2016),-1.152,0.864,ETD
+date,observer,oc,oceu,ocel,source
+2022-03-10 14:39:56.448000000,Yves jongen,-3.456,2.5776,2.5776,ETD
+2021-10-26 18:35:04.704000256,Anaël wünsche,1.728,1.9152,1.9152,ETD
+2021-10-03 18:00:55.295999744,Vignes jean-pascal,-1.44,2.7936,2.7936,ETD
+2021-02-05 15:58:28.703999744,Yves jongen,-6.48,2.0448,2.0448,ETD
+2020-11-28 14:28:26.112000000,Yves jongen,-3.456,1.44,1.44,ETD
+2020-11-18 17:42:25.920000256,Yves jongen,-2.016,2.088,2.088,ETD
+2020-11-05 14:04:36.192000000,Yves jongen,3.6,2.5776,2.5776,ETD
+2020-08-31 19:22:52.319999744,Yves jongen,-1.008,2.2896,2.2896,ETD
+2014-08-20 07:39:30.240000000,Maxted et al. (2016),-1.152,0.864,0.864,ETD

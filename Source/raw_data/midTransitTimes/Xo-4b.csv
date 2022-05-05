@@ -1,77 +1,48 @@
-date,observer,oc,oce,source
-2022-03-07,Mark Salisbury,-2.4,1.2,ExoClock observation
-2022-02-11,Kevin Johnson,-1.2,2.3,ExoClock observation
-2022-02-02,Paolo Arcangelo Matassa,0.0,2.2,ExoClock observation
-2021-12-31,Fran Campos,3.7,1.3,ExoClock observation
-2021-12-02,Fran campos,-12.816,3.672,ETD
-2021-01-11,Yves Jongen,-3.0,1.6,ExoClock observation
-2021-01-10,Yves jongen,-1.872,1.5696,ETD
-2020-11-30,Bernhard wenzel,12.672,89.496,ETD
-2020-11-06,Adrian Jones,-4.5,4.3,ExoClock observation
-2020-11-02,Alberto Tomatis,1.5,3.2,ExoClock observation
-2020-10-28,Martin Crow,-1.4,4.3,ExoClock observation
-2020-03-15,Anaël wünsche,11.52,1.4688,ETD
-2020-03-11,Danilo Sedita,-1.3,1.4,ExoClock observation
-2020-03-11,Alessandro Nastasi,0.0,2.2,ExoClock observation
-2020-02-07,Mauro calo,-6.336,2.7216,ETD
-2020-02-07,Mauro Caló,-3.8,4.3,ExoClock observation
-2020-02-03,Tõnis Eenmäe,0.3,0.9,ExoClock observation
-2020-01-05,Pere guerra,-2.88,1.8144,ETD
-2020-01-05,Yves Jongen,-3.0,1.7,ExoClock observation
-2020-01-05,Yves jongen,-5.184,1.7424,ETD
-2020-01-05,Pere Guerra,-1.2,1.9,ExoClock observation
-2019-04-16,Veli-pekka hentunen,-17.712,1.4832,ETD
-2019-01-07,Jean plazas,19.008,4.2768,ETD
-2017-09-28,Gabriel murawski,-17.28,6.2496,ETD
-2016-11-18,Carson reed powers,-7.632,1.7424,ETD
-2015-03-27,Marc bretton,4.176,2.808,ETD
-2014-03-29,Dittler u.,2.016,3.2256,ETD
-2014-03-25,Salisbury m.,6.336,1.1664,ETD
-2014-02-28,Zibar m.,-7.92,2.8512,ETD
-2013-12-24,"Mravik j., grnja j.",4.032,3.456,ETD
-2013-11-29,Benni p.,1.008,1.0656,ETD
-2013-04-08,Shadic s.,0.144,1.1952,ETD
-2013-03-31,Haarup n.,-0.0,4.7232,ETD
-2013-01-03,Horta f. g.,7.2,1.7424,ETD
-2012-11-27,Shadic s.,-4.32,3.1968,ETD
-2012-02-29,Garcia r.,0.72,2.7792,ETD
-2012-02-04,Shadic s.,-4.176,2.2032,ETD
-2012-01-07,Villanueva et al. 2016,2.5,1.3,ExoClock literature
-2011-12-25,Lopesino j.,-7.2,2.088,ETD
-2011-12-08,Shadic s.,3.6,1.2528,ETD
-2011-11-22,Emering f.,0.576,0.4608,ETD
-2011-11-22,Fernand emering,4.32,0.6192,ETD
-2011-04-17,Shadic s.,13.248,2.0592,ETD
-2011-02-06,Horace a.,-1.728,1.3392,ETD
-2010-12-02,Husar d.,-12.672,5.1552,ETD
-2010-11-03,Shadick s.,2.304,2.016,ETD
-2010-10-30,Shadic s.,-3.6,2.6208,ETD
-2010-04-07,Poddaný s.,0.144,1.9296,ETD
-2010-04-07,Stanislav poddaný,0.432,1.9152,ETD
-2010-03-18,Villanueva et al. 2016,4.7,1.7,ExoClock literature
-2010-03-09,Trnka j.,-15.264,3.4848,ETD
-2010-02-09,Villanueva et al. 2016,-1.5,1.1,ExoClock literature
-2010-02-09,Narita et al. 2010,1.4,0.9,ExoClock literature
-2009-12-05,Villanueva et al. 2016,-4.3,2.2,ExoClock literature
-2009-11-10,Villanueva et al. 2016,1.3,1.4,ExoClock literature
-2009-09-05,Narita et al. 2010,3.9,1.6,ExoClock literature
-2009-03-11,Mendez,5.472,7.776,ETD
-2009-02-11,Villanueva et al. 2016,-2.7,2.7,ExoClock literature
-2009-01-17,Villanueva et al. 2016,-2.7,4.0,ExoClock literature
-2009-01-13,Todorov et al. 2012,1.9,0.9,ExoClock literature
-2009-01-09,Todorov et al. 2012,-0.3,1.2,ExoClock literature
-2008-12-11,Todorov et al. 2012,-3.1,1.0,ExoClock literature
-2008-12-10,Foote,3.6,1.872,ETD
-2008-11-28,Naves,14.976,8.496,ETD
-2008-11-12,Villanueva et al. 2016,4.2,1.7,ExoClock literature
-2008-10-26,Srdoc,-12.816,3.6,ETD
-2008-10-10,Narita et al. 2010,1.6,1.6,ExoClock literature
-2008-10-06,Narita et al. 2010,2.1,1.5,ExoClock literature
-2008-09-27,Brát l.,0.576,4.1328,ETD
-2008-01-20,McCullough et al. 2008,-1.7,0.6,ExoClock literature
-2008-01-19,Mccullough et al 2008,-2.88,0.576,ETD
-2008-01-19,Foote,-2.304,4.608,ETD
-2008-01-19,Foote,9.36,6.912,ETD
-2008-01-19,Foote,-3.744,4.32,ETD
-2007-11-14,Foote,7.776,2.736,ETD
-2007-11-02,Gregorio j.,-22.32,2.736,ETD
+date,observer,oc,oceu,ocel,source
+2022-03-07 09:23:26.592000256,Mark salisbury,-4.176,1.1232,1.1232,ETD
+2021-12-02 12:12:34.272000000,Fran campos,-12.816,3.672,3.672,ETD
+2021-01-10 15:15:40.895999744,Yves jongen,-1.872,1.5696,1.5696,ETD
+2020-11-30 09:29:15.648000256,Bernhard wenzel,12.672,89.496,89.496,ETD
+2020-03-15 12:21:55.871999744,Anaël wünsche,11.52,1.4688,1.4688,ETD
+2020-02-07 09:03:11.808000256,Mauro calo,-6.336,2.7216,2.7216,ETD
+2020-01-05 09:05:58.560000000,Pere guerra,-2.88,1.8144,1.8144,ETD
+2020-01-05 09:03:34.272000256,Yves jongen,-5.184,1.7424,1.7424,ETD
+2019-04-16 08:44:46.752000000,Veli-pekka hentunen,-17.712,1.4832,1.4832,ETD
+2019-01-07 09:19:07.392000000,Jean plazas,19.008,4.2768,4.2768,ETD
+2017-09-28 05:31:54.336000256,Gabriel murawski,-17.28,6.2496,6.2496,ETD
+2016-11-18 17:34:05.664000000,Carson reed powers,-7.632,1.7424,1.7424,ETD
+2015-03-27 11:31:37.056000000,Marc bretton,4.176,2.808,2.808,ETD
+2014-03-29 11:20:47.328000000,Dittler u.,2.016,3.2256,3.2256,ETD
+2014-03-25 08:25:00.480000256,Salisbury m.,6.336,1.1664,1.1664,ETD
+2014-02-28 14:10:10.560000000,Zibar m.,-7.92,2.8512,2.8512,ETD
+2013-12-24 14:20:34.368000000,"Mravik j., grnja j.",4.032,3.456,3.456,ETD
+2013-11-29 20:17:00.960000000,Benni p.,1.008,1.0656,1.0656,ETD
+2013-04-08 17:10:34.752000000,Shadic s.,0.144,1.1952,1.1952,ETD
+2013-03-31 11:10:10.560000000,Haarup n.,-0.0,4.7232,4.7232,ETD
+2013-01-03 20:15:21.599999744,Horta f. g.,7.2,1.7424,1.7424,ETD
+2012-11-27 17:03:02.016000256,Shadic s.,-4.32,3.1968,3.1968,ETD
+2012-02-29 11:01:32.160000000,Garcia r.,0.72,2.7792,2.7792,ETD
+2012-02-04 16:56:01.247999744,Shadic s.,-4.176,2.2032,2.2032,ETD
+2011-12-25 10:52:03.648000000,Lopesino j.,-7.2,2.088,2.088,ETD
+2011-12-08 23:02:26.592000256,Shadic s.,3.6,1.2528,1.2528,ETD
+2011-11-22 11:02:48.192000000,Fernand emering,4.32,0.6192,0.6192,ETD
+2011-11-22 10:59:07.872000256,Emering f.,0.576,0.4608,0.4608,ETD
+2011-04-17 20:06:31.968000256,Shadic s.,13.248,2.0592,2.0592,ETD
+2011-02-06 16:49:57.504000000,Horace a.,-1.728,1.3392,1.3392,ETD
+2010-12-02 16:37:23.231999744,Husar d.,-12.672,5.1552,5.1552,ETD
+2010-11-03 19:51:44.639999744,Shadick s.,2.304,2.016,2.016,ETD
+2010-10-30 16:45:38.304000256,Shadic s.,-3.6,2.6208,2.6208,ETD
+2010-04-07 10:44:49.920000256,Stanislav poddaný,0.432,1.9152,1.9152,ETD
+2010-04-07 10:44:34.368000000,Poddaný s.,0.144,1.9296,1.9296,ETD
+2010-03-09 13:28:31.008000000,Trnka j.,-15.264,3.4848,3.4848,ETD
+2009-03-11 13:40:39.360000256,Mendez,5.472,7.776,7.776,ETD
+2008-12-10 19:36:37.440000000,Foote,3.6,1.872,1.872,ETD
+2008-11-28 10:47:42.720000256,Naves,14.976,8.496,8.496,ETD
+2008-10-26 10:19:03.360000256,Srdoc,-12.816,3.6,3.6,ETD
+2008-09-27 13:31:49.728000000,Brát l.,0.576,4.1328,4.1328,ETD
+2008-01-19 22:34:36.480000000,Foote,9.36,6.912,6.912,ETD
+2008-01-19 22:22:56.640000000,Foote,-2.304,4.608,4.608,ETD
+2008-01-19 22:22:22.080000256,Mccullough et al 2008,-2.88,0.576,0.576,ETD
+2008-01-19 22:21:30.240000256,Foote,-3.744,4.32,4.32,ETD
+2007-11-14 22:31:26.399999744,Foote,7.776,2.736,2.736,ETD
+2007-11-02 13:01:03.359999744,Gregorio j.,-22.32,2.736,2.736,ETD

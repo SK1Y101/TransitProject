@@ -1,4 +1,4 @@
-date,observer,oc,oce,source
-2020-06-06,Yves jongen,2.592,0.9072,ETD
-2019-08-09,"Alfa crucis - napoleao t., colesanti c., silva w., kulh d., mantovani l., olim e., reis d.",1.728,5.6016,ETD
-2013-07-28,Anderson et al. (2014),-0.864,0.2304,ETD
+date,observer,oc,oceu,ocel,source
+2020-06-06 19:21:21.600000000,Yves jongen,2.592,0.9072,0.9072,ETD
+2019-08-09 12:48:36.000000256,"Alfa crucis - napoleao t., colesanti c., silva w., kulh d., mantovani l., olim e., reis d.",1.728,5.6016,5.6016,ETD
+2013-07-28 17:22:42.240000000,Anderson et al. (2014),-0.864,0.2304,0.2304,ETD

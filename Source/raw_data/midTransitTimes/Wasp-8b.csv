@@ -1,6 +1,4 @@
-date,observer,oc,oce,source
-2021-08-01,Yves Jongen,6.6,2.3,ExoClock observation
-2021-07-31,Yves jongen,3.024,1.7712,ETD
-2020-11-13,Yves Jongen,9.3,2.7,ExoClock observation
-2020-11-12,Yves jongen,9.936,2.2896,ETD
-2008-07-31,"D. queloz et al., 2010",0.0,0.8352,ETD
+date,observer,oc,oceu,ocel,source
+2021-07-31 17:01:14.879999744,Yves jongen,3.024,1.7712,1.7712,ETD
+2020-11-12 15:14:30.047999744,Yves jongen,9.936,2.2896,2.2896,ETD
+2008-07-31 08:01:26.976000000,"D. queloz et al., 2010",0.0,0.8352,0.8352,ETD

@@ -1,7 +1,7 @@
-date,observer,oc,oce,source
-2021-12-20,Manfred raetz,-8.208,0.8208,ETD
-2021-06-03,Jean plazas,-0.576,,ETD
-2021-03-02,Veli-pekka hentunen,-2.88,3.1824,ETD
-2020-11-09,Veli-pekka hentunen,-2.736,1.008,ETD
-2020-07-17,Gianluca rossi,5.472,45.1008,ETD
-2020-07-17,Jean plazas,0.288,,ETD
+date,observer,oc,oceu,ocel,source
+2021-12-20 06:29:24.288000000,Manfred raetz,-8.208,0.8208,0.8208,ETD
+2021-06-03 14:41:00.384000256,Jean plazas,-0.576,,,ETD
+2021-03-02 06:56:08.736000000,Veli-pekka hentunen,-2.88,3.1824,3.1824,ETD
+2020-11-09 10:27:16.704000000,Veli-pekka hentunen,-2.736,1.008,1.008,ETD
+2020-07-17 10:01:12.000000256,Gianluca rossi,5.472,45.1008,45.1008,ETD
+2020-07-17 09:56:05.280000256,Jean plazas,0.288,,,ETD

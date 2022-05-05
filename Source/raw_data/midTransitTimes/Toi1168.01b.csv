@@ -1,12 +1,12 @@
-date,observer,oc,oce,source
-2021-10-21,"C. arena, g. cassarino, s. p. cosentino, g. marino, m. musolino",-73.296,1.5696,ETD
-2021-05-20,Jean plazas,-0.432,,ETD
-2021-05-05,Giorgio baj,-54.0,2.2896,ETD
-2021-04-18,Veli-pekka hentunen,0.432,,ETD
-2020-12-09,Veli-pekka hentunen,-45.216,1.1232,ETD
-2020-11-09,Veli-pekka hentunen,-36.144,0.8352,ETD
-2020-09-23,Manfred raetz,-28.08,1.9008,ETD
-2020-09-08,Manfred raetz,-37.872,10.9296,ETD
-2020-09-08,Roberto pidal,-42.912,0.8928,ETD
-2020-09-08,Pedro martorell,-38.016,0.8784,ETD
-2020-08-24,Pedro martorell,-27.792,0.6048,ETD
+date,observer,oc,oceu,ocel,source
+2021-10-21 06:57:05.760000000,"C. arena, g. cassarino, s. p. cosentino, g. marino, m. musolino",-73.296,1.5696,1.5696,ETD
+2021-05-20 13:09:28.800000000,Jean plazas,-0.432,,,ETD
+2021-05-05 13:25:09.695999744,Giorgio baj,-54.0,2.2896,2.2896,ETD
+2021-04-18 12:12:44.639999744,Veli-pekka hentunen,0.432,,,ETD
+2020-12-09 04:20:51.359999744,Veli-pekka hentunen,-45.216,1.1232,1.1232,ETD
+2020-11-09 06:48:16.127999744,Veli-pekka hentunen,-36.144,0.8352,0.8352,ETD
+2020-09-23 07:07:46.848000000,Manfred raetz,-28.08,1.9008,1.9008,ETD
+2020-09-08 08:07:08.256000000,Manfred raetz,-37.872,10.9296,10.9296,ETD
+2020-09-08 08:07:01.344000256,Pedro martorell,-38.016,0.8784,0.8784,ETD
+2020-09-08 08:02:10.176000256,Roberto pidal,-42.912,0.8928,0.8928,ETD
+2020-08-24 09:26:24.576000256,Pedro martorell,-27.792,0.6048,0.6048,ETD

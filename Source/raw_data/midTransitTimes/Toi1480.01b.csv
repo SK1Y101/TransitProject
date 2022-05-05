@@ -1,8 +1,8 @@
-date,observer,oc,oce,source
-2021-07-30,Gianluca rossi,28.944,1.2816,ETD
-2021-04-17,Veli-pekka hentunen,30.528,0.9936,ETD
-2020-12-07,Veli-pekka hentunen,13.248,0.9504,ETD
-2020-11-17,Jean plazas,-40.608,3.456,ETD
-2020-11-07,Veli-pekka hentunen,14.112,0.9504,ETD
-2020-08-05,Anaël wünsche,20.16,1.1952,ETD
-2020-08-05,Manfred raetz,8.496,1.1952,ETD
+date,observer,oc,oceu,ocel,source
+2021-07-30 09:14:02.399999744,Gianluca rossi,28.944,1.2816,1.2816,ETD
+2021-04-17 09:51:16.704000000,Veli-pekka hentunen,30.528,0.9936,0.9936,ETD
+2020-12-07 14:11:04.128000000,Veli-pekka hentunen,13.248,0.9504,0.9504,ETD
+2020-11-17 10:18:21.023999744,Jean plazas,-40.608,3.456,3.456,ETD
+2020-11-07 09:43:36.192000000,Veli-pekka hentunen,14.112,0.9504,0.9504,ETD
+2020-08-05 11:54:49.824000000,Anaël wünsche,20.16,1.1952,1.1952,ETD
+2020-08-05 11:43:09.984000000,Manfred raetz,8.496,1.1952,1.1952,ETD

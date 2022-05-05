@@ -1,32 +1,25 @@
-date,observer,oc,oce,source
-2021-08-12,Manfred Raetz,-0.7,0.9,ExoClock observation
-2021-08-11,Manfred raetz,-9.36,2.8368,ETD
-2021-08-01,Georgios Lekkas,0.7,2.6,ExoClock observation
-2021-07-22,Manfred Raetz,-1.6,1.3,ExoClock observation
-2021-07-22,Manfred raetz,0.432,1.1376,ETD
-2020-09-14,Martin Crow,0.8,1.3,ExoClock observation
-2019-03-27,Pere guerra,3.312,2.6496,ETD
-2018-06-29,Pere guerra,113.616,32.4864,ETD
-2018-06-24,Pere guerra,7.632,21.3984,ETD
-2018-06-14,David molina,-3.456,2.088,ETD
-2018-06-09,Marc bretton,-0.72,1.3104,ETD
-2018-05-20,M. hoecherl,-7.344,1.6128,ETD
-2018-05-05,Gabriel murawski,2.16,3.528,ETD
-2017-08-08,Alessandro Marchini,-0.1,1.2,ExoClock observation
-2017-08-02,"Brahic 92 (ballet, néel, delisle, stefani, gouyette, morelli, maline, muzeau, laclef and cordebois)",-5.328,1.008,ETD
-2017-08-02,Marc bretton,-0.864,0.6336,ETD
-2017-08-02,Anaël Wünsche,-0.5,0.9,ExoClock observation
-2016-09-05,Veli-pekka hentunen,-0.288,0.9504,ETD
-2015-11-04,Marc bretton,-24.48,5.9904,ETD
-2015-04-07,Marc bretton,-2.448,2.7216,ETD
-2014-06-05,Horta f. g.,-57.744,1.9584,ETD
-2014-05-21,Lomoz f.,-13.968,2.52,ETD
-2014-05-21,Lomoz f.,-4.896,3.3696,ETD
-2013-08-23,Martin l. j.,-1.008,1.7568,ETD
-2013-08-18,"Mravik j., grnja j.",4.464,7.2,ETD
-2013-08-18,Horta f. g.,-5.472,2.8944,ETD
-2013-08-03,Vieira j.,-0.144,3.0816,ETD
-2013-07-24,"Mravik j., grnja j.",4.32,2.7072,ETD
-2013-07-24,Ayiomamitis a.,-4.032,1.4544,ETD
-2013-07-14,"Mravik j., grnja j.",-1.44,3.9888,ETD
-2009-12-18,Hébrard et al. 2013,0.4,1.4,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2021-08-11 12:35:14.207999744,Manfred raetz,-9.36,2.8368,2.8368,ETD
+2021-07-22 11:05:53.952000000,Manfred raetz,0.432,1.1376,1.1376,ETD
+2019-03-27 13:19:37.920000000,Pere guerra,3.312,2.6496,2.6496,ETD
+2018-06-29 16:51:23.904000256,Pere guerra,113.616,32.4864,32.4864,ETD
+2018-06-24 14:40:36.192000256,Pere guerra,7.632,21.3984,21.3984,ETD
+2018-06-14 13:39:56.160000000,David molina,-3.456,2.088,2.088,ETD
+2018-06-09 13:17:55.968000000,Marc bretton,-0.72,1.3104,1.3104,ETD
+2018-05-20 11:32:09.887999744,M. hoecherl,-7.344,1.6128,1.6128,ETD
+2018-05-05 10:27:20.160000000,Gabriel murawski,2.16,3.528,3.528,ETD
+2017-08-02 11:40:59.520000000,Marc bretton,-0.864,0.6336,0.6336,ETD
+2017-08-02 11:36:29.951999744,"Brahic 92 (ballet, néel, delisle, stefani, gouyette, morelli, maline, muzeau, laclef and cordebois)",-5.328,1.008,1.008,ETD
+2016-09-05 08:25:31.584000000,Veli-pekka hentunen,-0.288,0.9504,0.9504,ETD
+2015-11-04 06:49:19.199999744,Marc bretton,-24.48,5.9904,5.9904,ETD
+2015-04-07 13:50:13.056000256,Marc bretton,-2.448,2.7216,2.7216,ETD
+2014-06-05 11:42:54.431999744,Horta f. g.,-57.744,1.9584,1.9584,ETD
+2014-05-21 11:21:17.568000256,Lomoz f.,-4.896,3.3696,3.3696,ETD
+2014-05-21 11:12:19.296000256,Lomoz f.,-13.968,2.52,2.52,ETD
+2013-08-23 13:06:43.776000000,Martin l. j.,-1.008,1.7568,1.7568,ETD
+2013-08-18 12:47:26.015999744,"Mravik j., grnja j.",4.464,7.2,7.2,ETD
+2013-08-18 12:37:28.127999744,Horta f. g.,-5.472,2.8944,2.8944,ETD
+2013-08-03 11:28:25.247999744,Vieira j.,-0.144,3.0816,3.0816,ETD
+2013-07-24 10:43:19.200000256,"Mravik j., grnja j.",4.32,2.7072,2.7072,ETD
+2013-07-24 10:34:52.895999744,Ayiomamitis a.,-4.032,1.4544,1.4544,ETD
+2013-07-14 09:47:57.120000256,"Mravik j., grnja j.",-1.44,3.9888,3.9888,ETD

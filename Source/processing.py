@@ -208,14 +208,15 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
     for source in sources:
         data = transitdf.loc[transitdf["source"]==source]
         dateAsFloat = dateToYearFloat(data["date"])
-        ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=data["oce"], label=source, fmt="o")
+        ocerr = [data["ocel"], data["oceu"]]
+        ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=ocerr, label=source, fmt="o")
         # if we have a fit function
         if fitfunc:
             if isinstance(fitfunc, list):
                 for i, ff in enumerate(fitfunc):
-                    ax[i+1].errorbar(pd.to_datetime(data["date"]), data["oc"]-ff(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+                    ax[i+1].errorbar(pd.to_datetime(data["date"]), data["oc"]-ff(dateAsFloat), yerr=ocerr, label=source, fmt="o")
             else:
-                ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=data["oce"], label=source, fmt="o")
+                ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=ocerr, label=source, fmt="o")
 
     # and plot the simulated TTV if needed
     if addSim:
@@ -256,7 +257,9 @@ if __name__ == "__main__":
 
     # fit a sine function to the data as a test
     dateAsFloat = dateToYearFloat(transitdf["date"])
-    x, y, yerr = np.array(dateAsFloat), transitdf["oc"].to_numpy(), transitdf["oce"].to_numpy()
+    x, y = np.array(dateAsFloat), transitdf["oc"].to_numpy()
+    # average errors so they are symmetric
+    yerr = 0.5*(transitdf["ocel"].to_numpy() + transitdf["oceu"].to_numpy())
     ''' fit x, y, yerr to a model. '''
 
     def fitModel(x, y, yerr, model, guess=None, bounds=None):

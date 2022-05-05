@@ -1,43 +1,25 @@
-date,observer,oc,oce,source
-2021-11-05,Anaël Wünsche,1.3,0.7,ExoClock observation
-2021-11-04,Anaël wünsche,-0.72,0.8064,ETD
-2021-08-13,Anaël Wünsche,1.7,0.7,ExoClock observation
-2021-08-13,Yves Jongen,0.7,0.6,ExoClock observation
-2021-08-12,Yves jongen,-0.576,0.576,ETD
-2021-08-12,Anaël wünsche,0.72,0.576,ETD
-2020-11-07,Yves Jongen,2.6,0.6,ExoClock observation
-2020-11-06,Yves jongen,1.152,0.7776,ETD
-2020-09-21,Yves Jongen,1.5,0.7,ExoClock observation
-2020-09-20,Yves jongen,0.144,0.648,ETD
-2020-09-10,"Alfa crucis - de carvalho aguiar p., kulh d., olim e., rodrigues m.a., silva s., treü r.",-7.344,0.936,ETD
-2020-08-15,Yves Jongen,-0.0,0.7,ExoClock observation
-2020-08-14,Yves jongen,-0.864,0.5328,ETD
-2018-11-01,Mike miller,-5.904,5.2704,ETD
-2017-09-17,"Eduardo fernández-lajús, romina p. di sisto",-3.168,0.4608,ETD
-2016-09-29,"Eduardo fernández-lajús, romina p. di sisto",-3.888,0.3024,ETD
-2014-10-24,Evans p.,0.144,0.7056,ETD
-2014-10-14,Mutel r.,0.432,1.1088,ETD
-2013-12-16,René r.,4.032,9.864,ETD
-2012-09-11,Evans p.,0.288,1.872,ETD
-2012-07-23,Nikolov et al. 2015,-0.3,0.1,ExoClock literature
-2012-06-16,Nikolov et al. 2015,-0.3,0.2,ExoClock literature
-2012-06-10,Nikolov et al. 2015,0.0,0.2,ExoClock literature
-2011-10-01,"Wade dauberman, raymond simons, tanya dax",-3.456,0.7056,ETD
-2011-07-06,Tan tg,-1.728,0.7488,ETD
-2010-11-09,Fernando tifner,-1.872,0.8064,ETD
-2010-10-07,Milne g.,-0.864,0.5472,ETD
-2010-09-07,Dragomir et al. 2011,-0.5,0.8,ExoClock literature
-2010-09-06,"Dragomir et al., 2011",-0.576,0.8352,ETD
-2010-08-01,Tregloan-Reed et al. 2015,-0.2,0.1,ExoClock literature
-2010-07-11,Sauer t.,-0.576,0.5184,ETD
-2010-07-02,Baluev et al. 2019,-0.5,0.1,ExoClock literature
-2010-07-01,Sauer t.,-1.584,0.4464,ETD
-2009-09-25,Tiffner,-0.432,1.008,ETD
-2009-09-08,"Schwieterman e., addison b.",-7.344,1.0368,ETD
-2009-08-30,Tregloan-Reed et al. 2015,-0.1,0.2,ExoClock literature
-2009-08-03,Tregloan-Reed et al. 2015,-0.2,0.2,ExoClock literature
-2009-06-27,Tregloan-Reed et al. 2015,-0.1,0.3,ExoClock literature
-2008-06-15,Dragomir et al. 2011,0.5,0.2,ExoClock literature
-2008-05-09,Gillon et al. 2009,0.6,0.2,ExoClock literature
-2008-05-09,M. gillon et al.,-0.576,0.144,ETD
-2007-11-20,Kammer et al. 2015,0.9,0.2,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2021-11-04 15:52:37.919999744,Anaël wünsche,-0.72,0.8064,0.8064,ETD
+2021-08-12 15:18:00.864000000,Anaël wünsche,0.72,0.576,0.576,ETD
+2021-08-12 15:16:43.104000000,Yves jongen,-0.576,0.576,0.576,ETD
+2020-11-06 16:11:30.623999744,Yves jongen,1.152,0.7776,0.7776,ETD
+2020-09-20 14:52:46.272000256,Yves jongen,0.144,0.648,0.648,ETD
+2020-09-10 12:45:45.791999744,"Alfa crucis - de carvalho aguiar p., kulh d., olim e., rodrigues m.a., silva s., treü r.",-7.344,0.936,0.936,ETD
+2020-08-14 15:33:24.480000256,Yves jongen,-0.864,0.5328,0.5328,ETD
+2018-11-01 14:38:49.055999744,Mike miller,-5.904,5.2704,5.2704,ETD
+2017-09-17 13:40:47.136000256,"Eduardo fernández-lajús, romina p. di sisto",-3.168,0.4608,0.4608,ETD
+2016-09-29 15:56:33.791999744,"Eduardo fernández-lajús, romina p. di sisto",-3.888,0.3024,0.3024,ETD
+2014-10-24 20:33:35.423999744,Evans p.,0.144,0.7056,0.7056,ETD
+2014-10-14 18:34:13.728000000,Mutel r.,0.432,1.1088,1.1088,ETD
+2013-12-16 06:51:58.176000000,René r.,4.032,9.864,9.864,ETD
+2012-09-11 19:49:49.727999744,Evans p.,0.288,1.872,1.872,ETD
+2011-10-01 15:22:09.696000000,"Wade dauberman, raymond simons, tanya dax",-3.456,0.7056,0.7056,ETD
+2011-07-06 06:08:03.839999744,Tan tg,-1.728,0.7488,0.7488,ETD
+2010-11-09 14:59:01.248000256,Fernando tifner,-1.872,0.8064,0.8064,ETD
+2010-10-07 00:21:37.728000000,Milne g.,-0.864,0.5472,0.5472,ETD
+2010-09-06 18:23:20.544000256,"Dragomir et al., 2011",-0.576,0.8352,0.8352,ETD
+2010-07-11 15:05:57.695999744,Sauer t.,-0.576,0.5184,0.5184,ETD
+2010-07-01 13:05:22.560000256,Sauer t.,-1.584,0.4464,0.4464,ETD
+2009-09-25 13:59:39.840000256,Tiffner,-0.432,1.008,1.008,ETD
+2009-09-08 18:33:31.392000000,"Schwieterman e., addison b.",-7.344,1.0368,1.0368,ETD
+2008-05-09 10:23:02.688000256,M. gillon et al.,-0.576,0.144,0.144,ETD

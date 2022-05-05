@@ -1,109 +1,86 @@
-date,observer,oc,oce,source
-2021-11-23,Volker wickert,1353.6,3.62455,ETD
-2021-11-22,Volker wickert,-47.088,28.512,ETD
-2020-10-09,Martin Smith,-1.9,4.3,ExoClock observation
-2020-08-10,Carmelo Falco,2.2,0.9,ExoClock observation
-2020-08-03,Carmelo Falco,-2.4,1.4,ExoClock observation
-2019-09-03,"Kemme, linus",-43.056,47.7936,ETD
-2019-08-20,Jean plazas,-0.576,,ETD
-2019-08-13,Sjoerd dufoer,-0.0,3.1104,ETD
-2018-10-21,Josep gaitan ,-26.208,5.5152,ETD
-2018-10-21,Pere guerra,0.576,1.2816,ETD
-2018-08-29,Anael wunsche,2.88,0.6048,ETD
-2018-08-29,Marc bretton,1.728,0.8064,ETD
-2018-08-29,Anaël Wünsche,2.0,1.0,ExoClock observation
-2018-08-29,Yves Jongen,-0.3,1.6,ExoClock observation
-2018-08-29,Yves jongen,-3.168,1.728,ETD
-2018-08-22,Gabriel murawski,-0.576,0.6048,ETD
-2017-10-30,Didier walliang,-1.008,1.1952,ETD
-2016-09-02,Gabriel murawski,4.896,3.4272,ETD
-2015-11-11,Ivan sergey,27.072,59.1264,ETD
-2015-11-11,Christof wiedemair,-0.864,1.152,ETD
-2013-10-28,Benni p.,2.736,1.152,ETD
-2013-09-23,Ayiomamitis a.,1.584,1.0224,ETD
-2013-08-01,Trnka j.,3.888,1.1376,ETD
-2013-08-01,Koch  b.,-0.288,0.9648,ETD
-2012-09-25,Deming et al. 2013,-0.5,0.3,ExoClock literature
-2012-08-17,Salvaggio f.,1.008,0.8496,ETD
-2012-08-17,Naves r.,2.592,0.6048,ETD
-2011-09-03,"T napoleao,c jacques, a oliveira",10.944,1.5552,ETD
-2010-10-28,Husar d.,4.032,2.2896,ETD
-2010-10-21,Ruocco n.,4.32,1.3824,ETD
-2010-10-21,"Világi j., gajdoš š.",7.92,1.2816,ETD
-2010-10-21,Corfini g.,0.432,1.0656,ETD
-2010-09-05,Naves r.,-1.728,0.7056,ETD
-2010-08-29,Ruocco n.,-0.144,2.2032,ETD
-2010-08-22,Zambelli r.,2.592,0.7056,ETD
-2010-08-22,Hynek t.,-4.32,1.2384,ETD
-2010-08-22,Saral g.,-3.024,0.7776,ETD
-2010-08-18,Evans p.,-0.864,5.2992,ETD
-2010-08-15,Scarmato t.,-8.208,2.8368,ETD
-2009-10-30,Filip Walter,-2.9,1.6,ExoClock observation
-2009-10-30,Stanislav poddaný,-1.728,1.2672,ETD
-2009-10-30,Trnka j.,5.76,1.1232,ETD
-2009-10-30,Poddaný s.,-0.72,1.9872,ETD
-2009-09-07,Brát l.,-1.584,1.9872,ETD
-2009-08-31,Srdoc,-1.728,1.152,ETD
-2009-08-24,Srdoc,5.184,2.88,ETD
-2009-08-20,Garlitz,3.312,2.736,ETD
-2009-08-13,Tieman b.,2.16,1.8,ETD
-2008-11-22,Alessandro Marchini,-2.7,2.2,ExoClock observation
-2008-11-15,Mendez,1.152,0.864,ETD
-2008-10-14,Gary,1.008,12.672,ETD
-2008-09-02,Ayiomamitis,-1.44,1.872,ETD
-2008-07-18,Naves,0.576,1.44,ETD
-2007-12-30,Bruce l. gary,2.88,,ETD
-2007-10-24,Bruce l. gary,-0.432,,ETD
-2005-09-13,Miller-Ricci et al. 2008,-0.1,1.1,ExoClock literature
-2005-09-12,Miller-ricci et al 2008,-0.432,1.1376,ETD
-2005-09-09,Miller-Ricci et al. 2008,0.5,1.1,ExoClock literature
-2005-09-09,Miller-ricci et al 2008,0.288,1.08,ETD
-2005-09-06,Miller-Ricci et al. 2008,-0.1,0.9,ExoClock literature
-2005-09-05,Miller-ricci et al 2008,-0.432,0.936,ETD
-2005-09-02,Miller-Ricci et al. 2008,-0.5,0.9,ExoClock literature
-2005-09-02,Miller-ricci et al 2008,-0.864,0.8928,ETD
-2005-08-30,Miller-Ricci et al. 2008,-0.5,0.8,ExoClock literature
-2005-08-29,Miller-ricci et al 2008,-0.864,0.8064,ETD
-2005-08-26,Miller-Ricci et al. 2008,-0.5,0.8,ExoClock literature
-2005-08-26,Miller-ricci et al 2008,-0.864,0.8064,ETD
-2005-08-23,Miller-Ricci et al. 2008,0.5,0.8,ExoClock literature
-2005-08-22,  miller-ricci et al 2008,0.144,0.792,ETD
-2005-08-19,Miller-ricci et al 2008,-1.008,0.8928,ETD
-2005-08-19,Miller-Ricci et al. 2008,-0.6,0.9,ExoClock literature
-2005-08-16,Miller-Ricci et al. 2008,1.6,0.8,ExoClock literature
-2005-08-15,Miller-ricci et al 2008,1.152,0.7632,ETD
-2005-08-12,Miller-Ricci et al. 2008,0.2,0.9,ExoClock literature
-2005-08-12,Miller-ricci et al 2008,-0.144,0.864,ETD
-2005-08-08,Miller-Ricci et al. 2008,1.3,0.7,ExoClock literature
-2005-08-08,Miller-ricci et al 2008,0.864,0.7344,ETD
-2005-08-05,Miller-Ricci et al. 2008,1.2,1.1,ExoClock literature
-2005-08-04,Miller-ricci et al 2008,0.864,1.0656,ETD
-2004-08-28,Miller-Ricci et al. 2008,0.6,0.9,ExoClock literature
-2004-08-28,Miller-ricci et al 2008,0.144,0.8784,ETD
-2004-08-25,Miller-Ricci et al. 2008,-0.5,0.7,ExoClock literature
-2004-08-24,Miller-ricci et al 2008,-1.152,0.7056,ETD
-2004-08-17,Miller-Ricci et al. 2008,-0.6,1.0,ExoClock literature
-2004-08-17,Miller-ricci et al 2008,-1.152,0.9792,ETD
-2004-07-13,Ohshima o.,-5.904,1.7712,ETD
-2003-10-26,Nyholm a.,6.768,2.9664,ETD
-2003-10-19,"Kouprianov v.v., gorshanov d. l., sokov e. n.",7.488,5.2272,ETD
-2003-08-13,"Gorshanov d. l., devyatkin a.v., sokov e. n.",-0.72,1.7712,ETD
-2003-07-05,Agol et al 2007,0.144,0.2448,ETD
-2003-06-25,Agol et al 2007,0.0,0.3024,ETD
-2003-05-31,Agol et al 2007,-0.288,0.1872,ETD
-2003-05-03,Agol et al 2007,0.0,0.2592,ETD
-2002-09-30,Agol et al 2007,-0.432,0.4176,ETD
-2002-01-15,Agol et al 2007,1.008,0.7344,ETD
-2001-11-09,Agol et al 2007,0.432,0.8352,ETD
-2001-10-23,"Devyatkin a.v., gorshanov d. l.",4.464,2.8656,ETD
-2001-09-10,Agol et al 2007,-0.0,0.4032,ETD
-2001-06-11,Agol et al 2007,0.72,0.7056,ETD
-2000-10-18,"Gorshanov d. l., devyatkin a.v., sokov e. n.",1.728,4.104,ETD
-2000-09-16,"Gorshanov d. l., devyatkin a.v., sokov e. n.",-7.056,3.6864,ETD
-2000-09-09,"Gorshanov d. l., devyatkin a.v., sokov e. n.",0.432,3.5568,ETD
-2000-09-02,"Gorshanov d. l., devyatkin a.v., sokov e. n.",-1.44,7.5744,ETD
-2000-08-26,"Gorshanov d. l., devyatkin a.v., sokov e. n.",13.392,6.3648,ETD
-2000-05-12,Agol et al 2007,-0.0,0.5328,ETD
-2000-05-05,Agol et al 2007,0.0,0.1872,ETD
-2000-04-28,Agol et al 2007,0.0,0.36,ETD
-2000-04-24,Agol et al 2007,0.0,0.216,ETD
+date,observer,oc,oceu,ocel,source
+2021-11-23 05:09:02.304000256,Volker wickert,1353.6,3.62455,3.62455,ETD
+2021-11-22 05:48:22.751999744,Volker wickert,-47.088,28.512,28.512,ETD
+2019-09-03 13:15:35.999999744,"Kemme, linus",-43.056,47.7936,47.7936,ETD
+2019-08-20 11:35:31.200000000,Jean plazas,-0.576,,,ETD
+2019-08-13 10:24:48.096000000,Sjoerd dufoer,-0.0,3.1104,3.1104,ETD
+2018-10-21 08:31:50.880000256,Pere guerra,0.576,1.2816,1.2816,ETD
+2018-10-21 08:05:00.384000000,Josep gaitan ,-26.208,5.5152,5.5152,ETD
+2018-08-29 11:39:37.439999744,Anael wunsche,2.88,0.6048,0.6048,ETD
+2018-08-29 11:38:25.728000000,Marc bretton,1.728,0.8064,0.8064,ETD
+2018-08-29 11:33:30.240000000,Yves jongen,-3.168,1.728,1.728,ETD
+2018-08-22 10:24:53.280000000,Gabriel murawski,-0.576,0.6048,0.6048,ETD
+2017-10-30 08:30:51.264000256,Didier walliang,-1.008,1.1952,1.1952,ETD
+2016-09-02 09:20:13.056000256,Gabriel murawski,4.896,3.4272,3.4272,ETD
+2015-11-11 07:48:42.336000256,Ivan sergey,27.072,59.1264,59.1264,ETD
+2015-11-11 07:20:51.359999744,Christof wiedemair,-0.864,1.152,1.152,ETD
+2013-10-28 14:04:44.831999744,Benni p.,2.736,1.152,1.152,ETD
+2013-09-23 08:07:15.167999744,Ayiomamitis a.,1.584,1.0224,1.0224,ETD
+2013-08-01 11:15:03.456000000,Trnka j.,3.888,1.1376,1.1376,ETD
+2013-08-01 11:10:52.032000256,Koch  b.,-0.288,0.9648,0.9648,ETD
+2012-08-17 12:25:33.600000000,Naves r.,2.592,0.6048,0.6048,ETD
+2012-08-17 12:24:01.152000000,Salvaggio f.,1.008,0.8496,0.8496,ETD
+2011-09-03 13:45:45.216000000,"T napoleao,c jacques, a oliveira",10.944,1.5552,1.5552,ETD
+2010-10-28 09:22:37.344000000,Husar d.,4.032,2.2896,2.2896,ETD
+2010-10-21 08:15:21.599999744,"Világi j., gajdoš š.",7.92,1.2816,1.2816,ETD
+2010-10-21 08:11:43.872000256,Ruocco n.,4.32,1.3824,1.3824,ETD
+2010-10-21 08:07:44.544000256,Corfini g.,0.432,1.0656,1.0656,ETD
+2010-09-05 12:22:17.472000256,Naves r.,-1.728,0.7056,0.7056,ETD
+2010-08-29 11:12:40.031999744,Ruocco n.,-0.144,2.2032,2.2032,ETD
+2010-08-22 10:04:10.847999744,Zambelli r.,2.592,0.7056,0.7056,ETD
+2010-08-22 09:58:26.975999744,Saral g.,-3.024,0.7776,0.7776,ETD
+2010-08-22 09:57:09.215999744,Hynek t.,-4.32,1.2384,1.2384,ETD
+2010-08-18 21:25:03.359999744,Evans p.,-0.864,5.2992,5.2992,ETD
+2010-08-15 08:42:00.864000000,Scarmato t.,-8.208,2.8368,2.8368,ETD
+2009-10-30 08:13:40.512000000,Trnka j.,5.76,1.1232,1.1232,ETD
+2009-10-30 08:07:11.712000000,Poddaný s.,-0.72,1.9872,1.9872,ETD
+2009-10-30 08:06:08.640000000,Stanislav poddaný,-1.728,1.2672,1.2672,ETD
+2009-09-07 11:11:43.008000000,Brát l.,-1.584,1.9872,1.9872,ETD
+2009-08-31 10:00:20.159999744,Srdoc,-1.728,1.152,1.152,ETD
+2009-08-24 08:55:58.079999744,Srdoc,5.184,2.88,2.88,ETD
+2009-08-20 20:18:31.680000000,Garlitz,3.312,2.736,2.736,ETD
+2009-08-13 19:06:01.440000256,Tieman b.,2.16,1.8,1.8,ETD
+2008-11-15 09:20:52.799999744,Mendez,1.152,0.864,0.864,ETD
+2008-10-14 16:00:02.880000256,Gary,1.008,12.672,12.672,ETD
+2008-09-02 08:49:55.200000256,Ayiomamitis,-1.44,1.872,1.872,ETD
+2008-07-18 13:08:41.280000256,Naves,0.576,1.44,1.44,ETD
+2007-12-30 15:19:35.039999744,Bruce l. gary,2.88,,,ETD
+2007-10-24 15:59:11.040000256,Bruce l. gary,-0.432,,,ETD
+2005-09-12 17:54:29.087999872,Miller-ricci et al 2008,-0.432,1.1376,1.1376,ETD
+2005-09-09 05:19:28.703999872,Miller-ricci et al 2008,0.288,1.08,1.08,ETD
+2005-09-05 16:43:12.287999744,Miller-ricci et al 2008,-0.432,0.936,0.936,ETD
+2005-09-02 04:07:10.559999744,Miller-ricci et al 2008,-0.864,0.8928,0.8928,ETD
+2005-08-29 15:31:32.160000000,Miller-ricci et al 2008,-0.864,0.8064,0.8064,ETD
+2005-08-26 02:55:51.168000000,Miller-ricci et al 2008,-0.864,0.8064,0.8064,ETD
+2005-08-22 14:21:11.520000000,  miller-ricci et al 2008,0.144,0.792,0.792,ETD
+2005-08-19 01:44:26.591999744,Miller-ricci et al 2008,-1.008,0.8928,0.8928,ETD
+2005-08-15 13:10:59.519999872,Miller-ricci et al 2008,1.152,0.7632,0.7632,ETD
+2005-08-12 00:34:03.360000256,Miller-ricci et al 2008,-0.144,0.864,0.864,ETD
+2005-08-08 11:59:23.712000256,Miller-ricci et al 2008,0.864,0.7344,0.7344,ETD
+2005-08-04 23:23:42.720000256,Miller-ricci et al 2008,0.864,1.0656,1.0656,ETD
+2004-08-28 01:46:05.087999872,Miller-ricci et al 2008,0.144,0.8784,0.8784,ETD
+2004-08-24 13:09:14.975999744,Miller-ricci et al 2008,-1.152,0.7056,0.7056,ETD
+2004-08-17 11:57:52.128000128,Miller-ricci et al 2008,-1.152,0.9792,0.9792,ETD
+2004-07-13 05:56:50.784000128,Ohshima o.,-5.904,1.7712,1.7712,ETD
+2003-10-26 10:12:19.007999744,Nyholm a.,6.768,2.9664,2.9664,ETD
+2003-10-19 09:01:40.224000000,"Kouprianov v.v., gorshanov d. l., sokov e. n.",7.488,5.2272,5.2272,ETD
+2003-08-13 09:36:23.327999872,"Gorshanov d. l., devyatkin a.v., sokov e. n.",-0.72,1.7712,1.7712,ETD
+2003-07-05 15:05:17.087999872,Agol et al 2007,0.144,0.2448,0.2448,ETD
+2003-06-25 01:18:12.384000000,Agol et al 2007,0.0,0.3024,0.3024,ETD
+2003-05-31 09:08:27.168000128,Agol et al 2007,-0.288,0.1872,0.1872,ETD
+2003-05-03 04:23:36.384000256,Agol et al 2007,0.0,0.2592,0.2592,ETD
+2002-09-30 04:09:16.704000256,Agol et al 2007,-0.432,0.4176,0.4176,ETD
+2002-01-15 20:49:04.223999872,Agol et al 2007,1.008,0.7344,0.7344,ETD
+2001-11-09 21:31:27.839999744,Agol et al 2007,0.432,0.8352,0.8352,ETD
+2001-10-23 06:37:16.895999744,"Devyatkin a.v., gorshanov d. l.",4.464,2.8656,2.8656,ETD
+2001-09-10 23:25:03.936000128,Agol et al 2007,-0.0,0.4032,0.4032,ETD
+2001-06-11 07:59:17.376000256,Agol et al 2007,0.72,0.7056,0.7056,ETD
+2000-10-18 04:12:31.104000128,"Gorshanov d. l., devyatkin a.v., sokov e. n.",1.728,4.104,4.104,ETD
+2000-09-16 10:42:58.464000128,"Gorshanov d. l., devyatkin a.v., sokov e. n.",-7.056,3.6864,3.6864,ETD
+2000-09-09 09:39:16.127999872,"Gorshanov d. l., devyatkin a.v., sokov e. n.",0.432,3.5568,3.5568,ETD
+2000-09-02 08:26:01.824000256,"Gorshanov d. l., devyatkin a.v., sokov e. n.",-1.44,7.5744,7.5744,ETD
+2000-08-26 07:29:36.672000256,"Gorshanov d. l., devyatkin a.v., sokov e. n.",13.392,6.3648,6.3648,ETD
+2000-05-12 13:27:02.016000128,Agol et al 2007,-0.0,0.5328,0.5328,ETD
+2000-05-05 12:15:52.127999872,Agol et al 2007,0.0,0.1872,0.1872,ETD
+2000-04-28 11:04:33.599999744,Agol et al 2007,0.0,0.36,0.36,ETD
+2000-04-24 22:28:57.792000256,Agol et al 2007,0.0,0.216,0.216,ETD

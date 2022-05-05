@@ -134,12 +134,14 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
         if len(cols) > 2:
             thiscol = {}
             # observation date
-            thiscol["date"] = cols[0].text.strip()
+            thiscol["date"] = cols[0].text.strip().astype(str)
             # observer
             replace_breaks(cols[observer_col])
             thiscol["observer"] = cols[observer_col].text.strip().split("\n")[0]
             # oc and oc error
-            thiscol["oc"], thiscol["oce"] = [x.strip() for x in findFloats(cols[-2].text)]
+            thiscol["oc"], thiscol["oceu"] = [x.strip() for x in findFloats(cols[-2].text)]
+            # apply the lower oce bound
+            thiscol["ocel"] = thiscol["oceu"]
             # add this data to our exoplanet list
             this_data.append(thiscol)
 
@@ -190,12 +192,14 @@ def fetchETDData(url, sourceName="", stale_time=7):
         # add the source name
         transit_data["source"]=sourceName
         # convert the date from HJD to YYYY-MM-DD, and the OC from days to minutes
-        transit_data["date"] = HJDtoDate(transit_data["date"]).dt.strftime('%Y-%m-%d %H:%M%S')
+        transit_data["date"] = HJDtoDate(transit_data["date"]).astype(str)
         transit_data["oc"] = round(pd.to_numeric(transit_data["oc"])*1440,4)
-        transit_data["oce"] = round(pd.to_numeric(transit_data["oce"])*1440,4)
+        transit_data["oceu"] = round(pd.to_numeric(transit_data["oceu"])*1440,4)
+        transit_data["ocel"] = round(pd.to_numeric(transit_data["ocel"])*1440,4)
         # some rows in the dataset were coppied incorrectly, ie: HAT-P-13b has a BJD error of 113 days,
         # looking at the literateure, this should actually be 113 seconds.
-        transit_data.loc[transit_data["oce"] > 86400, "oce"] /= 86400
+        transit_data.loc[transit_data["oceu"] > 86400, "oceu"] /= 86400
+        transit_data.loc[transit_data["ocel"] > 86400, "ocel"] /= 86400
         # save the data
         saveTransitTimes(transit_data, name=thisExoplanet[1])
     # remove the index column from ETD
@@ -211,7 +215,7 @@ def sourceFromETDTable(page, name=""):
     table = decomposeTable(page, -1)
     # if we have no data, return nothing
     if len(table) <= 1:
-        return pd.DataFrame(columns=["date","observer","oc","oce"])
+        return pd.DataFrame(columns=["date","observer","oc","oceu", "ocel"])
     table = pd.DataFrame(table[1:], columns=table[0])
     # split the HJDMid time into its two parts
     try:
@@ -225,7 +229,9 @@ def sourceFromETDTable(page, name=""):
     # and fetch only the useful columns
     table = table.loc[:, ["Hjd mid (2400000 +)", "Author", "O-c (d)", "HJDmid Error"]]
     # rename the columns
-    table.columns = ["date","observer","oc","oce"]
+    table.columns = ["date","observer","oc","oceu"]
+    # apply the lower oce bound
+    table["ocel"] = table["oceu"]
     # lower any clearly wrong dates and convert to floats
     table["date"] = pd.to_numeric(table["date"])
     if (table["date"]>2400000).any():
@@ -249,7 +255,9 @@ def sourceFromETDAscii(subpage, suburl, stale_time=7):
     # pull out the useful information
     transit_data = data.loc[:, ["HJDmid", "Observer", "O-C", "HJDmid Error"]]
     # rename the columns
-    transit_data.columns = ["date","observer","oc","oce"]
+    transit_data.columns = ["date","observer","oc","oceu"]
+    # apply the lower oce bound
+    transit_data["ocel"] = transit_data["oceu"]
     # return the data
     return transit_data
 
@@ -331,4 +339,22 @@ def fetchTESSTTV(loc="/raw_data/", stale_time=7, target=None):
             # skip
             continue
         # fetch the midtransit times
-        tlc.tessMidTransits(tid, planets)
+        out = tlc.tessMidTransits(tid, planets)
+        # if we didn't find any
+        if not out:
+            continue
+        # for each planet in the dictionary
+        for pl in out:
+            # construct a dataframe of the data
+            transit_data = pd.DataFrame(columns=["date", "observer", "oc", "oceu", "ocel"])
+            # fetch the times as datetime objects
+            times = pd.to_datetime(out[pl]["times"] - 2400000, unit="d", origin=pd.Timestamp("1858-11-16 12:00"))
+            # store the values in the dataframe
+            transit_data["date"] = times.astype(str)
+            transit_data["oc"]   = out[pl]["oc"]
+            transit_data["ocel"] = out[pl]["ocel"]
+            transit_data["oceu"] = out[pl]["oceu"]
+            transit_data["observer"] = "Transiting Exoplanet Survey Satelite"
+            transit_data["source"]   = "TESS"
+            # save the midtransit data
+            saveTransitTimes(transit_data, name=pl)

@@ -1,31 +1,21 @@
-date,observer,oc,oce,source
-2021-11-01,Fran campos,17.424,9.8208,ETD
-2021-10-30,Mike Miller,-0.4,4.3,ExoClock observation
-2020-11-05,F. lomoz,-12.096,10.0224,ETD
-2020-11-05,F. lomoz,-3.312,3.4416,ETD
-2020-09-06,Phil Evans,2.4,1.4,ExoClock observation
-2020-08-25,Francois regembal,-23.904,4.3776,ETD
-2020-08-15,Francois Regembal,0.6,2.7,ExoClock observation
-2020-08-14,Francois regembal,-14.4,2.9664,ETD
-2020-08-14,Yves jongen,-17.28,2.7504,ETD
-2020-08-12,Yves Jongen,-2.0,0.9,ExoClock observation
-2020-08-11,Yves jongen,-8.064,0.9648,ETD
-2019-10-27,Stephen futcher,9.504,5.6736,ETD
-2019-10-27,Stephen Futcher,3.3,3.3,ExoClock observation
-2019-06-08,"Alfa crucis - treü r., silva s., kulh d., rodrigues m.a., cintra f., aguiar p.",-0.288,3.168,ETD
-2017-12-07,František lomoz,-0.0,6.5232,ETD
-2017-12-07,František lomoz,11.808,3.2688,ETD
-2016-10-28,Tom richards,-5.904,3.024,ETD
-2013-12-04,Benni p.,2.16,2.9376,ETD
-2013-09-13,Southworth et al. 2014,-0.2,0.5,ExoClock literature
-2013-09-02,Southworth et al. 2014,0.3,0.5,ExoClock literature
-2013-08-22,Southworth et al. 2014,-0.2,0.6,ExoClock literature
-2013-08-07,Evans p.,2.88,2.0448,ETD
-2012-09-17,Southworth et al. 2014,1.9,0.6,ExoClock literature
-2010-11-22,Husar d.,5.04,7.2288,ETD
-2010-11-19,Dvorak s.,-0.288,3.1536,ETD
-2010-10-28,Vanhuysse  m.,-2.592,2.088,ETD
-2010-10-23,Curtis i.,1.44,1.8864,ETD
-2010-09-30,Ivan curtis,-0.0,,ETD
-2009-10-19,Smalley et al. 2010,-1.7,0.7,ExoClock literature
-2009-10-18,B. smalley et al. 2010,0.0,0.72,ETD
+date,observer,oc,oceu,ocel,source
+2021-11-01 10:14:49.343999744,Fran campos,17.424,9.8208,9.8208,ETD
+2020-11-05 07:09:10.656000256,F. lomoz,-3.312,3.4416,3.4416,ETD
+2020-11-05 07:00:20.159999744,F. lomoz,-12.096,10.0224,10.0224,ETD
+2020-08-25 14:41:25.439999744,Francois regembal,-23.904,4.3776,4.3776,ETD
+2020-08-14 14:12:52.991999744,Francois regembal,-14.4,2.9664,2.9664,ETD
+2020-08-14 14:10:03.648000256,Yves jongen,-17.28,2.7504,2.7504,ETD
+2020-08-11 20:09:41.184000256,Yves jongen,-8.064,0.9648,0.9648,ETD
+2019-10-27 09:49:19.199999744,Stephen futcher,9.504,5.6736,5.6736,ETD
+2019-06-08 19:34:54.623999744,"Alfa crucis - treü r., silva s., kulh d., rodrigues m.a., cintra f., aguiar p.",-0.288,3.168,3.168,ETD
+2017-12-07 06:15:45.216000000,František lomoz,11.808,3.2688,3.2688,ETD
+2017-12-07 06:03:51.551999744,František lomoz,-0.0,6.5232,6.5232,ETD
+2016-10-28 00:40:58.079999744,Tom richards,-5.904,3.024,3.024,ETD
+2013-12-04 11:59:28.031999744,Benni p.,2.16,2.9376,2.9376,ETD
+2013-08-07 23:11:29.184000256,Evans p.,2.88,2.0448,2.0448,ETD
+2010-11-22 08:21:37.440000000,Husar d.,5.04,7.2288,7.2288,ETD
+2010-11-19 14:06:52.703999744,Dvorak s.,-0.288,3.1536,3.1536,ETD
+2010-10-28 12:48:27.359999744,Vanhuysse  m.,-2.592,2.088,2.088,ETD
+2010-10-23 00:33:30.527999744,Curtis i.,1.44,1.8864,1.8864,ETD
+2010-09-30 23:16:03.936000256,Ivan curtis,-0.0,,,ETD
+2009-10-18 15:18:34.560000256,B. smalley et al. 2010,0.0,0.72,0.72,ETD

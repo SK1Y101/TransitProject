@@ -1,7 +1,7 @@
-date,observer,oc,oce,source
-2022-02-09,Miguel angel alava,12.672,2.448,ETD
-2022-02-09,Albert valenzuela gonzalez,7.632,8.7984,ETD
-2020-02-22,Valère perroud,15.12,3.0096,ETD
-2020-02-22,Anaël wünsche,2.88,2.5344,ETD
-2019-03-30,Joe garlitz,7.632,1.2672,ETD
-2019-02-28,Yves jongen,9.936,0.8496,ETD
+date,observer,oc,oceu,ocel,source
+2022-02-09 11:05:02.976000256,Miguel angel alava,12.672,2.448,2.448,ETD
+2022-02-09 10:59:57.984000256,Albert valenzuela gonzalez,7.632,8.7984,8.7984,ETD
+2020-02-22 11:27:50.688000000,Valère perroud,15.12,3.0096,3.0096,ETD
+2020-02-22 11:15:29.376000000,Anaël wünsche,2.88,2.5344,2.5344,ETD
+2019-03-30 17:03:06.335999744,Joe garlitz,7.632,1.2672,1.2672,ETD
+2019-02-28 11:32:43.583999744,Yves jongen,9.936,0.8496,0.8496,ETD

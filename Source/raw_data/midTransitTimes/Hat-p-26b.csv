@@ -1,46 +1,21 @@
-date,observer,oc,oce,source
-2022-03-02,Yves Jongen,3.6,2.4,ExoClock observation
-2022-03-01,Yves jongen,0.288,1.728,ETD
-2022-01-23,Fran Campos,0.3,3.2,ExoClock observation
-2021-05-09,Giuseppe marino,-4.608,1.9728,ETD
-2021-04-22,John Savage,4.2,4.3,ExoClock observation
-2021-04-22,Maurice audejean,17.712,4.3056,ETD
-2021-04-05,Yves jongen,-8.352,1.8432,ETD
-2021-03-20,Yves Jongen,-1.5,4.3,ExoClock observation
-2021-03-20,Anaël Wünsche,-1.7,1.4,ExoClock observation
-2021-03-19,Yves jongen,-0.144,2.592,ETD
-2021-03-19,Anaël wünsche,-1.872,1.4544,ETD
-2020-05-31,Matthias Mallonn,4.1,1.4,ExoClock observation
-2018-04-17,Anaël Wünsche,1.7,2.3,ExoClock observation
-2018-04-17,von Essen et al. 2019,-0.4,1.3,ExoClock literature
-2018-04-17,F. lomoz,10.368,2.7216,ETD
-2018-04-17,Marc bretton,-0.288,1.512,ETD
-2018-04-17,"Francesco scaggiante, danilo zardin",1.584,2.9232,ETD
-2017-06-17,von Essen et al. 2019,4.3,1.1,ExoClock literature
-2017-05-31,von Essen et al. 2019,2.8,1.0,ExoClock literature
-2017-05-14,von Essen et al. 2019,2.6,1.3,ExoClock literature
-2016-05-15,von Essen et al. 2019,-0.8,1.0,ExoClock literature
-2016-05-02,Tsiaras et al. 2018,-0.6,0.2,ExoClock literature
-2016-04-06,"Florian signoret, jean-bernard pioppa",2.88,1.656,ETD
-2016-03-12,Tsiaras et al. 2018,0.0,0.2,ExoClock literature
-2015-06-23,von Essen et al. 2019,-1.0,0.7,ExoClock literature
-2015-06-07,von Essen et al. 2019,0.3,0.8,ExoClock literature
-2015-05-21,von Essen et al. 2019,-1.5,0.6,ExoClock literature
-2015-04-17,Stevenson et al. 2016,0.0,0.2,ExoClock literature
-2015-04-17,von Essen et al. 2019,0.5,0.9,ExoClock literature
-2015-04-12,von Essen et al. 2019,1.9,0.9,ExoClock literature
-2015-03-31,von Essen et al. 2019,0.8,0.8,ExoClock literature
-2014-04-21,"Shadic s., aziz u.",-11.952,2.6496,ETD
-2014-04-04,"Shadic s., aziz u.",0.0,2.8656,ETD
-2013-04-23,Wakeford et al. 2017,0.2,0.1,ExoClock literature
-2013-04-09,Shadic s.,0.432,2.2032,ETD
-2013-03-23,Campbell j.,4.32,2.4192,ETD
-2013-02-09,Haro j. l.,-3.168,2.5776,ETD
-2012-03-20,"Tercu o., dumitriu a.",-0.72,3.384,ETD
-2012-03-20,Fernand emering,0.72,1.7424,ETD
-2012-03-20,Lomoz f.,-1.44,3.528,ETD
-2011-03-01,Tan tg,0.288,3.096,ETD
-2010-05-26,Hartman et al. 2011,-1.1,0.6,ExoClock literature
-2010-04-18,Hartman et al. 2011,-1.3,0.5,ExoClock literature
-2010-04-17,"J. d. hartman et al., 2010",-2.448,0.504,ETD
-2009-01-28,Hartman et al. 2011,-3.6,2.1,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2022-03-01 18:45:06.911999744,Yves jongen,0.288,1.728,1.728,ETD
+2021-05-09 08:42:31.104000000,Giuseppe marino,-4.608,1.9728,1.9728,ETD
+2021-04-22 10:34:07.104000000,Maurice audejean,17.712,4.3056,4.3056,ETD
+2021-04-05 11:37:20.928000000,Yves jongen,-8.352,1.8432,1.8432,ETD
+2021-03-19 13:14:51.071999744,Yves jongen,-0.144,2.592,2.592,ETD
+2021-03-19 13:13:03.936000000,Anaël wünsche,-1.872,1.4544,1.4544,ETD
+2018-04-17 11:09:59.328000000,F. lomoz,10.368,2.7216,2.7216,ETD
+2018-04-17 11:01:11.424000000,"Francesco scaggiante, danilo zardin",1.584,2.9232,2.9232,ETD
+2018-04-17 10:59:13.919999744,Marc bretton,-0.288,1.512,1.512,ETD
+2016-04-06 10:08:19.679999744,"Florian signoret, jean-bernard pioppa",2.88,1.656,1.656,ETD
+2014-04-21 18:45:37.152000000,"Shadic s., aziz u.",-11.952,2.6496,2.6496,ETD
+2014-04-04 20:26:52.800000000,"Shadic s., aziz u.",0.0,2.8656,2.8656,ETD
+2013-04-09 22:04:27.263999744,Shadic s.,0.432,2.2032,2.2032,ETD
+2013-03-23 23:37:33.023999744,Campbell j.,4.32,2.4192,2.4192,ETD
+2013-02-09 15:13:21.791999744,Haro j. l.,-3.168,2.5776,2.5776,ETD
+2012-03-20 13:55:51.743999744,Fernand emering,0.72,1.7424,1.7424,ETD
+2012-03-20 13:54:19.296000000,"Tercu o., dumitriu a.",-0.72,3.384,3.384,ETD
+2012-03-20 13:53:36.095999744,Lomoz f.,-1.44,3.528,3.528,ETD
+2011-03-01 05:46:26.976000000,Tan tg,0.288,3.096,3.096,ETD
+2010-04-17 15:37:45.408000000,"J. d. hartman et al., 2010",-2.448,0.504,0.504,ETD

@@ -1,24 +1,15 @@
-date,observer,oc,oce,source
-2022-03-17,Yves Jongen,-70.0,3.3,ExoClock observation
-2022-03-09,Paolo Arcangelo Matassa,-79.5,3.6,ExoClock observation
-2022-02-26,Yves Jongen,-77.6,1.9,ExoClock observation
-2022-02-26,Stéphane Montchaud,-78.0,2.9,ExoClock observation
-2022-02-26,Yves jongen,-1.584,1.872,ETD
-2022-02-26,Didier Walliang,-72.5,3.0,ExoClock observation
-2022-02-26,Stéphane montchaud,38.016,5.6736,ETD
-2022-02-26,Adrian Jones,-77.0,2.3,ExoClock observation
-2022-02-05,Adrian Jones,-79.7,2.7,ExoClock observation
-2022-02-05,Martin Crow,-78.5,2.7,ExoClock observation
-2022-02-05,Trevor Gainey,-73.9,2.3,ExoClock observation
-2022-01-14,Robert Roth,-78.5,1.4,ExoClock observation
-2022-01-03,Yves Jongen,-71.2,1.9,ExoClock observation
-2022-01-02,Yves jongen,6.192,1.7424,ETD
-2021-12-15,Alessandro marchini,16.848,3.672,ETD
-2017-02-14,František lomoz,47.664,5.7168,ETD
-2017-02-14,František lomoz,23.76,3.5424,ETD
-2016-03-01,David molina,-3.888,2.7936,ETD
-2014-03-10,Dittler u.,4.32,3.8736,ETD
-2014-03-10,Zibar m.,14.256,4.4352,ETD
-2013-03-21,"Logan v., lewis k.",-5.184,2.7072,ETD
-2013-03-03,Emering f.,-14.4,5.5296,ETD
-2011-01-16,"G. a. bakos et al., 2012",-1.152,0.72,ETD
+date,observer,oc,oceu,ocel,source
+2022-03-16 15:06:26.208000000,Yves jongen,8.352,3.0816,3.0816,ETD
+2022-02-26 10:00:12.384000256,Stéphane montchaud,38.016,5.6736,5.6736,ETD
+2022-02-26 09:31:39.936000000,Thomas mollier,9.504,3.3188833333333334,3.3188833333333334,ETD
+2022-02-26 09:20:33.792000256,Yves jongen,-1.584,1.872,1.872,ETD
+2022-01-02 16:40:32.447999744,Yves jongen,6.192,1.7424,1.7424,ETD
+2021-12-15 11:15:19.871999744,Alessandro marchini,16.848,3.672,3.672,ETD
+2017-02-14 12:12:17.856000256,František lomoz,47.664,5.7168,5.7168,ETD
+2017-02-14 11:48:21.023999744,František lomoz,23.76,3.5424,3.5424,ETD
+2016-03-01 09:26:57.408000000,David molina,-3.888,2.7936,2.7936,ETD
+2014-03-10 08:50:21.120000256,Zibar m.,14.256,4.4352,4.4352,ETD
+2014-03-10 08:40:24.960000256,Dittler u.,4.32,3.8736,3.8736,ETD
+2013-03-21 15:05:58.560000000,"Logan v., lewis k.",-5.184,2.7072,2.7072,ETD
+2013-03-03 09:20:44.160000000,Emering f.,-14.4,5.5296,5.5296,ETD
+2011-01-16 15:51:33.984000000,"G. a. bakos et al., 2012",-1.152,0.72,0.72,ETD

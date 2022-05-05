@@ -1,48 +1,42 @@
-date,observer,oc,oce,source
-2022-02-28,Michael Irzyk,1.5,1.7,ExoClock observation
-2022-02-27,Pantacchini christian,-2.448,2.0592,ETD
-2021-05-11,Jean-Louis NAUDIN,1.9,3.2,ExoClock observation
-2021-05-11,Naudin jean-louis,14.4,2.8224,ETD
-2021-04-26,Yves Jongen,-0.1,1.2,ExoClock observation
-2021-04-25,Yves jongen,2.736,0.9216,ETD
-2021-03-09,Yves Jongen,-2.2,0.7,ExoClock observation
-2021-03-08,Yves jongen,1.008,0.792,ETD
-2020-04-21,Diogo rio fernandes,3.312,0.3168,ETD
-2020-04-21,Nosáľ p.,0.288,2.2032,ETD
-2020-04-21,Pokorný p.,-4.752,4.176,ETD
-2020-04-05,Lomoz f.,15.552,1.4256,ETD
-2020-04-05,F. lomoz,-5.904,1.8864,ETD
-2020-04-03,Martin Fowler,0.8,2.9,ExoClock observation
-2020-03-28,Anaël Wünsche,-5.1,0.9,ExoClock observation
-2020-03-28,Fabio Mortari,0.0,2.2,ExoClock observation
-2020-03-28,Jean plazas,8.64,4.3632,ETD
-2020-03-28,Marc bretton,-2.592,0.864,ETD
-2019-03-14,Philippe chatelain,-1.296,2.7792,ETD
-2019-02-13,Yves jongen,2.88,0.6048,ETD
-2019-02-13,"Francesco scaggiante, danilo zardin",-4.752,1.0944,ETD
-2019-02-05,Yves jongen,2.736,0.72,ETD
-2019-02-05,"Francesco scaggiante, danilo zardin",-5.328,1.3104,ETD
-2018-04-19,Nico montigiani,-2.448,1.3968,ETD
-2018-04-19,F. lomoz,-2.16,1.3104,ETD
-2018-04-19,Tomasz popajewski,-20.16,104.04,ETD
-2018-04-19,Olivier gerteis,-5.472,68.4864,ETD
-2018-03-26,Yves jongen,11.088,1.1232,ETD
-2017-03-14,Marc bretton,-1.152,0.8784,ETD
-2017-03-14,Anaël Wünsche,-2.3,1.0,ExoClock observation
-2017-01-31,Stefansson et al. 2017,0.4,0.2,ExoClock literature
-2017-01-17,David molina,0.576,1.3968,ETD
-2016-05-02,Marc bretton,10.512,1.7424,ETD
-2016-04-24,David molina,-0.288,1.6416,ETD
-2016-04-24,"David molina, antoni vives sureda",3.168,1.5408,ETD
-2016-03-31,David molina,-0.432,1.8864,ETD
-2016-03-07,Pierre le cam,-1.584,1.3392,ETD
-2015-04-05,Marc bretton,-10.08,2.0448,ETD
-2015-03-20,František lomoz,-2.448,1.1232,ETD
-2015-03-20,Martin zíbar,3.168,1.2528,ETD
-2015-03-20,František lomoz,22.32,1.2672,ETD
-2015-03-12,"Francesco scaggiante, danilo zardin",11.52,1.2816,ETD
-2015-03-12,Marc bretton,-9.36,1.6128,ETD
-2015-03-04,Dalouzy jean-christophe,-20.736,3.1824,ETD
-2015-02-16,František lomoz,-4.032,4.2912,ETD
-2015-02-16,František lomoz,-3.456,1.4112,ETD
-2014-07-06,Brown et al. 2014,-0.0,0.0,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2022-04-16 09:21:32.544000000,Albert valenzuela gonzalez,3.6,4.6656,4.6656,ETD
+2022-03-23 11:41:20.256000000,F. lomoz,0.864,0.9792,0.9792,ETD
+2022-03-23 11:34:08.256000256,F. lomoz,-6.336,1.9872,1.9872,ETD
+2022-02-27 14:05:02.112000000,Miguel angel alava,2.16,1.6992,1.6992,ETD
+2022-02-27 14:00:32.544000000,Pantacchini christian,-2.448,2.0592,2.0592,ETD
+2021-05-11 11:18:36.863999744,Naudin jean-louis,14.4,2.8224,2.8224,ETD
+2021-04-25 12:41:58.560000256,Yves jongen,2.736,0.9216,0.9216,ETD
+2021-03-08 17:25:14.304000000,Yves jongen,1.008,0.792,0.792,ETD
+2020-04-21 09:22:56.352000000,Diogo rio fernandes,3.312,0.3168,0.3168,ETD
+2020-04-21 09:19:53.183999744,Nosáľ p.,0.288,2.2032,2.2032,ETD
+2020-04-21 09:14:56.832000000,Pokorný p.,-4.752,4.176,4.176,ETD
+2020-04-05 11:10:08.832000000,Lomoz f.,15.552,1.4256,1.4256,ETD
+2020-04-05 10:48:44.064000256,F. lomoz,-5.904,1.8864,1.8864,ETD
+2020-03-28 11:50:47.903999744,Jean plazas,8.64,4.3632,4.3632,ETD
+2020-03-28 11:39:29.664000256,Marc bretton,-2.592,0.864,0.864,ETD
+2019-03-14 17:24:37.152000000,Philippe chatelain,-1.296,2.7792,2.7792,ETD
+2019-02-13 12:22:52.896000256,Yves jongen,2.88,0.6048,0.6048,ETD
+2019-02-13 12:15:11.520000000,"Francesco scaggiante, danilo zardin",-4.752,1.0944,1.0944,ETD
+2019-02-05 13:10:11.135999744,Yves jongen,2.736,0.72,0.72,ETD
+2019-02-05 13:02:10.752000000,"Francesco scaggiante, danilo zardin",-5.328,1.3104,1.3104,ETD
+2018-04-19 10:06:39.455999744,F. lomoz,-2.16,1.3104,1.3104,ETD
+2018-04-19 10:06:18.719999744,Nico montigiani,-2.448,1.3968,1.3968,ETD
+2018-04-19 10:03:20.735999744,Olivier gerteis,-5.472,68.4864,68.4864,ETD
+2018-04-19 09:48:36.000000256,Tomasz popajewski,-20.16,104.04,104.04,ETD
+2018-03-26 12:42:21.024000256,Yves jongen,11.088,1.1232,1.1232,ETD
+2017-03-14 09:57:59.327999744,Marc bretton,-1.152,0.8784,0.8784,ETD
+2017-01-17 15:32:15.360000256,David molina,0.576,1.3968,1.3968,ETD
+2016-05-02 09:33:33.983999744,Marc bretton,10.512,1.7424,1.7424,ETD
+2016-04-24 10:13:35.039999744,"David molina, antoni vives sureda",3.168,1.5408,1.5408,ETD
+2016-04-24 10:10:08.544000256,David molina,-0.288,1.6416,1.6416,ETD
+2016-03-31 12:32:31.776000000,David molina,-0.432,1.8864,1.8864,ETD
+2016-03-07 14:53:51.935999744,Pierre le cam,-1.584,1.3392,1.3392,ETD
+2015-04-05 08:15:46.656000000,Marc bretton,-10.08,2.0448,2.0448,ETD
+2015-03-20 10:23:07.872000000,František lomoz,22.32,1.2672,1.2672,ETD
+2015-03-20 10:03:58.752000256,Martin zíbar,3.168,1.2528,1.2528,ETD
+2015-03-20 09:58:22.656000256,František lomoz,-2.448,1.1232,1.1232,ETD
+2015-03-12 10:59:54.528000256,"Francesco scaggiante, danilo zardin",11.52,1.2816,1.2816,ETD
+2015-03-12 10:39:00.000000000,Marc bretton,-9.36,1.6128,1.6128,ETD
+2015-03-04 11:15:08.639999744,Dalouzy jean-christophe,-20.736,3.1824,3.1824,ETD
+2015-02-16 13:07:24.384000000,František lomoz,-3.456,1.4112,1.4112,ETD
+2015-02-16 13:06:48.960000000,František lomoz,-4.032,4.2912,4.2912,ETD

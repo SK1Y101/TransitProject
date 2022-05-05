@@ -1,12 +1,8 @@
-date,observer,oc,oce,source
-2021-07-29,ERIC MINY,-6.0,3.2,ExoClock observation
-2021-07-18,Samuel diaz lopez,-0.72,2.16,ETD
-2021-06-28,Javier de elias,-0.144,3.3264,ETD
-2021-03-31,Carmelo Falco,-2.0,4.3,ExoClock observation
-2018-09-19,Anaël Wünsche,2.0,1.4,ExoClock observation
-2018-09-19,Marc bretton,3.312,1.1952,ETD
-2018-06-01,Anaël Wünsche,-3.0,1.7,ExoClock observation
-2018-06-01,Marc bretton,0.144,1.0656,ETD
-2018-05-12,Tomasz popajewski,6.624,5.7024,ETD
-2004-05-17,Demangeon et al. 2018,0.4,4.3,ExoClock literature
-2004-05-16,Demangeon et al. (2017),0.0,4.32,ETD
+date,observer,oc,oceu,ocel,source
+2021-07-28 12:10:03.936000256,Blois sologne astronomie,-4.32,2.5056,2.5056,ETD
+2021-07-18 12:16:44.832000000,Samuel diaz lopez,-0.72,2.16,2.16,ETD
+2021-06-28 12:23:33.504000000,Javier de elias,-0.144,3.3264,3.3264,ETD
+2018-09-19 09:44:11.616000000,Marc bretton,3.312,1.1952,1.1952,ETD
+2018-06-01 10:15:23.904000256,Marc bretton,0.144,1.0656,1.0656,ETD
+2018-05-12 10:28:06.816000000,Tomasz popajewski,6.624,5.7024,5.7024,ETD
+2004-05-16 13:00:28.800000128,Demangeon et al. (2017),0.0,4.32,4.32,ETD

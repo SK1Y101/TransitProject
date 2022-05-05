@@ -1,7 +1,7 @@
-date,observer,oc,oce,source
-2013-09-09,Veli-pekka hentunen,-9.936,3.672,ETD
-2012-08-21,Ferran grau horta,-18.288,4.5504,ETD
-2012-02-22,"Sergey rusov, eugene sokov",11.232,1.6128,ETD
-2012-01-28,"Eugene romas, eugene sokov",6.192,3.7584,ETD
-2011-11-08,"Gorshanov d., sokov e.",2.448,10.224,ETD
-2011-02-28,Sokov e. n.,-13.824,9.4464,ETD
+date,observer,oc,oceu,ocel,source
+2013-09-09 08:34:20.352000000,Veli-pekka hentunen,-9.936,3.672,3.672,ETD
+2012-08-21 11:44:24.288000000,Ferran grau horta,-18.288,4.5504,4.5504,ETD
+2012-02-22 12:02:13.055999744,"Sergey rusov, eugene sokov",11.232,1.6128,1.6128,ETD
+2012-01-28 12:45:12.095999744,"Eugene romas, eugene sokov",6.192,3.7584,3.7584,ETD
+2011-11-08 09:17:28.896000000,"Gorshanov d., sokov e.",2.448,10.224,10.224,ETD
+2011-02-28 14:07:31.583999744,Sokov e. n.,-13.824,9.4464,9.4464,ETD

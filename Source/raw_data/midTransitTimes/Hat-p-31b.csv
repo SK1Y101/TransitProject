@@ -1,10 +1,9 @@
-date,observer,oc,oce,source
-2021-08-14,Jean plazas,206.064,10.3248,ETD
-2019-07-10,Yves Jongen,2.9,2.3,ExoClock observation
-2019-07-10,Yves jongen,1.728,2.52,ETD
-2019-05-31,Yves jongen,-7.632,3.24,ETD
-2018-08-14,Wonseok kang,-6.48,2.0304,ETD
-2018-08-04,Wonseok kang,4.176,2.2896,ETD
-2018-07-30,Wonseok kang,12.96,2.7936,ETD
-2018-07-20,Wonseok kang,-1.584,1.656,ETD
-2007-08-07,"D.m.kipping et al., 2011",-0.288,7.488,ETD
+date,observer,oc,oceu,ocel,source
+2021-08-14 10:09:21.888000256,Jean plazas,206.064,10.3248,10.3248,ETD
+2019-07-10 11:23:32.352000000,Yves jongen,1.728,2.52,2.52,ETD
+2019-05-31 10:13:26.400000000,Yves jongen,-7.632,3.24,3.24,ETD
+2018-08-14 02:54:13.536000256,Wonseok kang,-6.48,2.0304,2.0304,ETD
+2018-08-04 02:49:43.103999744,Wonseok kang,4.176,2.2896,2.2896,ETD
+2018-07-30 02:51:00.000000000,Wonseok kang,12.96,2.7936,2.7936,ETD
+2018-07-20 02:21:16.704000000,Wonseok kang,-1.584,1.656,1.656,ETD
+2007-08-07 21:16:42.239999744,"D.m.kipping et al., 2011",-0.288,7.488,7.488,ETD

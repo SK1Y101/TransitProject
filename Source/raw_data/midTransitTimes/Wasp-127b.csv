@@ -1,11 +1,6 @@
-date,observer,oc,oce,source
-2022-04-10,Paolo Arcangelo Matassa,2.5,1.7,ExoClock observation
-2021-04-29,Yves Jongen,3.4,1.4,ExoClock observation
-2021-04-29,Anaël Wünsche,2.7,2.2,ExoClock observation
-2021-04-28,Yves jongen,3.168,1.5264,ETD
-2021-04-28,Anaël wünsche,0.576,1.584,ETD
-2021-03-14,Yves Jongen,1.8,1.4,ExoClock observation
-2021-03-13,Yves jongen,1.872,1.2672,ETD
-2020-03-28,Phil Evans,-1.7,1.9,ExoClock observation
-2017-03-16,František lomoz,12.24,3.0096,ETD
-2015-08-13,Lam et al. (2016),0.0,0.2304,ETD
+date,observer,oc,oceu,ocel,source
+2021-04-28 14:18:56.736000256,Yves jongen,3.168,1.5264,1.5264,ETD
+2021-04-28 14:16:15.168000256,Anaël wünsche,0.576,1.584,1.584,ETD
+2021-03-13 15:17:02.112000256,Yves jongen,1.872,1.2672,1.2672,ETD
+2017-03-16 12:00:38.880000000,František lomoz,12.24,3.0096,3.0096,ETD
+2015-08-13 17:47:29.183999744,Lam et al. (2016),0.0,0.2304,0.2304,ETD

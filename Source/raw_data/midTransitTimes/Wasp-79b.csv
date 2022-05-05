@@ -1,9 +1,5 @@
-date,observer,oc,oce,source
-2020-12-02,Yves Jongen,-3.8,1.4,ExoClock observation
-2020-12-01,Yves jongen,-5.328,1.728,ETD
-2020-11-10,Yves Jongen,-3.2,1.6,ExoClock observation
-2020-11-09,Yves jongen,-3.6,1.7136,ETD
-2020-10-29,Yves jongen,1.152,2.0016,ETD
-2017-03-03,Skaf et al. 2020,0.0,0.2,ExoClock literature
-2010-12-14,Smalley et al. 2012,-3.9,2.2,ExoClock literature
-2010-12-14,Smalley et al. (2012),-5.616,1.8,ETD
+date,observer,oc,oceu,ocel,source
+2020-12-01 15:40:35.615999744,Yves jongen,-5.328,1.728,1.728,ETD
+2020-11-09 16:19:13.728000000,Yves jongen,-3.6,1.7136,1.7136,ETD
+2020-10-29 16:42:28.224000000,Yves jongen,1.152,2.0016,2.0016,ETD
+2010-12-14 05:38:06.719999744,Smalley et al. (2012),-5.616,1.8,1.8,ETD

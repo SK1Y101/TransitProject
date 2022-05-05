@@ -1,64 +1,43 @@
-date,observer,oc,oce,source
-2022-04-10,Paolo Arcangelo Matassa,4.7,2.9,ExoClock observation
-2021-06-04,Francois Regembal,1.9,7.2,ExoClock observation
-2021-05-21,Giuseppe marino,-1.728,1.4688,ETD
-2021-04-26,Yves Jongen,1.1,1.7,ExoClock observation
-2021-04-25,Yves jongen,0.288,1.3248,ETD
-2021-03-29,Carmelo Falco,0.9,1.6,ExoClock observation
-2021-03-28,Yves jongen,4.896,1.2816,ETD
-2021-03-22,Francois Regembal,2.3,1.9,ExoClock observation
-2021-03-21,Miguel sanchez,-6.768,2.1024,ETD
-2020-06-07,Yves Jongen,1.2,1.4,ExoClock observation
-2020-06-06,Yves jongen,0.288,1.1232,ETD
-2020-05-17,Francois Regembal,-1.2,2.4,ExoClock observation
-2020-05-16,Francois regembal,-3.456,2.016,ETD
-2020-05-16,Michael irzyk,-7.344,3.4416,ETD
-2020-04-25,Adrian Jones,2.3,2.3,ExoClock observation
-2020-04-25,Mauro Caló,0.6,4.3,ExoClock observation
-2019-05-03,Muhammad yusuf,8.928,2.0304,ETD
-2019-04-07,Yves jongen,-1.008,1.3824,ETD
-2019-04-07,Yves Jongen,-0.8,1.4,ExoClock observation
-2019-02-20,Anaël Wünsche,0.3,1.4,ExoClock observation
-2019-02-19,Anael wunsche,0.432,1.9872,ETD
-2017-05-21,F. lomoz,0.432,38.6784,ETD
-2017-04-30,František lomoz,-0.576,1.656,ETD
-2017-04-30,Martin mašek,-12.096,3.1392,ETD
-2017-04-23,Matthieu bachschmidt,-9.216,4.3344,ETD
-2016-07-02,Marc bretton,0.72,2.376,ETD
-2016-07-02,Anaël Wünsche,1.5,2.4,ExoClock observation
-2015-06-07,Marc bretton,-6.912,2.5344,ETD
-2015-04-07,"Francesco scaggiante, danilo zardin",1.44,2.5344,ETD
-2015-03-31,Enrique arce,3.312,1.7136,ETD
-2014-05-05,Lomoz f.,-3.6,3.312,ETD
-2014-04-28,Sergey i.,16.704,6.696,ETD
-2014-03-12,Dittler u.,1.728,1.872,ETD
-2013-04-25,Garlitz j.,-4.176,2.7936,ETD
-2012-04-07,Turner et al. 2017,-1.5,2.2,ExoClock literature
-2012-03-28,Zibar m.,-18.864,2.2752,ETD
-2012-03-24,Turner et al. 2017,-1.4,2.4,ExoClock literature
-2012-03-23,"Wallace s., berkson e., greenwood n., green e.",-1.872,0.6768,ETD
-2012-03-23,"Wallace s., berkson e., greenwood n.",-2.88,0.5616,ETD
-2012-03-21,Brát l.,-0.576,3.456,ETD
-2012-01-27,"Naumov k. n., sokov e. n.",-4.752,2.448,ETD
-2011-07-22,Curtis i.,2.736,1.9296,ETD
-2011-05-12,"Shadic s., tuplip c.",-11.52,3.4992,ETD
-2011-05-10,Ruocco n.,-2.592,5.3568,ETD
-2011-05-10,"Gorshanov d. l., sokov e. n.",-2.736,4.1184,ETD
-2011-04-21,Dvorak s.,2.304,3.2832,ETD
-2010-08-16,"Eduardo fernández lajús, romina p. di sisto",-7.776,2.4192,ETD
-2010-07-12,Sauer t.,3.024,1.728,ETD
-2010-05-19,Tifner f.,2.016,2.0448,ETD
-2010-05-15,Street et al. 2010,-0.8,0.8,ExoClock literature
-2010-05-01,Street et al. 2010,-0.2,0.9,ExoClock literature
-2010-04-28,Kocián r.,-5.472,2.5632,ETD
-2010-04-26,Street et al. 2010,-0.8,1.1,ExoClock literature
-2010-04-21,Trnka j.,-4.896,2.1312,ETD
-2010-04-21,Lomoz f.,-8.352,1.7568,ETD
-2010-04-21,Ayiomamitis a.,-1.44,1.6416,ETD
-2010-04-21,Brát l.,1.152,1.7712,ETD
-2010-04-16,Shadick s.,-4.752,3.0528,ETD
-2010-02-22,Street et al. 2010,-1.5,0.9,ExoClock literature
-2009-08-18,"R.a. street et al., 2010",-1.44,0.5328,ETD
-2009-07-17,Street et al. 2010,-2.7,1.1,ExoClock literature
-2009-06-12,Street et al. 2010,-2.8,0.9,ExoClock literature
-2009-04-24,Street et al. 2010,0.8,0.3,ExoClock literature
+date,observer,oc,oceu,ocel,source
+2021-05-21 10:43:51.167999744,Giuseppe marino,-1.728,1.4688,1.4688,ETD
+2021-04-25 16:41:02.688000000,Yves jongen,0.288,1.3248,1.3248,ETD
+2021-03-28 14:29:17.087999744,Yves jongen,4.896,1.2816,1.2816,ETD
+2021-03-21 13:43:38.207999744,Miguel sanchez,-6.768,2.1024,2.1024,ETD
+2020-06-06 14:33:39.744000000,Yves jongen,0.288,1.1232,1.1232,ETD
+2020-05-16 12:47:41.568000000,Francois regembal,-3.456,2.016,2.016,ETD
+2020-05-16 12:43:55.200000000,Michael irzyk,-7.344,3.4416,3.4416,ETD
+2019-05-03 06:20:21.696000000,Muhammad yusuf,8.928,2.0304,2.0304,ETD
+2019-04-07 12:05:29.184000256,Yves jongen,-1.008,1.3824,1.3824,ETD
+2019-02-19 16:19:39.648000000,Anael wunsche,0.432,1.9872,1.9872,ETD
+2017-05-21 12:39:18.720000256,F. lomoz,0.432,38.6784,38.6784,ETD
+2017-04-30 10:55:58.656000256,František lomoz,-0.576,1.656,1.656,ETD
+2017-04-30 10:44:26.591999744,Martin mašek,-12.096,3.1392,3.1392,ETD
+2017-04-23 10:13:19.488000256,Matthieu bachschmidt,-9.216,4.3344,4.3344,ETD
+2016-07-02 10:32:18.240000256,Marc bretton,0.72,2.376,2.376,ETD
+2015-06-07 10:47:58.271999744,Marc bretton,-6.912,2.5344,2.5344,ETD
+2015-04-07 14:00:59.328000256,"Francesco scaggiante, danilo zardin",1.44,2.5344,2.5344,ETD
+2015-03-31 13:28:48.288000256,Enrique arce,3.312,1.7136,1.7136,ETD
+2014-05-05 10:40:35.904000256,Lomoz f.,-3.6,3.312,3.312,ETD
+2014-04-28 10:26:49.919999744,Sergey i.,16.704,6.696,6.696,ETD
+2014-03-12 14:24:44.928000000,Dittler u.,1.728,1.872,1.872,ETD
+2013-04-25 20:22:56.928000000,Garlitz j.,-4.176,2.7936,2.7936,ETD
+2012-03-28 12:20:09.600000256,Zibar m.,-18.864,2.2752,2.2752,ETD
+2012-03-23 20:14:25.440000256,"Wallace s., berkson e., greenwood n., green e.",-1.872,0.6768,0.6768,ETD
+2012-03-23 20:13:32.736000000,"Wallace s., berkson e., greenwood n.",-2.88,0.5616,0.5616,ETD
+2012-03-21 12:04:26.975999744,Brát l.,-0.576,3.456,3.456,ETD
+2012-01-27 15:38:58.847999744,"Naumov k. n., sokov e. n.",-4.752,2.448,2.448,ETD
+2011-07-22 00:26:32.351999744,Curtis i.,2.736,1.9296,1.9296,ETD
+2011-05-12 18:31:41.664000000,"Shadic s., tuplip c.",-11.52,3.4992,3.4992,ETD
+2011-05-10 10:29:15.072000000,Ruocco n.,-2.592,5.3568,5.3568,ETD
+2011-05-10 10:28:59.520000256,"Gorshanov d. l., sokov e. n.",-2.736,4.1184,4.1184,ETD
+2011-04-21 17:03:16.704000256,Dvorak s.,2.304,3.2832,3.2832,ETD
+2010-08-16 12:49:14.880000256,"Eduardo fernández lajús, romina p. di sisto",-7.776,2.4192,2.4192,ETD
+2010-07-12 10:09:40.896000256,Sauer t.,3.024,1.728,1.728,ETD
+2010-05-19 13:47:30.623999744,Tifner f.,2.016,2.0448,2.0448,ETD
+2010-04-28 11:57:48.672000256,Kocián r.,-5.472,2.5632,2.5632,ETD
+2010-04-21 11:30:22.752000000,Brát l.,1.152,1.7712,1.7712,ETD
+2010-04-21 11:27:48.960000000,Ayiomamitis a.,-1.44,1.6416,1.6416,ETD
+2010-04-21 11:24:24.192000000,Trnka j.,-4.896,2.1312,2.1312,ETD
+2010-04-21 11:20:52.512000000,Lomoz f.,-8.352,1.7568,1.7568,ETD
+2010-04-16 19:01:45.695999744,Shadick s.,-4.752,3.0528,3.0528,ETD
+2009-08-18 15:35:21.120000256,"R.a. street et al., 2010",-1.44,0.5328,0.5328,ETD
