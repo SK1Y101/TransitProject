@@ -35,4 +35,4 @@ ws.fetchExoplanetArchive("pscomppars")
 ws.fetchExoplanetArchive("ps")'''
 
 # Transiting Exoplanets Survey Satelite
-ws.fetchTESSData(target="kepler-19")
+ws.fetchTESSData(target="tic 403224672")
