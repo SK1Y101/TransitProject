@@ -275,11 +275,7 @@ def fetchExoplanetArchive(table="pscomppars", loc="/raw_data/", stale_time=7):
         # call the function with an animated loading output
         animated_loading_function(fetchData, name="Fetching Exoplanet Archive {} Data".format(table.capitalize()))
 
-def fetchTESSData(loc="/raw_data/", stale_time=7, target=None):
-    ''' Fetch exoplanet midtransit data from TESS.
-        loc:        The directory to store the table.
-        stale_time: How long to consider the local data fit for use. '''
-    from . import tesslc as tlc
+def tessTargets(target=None):
     # load the pscomppars table
     df = loadDataFrame("/raw_data/pscomppars.csv")
     # if we are doing a test run, and only considering one star
@@ -290,8 +286,20 @@ def fetchTESSData(loc="/raw_data/", stale_time=7, target=None):
         # otherwise, we should expect a star name
         else:
             df = df[df["hostname"] == target.capitalize()]
+    # return all unique star names in the dataframe, as well as the pscomppars df
+    return df["hostname"].unique(), df
+
+def fetchTESSLC(loc="/raw_data/", stale_time=7, target=None):
+    ''' Fetch exoplanet lightcurve data from TESS.
+        loc:        The directory to store the table.
+        stale_time: How long to consider the local data fit for use.
+        target:     Star name or Tic Id of a single object to test the functions against. '''
+    # import the tess fitting library I've written
+    from . import tesslc as tlc
+    # load the dataframe
+    stars, df = tessTargets(target=target)
     # for each star
-    for star in tqdm(df["hostname"].unique()):
+    for star in tqdm(stars, description="Lightcurve Data"):
         # fetch the planets in the system
         planets = df[df["hostname"] == star]
         # fetch the star TIC
@@ -300,5 +308,27 @@ def fetchTESSData(loc="/raw_data/", stale_time=7, target=None):
         if "nan" in tid:
             # skip
             continue
-        # run the TESS Pipeline
+        # fetch the lightcurve data
+        tlc.tessLCData(tid, planets)
+
+def fetchTESSTTV(loc="/raw_data/", stale_time=7, target=None):
+    ''' Fetch exoplanet midtransit data from TESS.
+        loc:        The directory to store the table.
+        stale_time: How long to consider the local data fit for use.
+        target:     Star name or Tic Id of a single object to test the functions against. '''
+    # import the tess fitting library I've written
+    from . import tesslc as tlc
+    # load the dataframe
+    stars, df = tessTargets(target=target)
+    # for each star
+    for star in tqdm(stars, description="MidTransit Data"):
+        # fetch the planets in the system
+        planets = df[df["hostname"] == star]
+        # fetch the star TIC
+        tid = planets.iloc[0]["tic_id"].lower()
+        # if we have a null id
+        if "nan" in tid:
+            # skip
+            continue
+        # fetch the midtransit times
         tlc.tessMidTransits(tid, planets)
