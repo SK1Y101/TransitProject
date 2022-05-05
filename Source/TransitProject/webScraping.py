@@ -284,7 +284,12 @@ def fetchTESSData(loc="/raw_data/", stale_time=7, target=None):
     df = loadDataFrame("/raw_data/pscomppars.csv")
     # if we are doing a test run, and only considering one star
     if target:
-        df = df[df["hostname"] == target.capitalize()]
+        # if we passed a tess id
+        if "tic " in target:
+            df = df[df["tic_id"] == target.upper()]
+        # otherwise, we should expect a star name
+        else:
+            df = df[df["hostname"] == target.capitalize()]
     # for each star
     for star in tqdm(df["hostname"].unique()):
         # fetch the planets in the system
@@ -295,5 +300,5 @@ def fetchTESSData(loc="/raw_data/", stale_time=7, target=None):
         if "nan" in tid:
             # skip
             continue
-        # fetch the lightcurves
-        tlc.fetchTESSLC(tid)
+        # run the TESS Pipeline
+        tlc.tessMidTransits(tid, planets)
