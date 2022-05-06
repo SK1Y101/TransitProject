@@ -1,8 +1,8 @@
 """ Use Juliet to fetch TESS ligthcurve data """
 # python modules
-
 from astroquery.mast import Observations
-from matplotlib import pylab as plt #testing purposes
+import matplotlib.gridspec as gridspec # Plotting
+from matplotlib import pylab as plt # Plotting
 from astropy.table import join
 from astropy.io import fits
 import juliet, re, os
@@ -182,14 +182,99 @@ def plotLC(target, lcdata, model):
     # Plot the model curve
     plt.plot(lcdata.times_lc["TESS"], model, color="k", zorder=10, label="Lightcurve fit")
     # fetch the maximum deviation of the model
-    lim = max(abs(model-1))
-    ylim = float(lim + np.average(abs(lcdata.errors_lc["TESS"])))
-    # set the limits
+    ylim = np.std(lcdata.data_lc["TESS"])
+    # set the limits, labels, and titles
     plt.ylim([1-ylim, 1+ylim])
     plt.xlabel("Time (BJD)")
     plt.ylabel("Relative flux")
     plt.title("TESS Lightcurve data for {}".format(target))
+    #plt.savefig("oc.png",transparent=True)
     plt.legend()
+    plt.show()
+
+def plotOC(target, results, planetdf):
+    # create the figure
+    fig = plt.figure(figsize=(14,4))
+    # maximum transit number
+    maxepoch = 1
+    # for each of the planets in the system
+    for i, _ in enumerate(planetdf.index):
+        # fetch the transits
+        tvals = _tessOC_(results, i+1)
+        # if the output is empty, skip
+        if not tvals[0].size:
+            continue
+        # decompose into found values
+        t, oc, oceu, ocel, epoch = tvals
+        # fetch this exoplanet name
+        pname = planetdf.iloc[i]["pl_name"]
+        # plot the transits
+        plt.errorbar(epoch, oc, yerr=[ocel, oceu], fmt="o", elinewidth=1, zorder=3, label=pname)
+        # fetch the highest transit number
+        maxepoch = max(maxepoch, np.max(epoch))
+    # define the x limits
+    xlim = [-0.1, maxepoch+0.1]
+    # plot the zero point
+    plt.plot(xlim, [0.,0], "--", linewidth=1, color='black', zorder=2)
+    # set the limits, titles, and legends
+    plt.xlim(xlim)
+    plt.xlabel("Transit number")
+    plt.ylabel("O-C (minutes)")
+    plt.title("TESS TTV data for {}".format(target))
+    plt.legend()
+    plt.show()
+    #plt.savefig("TTV.png",transparent=True)
+
+def plotLCOC(target, lcdata, results, planetdf):
+    # fetch the transit model
+    model = results.lc.evaluate("TESS")
+    # figure size
+    fig = plt.figure(figsize=(12,8))
+    # gridspec to split the plots
+    gs = gridspec.GridSpec(2, 1, height_ratios=[1,1], hspace=0)
+    # title
+    fig.suptitle("TESS Combined lightcurve and O-C data for {}".format(target))
+    # bjd offset for the graph
+    bjdo = 2457000
+
+    # lightcurve on top
+    ax1 = plt.subplot(gs[0])
+    # Plot data
+    ax1.errorbar(lcdata.times_lc["TESS"]-bjdo, lcdata.data_lc["TESS"], yerr=lcdata.errors_lc["TESS"], \
+                 fmt=".", alpha=0.1, label="TESS Data")
+    # Plot the model curve
+    ax1.plot(lcdata.times_lc["TESS"]-bjdo, model, color="k", zorder=10, label="Lightcurve fit")
+    # fetch the limits
+    xlim = (np.min(lcdata.times_lc["TESS"])-bjdo, np.max(lcdata.times_lc["TESS"])-bjdo)
+    ylim = np.std(lcdata.data_lc["TESS"])
+    # set the limits, labels, and titles
+    ax1.set_ylim((1-ylim, 1+ylim))
+    ax1.set_xlim(xlim)
+    ax1.set_ylabel("Relative flux")
+    ax1.legend()
+
+    # O-C on bottom
+    ax2 = plt.subplot(gs[1], sharex=ax1)
+    # for each of the planets in the system
+    for i, _ in enumerate(planetdf.index):
+        # fetch the transits
+        tvals = _tessOC_(results, i+1)
+        # if the output is empty, skip
+        if not tvals[0].size:
+            continue
+        # decompose into found values
+        t, oc, oceu, ocel, epoch = tvals
+        # fetch this exoplanet name
+        pname = planetdf.iloc[i]["pl_name"]
+        # plot the transits
+        ax2.errorbar(t-bjdo, oc, yerr=[ocel, oceu], fmt="o", elinewidth=1, zorder=3, label=pname)
+    # plot the zero point
+    plt.plot(xlim, [0.,0], "--", linewidth=1, color='black', zorder=2)
+    # set the labels and limits
+    ax2.set_ylabel("O-C (minutes)")
+    ax2.set_xlabel("Time (BJD - 2457000)")
+    ax2.legend()
+    # show the plot
     plt.show()
 
 def tessLCData(target, planetdf, loc="/raw_data/tess_data/", stale_time=7, returnData=False):
@@ -249,7 +334,7 @@ def tessMidTransits(target, planetdf, loc="/raw_data/tess_data/", stale_time=7):
     # for each of the planets in the system
     for i, _ in enumerate(planetdf.index):
         # fetch the transits
-        tvals = _tessOC_(results, 1)
+        tvals = _tessOC_(results, i+1)
         # if the output is empty, skip
         if not tvals[0].size:
             continue
