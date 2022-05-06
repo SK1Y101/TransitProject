@@ -288,9 +288,12 @@ def tessTargets(target=None):
     df = loadDataFrame("/raw_data/pscomppars.csv")
     # if we are doing a test run, and only considering one star
     if target:
+        # fetch the first numbers in a target name
+        num = findFloats(target)[0]
         # if we passed a tess id
-        if "tic " in target:
-            df = df[df["tic_id"] == target.upper()]
+        if target.replace(num, "").strip() == "tic":
+            df = df[df["tic_id"] == "TIC {}".format(num)]
+
         # otherwise, we should expect a star name
         else:
             df = df[df["hostname"].isin([target.capitalize(), target.upper(), target.lower()])]

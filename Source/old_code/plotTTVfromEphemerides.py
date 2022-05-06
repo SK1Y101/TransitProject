@@ -45,39 +45,64 @@ args = fetchArgs()
 df = fetchMidTransitTimes(args.planet)
 
 # fetch system details
-sdf = ts.fetchParams(args.planet)[0]
+sdf = ts.fetchParams(args.planet, params=["per", "t0"])[0]
+target = sdf.iloc[1]
+
+# shorthands to date information
+dates = pd.to_datetime(df["date"])
+oced = [pd.to_timedelta(df["ocel"]), pd.to_timedelta(df["oceu"])]
+# shorthands to OC information
+oce = [df["ocel"], df["oceu"]]
+oc = df["oc"]
+
+totalsec = lambda x: np.array([t.total_seconds() for t in x])
+rounded = lambda x, a=0: np.array([round(t, a) for t in x])
 
 # assume the zero epoch is the first observation, and fetch period from the system details
-t0, P = min(df["date"]), sdf.iloc[1]["per"] * 365.25
+t0, P = target["t0"], target["per"] * 365.25
+t0 = pd.to_datetime(t0 - 2400000, unit="d", origin=pd.Timestamp("1858-11-16 12:00"))
 # compute the times difference between the zero epoch
-dt = pd.to_datetime(df["date"]) - pd.to_datetime(t0)
+dt = dates - t0
 # compute the transit number
-transit = np.array([round(t.total_seconds()/86400) for t in (dt / P)])
+transit = rounded(totalsec(dt/P)/86400)
 
-# shorthands to information
-dates = pd.to_datetime(df["date"])
-oc  =
-oce = [pd.to_timedelta(df["ocel"]), pd.to_timedelta(df["oceu"])]
+#xlimit of the graphs
+limoffset = np.ceil((max(transit)-min(transit))*0.05)
+xlim = [min(transit)-limoffset, max(transit)+limoffset]
 
-'''
 # plot the midtransit times
-fig = plt.figure(figsize=(12,4))
-plt.errorbar(transit, pd.to_datetime(df["date"]), fmt="x", zorder=10, label="observed transits")
+fig = plt.figure(figsize=(12,8))
+plt.errorbar(transit, dates, yerr=oced, fmt="x", zorder=10, label="observed transits")
+plt.xlim(xlim)
 plt.xlabel("Transit Number")
 plt.ylabel("Date")
 plt.title("Transits of {}".format(args.planet.capitalize()))
 plt.legend()
-plt.show()'''
+plt.savefig("{}_Transits.png".format(args.planet.capitalize()), transparent=True)
+plt.show()
 
 # plot the midtransit times with linear ephemerides
-fig = plt.figure(figsize=(12,4))
-plt.errorbar(transit, dates, yerr=oce, fmt="o", zorder=10, label="observed transits")
-plt.plot(transit, pd.to_datetime(t0)+pd.to_timedelta(transit*P, "d"), "--", zorder=2, label="linear fit")
+fig = plt.figure(figsize=(12,8))
+plt.errorbar(transit, dates, yerr=oced, fmt="x", zorder=10, label="observed transits")
+plt.plot(transit, t0+pd.to_timedelta(transit*P, "d"), "--", zorder=2, label="linear fit", mfc="white")
+middle = np.average(transit)
+plt.text(middle, t0+pd.to_timedelta(np.median(middle)*P, "d"), \
+         "\nT(n) = t0 + nP\n\nt0 = {}\nP = {:0.5f} d\n".format(t0, P), va="top")
+plt.xlim(xlim)
 plt.xlabel("Transit Number")
 plt.ylabel("Date")
 plt.title("Transits of {}".format(args.planet.capitalize()))
 plt.legend()
+plt.savefig("{}_Ephemerides.png".format(args.planet.capitalize()), transparent=True)
 plt.show()
 
 # plot the residuals to the ephemeride fit
-fig = plt.figure(figsize=(12,4))
+fig = plt.figure(figsize=(12,8))
+plt.errorbar(transit, oc, yerr=oce, fmt="o", zorder=10, mfc="white")
+plt.plot(xlim, [0, 0], "--", zorder=2)
+plt.xlim(xlim)
+plt.xlabel("Transit Number")
+plt.ylabel("O-C (minutes)")
+plt.title("Transit Timing Variation of {}".format(args.planet.capitalize()))
+plt.savefig("{}_TTV.png".format(args.planet.capitalize()), transparent=True)
+plt.show()

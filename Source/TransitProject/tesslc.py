@@ -181,8 +181,8 @@ def plotLC(target, lcdata, model):
                  fmt=".", alpha=0.1, label="TESS Data")
     # Plot the model curve
     plt.plot(lcdata.times_lc["TESS"], model, color="k", zorder=10, label="Lightcurve fit")
-    # fetch the maximum deviation of the model
-    ylim = np.std(lcdata.data_lc["TESS"])
+    # fetch the maximum deviation of the data plus the maximum extent of the model
+    ylim = max(abs(model-1)) + np.std(lcdata.data_lc["TESS"])
     # set the limits, labels, and titles
     plt.ylim([1-ylim, 1+ylim])
     plt.xlabel("Time (BJD)")
@@ -196,7 +196,7 @@ def plotOC(target, results, planetdf):
     # create the figure
     fig = plt.figure(figsize=(14,4))
     # maximum transit number
-    maxepoch = 1
+    maxepoch, empty = 1, True
     # for each of the planets in the system
     for i, _ in enumerate(planetdf.index):
         # fetch the transits
@@ -204,6 +204,8 @@ def plotOC(target, results, planetdf):
         # if the output is empty, skip
         if not tvals[0].size:
             continue
+        # the graph is no longer empty
+        empty = False
         # decompose into found values
         t, oc, oceu, ocel, epoch = tvals
         # fetch this exoplanet name
@@ -212,6 +214,9 @@ def plotOC(target, results, planetdf):
         plt.errorbar(epoch, oc, yerr=[ocel, oceu], fmt="o", elinewidth=1, zorder=3, label=pname)
         # fetch the highest transit number
         maxepoch = max(maxepoch, np.max(epoch))
+    # if we did not have any transits
+    if empty:
+        plt.text(np.average(xlim), 0, "No Transits Found\n", ha="center", fontsize="x-large")
     # define the x limits
     xlim = [-0.1, maxepoch+0.1]
     # plot the zero point
@@ -246,7 +251,7 @@ def plotLCOC(target, lcdata, results, planetdf):
     ax1.plot(lcdata.times_lc["TESS"]-bjdo, model, color="k", zorder=10, label="Lightcurve fit")
     # fetch the limits
     xlim = (np.min(lcdata.times_lc["TESS"])-bjdo, np.max(lcdata.times_lc["TESS"])-bjdo)
-    ylim = np.std(lcdata.data_lc["TESS"])
+    ylim = max(abs(model-1)) + np.std(lcdata.data_lc["TESS"])
     # set the limits, labels, and titles
     ax1.set_ylim((1-ylim, 1+ylim))
     ax1.set_xlim(xlim)
@@ -255,6 +260,8 @@ def plotLCOC(target, lcdata, results, planetdf):
 
     # O-C on bottom
     ax2 = plt.subplot(gs[1], sharex=ax1)
+    # check if we have no transits
+    empty = True
     # for each of the planets in the system
     for i, _ in enumerate(planetdf.index):
         # fetch the transits
@@ -262,6 +269,8 @@ def plotLCOC(target, lcdata, results, planetdf):
         # if the output is empty, skip
         if not tvals[0].size:
             continue
+        # the graph is no longer empty
+        empty = False
         # decompose into found values
         t, oc, oceu, ocel, epoch = tvals
         # fetch this exoplanet name
@@ -270,6 +279,9 @@ def plotLCOC(target, lcdata, results, planetdf):
         ax2.errorbar(t-bjdo, oc, yerr=[ocel, oceu], fmt="o", elinewidth=1, zorder=3, label=pname)
     # plot the zero point
     plt.plot(xlim, [0.,0], "--", linewidth=1, color='black', zorder=2)
+    # if we did not have any transits
+    if empty:
+        plt.text(np.average(xlim), 0, "No Transits Found\n", ha="center", fontsize="x-large")
     # set the labels and limits
     ax2.set_ylabel("O-C (minutes)")
     ax2.set_xlabel("Time (BJD - 2457000)")
