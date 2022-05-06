@@ -311,13 +311,13 @@ def fetchTESSLC(loc="/raw_data/", stale_time=7, target=None):
         # fetch the planets in the system
         planets = df[df["hostname"] == star]
         # fetch the star TIC
-        tid = planets.iloc[0]["tic_id"].lower()
+        tid = planets.iloc[0]["tic_id"]
         # if we have a null id
-        if "nan" in tid:
+        if "nan" in str(tid):
             # skip
             continue
         # fetch the lightcurve data
-        tlc.tessLCData(tid, planets)
+        tlc.tessLCData(tid.lower(), planets)
 
 def fetchTESSTTV(loc="/raw_data/", stale_time=7, target=None):
     ''' Fetch exoplanet midtransit data from TESS.
@@ -333,13 +333,13 @@ def fetchTESSTTV(loc="/raw_data/", stale_time=7, target=None):
         # fetch the planets in the system
         planets = df[df["hostname"] == star]
         # fetch the star TIC
-        tid = planets.iloc[0]["tic_id"].lower()
+        tid = planets.iloc[0]["tic_id"]
         # if we have a null id
-        if "nan" in tid:
+        if "nan" in str(tid):
             # skip
             continue
         # fetch the midtransit times
-        out = tlc.tessMidTransits(tid, planets)
+        out = tlc.tessMidTransits(tid.lower(), planets)
         # if we didn't find any
         if not out:
             continue
@@ -373,13 +373,13 @@ def plotTESS(loc="/raw_data/", stale_time=7, target=None):
         # fetch the planets in the system
         planets = df[df["hostname"] == star]
         # fetch the star TIC
-        tid = planets.iloc[0]["tic_id"].lower()
+        tid = planets.iloc[0]["tic_id"]
         # if we have a null id
-        if "nan" in tid:
+        if "nan" in str(tid):
             # skip
             continue
         # fetch the lightcurve data
-        lcdf, lcdata = tlc.tessLCData(tid, planets, returnData=True)
+        lcdf, lcdata = tlc.tessLCData(tid.lower(), planets, returnData=True)
         # if there wasn't any for this planetary system
         if lcdf.empty:
             continue
