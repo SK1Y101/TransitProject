@@ -236,30 +236,48 @@ def plotLCOC(target, lcdata, results, planetdf):
     # figure size
     fig = plt.figure(figsize=(12,8))
     # gridspec to split the plots
-    gs = gridspec.GridSpec(2, 1, height_ratios=[1,1], hspace=0)
-    # title
-    fig.suptitle("TESS Combined lightcurve and O-C data for {}".format(target))
+    gs = gridspec.GridSpec(2, 1, height_ratios=[1,1], hspace=0.1)
     # bjd offset for the graph
     bjdo = 2457000
 
-    # lightcurve on top
-    ax1 = plt.subplot(gs[0])
-    # Plot data
-    ax1.errorbar(lcdata.times_lc["TESS"]-bjdo, lcdata.data_lc["TESS"], yerr=lcdata.errors_lc["TESS"], \
-                 fmt=".", alpha=0.1, label="TESS Data")
-    # Plot the model curve
-    ax1.plot(lcdata.times_lc["TESS"]-bjdo, model, color="k", zorder=10, label="Lightcurve fit")
+    # shorthand to lightcurve times, lightcurve data, and lightcurve data error
+    lct, lcd, lcde = lcdata.times_lc["TESS"]-bjdo, lcdata.data_lc["TESS"], lcdata.errors_lc["TESS"]
+
     # fetch the limits
-    xlim = (np.min(lcdata.times_lc["TESS"])-bjdo, np.max(lcdata.times_lc["TESS"])-bjdo)
-    ylim = max(abs(model-1)) + np.std(lcdata.data_lc["TESS"])
-    # set the limits, labels, and titles
-    ax1.set_ylim((1-ylim, 1+ylim))
-    ax1.set_xlim(xlim)
-    ax1.set_ylabel("Relative flux")
+    xlim = (np.min(lct), np.max(lct))
+    ylim = max(abs(model-1)) + np.std(lcd)
+
+    # check for any discontinuities in time (The time between two adjacent data points will be more than a couple of days)
+    dsc = np.where(lct[1:] - lct[:-1] > 10)[0]
+    # if we had a discontinuity
+    if dsc.size:
+        # construct the continuous data ranges
+        lims = np.hstack([np.vstack([min(lct), lct[dsc+1]]), np.vstack([lct[dsc], max(lct)])])
+        # import broken axes
+        from brokenaxes import brokenaxes
+        # replace the old subplots with broken axes with the found limits
+        ax1 = brokenaxes(xlims=tuple([tuple(lim) for lim in lims]), subplot_spec=gs[0], d=.0075, wspace=.05)
+        ax2 = brokenaxes(xlims=tuple([tuple(lim) for lim in lims]), subplot_spec=gs[1], d=.0075, wspace=.05)
+        # set the y limit
+        ax1.set_ylim((1-ylim, 1+ylim))
+    else:
+        # lightcurve on top
+        ax1 = plt.subplot(gs[0])
+        # O-C on bottom
+        ax2 = plt.subplot(gs[1], sharex=ax1)
+        # set the limits
+        ax1.set_ylim((1-ylim, 1+ylim))
+        ax1.set_xlim(xlim)
+    # title
+    ax1.set_title("TESS Combined lightcurve and O-C data for {}".format(target.capitalize()), fontsize="x-large")
+    # Plot data
+    ax1.errorbar(lct, lcd, yerr=lcde, fmt=".", alpha=0.1, label="TESS Data")
+    # Plot the model curve
+    ax1.plot(lct, model, color="k", zorder=10, label="Lightcurve fit")
+    ax1.set_ylabel("normalised flux")
+    ax1.set_xlabel("Time (BJD - {})".format(bjdo))
     ax1.legend()
 
-    # O-C on bottom
-    ax2 = plt.subplot(gs[1], sharex=ax1)
     # check if we have no transits
     empty = True
     # for each of the planets in the system
@@ -278,13 +296,13 @@ def plotLCOC(target, lcdata, results, planetdf):
         # plot the transits
         ax2.errorbar(t-bjdo, oc, yerr=[ocel, oceu], fmt="o", elinewidth=1, zorder=3, label=pname)
     # plot the zero point
-    plt.plot(xlim, [0.,0], "--", linewidth=1, color='black', zorder=2)
+    ax2.plot(xlim, [0.,0], "--", linewidth=1, color='black', zorder=2)
     # if we did not have any transits
     if empty:
         plt.text(np.average(xlim), 0, "No Transits Found\n", ha="center", fontsize="x-large")
     # set the labels and limits
     ax2.set_ylabel("O-C (minutes)")
-    ax2.set_xlabel("Time (BJD - 2457000)")
+    ax2.set_xlabel("Time (BJD - {})".format(bjdo))
     ax2.legend()
     # show the plot
     plt.show()
