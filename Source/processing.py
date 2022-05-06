@@ -138,8 +138,10 @@ def checkEphemerides(transitdf, systemdf):
     # planet orbit in days
     period = systemdf.iloc[1]["per"] * 365.25
     print("Planet orbital period is:         {}.".format(tp.totimestring(period)))
+    # compute the average symmetric error
+    err = 0.5*(transitdf["ocel"].to_numpy() + transitdf["oceu"].to_numpy())
     # fit a line to the o-c data
-    linefit, lineparam, linecov = fetchFit(dateAsFloat, transitdf["oc"], transitdf["oce"])
+    linefit, lineparam, linecov = fetchFit(dateAsFloat, transitdf["oc"], err)
     # offset per orbit in seconds
     offset = lineparam[0] * period
     print("Linear fit suggests it should be: {}.".format(tp.totimestring(period+offset)))
