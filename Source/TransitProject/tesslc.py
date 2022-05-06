@@ -107,6 +107,12 @@ def _lightcurves_(target, loc="/raw_data/tess_data/", stale_time=7, throwError=F
     else:
         return pd.DataFrame()
 
+def data_breaks(data, boundary=1):
+    # compute the locations where the difference between datapoints is larger than the boundary
+    dsc = np.where(data[1:] - data[:-1] > boundary)[0]
+    # return the ranges where the data is continuous
+    return np.vstack([data[np.insert(dsc+1, 0, 0)], data[np.append(dsc, len(data)-1)]]).T
+
 def fetchExpectedEpochs(planet, times):
     # compute the earliest time in the times array
     initial_t = np.min(times)
@@ -116,10 +122,10 @@ def fetchExpectedEpochs(planet, times):
     ndif = (t0 - initial_t) // per
     # for all possible transits that could have been observed
     t_exp = np.arange(t0-ndif*per, np.max(times), per)
-    # compute the minimum distance between the transit and the array of time datapoint
-    t_dist = [np.abs(times - t).min() for t in t_exp]
+    # fetch the data breaks longer than 12 hours in the times array
+    dataRange = data_breaks(times, 0.5)
     # find only the transits that are within the data
-    transits = np.where(t_dist < (times[1]-times[0]))[0]
+    transits = np.array([i for i, t in enumerate(t_exp) if any(lower <= t <= upper for (lower, upper) in dataRange)])
     # return the epoch times and epoch number
     return t_exp, transits
 
@@ -252,7 +258,7 @@ def plotLCOC(target, lcdata, results, planetdf):
     # if we had a discontinuity
     if dsc.size:
         # construct the continuous data ranges
-        lims = np.hstack([np.vstack([min(lct), lct[dsc+1]]), np.vstack([lct[dsc], max(lct)])])
+        lims = data_breaks(lct, 10)
         # import broken axes
         from brokenaxes import brokenaxes
         # replace the old subplots with broken axes with the found limits
