@@ -293,7 +293,7 @@ def tessTargets(target=None):
             df = df[df["tic_id"] == target.upper()]
         # otherwise, we should expect a star name
         else:
-            df = df[df["hostname"] == target.capitalize()]
+            df = df[df["hostname"].isin([target.capitalize(), target.upper(), target.lower()])]
     # return all unique star names in the dataframe, as well as the pscomppars df
     return df["hostname"].unique(), df
 
@@ -381,7 +381,7 @@ def plotTESS(loc="/raw_data/", stale_time=7, target=None):
         # fetch the lightcurve data
         lcdf, lcdata = tlc.tessLCData(tid, planets, returnData=True)
         # if there wasn't any for this planetary system
-        if df.empty:
+        if lcdf.empty:
             continue
         # fetch the fit results
         results = lcdata.fit(sampler="dynesty")

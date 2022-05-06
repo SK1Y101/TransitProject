@@ -39,8 +39,9 @@ Repo/
 │ ├ old_code /                  *Contains various bits legacy code that is kept for reference*
 │ ├ raw_data/
 │ │ ├ midTransitTimes/          *Contains CSV Data for all exoplanets mid-transit times*
+│ │ ├ tess_data/                *Contains CSV Data and Light-curve fits for all exoplanet TESS Data*
 │ │ ├ ETDEphemerides.csv        *ephemerides from Exoplanet Transit database*
-│ │ ├ exoClockEphemerides.csv   *ephemerides from Exoclock database*
+│ │ ├ exoClockEphemerides.csv   *ephemerides from ExoClock database*
 │ │ ├ exoplanetList.csv         *list of all exoplanets with mid-transit times*
 │ │ ├ ps.csv                    *NASA Exoplanet Archive planetary information table*
 │ │ └ pscomparrs.csv            *NASA Exoplanet Archive composite planetary table*
@@ -48,6 +49,7 @@ Repo/
 │ ├ TransitProject/
 │ │ ├ __init__.py
 │ │ ├ Simulation.py
+│ │ ├ tesslc.py
 │ │ └ webScraping.py
 │ ├ ControlCandidates.csv
 │ ├ determineTTVCandidates.py
@@ -107,7 +109,7 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [x] Exoplanet Catalogue
     - [x] System info (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
     - [x] digital renders for pretty graphs (Completed from another of my projects, available [here](https://github.com/SK1Y101/Data_Collection_Pipeline))
-  - [ ] TESS/Kepler raw data > fit lightcurves to that for comparisons.
+  - [x] TESS/Kepler raw data > fit lightcurves to that for comparisons.
   - [x] Refactor code
 - [x] Combine data
   - [x] Merge ETD & Exoclock data so as to plot hisotrical lightcurves
@@ -134,12 +136,13 @@ This is a general overview of the "Write Code" step above, and is of course subj
     - [x] Fit a line to the data
     - [x] compare against exoclock ephemerides
     - [x] Search through Residuals for TTV
-  - [ ] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
+  - [x] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [x] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
   - [ ] Refactor code
 - [ ] Analysis
   - [ ] Determine accuracy of fit to known data.
     - [ ] BIC Fit from bayesian analysis
+  - [ ] Run MCMC fitting using TTVFast
   - [ ] Probably run Fourier analysis.
   - [ ] Determine a way of pulling out key frequency terms.
   - [x] Map key information to system parameters. ie: frequency to orbital period mapping.

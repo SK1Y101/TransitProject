@@ -285,7 +285,7 @@ def tessLCData(target, planetdf, loc="/raw_data/tess_data/", stale_time=7, retur
     # if there wasn't any for this planetary system, or we don't want to return the data
     if (df.empty) or (not returnData):
         # return empty
-        return pd.DataFrame(), pd.DataFrame()
+        return pd.DataFrame(), None
     # fetch the juliet lightcurve data
     lcdata = _lcData_(target, df, planetdf, loc)
     # return the lc data
