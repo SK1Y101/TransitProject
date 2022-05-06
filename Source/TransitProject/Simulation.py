@@ -26,7 +26,8 @@ def mapToArchive(params):
                 "inc":"pl_orbincl",
                 "ecc":"pl_orbeccen",
                 "arg":"pl_orblper",
-                "mean":"pl_orbtper"}
+                "mean":"pl_orbtper",
+                "t0":"pl_tranmid"}
     # map and return
     return [replace_error_name(archive, param) for param in params]
 
@@ -131,7 +132,7 @@ def _fetchSystem_(target, startTime="2000-01-01"):
         target: The name of the planet to fetch the information for.
         params: List of parameters to fetch from the stored databases. '''
     # define the allowed parameters
-    params=["mass", "sma", "per", "ecc", "inc", "arg", "mean"]
+    params=["mass", "sma", "per", "ecc", "inc", "arg", "mean", "t0"]
     # if the target does not contain a distinction between name and number, attempt to do so
     #if "-" not in target:
     #    numidx = target.index(findFloats(target)[0])

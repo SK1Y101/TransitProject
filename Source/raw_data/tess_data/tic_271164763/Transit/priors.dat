@@ -1,0 +1,8 @@
+q1_TESS              uniform              0.0,1.0             
+q2_TESS              uniform              0.0,1.0             
+rho                  loguniform           100.0,10000.0       
+mdilution_TESS       fixed                1.0                 
+mflux_TESS           normal               0.0,0.1             
+sigma_w_TESS         loguniform           0.1,1000.0          
+GP_sigma_TESS        loguniform           1e-06,1000000.0     
+GP_rho_TESS          loguniform           0.001,1000.0        
