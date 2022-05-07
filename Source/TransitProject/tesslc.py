@@ -242,7 +242,7 @@ def plotLCOC(target, lcdata, results, planetdf):
     # figure size
     fig = plt.figure(figsize=(12,8))
     # gridspec to split the plots
-    gs = gridspec.GridSpec(2, 1, height_ratios=[1,1], hspace=0.1)
+    gs = gridspec.GridSpec(2, 1, height_ratios=[1,1], hspace=0.12)
     # bjd offset for the graph
     bjdo = 2457000
 

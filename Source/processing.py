@@ -8,6 +8,7 @@ import argparse
 # my modules
 import TransitProject as tp
 import TransitProject.Simulation as ts
+import TransitProject.TTVModels as tm
 
 '''
 Goals: Create a simple extensible model that can take system parameters and output a TTV sinusoid.
@@ -264,32 +265,9 @@ if __name__ == "__main__":
     yerr = 0.5*(transitdf["ocel"].to_numpy() + transitdf["oceu"].to_numpy())
     ''' fit x, y, yerr to a model. '''
 
-    def fitModel(x, y, yerr, model, guess=None, bounds=None):
-        # model arguments
-        ar = model.__code__.co_argcount-1
-        # initial guess if needed
-        guess = guess if guess else np.ones(ar)
-        # create an error function
-        errFunc = lambda guess, x, y, yerr: (y-model(x, *guess)) / yerr
-        # fit the function
-        solution = scipy.optimize.least_squares(errFunc, guess, args=(x, y, yerr), bounds=bounds)
-        # and create an output function
-        outFunc = lambda x: model(x, *solution.x)
-        # return the function and the fit parameters
-        return outFunc, solution.x
-
     # experimental model
     def model(x, magnitude, period, phase):
         return magnitude * np.sin(x * 2 * np.pi / period + phase)
-
-    # fit the data to the model
-    #initialGuess = [max(y), 0.25*(max(x)-min(x)), 0, 0]
-    #out = scipy.optimize.least_squares(errFunc, initialGuess, args=(x, y, yerr), bounds=((0, 0, -2*np.pi, -1000), (max(abs(y))*100, abs(max(x)-min(x))*100, 2*np.pi, 1000)))
-    #try:
-    #fitfunc, fitparams = fitModel(x, y, yerr, model, guess=[max(y), 0.25*(max(x)-min(x)), 0],
-    #                            bounds=((0, 0, 0), (max(abs(y))*2, 365.25 * 1E3, 2*np.pi)))
-
-    #fitfunc.__name__ = "Scipy fit"
 
     import pymc3 as pm
     import arviz as az
@@ -300,7 +278,7 @@ if __name__ == "__main__":
         # parameters
         mag = pm.Uniform("mag", lower=0, upper=1000)
         per = pm.Uniform("per", lower=0, upper=1000)
-        phase = pm.Normal("phase", mu=np.pi, sigma=1.5)
+        phase = pm.Uniform("phase", lower=0, upper=2*np.pi)
         # expected outcome
         mu = model(x, mag, per, phase) #mag * pm.math.sin(x * (2 * np.pi / per) + phase)
         # observation
@@ -312,8 +290,9 @@ if __name__ == "__main__":
         print(pm.summary(trace))
 
     import corner
+    print(systemdf.iloc[2]["per"], systemdf.iloc[2]["per_e1"])
     samples = np.vstack([trace[k] for k in ["mag", "per", "phase"]]).T
-    corner.corner(samples, labels=["mag", "per", "phase"])
+    corner.corner(samples, labels=["mag", "per", "phase"], show_titles=True)
 
 
     print("Model estimates")
