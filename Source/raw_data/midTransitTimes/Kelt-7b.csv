@@ -1,24 +1,45 @@
-date,observer,oc,oceu,ocel,source
-2022-02-01 08:01:15.744000000,"Francesco scaggiante, danilo zardin,marco fiaschi",-1.728,1.8144,1.8144,ETD
-2022-01-10 10:59:20.832000256,"Francesco scaggiante, danilo zardin,marco fiaschi",0.864,1.8864,1.8864,ETD
-2022-01-10 10:40:13.440000256,Dominique daniel,-18.144,2.9808,2.9808,ETD
-2021-12-30 12:40:21.792000000,Yves jongen,14.256,2.016,2.016,ETD
-2020-11-23 12:07:57.792000256,Anaël wünsche,-3.024,1.0944,1.0944,ETD
-2020-11-23 11:55:14.016000000,Alberto tomatis,-15.696,4.7808,4.7808,ETD
-2020-11-23 11:35:26.016000256,Yves jongen,-35.568,2.4624,2.4624,ETD
-2019-12-28 14:30:30.528000000,Manfred raetz,5.184,3.384,3.384,ETD
-2019-02-14 08:45:22.176000256,Josep gaitan,-4.752,1.5264,1.5264,ETD
-2019-01-15 07:47:13.344000256,"G. conzo, p. marotta",55.728,1.4688,1.4688,ETD
-2019-01-15 07:04:22.080000000,Gruppo astrofili palidoro,12.96,1.2528,1.2528,ETD
-2017-12-06 12:59:53.376000000,Girardin eric,1.728,1.152,1.152,ETD
-2017-01-01 10:18:01.152000000,Claudio arena,-0.432,1.8864,1.8864,ETD
-2016-01-28 07:29:00.384000000,"Francesco scaggiante, danilo zardin",-9.648,2.3616,2.3616,ETD
-2015-12-26 12:23:33.504000000,František lomoz,21.6,4.9248,4.9248,ETD
-2015-12-26 12:03:31.680000000,Marc bretton,1.584,1.7568,1.7568,ETD
-2015-12-26 12:03:31.680000000,František lomoz,1.584,6.4944,6.4944,ETD
-2015-12-26 12:03:27.359999744,František lomoz,1.584,13.5504,13.5504,ETD
-2015-12-26 11:57:27.071999744,Marc bretton,-4.464,1.3248,1.3248,ETD
-2015-12-26 11:48:40.032000000,František lomoz,-13.248,13.3488,13.3488,ETD
-2015-12-26 11:31:27.552000000,František lomoz,-30.384,8.856,8.856,ETD
-2015-11-15 11:35:18.240000000,"Dittler, ullrich",4.32,9.8928,9.8928,ETD
-2013-03-03 05:30:55.497599744,Bieryla et al. (2015),0.576,0.2851,0.2851,ETD
+observer,oc,oceu,ocel,date,source
+Paolo Arcangelo Matassa,2.2,1.9,1.9,2022-02-01 08:05:07.518723584,ExoClock observation
+"Francesco scaggiante, danilo zardin,marco fiaschi",-1.728,1.8144,1.8144,2022-02-01 08:01:15.744000000,ETD
+Dominique DANIEL,2.0,2.7,2.7,2022-01-10 11:00:25.466863872,ExoClock observation
+"Francesco scaggiante, danilo zardin,marco fiaschi",0.864,1.8864,1.8864,2022-01-10 10:59:20.832000256,ETD
+Dominique daniel,-18.144,2.9808,2.9808,2022-01-10 10:40:13.440000256,ETD
+Yves jongen,14.256,2.016,2.016,2021-12-30 12:40:21.792000000,ETD
+Tõnis Eenmäe,1.8,1.6,1.6,2021-11-08 13:24:47.067841024,ExoClock observation
+Martin Crow,6.1,5.8,5.8,2020-12-15 09:21:34.290223616,ExoClock observation
+Anaël Wünsche,0.4,0.9,0.9,2020-11-23 12:11:22.238383616,ExoClock observation
+Anaël wünsche,-3.024,1.0944,1.0944,2020-11-23 12:07:57.792000256,ETD
+Alberto tomatis,-15.696,4.7808,4.7808,2020-11-23 11:55:14.016000000,ETD
+Yves jongen,-35.568,2.4624,2.4624,2020-11-23 11:35:26.016000256,ETD
+Alessandro Nastasi,2.2,1.4,1.4,2020-11-12 13:40:55.212459008,ExoClock observation
+Claudio Lopresti,0.1,1.4,1.4,2019-12-31 08:03:33.460774656,ExoClock observation
+Manfred raetz,5.184,3.384,3.384,2019-12-28 14:30:30.528000000,ETD
+Josep gaitan,-4.752,1.5264,1.5264,2019-02-14 08:45:22.176000256,ETD
+"G. conzo, p. marotta",55.728,1.4688,1.4688,2019-01-15 07:47:13.344000256,ETD
+Gruppo astrofili palidoro,12.96,1.2528,1.2528,2019-01-15 07:04:22.080000000,ETD
+Giuseppe Conzo,4.0,1.3,1.3,2019-01-15 06:55:26.631322624,ExoClock observation
+Girardin eric,1.728,1.152,1.152,2017-12-06 12:59:53.376000000,ETD
+Pluriel et al. 2020,3.3,0.9,0.9,2017-10-18 07:36:21.055667968,ExoClock literature
+Garhart et al. 2020,0.3,0.3,0.3,2017-01-04 03:56:46.625255936,ExoClock literature
+Claudio arena,-0.432,1.8864,1.8864,2017-01-01 10:18:01.152000000,ETD
+Garhart et al. 2020,-0.6,0.2,0.2,2016-12-26 23:01:41.355810560,ExoClock literature
+"Francesco scaggiante, danilo zardin",-9.648,2.3616,2.3616,2016-01-28 07:29:00.384000000,ETD
+František lomoz,21.6,4.9248,4.9248,2015-12-26 12:23:33.504000000,ETD
+František lomoz,1.584,6.4944,6.4944,2015-12-26 12:03:31.680000000,ETD
+Marc bretton,1.584,1.7568,1.7568,2015-12-26 12:03:31.680000000,ETD
+František lomoz,1.584,13.5504,13.5504,2015-12-26 12:03:27.359999744,ETD
+Marc bretton,-4.464,1.3248,1.3248,2015-12-26 11:57:27.071999744,ETD
+František lomoz,-13.248,13.3488,13.3488,2015-12-26 11:48:40.032000000,ETD
+František lomoz,-30.384,8.856,8.856,2015-12-26 11:31:27.552000000,ETD
+"Dittler, ullrich",4.32,9.8928,9.8928,2015-11-15 11:35:18.240000000,ETD
+Bieryla et al. 2015,2.1,1.4,1.4,2014-01-22 16:01:54.572127232,ExoClock literature
+Bieryla et al. 2015,1.8,0.8,0.8,2013-10-18 22:49:25.095350272,ExoClock literature
+Bieryla et al. (2015),0.576,0.2851,0.2851,2013-03-03 05:30:55.497599744,ETD
+Bieryla et al. 2015,2.1,1.0,1.0,2013-01-29 09:55:42.473280512,ExoClock literature
+Bieryla et al. 2015,2.0,1.0,1.0,2013-01-26 16:17:32.716787200,ExoClock literature
+Bieryla et al. 2015,-0.1,0.9,0.9,2012-12-08 10:50:19.100126720,ExoClock literature
+Bieryla et al. 2015,2.9,1.1,1.1,2012-11-22 01:04:56.561242624,ExoClock literature
+Bieryla et al. 2015,1.1,0.8,0.8,2012-11-13 20:08:57.291808512,ExoClock literature
+Bieryla et al. 2015,-1.2,0.7,0.7,2012-11-02 21:34:24.265890304,ExoClock literature
+Bieryla et al. 2015,-1.7,0.5,0.5,2012-10-22 23:01:39.239990016,ExoClock literature
+Bieryla et al. 2015,-0.3,1.1,1.1,2012-10-03 19:36:36.944618240,ExoClock literature

@@ -16,18 +16,15 @@ Goals: Collect midtransit times from ETD and ExoClock
 '''
 
 # ETD (Lightcurves)
-#ws.fetchETDData("http://var2.astro.cz/ETD/index.php?lang=en", sourceName="ETD")
+ws.fetchETDData("http://var2.astro.cz/ETD/index.php?lang=en", sourceName="ETD")
 
 # Exoclock (Lightcurves & system info)
 # Access system information
-
 ws.saveDataDict("https://www.exoclock.space/database/planets_json", "/raw_data/exoClockEphemerides.csv")
-# fetch midtransit data (Old style)
-'''
+# fetch midtransit data
 ws.fetchExoClockData("https://www.exoclock.space/database/observations", sourceName="ExoClock observation")
 ws.fetchExoClockData("https://www.exoclock.space/database/literature", sourceName="ExoClock literature")
-ws.fetchExoClockData("https://www.exoclock.space/database/etd", sourceName="ExoClock ETD")'''
-# fetch midtransit data (New style)
+ws.fetchExoClockData("https://www.exoclock.space/database/etd", sourceName="ExoClock ETD")
 
 # Exoplanet Archive
 # Composite information
@@ -37,8 +34,8 @@ ws.fetchExoplanetArchive("ps")
 
 # Transiting Exoplanets Survey Satelite
 # fetch the lightcurves for every planetary target
-ws.fetchTESSLC()
+#ws.fetchTESSLC()
 # fetch the midtransit times
-ws.fetchTESSTTV()
+#ws.fetchTESSTTV()
 # plot the lc and TTV data
-ws.plotTESS(target="kepler-19")
+#ws.plotTESS(target="kepler-19")

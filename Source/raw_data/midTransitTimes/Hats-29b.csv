@@ -1,5 +1,10 @@
-date,observer,oc,oceu,ocel,source
-2021-06-19 13:26:04.992000256,Yves jongen,2.16,1.4976,1.4976,ETD
-2020-07-27 13:04:14.303999744,Yves jongen,5.04,1.2528,1.2528,ETD
-2020-05-14 20:23:47.904000256,Yves jongen,3.888,1.4112,1.4112,ETD
-2015-01-08 22:56:53.952000000,Espinoza et al. (2016),0.0,0.5472,0.5472,ETD
+observer,oc,oceu,ocel,date,source
+Yves Jongen,-0.9,1.9,1.9,2021-06-19 13:27:08.521952000,ExoClock observation
+Yves jongen,2.16,1.4976,1.4976,2021-06-19 13:26:04.992000256,ETD
+Yves Jongen,2.0,1.0,1.0,2020-07-27 13:04:57.770892032,ExoClock observation
+Yves jongen,5.04,1.2528,1.2528,2020-07-27 13:04:14.303999744,ETD
+Yves jongen,3.888,1.4112,1.4112,2020-05-14 20:23:47.904000256,ETD
+Yves Jongen,-3.1,1.6,1.6,2020-05-14 20:20:24.503047680,ExoClock observation
+Phil Evans,-0.8,1.0,1.0,2020-04-21 19:40:22.731886848,ExoClock observation
+Espinoza et al. 2016,0.1,0.5,0.5,2015-01-08 22:58:03.905289984,ExoClock literature
+Espinoza et al. (2016),0.0,0.5472,0.5472,2015-01-08 22:56:53.952000000,ETD

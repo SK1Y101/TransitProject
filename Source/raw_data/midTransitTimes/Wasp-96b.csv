@@ -1,8 +1,15 @@
-date,observer,oc,oceu,ocel,source
-2021-10-20 15:16:17.184000256,Yves jongen,3.312,1.2384,1.2384,ETD
-2021-10-20 15:12:23.040000000,Anaël wünsche,-0.576,1.152,1.152,ETD
-2020-09-21 17:27:48.960000000,Yves jongen,-2.16,1.2528,1.2528,ETD
-2020-09-04 14:22:07.680000256,Yves jongen,-5.904,1.2672,1.2672,ETD
-2020-08-04 18:30:42.912000256,Yves jongen,-5.904,2.5632,2.5632,ETD
-2017-09-25 19:01:24.960000256,H. durantini luca; p. báez; c. colazo,1038.96,2.4192,2.4192,ETD
-2012-11-26 01:29:25.440000256,Hellier et al. (2013),0.0,0.288,0.288,ETD
+observer,oc,oceu,ocel,date,source
+Yves jongen,3.312,1.2384,1.2384,2021-10-20 15:16:17.184000256,ETD
+Anaël wünsche,-0.576,1.152,1.152,2021-10-20 15:12:23.040000000,ETD
+Anaël Wünsche,3.0,1.4,1.4,2021-10-20 15:11:58.919979008,ExoClock observation
+Yves Jongen,2.5,1.6,1.6,2020-09-21 17:29:00.335976960,ExoClock observation
+Yves jongen,-2.16,1.2528,1.2528,2020-09-21 17:27:48.960000000,ETD
+Yves Jongen,-1.7,1.4,1.4,2020-09-04 14:22:57.528007424,ExoClock observation
+Yves jongen,-5.904,1.2672,1.2672,2020-09-04 14:22:07.680000256,ETD
+Yves Jongen,-2.5,2.3,2.3,2020-08-04 18:30:50.073610240,ExoClock observation
+Yves jongen,-5.904,2.5632,2.5632,2020-08-04 18:30:42.912000256,ETD
+H. durantini luca; p. báez; c. colazo,1038.96,2.4192,2.4192,2017-09-25 19:01:24.960000256,ETD
+Nikolov et al. 2018,-0.5,0.4,0.4,2017-08-21 19:36:29.169605120,ExoClock literature
+Nikolov et al. 2018,0.9,0.5,0.5,2017-07-28 20:11:18.038379520,ExoClock literature
+Hellier et al. 2014,-0.0,0.3,0.3,2012-11-26 01:30:27.561588480,ExoClock literature
+Hellier et al. (2013),0.0,0.288,0.288,2012-11-26 01:29:25.440000256,ETD

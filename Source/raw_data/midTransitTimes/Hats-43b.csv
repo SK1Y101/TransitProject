@@ -1,6 +1,10 @@
-date,observer,oc,oceu,ocel,source
-2022-02-17 15:05:16.224000256,Vignes jean-pascal,2.016,0.9504,0.9504,ETD
-2021-10-17 17:43:04.800000256,Yves jongen,-1.728,0.8784,0.8784,ETD
-2020-12-27 16:27:54.719999744,Yves jongen,-0.72,0.6912,0.6912,ETD
-2020-12-05 17:48:08.063999744,Yves jongen,-0.72,0.5616,0.5616,ETD
-2016-09-04 02:08:49.344000256,Brahm et al. (2017),0.0,0.36,0.36,ETD
+observer,oc,oceu,ocel,date,source
+jean pascal vignes,1.1,1.0,1.0,2022-02-17 15:05:34.168334336,ExoClock observation
+Vignes jean-pascal,2.016,0.9504,0.9504,2022-02-17 15:05:16.224000256,ETD
+Yves jongen,-1.728,0.8784,0.8784,2021-10-17 17:43:04.800000256,ETD
+Yves Jongen,-0.2,0.9,0.9,2020-12-27 16:29:36.189105152,ExoClock observation
+Yves jongen,-0.72,0.6912,0.6912,2020-12-27 16:27:54.719999744,ETD
+Yves Jongen,0.3,0.9,0.9,2020-12-05 17:50:23.032298752,ExoClock observation
+Yves jongen,-0.72,0.5616,0.5616,2020-12-05 17:48:08.063999744,ETD
+Brahm et al. 2018,0.0,0.4,0.4,2016-09-04 02:09:57.530910464,ExoClock literature
+Brahm et al. (2017),0.0,0.36,0.36,2016-09-04 02:08:49.344000256,ETD

@@ -1,7 +1,13 @@
-date,observer,oc,oceu,ocel,source
-2020-10-06 10:27:09.792000256,Francois regembal,11.088,19.5552,19.5552,ETD
-2020-08-12 16:56:44.448000000,Yves jongen,-10.368,1.9584,1.9584,ETD
-2020-08-07 11:54:08.351999744,Yves jongen,-9.36,2.304,2.304,ETD
-2019-07-21 11:51:28.511999744,Anael wunsche,-9.216,3.3408,3.3408,ETD
-2017-08-14 10:20:02.976000256,František lomoz,12.24,3.672,3.672,ETD
-2013-04-26 07:58:59.231999744,Hartman et al. (2016),0.0,0.6624,0.6624,ETD
+observer,oc,oceu,ocel,date,source
+Francois regembal,11.088,19.5552,19.5552,2020-10-06 10:27:09.792000256,ETD
+Francois Regembal,4.8,4.3,4.3,2020-10-06 10:11:59.424006400,ExoClock observation
+Yves Jongen,-0.5,1.6,1.6,2020-08-12 16:57:55.665584128,ExoClock observation
+Yves jongen,-10.368,1.9584,1.9584,2020-08-12 16:56:44.448000000,ETD
+Yves Jongen,0.8,1.9,1.9,2020-08-07 11:55:32.164759808,ExoClock observation
+Yves jongen,-9.36,2.304,2.304,2020-08-07 11:54:08.351999744,ETD
+Alberto Tomatis,-4.4,3.6,3.6,2020-08-07 11:50:20.164762368,ExoClock observation
+Anaël Wünsche,-0.6,3.6,3.6,2019-07-21 11:52:47.855974912,ExoClock observation
+Anael wunsche,-9.216,3.3408,3.3408,2019-07-21 11:51:28.511999744,ETD
+František lomoz,12.24,3.672,3.672,2017-08-14 10:20:02.976000256,ETD
+Hartman et al. 2016,-0.0,0.7,0.7,2013-04-26 08:00:08.006366976,ExoClock literature
+Hartman et al. (2016),0.0,0.6624,0.6624,2013-04-26 07:58:59.231999744,ETD

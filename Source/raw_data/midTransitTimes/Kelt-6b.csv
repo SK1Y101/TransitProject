@@ -1,3 +1,6 @@
-date,observer,oc,oceu,ocel,source
-2022-03-27 11:22:03.360000,Manfred raetz,-36.288,2.5344,2.5344,ETD
-2013-02-23 19:07:22.915200,Collins et al. 2014,0.0,0.5184,0.5184,ETD
+observer,oc,oceu,ocel,date,source
+Manfred Raetz,-0.1,4.3,4.3,2022-03-27 11:28:19.075207168,ExoClock observation
+Manfred raetz,-36.288,2.5344,2.5344,2022-03-27 11:22:03.360000,ETD
+Mauro Caló,13.1,5.8,5.8,2021-04-08 10:27:48.259213824,ExoClock observation
+Tõnis Eenmäe,7.4,2.3,2.3,2021-04-08 10:22:06.259218176,ExoClock observation
+Collins et al. 2014,0.0,0.5184,0.5184,2013-02-23 19:07:22.915200,ETD

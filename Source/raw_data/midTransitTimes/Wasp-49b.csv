@@ -1,8 +1,22 @@
-date,observer,oc,oceu,ocel,source
-2021-11-22 18:54:39.744000000,Yves jongen,-3.312,1.2528,1.2528,ETD
-2021-09-19 19:21:05.184000000,Yves jongen,-5.76,1.1376,1.1376,ETD
-2021-01-09 16:02:44.448000256,Yves jongen,-5.04,0.8496,0.8496,ETD
-2020-12-26 18:14:04.992000000,Yves jongen,-5.184,0.8928,0.8928,ETD
-2017-11-20 14:17:03.551999744,Francis dauriac florent cazalaa jacques croiziers,-0.72,0.8496,0.8496,ETD
-2016-01-17 09:52:50.879999744,Marc bretton,-4.608,1.4976,1.4976,ETD
-2011-01-18 14:15:56.160000256,Lendl et al. (2012),0.0,0.432,0.432,ETD
+observer,oc,oceu,ocel,date,source
+Paolo Arcangelo Matassa,2.1,4.3,4.3,2022-01-17 10:10:36.497278464,ExoClock observation
+Bruno Monteleone,0.2,1.6,1.6,2021-12-23 09:17:24.117128960,ExoClock observation
+Yves jongen,-3.312,1.2528,1.2528,2021-11-22 18:54:39.744000000,ETD
+Yves Jongen,-0.8,1.4,1.4,2021-11-22 18:53:41.652491264,ExoClock observation
+Yves Jongen,-1.2,1.3,1.3,2021-09-19 19:22:10.680920064,ExoClock observation
+Yves jongen,-5.76,1.1376,1.1376,2021-09-19 19:21:05.184000000,ETD
+Yves Jongen,-0.4,0.9,0.9,2021-01-09 16:04:12.837118464,ExoClock observation
+Yves jongen,-5.04,0.8496,0.8496,2021-01-09 16:02:44.448000256,ETD
+Yves Jongen,-0.8,0.9,0.9,2020-12-26 18:15:18.625916416,ExoClock observation
+Yves jongen,-5.184,0.8928,0.8928,2020-12-26 18:14:04.992000000,ETD
+Phil Evans,2.1,1.2,1.2,2020-03-23 14:08:08.401910784,ExoClock observation
+Francis dauriac florent cazalaa jacques croiziers,-0.72,0.8496,0.8496,2017-11-20 14:17:03.551999744,ETD
+Anaël Wünsche,-2.2,1.4,1.4,2016-01-17 09:54:09.212148736,ExoClock observation
+Marc bretton,-4.608,1.4976,1.4976,2016-01-17 09:52:50.879999744,ETD
+Lendl et al. 2016,0.0,0.2,0.2,2012-12-05 16:24:45.936002560,ExoClock literature
+Lendl et al. 2012,-0.3,0.7,0.7,2011-10-23 18:26:27.726733056,ExoClock literature
+Lendl et al. 2012,0.4,0.5,0.5,2011-03-23 13:48:12.474219264,ExoClock literature
+Lendl et al. 2012,0.4,1.1,1.1,2011-01-18 14:17:05.502678784,ExoClock literature
+Lendl et al. 2012,0.3,0.4,0.4,2011-01-18 14:16:59.502671104,ExoClock literature
+Lendl et al. (2012),0.0,0.432,0.432,2011-01-18 14:15:56.160000256,ETD
+Lendl et al. 2012,-1.2,0.6,0.6,2011-01-18 14:15:29.502676480,ExoClock literature

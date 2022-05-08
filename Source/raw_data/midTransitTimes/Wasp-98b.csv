@@ -1,11 +1,29 @@
-date,observer,oc,oceu,ocel,source
-2021-12-07 17:46:24.383999744,Fernando martínez,-4.464,2.664,2.664,ETD
-2021-09-09 20:49:00.768000000,Yves jongen,4.32,0.5328,0.5328,ETD
-2020-11-08 17:09:34.271999744,Yves jongen,3.6,0.504,0.504,ETD
-2020-11-05 18:01:32.447999744,Yves jongen,1.728,0.5472,0.5472,ETD
-2020-11-02 18:55:03.071999744,Yves jongen,1.44,0.5472,0.5472,ETD
-2020-10-13 01:12:05.184000000,Gavin boyle,1.872,0.4176,0.4176,ETD
-2020-08-17 18:15:45.216000000,Yves jongen,3.456,0.6624,0.6624,ETD
-2020-08-14 19:08:05.856000256,Yves jongen,2.016,0.792,0.792,ETD
-2014-10-06 18:34:08.544000000,"Calazo c., tapia l.",5.472,0.3168,0.3168,ETD
-2014-09-21 22:52:27.840000000,Evans p.,-5.184,4.32,4.32,ETD
+observer,oc,oceu,ocel,date,source
+Fernando Martínez,-2.5,2.7,2.7,2021-12-07 17:51:36.235200768,ExoClock observation
+Fernando martínez,-4.464,2.664,2.664,2021-12-07 17:46:24.383999744,ETD
+Yves Jongen,2.2,0.4,0.4,2021-09-09 20:50:11.467203584,ExoClock observation
+Yves jongen,4.32,0.5328,0.5328,2021-09-09 20:49:00.768000000,ETD
+Yves Jongen,1.2,0.4,0.4,2020-11-08 17:10:12.230408192,ExoClock observation
+Yves jongen,3.6,0.504,0.504,2020-11-08 17:09:34.271999744,ETD
+Yves Jongen,-0.4,0.4,0.4,2020-11-05 18:02:24.004811264,ExoClock observation
+Yves jongen,1.728,0.5472,0.5472,2020-11-05 18:01:32.447999744,ETD
+Yves Jongen,-0.6,0.6,0.6,2020-11-02 18:55:59.779201536,ExoClock observation
+Yves jongen,1.44,0.5472,0.5472,2020-11-02 18:55:03.071999744,ETD
+Gavin boyle,1.872,0.4176,0.4176,2020-10-13 01:12:05.184000000,ETD
+Yves Jongen,1.8,0.9,0.9,2020-08-17 18:17:05.913606656,ExoClock observation
+Yves jongen,3.456,0.6624,0.6624,2020-08-17 18:15:45.216000000,ETD
+Yves Jongen,0.3,0.7,0.7,2020-08-14 19:09:23.687977216,ExoClock observation
+Yves jongen,2.016,0.792,0.792,2020-08-14 19:08:05.856000256,ETD
+Kozłowski et al. 2017,2.0,0.7,0.7,2015-10-09 03:21:14.779164672,ExoClock literature
+Mancini et al. 2016,0.1,0.2,0.2,2015-01-06 14:42:23.798406400,ExoClock literature
+Mancini et al. 2016,-0.2,0.2,0.2,2015-01-06 14:42:05.798383360,ExoClock literature
+Mancini et al. 2016,-0.3,0.2,0.2,2015-01-06 14:41:59.798415872,ExoClock literature
+Mancini et al. 2016,-0.6,0.2,0.2,2015-01-06 14:41:41.798392832,ExoClock literature
+Mancini et al. 2016,-0.0,0.3,0.3,2014-10-12 16:42:23.255996672,ExoClock literature
+Mancini et al. 2016,0.0,0.3,0.3,2014-10-12 16:42:23.255996672,ExoClock literature
+Mancini et al. 2016,-0.1,0.3,0.3,2014-10-12 16:42:17.255988992,ExoClock literature
+Mancini et al. 2016,-0.2,0.3,0.3,2014-10-12 16:42:11.255981312,ExoClock literature
+"Calazo c., tapia l.",5.472,0.3168,0.3168,2014-10-06 18:34:08.544000000,ETD
+Evans p.,-5.184,4.32,4.32,2014-09-21 22:52:27.840000000,ETD
+Mancini et al. 2016,0.2,0.1,0.1,2013-02-09 09:24:36.782414336,ExoClock literature
+Hellier et al. 2014,0.1,0.1,0.1,2013-02-09 09:24:30.782406656,ExoClock literature
