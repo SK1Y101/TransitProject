@@ -34,8 +34,8 @@ ws.fetchExoplanetArchive("ps")
 
 # Transiting Exoplanets Survey Satelite
 # fetch the lightcurves for every planetary target
-#ws.fetchTESSLC()
+ws.fetchTESSLC()
 # fetch the midtransit times
-#ws.fetchTESSTTV()
+ws.fetchTESSTTV()
 # plot the lc and TTV data
-#ws.plotTESS(target="kepler-19")
+ws.plotTESS(target="kepler-19")

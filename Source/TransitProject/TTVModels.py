@@ -14,5 +14,5 @@ def model1(t, target, *planets):
     # TTV due to the position
     TTV = (p1 / (2*np.pi*a1)) * rb
 
-#def dfToParams(df):
-#S    
+def dfToParams(df):
+    
