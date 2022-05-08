@@ -412,6 +412,10 @@ def tosi(val, unit="", power=1000):
     # return the value shifted up to zero, and the unit
     return val * power**(-thisunit), units[thisunit]+unit
 
+def DatetoHJD(val):
+    # converts a standard date to a half-julian date
+    return pd.to_datetime(val).to_julian_date() + 0.5
+
 def HJDtoDate(val):
     ''' convert a half julian datetime to a standard date. '''
     # only subtract if val is not reduced julian date

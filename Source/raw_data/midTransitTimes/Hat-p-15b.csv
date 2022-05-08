@@ -1,6 +1,15 @@
-date,observer,oc,oceu,ocel,source
-2021-10-28 05:55:22.655999744,Wonseok kang,-38.16,1.3248,1.3248,ETD
-2018-11-28 15:01:00.479999744,Martin mašek,-35.136,3.2544,3.2544,ETD
-2015-11-16 13:37:02.495999744,"Janko mravik, jaroslav grnja",-7.92,4.4208,4.4208,ETD
-2011-12-24 10:44:04.992000000,Naves r.,-9.936,2.1024,2.1024,ETD
-2008-06-20 13:26:40.415999744,"G. kovács et al., 2010",-1.152,0.6912,0.6912,ETD
+observer,oc,oceu,ocel,date,source
+Paolo Arcangelo Matassa,-32.3,4.3,4.3,2022-01-01 10:20:35.760010752,ExoClock observation
+Valère Perroud,-32.5,2.3,2.3,2022-01-01 10:20:23.759995392,ExoClock observation
+Xesco Rubia,-33.3,1.6,1.6,2022-01-01 10:19:35.760014336,ExoClock observation
+Robert Roth,-33.4,1.3,1.3,2022-01-01 10:19:29.760006656,ExoClock observation
+Fran Campos,-34.6,1.3,1.3,2022-01-01 10:18:17.759994880,ExoClock observation
+Giorgio Baj,-36.4,1.4,1.4,2022-01-01 10:16:29.760017408,ExoClock observation
+Taewoo Kim,-31.1,1.3,1.3,2021-10-28 06:01:09.359993856,ExoClock observation
+Wonseok kang,-38.16,1.3248,1.3248,2021-10-28 05:55:22.655999744,ETD
+Tõnis Eenmäe,-33.7,3.0,3.0,2021-10-17 09:15:06.959997184,ExoClock observation
+Tõnis Eenmäe,-28.1,1.9,1.9,2020-12-06 08:20:57.360001024,ExoClock observation
+Martin mašek,-35.136,3.2544,3.2544,2018-11-28 15:01:00.479999744,ETD
+"Janko mravik, jaroslav grnja",-7.92,4.4208,4.4208,2015-11-16 13:37:02.495999744,ETD
+Naves r.,-9.936,2.1024,2.1024,2011-12-24 10:44:04.992000000,ETD
+"G. kovács et al., 2010",-1.152,0.6912,0.6912,2008-06-20 13:26:40.415999744,ETD

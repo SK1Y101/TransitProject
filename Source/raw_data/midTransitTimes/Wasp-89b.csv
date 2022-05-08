@@ -1,11 +1,17 @@
-date,observer,oc,oceu,ocel,source
-2021-09-01 09:24:52.127999744,F. lomoz,1.728,2.6352,2.6352,ETD
-2021-07-19 18:08:28.031999744,Yves jongen,-2.592,0.6336,0.6336,ETD
-2021-07-09 16:31:31.584000256,"Eduardo fernández, romina p. di sisto",0.144,0.576,0.576,ETD
-2021-04-26 20:18:16.127999744,Yves jongen,-1.728,0.7056,0.7056,ETD
-2020-09-10 14:37:27.840000000,Yves jongen,-2.016,0.5184,0.5184,ETD
-2020-07-15 13:04:54.048000000,Francois regembal,-9.504,2.016,2.016,ETD
-2017-07-20 17:09:11.808000256,Phil evans,-1.44,0.9072,0.9072,ETD
-2016-07-26 13:53:17.088000256,"Dalouzy jean-christophe, dherbecourt marwane",-0.432,1.224,1.224,ETD
-2016-07-26 13:29:11.616000000,"Dalouzy jean-christophe, dherbecourt marwane",-24.624,1.3968,1.3968,ETD
-2012-10-06 00:30:23.039999744,Hellier et al. (2014),-1.152,0.1728,0.1728,ETD
+observer,oc,oceu,ocel,date,source
+F. lomoz,1.728,2.6352,2.6352,2021-09-01 09:24:52.127999744,ETD
+Yves Jongen,-1.5,0.7,0.7,2021-07-19 18:09:32.843523328,ExoClock observation
+Yves jongen,-2.592,0.6336,0.6336,2021-07-19 18:08:28.031999744,ETD
+"Eduardo fernández, romina p. di sisto",0.144,0.576,0.576,2021-07-09 16:31:31.584000256,ETD
+Yves Jongen,-1.2,0.7,0.7,2021-04-26 20:18:47.531535872,ExoClock observation
+Yves jongen,-1.728,0.7056,0.7056,2021-04-26 20:18:16.127999744,ETD
+Yves Jongen,-0.3,0.7,0.7,2020-09-10 14:39:13.322915840,ExoClock observation
+Yves jongen,-2.016,0.5184,0.5184,2020-09-10 14:37:27.840000000,ETD
+Carmelo Falco,-0.2,2.0,2.0,2020-08-11 09:40:08.530568960,ExoClock observation
+Francois Regembal,2.3,2.2,2.2,2020-07-15 13:16:42.270752256,ExoClock observation
+Francois regembal,-9.504,2.016,2.016,2020-07-15 13:04:54.048000000,ETD
+Phil evans,-1.44,0.9072,0.9072,2017-07-20 17:09:11.808000256,ETD
+"Dalouzy jean-christophe, dherbecourt marwane",-0.432,1.224,1.224,2016-07-26 13:53:17.088000256,ETD
+"Dalouzy jean-christophe, dherbecourt marwane",-24.624,1.3968,1.3968,2016-07-26 13:29:11.616000000,ETD
+Hellier et al. 2015,0.0,0.2,0.2,2012-10-06 00:31:29.792646400,ExoClock literature
+Hellier et al. (2014),-1.152,0.1728,0.1728,2012-10-06 00:30:23.039999744,ETD

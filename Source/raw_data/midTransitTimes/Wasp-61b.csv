@@ -1,8 +1,15 @@
-date,observer,oc,oceu,ocel,source
-2021-10-30 18:32:43.871999744,Yves jongen,-6.624,0.9504,0.9504,ETD
-2021-01-10 17:24:00.864000256,Yves jongen,-5.616,1.7712,1.7712,ETD
-2020-12-14 17:37:51.168000256,Yves jongen,-4.32,1.5264,1.5264,ETD
-2020-11-21 14:26:12.192000000,Yves jongen,-1.008,1.728,1.728,ETD
-2020-11-17 17:52:28.992000000,Yves jongen,-2.304,1.8864,1.8864,ETD
-2014-10-19 17:59:05.567999744,"Quiñones c., colazo c., ferraro m. e.",2.016,1.8144,1.8144,ETD
-2014-10-19 17:54:47.231999744,"Quiñones c., colazo c., ferraro m. e.",-2.304,2.4624,2.4624,ETD
+observer,oc,oceu,ocel,date,source
+Yves Jongen,-4.5,1.0,1.0,2021-10-30 18:33:04.521643776,ExoClock observation
+Yves jongen,-6.624,0.9504,0.9504,2021-10-30 18:32:43.871999744,ETD
+Yves Jongen,1.1,2.2,2.2,2021-01-10 17:29:11.894433792,ExoClock observation
+Yves jongen,-5.616,1.7712,1.7712,2021-01-10 17:24:00.864000256,ETD
+Yves Jongen,-1.4,1.6,1.6,2020-12-14 17:39:14.784022272,ExoClock observation
+Yves jongen,-4.32,1.5264,1.5264,2020-12-14 17:37:51.168000256,ETD
+Yves jongen,-1.008,1.728,1.728,2020-11-21 14:26:12.192000000,ETD
+Yves Jongen,-0.4,2.0,2.0,2020-11-21 14:25:17.260824064,ExoClock observation
+Yves Jongen,2.9,1.9,1.9,2020-11-17 17:56:05.673610496,ExoClock observation
+Yves jongen,-2.304,1.8864,1.8864,2020-11-17 17:52:28.992000000,ETD
+"Quiñones c., colazo c., ferraro m. e.",2.016,1.8144,1.8144,2014-10-19 17:59:05.567999744,ETD
+"Quiñones c., colazo c., ferraro m. e.",-2.304,2.4624,2.4624,2014-10-19 17:54:47.231999744,ETD
+Brown et al. 2017,-1.0,0.7,0.7,2012-05-27 11:00:13.152024064,ExoClock literature
+Hellier et al. 2012,0.2,0.3,0.3,2011-10-24 12:41:48.268833280,ExoClock literature

@@ -1,26 +1,74 @@
-date,observer,oc,oceu,ocel,source
-2022-04-04 12:55:22.080000000,Alessandro marchini,7.056,1.7136,1.7136,ETD
-2022-04-01 11:02:37.824000256,Javier de elias,11.664,2.88,2.88,ETD
-2022-02-23 11:23:21.984000256,Aaav astrofili valdera,0.0,,,ETD
-2022-02-09 14:47:20.544000000,Alessandro marchini,11.952,1.3824,1.3824,ETD
-2022-01-20 14:05:03.840000000,Yves jongen,12.096,0.7776,0.7776,ETD
-2022-01-14 10:10:31.872000000,Yves jongen,12.24,0.6192,0.6192,ETD
-2022-01-14 10:08:25.728000000,Stéphane montchaud,10.08,2.3184,2.3184,ETD
-2022-01-14 10:07:35.616000000,Alessandro marchini,9.216,1.2816,1.2816,ETD
-2021-12-31 13:20:17.664000256,Matthieu bachschmidt,9.792,1.1808,1.1808,ETD
-2021-12-25 09:24:10.656000256,Jens jacobsen,8.352,0.8496,0.8496,ETD
-2021-12-25 09:23:07.584000256,Michal powalko,7.2,1.1232,1.1232,ETD
-2021-12-11 12:38:54.528000000,Yves jongen,10.944,0.8928,0.8928,ETD
-2021-05-11 08:37:20.928000000,Yves jongen,2.016,0.8784,0.8784,ETD
-2021-05-11 07:35:11.039999744,Cosmin olinici ,-60.048,51.696,51.696,ETD
-2021-04-27 11:43:50.592000000,Manfred raetz,-3.6,0.7488,0.7488,ETD
-2021-04-19 18:55:15.168000256,Joe garlitz,1.152,1.1808,1.1808,ETD
-2021-04-16 16:58:09.984000000,Joe garlitz,1.296,1.0368,1.0368,ETD
-2021-04-07 11:04:54.336000000,"Francesco scaggiante, danilo zardin,marco fiaschi",-0.0,1.152,1.152,ETD
-2021-04-07 11:04:43.103999744,Jean plazas,-0.144,,,ETD
-2021-04-07 11:04:34.464000000,Anaël wünsche,-0.288,0.6624,0.6624,ETD
-2021-04-04 09:08:44.448000256,Manfred raetz,1.152,0.504,0.504,ETD
-2021-04-04 09:07:42.240000000,Vrašťák m,0.144,0.9648,0.9648,ETD
-2021-04-04 09:07:25.824000000,Marc bretton,-0.144,0.3168,0.3168,ETD
-2021-03-16 21:25:10.272000256,Laurie sibbald,1.44,3.2544,3.2544,ETD
-2021-03-15 08:25:07.392000000,"Matteo cataneo, emanuele russo, filippo leveraro",0.0,0.7056,0.7056,ETD
+observer,oc,oceu,ocel,date,source
+Robert Roth,59.1,0.9,0.9,2022-04-24 13:45:40.348792064,ExoClock observation
+Claudio Lopresti,58.7,1.7,1.7,2022-04-18 09:50:39.715196160,ExoClock observation
+Adam Popowicz,59.2,1.7,1.7,2022-04-07 15:00:35.606405120,ExoClock observation
+Alessandro Marchini,56.1,1.7,1.7,2022-04-04 13:00:11.289605376,ExoClock observation
+Alessandro marchini,7.056,1.7136,1.7136,2022-04-04 12:55:22.080000000,ETD
+Javier de elias,11.664,2.88,2.88,2022-04-01 11:02:37.824000256,ETD
+Ivo Peretto,58.7,0.7,0.7,2022-03-09 08:25:41.596801536,ExoClock observation
+Pieter Vuylsteke,57.6,1.4,1.4,2022-03-09 08:24:35.596797440,ExoClock observation
+Raniero Albanesi,57.2,1.0,1.0,2022-03-09 08:24:11.596806912,ExoClock observation
+Claudio Lopresti,56.9,1.2,1.2,2022-03-09 08:23:53.596783872,ExoClock observation
+Chiahui Wang,60.2,3.2,3.2,2022-02-28 02:35:16.646388224,ExoClock observation
+Claudio Lopresti,57.8,1.3,1.3,2022-02-23 11:36:55.171220992,ExoClock observation
+Aaav astrofili valdera,0.0,,,2022-02-23 11:23:21.984000256,ETD
+Alessandro marchini,11.952,1.3824,1.3824,2022-02-09 14:47:20.544000000,ETD
+Alessandro Marchini,55.1,1.4,1.4,2022-02-09 14:46:20.745622528,ExoClock observation
+Simon Dawes,55.3,2.9,2.9,2022-02-06 12:49:14.428794880,ExoClock observation
+Paolo Arcangelo Matassa,57.3,2.7,2.7,2022-02-03 10:53:56.111985152,ExoClock observation
+Antonio Marino,53.4,2.4,2.4,2022-02-03 10:50:02.112007168,ExoClock observation
+Yves Jongen,56.7,0.9,0.9,2022-01-20 14:05:27.686427648,ExoClock observation
+Yves jongen,12.096,0.7776,0.7776,2022-01-20 14:05:03.840000000,ETD
+Enrique Arce,60.1,4.3,4.3,2022-01-17 12:11:33.369604608,ExoClock observation
+Mark Salisbury,56.8,0.7,0.7,2022-01-17 12:08:15.369592320,ExoClock observation
+Kevin Johnson,56.2,2.0,2.0,2022-01-17 12:07:39.369626624,ExoClock observation
+GONZALO FORNAS,55.7,4.3,4.3,2022-01-17 12:07:09.369628416,ExoClock observation
+Adam Popowicz,55.3,1.3,1.3,2022-01-17 12:06:45.369597696,ExoClock observation
+Antonio Marino,66.5,4.3,4.3,2022-01-14 10:20:39.052811264,ExoClock observation
+Stéphane Montchaud,59.3,2.9,2.9,2022-01-14 10:13:27.052820992,ExoClock observation
+Yves Jongen,57.7,0.6,0.6,2022-01-14 10:11:51.052818688,ExoClock observation
+Cyrille AUMASSON,57.7,0.4,0.4,2022-01-14 10:11:51.052818688,ExoClock observation
+Anaël Wünsche,57.7,0.4,0.4,2022-01-14 10:11:51.052818688,ExoClock observation
+Yves jongen,12.24,0.6192,0.6192,2022-01-14 10:10:31.872000000,ETD
+Paolo Arcangelo Matassa,56.1,2.4,2.4,2022-01-14 10:10:15.052816384,ExoClock observation
+Pierre Barroy,55.7,0.9,0.9,2022-01-14 10:09:51.052825856,ExoClock observation
+Alessandro Marchini,54.5,1.3,1.3,2022-01-14 10:08:39.052813824,ExoClock observation
+Stéphane montchaud,10.08,2.3184,2.3184,2022-01-14 10:08:25.728000000,ETD
+Alessandro marchini,9.216,1.2816,1.2816,2022-01-14 10:07:35.616000000,ETD
+Robert Roth,56.3,0.9,0.9,2022-01-06 17:17:11.260804864,ExoClock observation
+Adam Popowicz,53.7,1.3,1.3,2022-01-03 15:17:16.944003328,ExoClock observation
+Sebastien Brouillard,60.6,1.4,1.4,2021-12-31 13:26:52.627208192,ExoClock observation
+Matthieu Bachschmidt,56.8,1.3,1.3,2021-12-31 13:23:04.627197696,ExoClock observation
+Matthieu bachschmidt,9.792,1.1808,1.1808,2021-12-31 13:20:17.664000256,ETD
+Jens jacobsen,8.352,0.8496,0.8496,2021-12-25 09:24:10.656000256,ETD
+Michal powalko,7.2,1.1232,1.1232,2021-12-25 09:23:07.584000256,ETD
+Taewoo Kim,55.1,0.6,0.6,2021-12-22 07:29:27.676819968,ExoClock observation
+Fabio Mortari,56.4,2.0,2.0,2021-12-14 14:37:29.884812544,ExoClock observation
+Jean-Baptiste Marquette,56.3,2.9,2.9,2021-12-14 14:37:23.884804864,ExoClock observation
+Adam Popowicz,55.7,1.2,1.2,2021-12-14 14:36:47.884839168,ExoClock observation
+Alvaro Fornas Silva,55.4,0.7,0.7,2021-12-14 14:36:29.884816128,ExoClock observation
+Yves Jongen,56.0,1.0,1.0,2021-12-11 12:39:47.568019456,ExoClock observation
+Robert Roth,55.2,0.9,0.9,2021-12-11 12:38:59.568038400,ExoClock observation
+Yves jongen,10.944,0.8928,0.8928,2021-12-11 12:38:54.528000000,ETD
+Robert Roth,55.1,0.9,0.9,2021-12-11 12:38:53.568030720,ExoClock observation
+Jean-Bernard PIOPPA,53.8,1.6,1.6,2021-12-11 12:37:35.568011008,ExoClock observation
+Robert Roth,53.9,0.4,0.4,2021-11-27 15:49:49.142386688,ExoClock observation
+Robert Roth,53.6,1.0,1.0,2021-11-27 15:49:31.142403840,ExoClock observation
+Adam Popowicz,54.7,2.0,2.0,2021-11-24 13:53:18.825605120,ExoClock observation
+Yves jongen,2.016,0.8784,0.8784,2021-05-11 08:37:20.928000000,ETD
+Cosmin olinici ,-60.048,51.696,51.696,2021-05-11 07:35:11.039999744,ETD
+Manfred Raetz,42.0,0.7,0.7,2021-04-27 11:45:12.124832000,ExoClock observation
+Manfred raetz,-3.6,0.7488,0.7488,2021-04-27 11:43:50.592000000,ETD
+Joe garlitz,1.152,1.1808,1.1808,2021-04-19 18:55:15.168000256,ETD
+Joe garlitz,1.296,1.0368,1.0368,2021-04-16 16:58:09.984000000,ETD
+Francesco Scaggiante,45.0,2.2,2.2,2021-04-07 11:05:43.065624064,ExoClock observation
+"Francesco scaggiante, danilo zardin,marco fiaschi",-0.0,1.152,1.152,2021-04-07 11:04:54.336000000,ETD
+Jean plazas,-0.144,,,2021-04-07 11:04:43.103999744,ETD
+Anaël wünsche,-0.288,0.6624,0.6624,2021-04-07 11:04:34.464000000,ETD
+Manfred Raetz,46.5,0.6,0.6,2021-04-04 09:09:54.748815872,ExoClock observation
+Manfred raetz,1.152,0.504,0.504,2021-04-04 09:08:44.448000256,ETD
+Vrašťák m,0.144,0.9648,0.9648,2021-04-04 09:07:42.240000000,ETD
+Marc bretton,-0.144,0.3168,0.3168,2021-04-04 09:07:25.824000000,ETD
+Robert Roth,44.9,1.0,1.0,2021-03-18 10:23:08.006378752,ExoClock observation
+Laurie sibbald,1.44,3.2544,3.2544,2021-03-16 21:25:10.272000256,ETD
+"Matteo cataneo, emanuele russo, filippo leveraro",0.0,0.7056,0.7056,2021-03-15 08:25:07.392000000,ETD

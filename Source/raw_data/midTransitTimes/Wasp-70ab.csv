@@ -1,3 +1,6 @@
-date,observer,oc,oceu,ocel,source
-2014-09-27 09:06:34.847999744,Lomoz f.,-4.896,4.7232,4.7232,ETD
-2014-09-27 09:03:12.671999744,Lomoz f.,-8.352,2.808,2.808,ETD
+observer,oc,oceu,ocel,date,source
+Phil Evans,-1.0,1.0,1.0,2020-09-18 15:15:43.000316672,ExoClock observation
+Carmelo Falco,3.0,1.6,1.6,2020-08-12 12:12:16.398701312,ExoClock observation
+Lomoz f.,-4.896,4.7232,4.7232,2014-09-27 09:06:34.847999744,ETD
+Lomoz f.,-8.352,2.808,2.808,2014-09-27 09:03:12.671999744,ETD
+Anderson et al. 2014,0.0,0.4,0.4,2011-06-23 12:06:06.914887680,ExoClock literature

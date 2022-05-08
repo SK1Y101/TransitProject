@@ -1,9 +1,20 @@
-date,observer,oc,oceu,ocel,source
-2022-03-24 11:47:47.328000256,Yves jongen,-7.2,1.7856,1.7856,ETD
-2021-03-12 11:50:59.135999744,Ferran grau horta,-3.888,1.44,1.44,ETD
-2020-06-17 12:02:41.568000000,Anaël wünsche,-9.36,1.7568,1.7568,ETD
-2019-04-17 12:56:26.880000000,Manfred raetz,-7.488,3.1248,3.1248,ETD
-2019-02-26 13:50:35.520000256,Manfred raetz,-5.328,1.8288,1.8288,ETD
-2018-02-14 14:07:38.496000256,"Francesco scaggiante, danilo zardin",11.808,1.8,1.8,ETD
-2017-03-15 11:03:07.200000000,Marc bretton,1.008,1.8864,1.8864,ETD
-2015-06-23 02:20:20.457599744,Barros et al. (2016),-1.008,0.0576,0.0576,ETD
+observer,oc,oceu,ocel,date,source
+Simon Dawes,-0.6,2.6,2.6,2022-04-02 13:55:49.439996416,ExoClock observation
+Yves Jongen,1.1,1.9,1.9,2022-03-24 11:56:04.464001280,ExoClock observation
+Paolo Arcangelo Matassa,0.7,4.3,4.3,2022-03-24 11:55:40.464010752,ExoClock observation
+Yves jongen,-7.2,1.7856,1.7856,2022-03-24 11:47:47.328000256,ETD
+Adam Popowicz,1.1,4.3,4.3,2021-05-01 11:03:53.328017664,ExoClock observation
+Martin Crow,0.5,3.3,3.3,2021-05-01 11:03:17.328011776,ExoClock observation
+Ferran Grau Horta,-3.5,1.4,1.4,2021-03-12 11:51:18.960017920,ExoClock observation
+Ferran grau horta,-3.888,1.44,1.44,2021-03-12 11:50:59.135999744,ETD
+Anaël Wünsche,-1.5,2.2,2.2,2020-06-17 12:10:33.168000000,ExoClock observation
+Anaël wünsche,-9.36,1.7568,1.7568,2020-06-17 12:02:41.568000000,ETD
+Nikolaos Paschalis,-0.3,3.5,3.5,2020-04-10 09:00:52.848033536,ExoClock observation
+Nikolaos Paschalis,-0.8,3.5,3.5,2020-02-29 11:53:51.456032512,ExoClock observation
+Manfred raetz,-7.488,3.1248,3.1248,2019-04-17 12:56:26.880000000,ETD
+Manfred raetz,-5.328,1.8288,1.8288,2019-02-26 13:50:35.520000256,ETD
+"Francesco scaggiante, danilo zardin",11.808,1.8,1.8,2018-02-14 14:07:38.496000256,ETD
+Anaël Wünsche,4.6,2.2,2.2,2017-03-15 11:06:45.311997184,ExoClock observation
+Marc bretton,1.008,1.8864,1.8864,2017-03-15 11:03:07.200000000,ETD
+Barros et al. 2016,-0.0,0.1,0.1,2015-06-23 02:21:24.480030720,ExoClock literature
+Barros et al. (2016),-1.008,0.0576,0.0576,2015-06-23 02:20:20.457599744,ETD

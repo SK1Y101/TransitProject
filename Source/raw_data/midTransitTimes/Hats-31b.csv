@@ -1,6 +1,10 @@
-date,observer,oc,oceu,ocel,source
-2022-02-17 17:00:45.504000000,Yves jongen,-39.024,3.6,3.6,ETD
-2021-06-02 14:49:58.656000000,Yves jongen,-21.6,2.5056,2.5056,ETD
-2021-03-06 18:58:58.943999744,Yves jongen,-21.888,2.16,2.16,ETD
-2021-02-24 15:36:35.424000256,Yves jongen,-31.392,3.24,3.24,ETD
-2014-10-29 03:32:32.639999744,De val-borro et al. (2016),0.0,1.584,1.584,ETD
+observer,oc,oceu,ocel,date,source
+Yves Jongen,-35.7,4.3,4.3,2022-02-17 17:05:17.519956736,ExoClock observation
+Yves jongen,-39.024,3.6,3.6,2022-02-17 17:00:45.504000000,ETD
+Yves Jongen,-21.3,2.9,2.9,2021-06-02 14:51:29.231979776,ExoClock observation
+Yves jongen,-21.6,2.5056,2.5056,2021-06-02 14:49:58.656000000,ETD
+Yves jongen,-21.888,2.16,2.16,2021-03-06 18:58:58.943999744,ETD
+Yves Jongen,-24.9,2.3,2.3,2021-03-06 18:57:03.888006912,ExoClock observation
+Yves Jongen,-30.6,2.7,2.7,2021-02-24 15:38:34.655962624,ExoClock observation
+Yves jongen,-31.392,3.24,3.24,2021-02-24 15:36:35.424000256,ETD
+De val-borro et al. (2016),0.0,1.584,1.584,2014-10-29 03:32:32.639999744,ETD

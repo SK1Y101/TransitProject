@@ -112,8 +112,10 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
     rows = page.find("tbody").find_all("tr")
     # fetch which column the observer information is held
     observer_col = -3 if "literature" in url else 1
+    # fetch Ephemerides to be used for Midtransit times
+    ephem = loadDataFrame("/raw_data/exoClockEphemerides.csv")
     # search the table for each exoplanet
-    exoplanets, this_data, this_exoplanet = {}, [], ""
+    exoplanets, this_data, this_exoplanet, this_ephem = {}, [], "", {}
     for x in tqdm(rows, desc="Fetching {}".format(sourceName), miniters=0):
         # if the row has an id tag, its the title of an exoplanet
         if x.has_attr("id"):
@@ -124,17 +126,18 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
                 # add the source name
                 this_data["source"] = sourceName
                 # and store the midtransit times
-                saveTransitTimes(this_data, name = this_exoplanet)
+                saveTransitTimes(this_data.astype(str), name = this_exoplanet)
             # clear the temporary exoplanet data, and fetch the new name
             this_data, this_exoplanet = [], x.find("button").text
+            # fetch the ephemerides for this planet
+            this_ephem = ephem[ephem["name"] == this_exoplanet]
+            # continue
             continue
         # fetch the columns
         cols = x.find_all("td")
         # if we have data this column
         if len(cols) > 2:
             thiscol = {}
-            # observation date
-            thiscol["date"] = cols[0].text.strip().astype(str)
             # observer
             replace_breaks(cols[observer_col])
             thiscol["observer"] = cols[observer_col].text.strip().split("\n")[0]
@@ -142,6 +145,16 @@ def fetchExoClockData(url, loc="/raw_data/midTransitTimes/", stale_time=7, sourc
             thiscol["oc"], thiscol["oceu"] = [x.strip() for x in findFloats(cols[-2].text)]
             # apply the lower oce bound
             thiscol["ocel"] = thiscol["oceu"]
+            # observation date as HJD
+            date = DatetoHJD(cols[0].text.strip())
+            # fetch ephemeride details
+            t0, P = float(this_ephem["t0_bjd_tdb"]), float(this_ephem["period_days"])
+            # compute number of transits between observation date and initial time
+            transits = round((date - t0) / P)
+            # compute predicted midtransit time, offset by O-C in days
+            mt = t0 + P * transits + float(thiscol["oc"])/(60 * 24)
+            # save the midtransit time as a date string
+            thiscol["date"] = HJDtoDate(mt)
             # add this data to our exoplanet list
             this_data.append(thiscol)
 

@@ -1,6 +1,13 @@
-date,observer,oc,oceu,ocel,source
-2022-02-12 08:05:28.896000256,Aaav astrofili valdera,-0.288,,,ETD
-2022-02-12 08:05:06.432000256,Manfred raetz,-0.72,3.7296,3.7296,ETD
-2022-01-29 09:10:30.719999744,Fran campos,2.304,2.0592,2.0592,ETD
-2022-01-29 09:09:19.008000000,James hilton,1.008,13.0608,13.0608,ETD
-2022-01-29 09:06:14.976000000,Mark salisbury,-2.016,1.6416,1.6416,ETD
+observer,oc,oceu,ocel,date,source
+Sebastien Brouillard,-6.7,7.2,7.2,2022-02-19 07:27:52.492785664,ExoClock observation
+Aaav astrofili valdera,-0.288,,,2022-02-12 08:05:28.896000256,ETD
+Manfred Raetz,-0.5,5.8,5.8,2022-02-12 08:05:17.990402816,ExoClock observation
+Manfred raetz,-0.72,3.7296,3.7296,2022-02-12 08:05:06.432000256,ETD
+Fran Campos,3.6,1.7,1.7,2022-01-29 09:11:50.985562112,ExoClock observation
+Fran campos,2.304,2.0592,2.0592,2022-01-29 09:10:30.719999744,ETD
+James hilton,1.008,13.0608,13.0608,2022-01-29 09:09:19.008000000,ETD
+Mark salisbury,-2.016,1.6416,1.6416,2022-01-29 09:06:14.976000000,ETD
+Alessandro Marchini,-0.3,1.9,1.9,2019-09-20 13:24:13.939193600,ExoClock observation
+Alessandro Marchini,-0.1,2.4,2.4,2019-09-13 13:55:39.436791808,ExoClock observation
+Alessandro Marchini,-4.8,2.7,2.7,2018-09-10 11:18:04.435169280,ExoClock observation
+Alessandro Marchini,7.8,3.2,3.2,2017-08-17 10:31:27.926378752,ExoClock observation

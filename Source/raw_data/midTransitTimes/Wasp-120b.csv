@@ -1,3 +1,4 @@
-date,observer,oc,oceu,ocel,source
-2021-11-08 14:38:46.464,Yves jongen,-2.736,2.88,2.88,ETD
-2014-05-01 10:26:41.280,Turner et al. 2015,0.0,0.6336,0.6336,ETD
+observer,oc,oceu,ocel,date,source
+Yves Jongen,-2.5,2.2,2.2,2021-11-08 14:40:59.078407168,ExoClock observation
+Yves jongen,-2.736,2.88,2.88,2021-11-08 14:38:46.464,ETD
+Turner et al. 2015,0.0,0.6336,0.6336,2014-05-01 10:26:41.280,ETD

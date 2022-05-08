@@ -1,3 +1,6 @@
-date,observer,oc,oceu,ocel,source
-2022-03-29 16:45:22.752000000,Yves jongen,-12.816,2.5488,2.5488,ETD
-2013-12-22 13:11:34.080000256,Smith et al. (2014),-0.0,0.4752,0.4752,ETD
+observer,oc,oceu,ocel,date,source
+Yves Jongen,-6.2,2.6,2.6,2022-03-29 16:53:08.399992832,ExoClock observation
+Yves jongen,-12.816,2.5488,2.5488,2022-03-29 16:45:22.752000000,ETD
+Alessandro Nastasi,-8.6,4.3,4.3,2021-04-01 09:40:20.735974656,ExoClock observation
+Carmelo Falco,-8.6,5.8,5.8,2021-04-01 09:40:20.735974656,ExoClock observation
+Smith et al. (2014),-0.0,0.4752,0.4752,2013-12-22 13:11:34.080000256,ETD

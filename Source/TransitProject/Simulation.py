@@ -75,7 +75,7 @@ def _fetchCustomSystem_(file, exoplanet):
         file: The csv file containing the system information.
         exoplanet: The name of the target exoplanet.'''
     # define the allowed parameters
-    params=["mass", "sma", "per", "ecc", "inc", "arg", "mean"]
+    params=["mass", "sma", "per", "ecc", "inc", "arg", "mean", "t0"]
     # get the dataset
     data = loadDataFrame(file)
     # remove any whitespace
