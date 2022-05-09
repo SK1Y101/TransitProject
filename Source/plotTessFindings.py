@@ -1,7 +1,7 @@
 import TransitProject.webScraping as ws
 import argparse
 
-parser = argparse.ArgumentParser(description="Plot simulations and models")
+parser = argparse.ArgumentParser(description="Plot TESS Lightcurves and TTV")
 parser.add_argument("--star", help="The name of the star to search the lightcurve of.", required=True)
 parser.add_argument("--saveTTV", help="Whether the results of the TTV should be saved after graphing.", action="store_true")
 args = parser.parse_args()
