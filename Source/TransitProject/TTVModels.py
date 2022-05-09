@@ -15,4 +15,3 @@ def model1(t, target, *planets):
     TTV = (p1 / (2*np.pi*a1)) * rb
 
 def dfToParams(df):
-    
