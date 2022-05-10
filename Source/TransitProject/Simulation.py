@@ -491,7 +491,7 @@ def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tq
 
 def planetParams(df):
     ''' return the parameters for each planet in the dataframe.
-        returns an array of planets, each with (sma, per, reduced mass, ecc, inc, arg)'''
+        returns an array of planets, each with (sma, per, reduced mass, ecc, inc, arg, t0)'''
     return np.array([_planetVars_(df.iloc[0], df.iloc[idx], sum(df["mass"])) for idx in df.index[1:]])
 
 def _planetVars_(star, planet, mTot):
@@ -518,9 +518,9 @@ def _planetVars_(star, planet, mTot):
         if ~hassma:
             a = (Gmu * p**2 / (4*np.pi**2))**(1/3)
     # fetch everything else
-    arg, inc, ecc, mMu = np.radians(planet["arg"]), np.radians(90-planet["inc"]), planet["ecc"], planet["mass"] / mTot
+    arg, inc, ecc, mMu, t0 = np.radians(planet["arg"]), np.radians(90-planet["inc"]), planet["ecc"], planet["mass"] / mTot, planet["t0"]
     # variables in an np array
-    var = np.array([a, p, mMu, ecc, inc, arg])
+    var = np.array([a, p, mMu, ecc, inc, arg, t0])
     # remove NaN
     var[np.isnan(var)] = 0
     # and return the variables

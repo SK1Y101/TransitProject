@@ -414,7 +414,7 @@ def tosi(val, unit="", power=1000):
 
 def DatetoHJD(val):
     # converts a standard date to a half-julian date
-    return pd.to_datetime(val).to_julian_date() + 0.5
+    return 2400000 + (pd.to_datetime(val) - pd.Timestamp("1858-11-16 12:00")) / pd.to_timedelta(1, unit='D')
 
 def HJDtoDate(val):
     ''' convert a half julian datetime to a standard date. '''

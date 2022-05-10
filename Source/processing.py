@@ -109,17 +109,6 @@ def fetchMidTransitTimes(exoplanet):
     # and return
     return df
 
-def dateToYearFloat(date):
-    ''' Convert a date string to a unix float (ie: 2008-06-31 ~2008.5)
-        date: The date string to convert. '''
-    # number of nanoseconds in a day
-    nanoSecToDay = 86400 * 1E9
-    # if the date isn't a string, this works
-    if not isinstance(date, str):
-        return pd.to_datetime(date).astype(int) / nanoSecToDay
-    # otherwise do this
-    return pd.to_datetime(date).value / nanoSecToDay
-
 def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b, bounds=(-np.inf, np.inf)):
     ''' fit a set of datapoints (with or without errors) to a function.
         x, y: The individual datapoints.
@@ -135,7 +124,7 @@ def checkEphemerides(transitdf, systemdf):
         transitdf: the dataframe of midtransit mid-transit times.
         systemdf: the dataframe of the system information.'''
     # fetch the date as a float (days since 1970-01-01)
-    dateAsFloat = dateToYearFloat(transitdf["date"])
+    dateAsFloat = tp.DatetoHJD(transitdf["date"])
     # planet orbit in days
     period = systemdf.iloc[1]["per"] * 365.25
     print("Planet orbital period is:         {}.".format(tp.totimestring(period)))
@@ -159,7 +148,7 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
     transitdf = transitdf.sort_values(by="date", ascending=True)
 
     # fetch the x axis details
-    dateAsFloat = dateToYearFloat(transitdf["date"])
+    dateAsFloat = tp.DatetoHJD(transitdf["date"])
     dateAsDate = pd.to_datetime(transitdf["date"])
     dateminmax = [min(dateAsFloat), max(dateAsFloat)]
     # ensure we have one datapoint per hour
@@ -210,7 +199,7 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
     # plot each datapoint
     for source in sources:
         data = transitdf.loc[transitdf["source"]==source]
-        dateAsFloat = dateToYearFloat(data["date"])
+        dateAsFloat = tp.DatetoHJD(data["date"])
         ocerr = [data["ocel"], data["oceu"]]
         ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=ocerr, label=source, fmt="o")
         # if we have a fit function
@@ -246,48 +235,61 @@ if __name__ == "__main__":
     # fetch the program arguments
     args = fetchArgs()
 
+    # fetch the system data
+    systemdf = ts.fetchParams(args.planet)[0]
+
     # fetch the planetary data
     transitdf = fetchMidTransitTimes(args.planet)
 
     # include the datasources we are using
     transitdf = trimToSources(transitdf, args.dataSource)
 
-    # fetch the system data
-    systemdf = ts.fetchParams(args.planet)[0]
-    print(systemdf)
-    # check the ephemerides
-    checkEphemerides(transitdf, systemdf)
+    # fetch the observation dates
+    dateAsFloat = tp.DatetoHJD(transitdf["date"])
 
-    # fit a sine function to the data as a test
-    dateAsFloat = dateToYearFloat(transitdf["date"])
+    # check the ephemerides
+    #checkEphemerides(transitdf, systemdf)
+
+    # params
+    star, planets = tm.dfToParams(systemdf)
+    # data in seconds
+    x, y, yerr = dateAsFloat*86400, transitdf["oc"]*60, 0.5*(transitdf["ocel"]+transitdf["oceu"])*60
+    x1 = np.arange(min(x), max(x), 0.1*86400)
+
+    # fit data to models
+    #tm.MCMCFit(dateAsFloat, transitdf["oc"])
+    m1pos, m1samp, m1mod, m1labels = tm.modelToMCMC(x, y, yerr, tm.model1, star, planets[0], 1)
+    tm.runSampler(m1pos, m1samp, m1labels)
+
+    # compute BIC
+    k = m1pos.shape[1]
+    n = len(x)
+
+    # fetch best fit params
+    theta = []
+    flat_samples = m1samp.get_chain(discard=100, thin=15, flat=True)
+    for i in range(k):
+        mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
+        theta.append(mcmc[1])
+    L = tm.log_likelihood(tuple(theta), x, y, yerr, model=m1mod)
+    print(planets[1])
+    print(theta)
+    print(tm.BIC(k, n, L))
+
+    plt.plot(x1, m1mod(x1, np.array(planets[1]).flatten()))
+    #plt.plot(x1, m1mod(x1, np.array(planets[1:]).flatten()))
+    #plt.plot(x1, m1mod(x1, theta))
+    plt.errorbar(x, y, yerr=yerr, fmt=".")
+    plt.show()
+
+    #print(m1pos, m1samp)
+
+    '''# fit a sine function to the data as a test
+    dateAsFloat = tp.DatetoHJD(transitdf["date"])
     x, y = np.array(dateAsFloat), transitdf["oc"].to_numpy()
     # average errors so they are symmetric
     yerr = 0.5*(transitdf["ocel"].to_numpy() + transitdf["oceu"].to_numpy())
-    ''' fit x, y, yerr to a model. '''
-
-    # experimental model
-    def model(x, magnitude, period, phase):
-        return magnitude * np.sin(x * 2 * np.pi / period + phase)
-
-    import pymc3 as pm
-    import arviz as az
-
-    with pm.Model() as transitModel:
-        # data
-        data = pm.Data("data", y)
-        # parameters
-        mag = pm.Uniform("mag", lower=0, upper=1000)
-        per = pm.Uniform("per", lower=0, upper=1000)
-        phase = pm.Uniform("phase", lower=0, upper=2*np.pi)
-        # expected outcome
-        mu = model(x, mag, per, phase) #mag * pm.math.sin(x * (2 * np.pi / per) + phase)
-        # observation
-        obs = pm.Normal("y", mu=mu, sigma=1, observed=y)
-
-    with transitModel:
-        trace = pm.sample(1000, init="adapt_diag", return_inferencedata=False, chains=4)
-        az.plot_trace(trace, var_names=["mag", "per", "phase"])
-        print(pm.summary(trace))
+     fit x, y, yerr to a model.
 
     import corner
     print(systemdf.iloc[2]["per"], systemdf.iloc[2]["per_e1"])
@@ -304,7 +306,7 @@ if __name__ == "__main__":
         params.append(mcmc[1])
 
     fitfunc2 = lambda x: model(x, *params)
-    fitfunc2.__name__ = "MCMC fit"
+    fitfunc2.__name__ = "MCMC fit"'''
 
     # plot the data with the fitting residuals
-    plotMidtransits(transitdf, [fitfunc2], args.addSim)
+    #plotMidtransits(transitdf, [fitfunc2], args.addSim)
