@@ -195,8 +195,10 @@ def runMinimalSim(target, startTime="2000-01-01", years=4, unperturbed=False):
     # run the TTV pipeline
     TTV, TT = runTTVPipeline(df, params, args)
 
-    # as we only used one sim setup, fetch the timing
+    # as we only used one sim setup, use the standard deviation for error bounds
     TTV, TTVl, TTVu = tp.avMinMax(TTV, 0)
+    TTVu = TTVl = np.std(TTV)*np.ones(len(TT))
+    #TTV, TTVl, TTVu = tp.avMinMax(TTV, 0)
     TT = TT[0]
 
     # fetch only the TTV within the observation window
