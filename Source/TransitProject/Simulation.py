@@ -124,6 +124,8 @@ def _fetchCustomSystem_(file, exoplanet):
     targetIdx = np.where(data["name"]==exoplanet)[0][0]
     # ensure it is the second value (as star is first)
     data = moveRowToIdx(data, targetIdx, 1)
+    # remove underscores from names
+    data["name"] = data["name"].str.replace("_"," ")
     # return the dataframe
     return data
 
@@ -179,6 +181,8 @@ def _fetchSystem_(target, startTime="2000-01-01"):
         systemData = systemData.drop(["index"], axis=1)
     # rename all the columns to be more usefull
     systemData.columns = ["name"]+param
+    # remove underscores in names
+    systemData["name"] = systemData["name"].str.replace("_"," ")
     # fetch the epoch of periapse passage and starting time
     EoPP = HJDtoDate(systemData["mean"])
     EoPP_e1 = HJDtoDate(systemData["mean"]+systemData["mean_e1"])
@@ -489,11 +493,6 @@ def fetchTT(simArray, params, transits=1000, prec=1/31557600.0, workers=None, tq
         return TT
     return avMinMax(TT, 0)
 
-def planetParams(df):
-    ''' return the parameters for each planet in the dataframe.
-        returns an array of planets, each with (sma, per, reduced mass, ecc, inc, arg, t0)'''
-    return np.array([_planetVars_(df.iloc[0], df.iloc[idx], sum(df["mass"])) for idx in df.index[1:]])
-
 def _planetVars_(star, planet, mTot):
     ''' fetch all simulation parameters for a planet given keplerian motion. '''
     # gravitational parameter
@@ -525,6 +524,29 @@ def _planetVars_(star, planet, mTot):
     var[np.isnan(var)] = 0
     # and return the variables
     return var
+
+def bodyParams(df):
+    ''' return the parameters for each body in the dataframe. (skipping over orbital period and the like)
+        returns an array of planets, each with (sma, per, reduced mass, ecc, inc, arg, t0)'''
+    mTot = sum(df["mass"])
+    bodies = []
+    for i in df.index:
+        body = df.iloc[i]
+        # fetch
+        p, a = body["per"], body["sma"]
+        arg, inc, ecc, mMu, t0 = np.radians(body["arg"]), np.radians(90-body["inc"]), body["ecc"], body["mass"] / mTot, body["t0"]
+        # variables in an np array
+        bodies.append([a, p, mMu, ecc, inc, arg, t0])
+    # to np array
+    var = np.array(bodies)
+    # remove NaN
+    var[np.isnan(var)] = 0
+    return var
+
+def planetParams(df):
+    ''' return the parameters for each planet in the dataframe.
+        returns an array of planets, each with (sma, per, reduced mass, ecc, inc, arg, t0)'''
+    return np.array([_planetVars_(df.iloc[0], df.iloc[idx], sum(df["mass"])) for idx in df.index[1:]])
 
 def _innerTTV_(target, perturber):
     ''' Compute the predicted magnitude of a TTV from an inner perturbing planet.

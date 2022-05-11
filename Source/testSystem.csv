@@ -1,5 +1,5 @@
-name,     mass, per,  ecc
-star1,    1.32, NaN,  NaN
-planet1,  1J,   7D,   0
-planet2,  5J,   59D,  0
-planet3,  10J,  500D, 0
+name,               mass, per,  ecc,   arg, mean
+example_system,     1.32, NaN,  NaN,   NaN, NaN
+inner_perturber,    0.8J, 9D,   0.15,  0,   0
+outer_perturber,    0.5J, 65D,  0.15,  1,   1.5
+transiting_planet,  5J,   537D, 0.3,   1.5, 2.7

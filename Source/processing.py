@@ -1,5 +1,6 @@
 # python modules
 import matplotlib.pylab as plt
+import astropy.units as u
 import scipy.optimize
 import pandas as pd
 import numpy as np
@@ -8,7 +9,7 @@ import argparse
 # my modules
 import TransitProject as tp
 import TransitProject.Simulation as ts
-import TransitProject.TTVModels as tm
+import TransitProject.modelling as tm
 
 '''
 Goals: Create a simple extensible model that can take system parameters and output a TTV sinusoid.
@@ -230,6 +231,21 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
             ax2.set_title("Residuals from fit")
     plt.show()
 
+def dfToParams(df):
+    # fetch the star params
+    star = ts.bodyParams(df)[0]
+    # and the params for each planet > (a, P, mu, ecc, inc, arg, t0)
+    planets = ts.planetParams(df)
+    # vstack the bodies
+    bodies = np.vstack([star, planets])
+    # remove orbital period as we're calculating it in models
+    bodies = np.delete(bodies, 1, axis=1)
+    # convert reduced mass
+    # used to be m / mTot, change to raw mass in Msun
+    bodies[:, 1] = df["mass"].to_numpy()
+    # return > (a, mu, ecc, inc, arg, t0)
+    return bodies
+
 # execte the program if called
 if __name__ == "__main__":
     # fetch the program arguments
@@ -238,27 +254,99 @@ if __name__ == "__main__":
     # fetch the system data
     systemdf = ts.fetchParams(args.planet)[0]
 
+    # fetch the parameters for each body in the standard format
+    bodies = dfToParams(systemdf)
+    star, planets = bodies[0], bodies[1:]
+
     # fetch the planetary data
-    transitdf = fetchMidTransitTimes(args.planet)
+    #transitdf = fetchMidTransitTimes(args.planet)
 
     # include the datasources we are using
-    transitdf = trimToSources(transitdf, args.dataSource)
+    #transitdf = trimToSources(transitdf, args.dataSource)
 
-    # fetch the observation dates
-    dateAsFloat = tp.DatetoHJD(transitdf["date"])
+    # graphing limit
+    end_time = 50000
+    xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
+    # simulate
+    import simulationPipeline as simP
+    TTV, TTVl, TTVu, TT = simP.runMinimalSim(args.planet, 0, end_time/365.25, False)
+    # convert TT to days and fetch transit numbers
+    x = TT*365.25*u.d
+    y = TTV
+    yerr = [TTVu, TTVl]
+    # and plot
+    tm.plotModels(x, y, yerr, [tm.model1, tm.model2], bodies, xlim=xlim, xlimz=xlimz, fname="TTVAnalyticalNumerical")
 
-    # check the ephemerides
-    #checkEphemerides(transitdf, systemdf)
+    # fetch the observation dates in days
+    #x = tp.DatetoHJD(transitdf["date"]).to_numpy() * u.d
+    # and the data in minutes
+    #y = (transitdf["oc"].to_numpy() * u.min).to(u.s).value
+    #yerr = (0.5*(transitdf["ocel"]+transitdf["oceu"]).to_numpy() * u.min).to(u.s).value
+    yerr = np.average(yerr)
 
-    # params
-    star, planets = tm.dfToParams(systemdf)
-    # data in seconds
-    x, y, yerr = dateAsFloat*86400, transitdf["oc"]*60, 0.5*(transitdf["ocel"]+transitdf["oceu"])*60
-    x1 = np.arange(min(x), max(x), 0.1*86400)
+    # standard priors for an unknown body
+    bod_prior = [# SMA between 0 and 10 AU
+                 [0, 14959787070000],
+                 # mu between 0 and 0.25
+                 [0, 0.25],
+                 # eccentricity between 0 and 1
+                 [0, 1],
+                 #inc
+                 [0, 0],
+                 #arg
+                 [-2*np.pi, 2*np.pi],
+                 #t0
+                 [-1000, 1000]]
+
+    # unchanging values
+    initial = list(star) + list(planets[0])
+    priors = [[l, u] for l,u in zip(initial, initial)]
+    # changing values
+    for p in planets[1:]:
+        initial += list(p)
+        priors += [[0.75*v, 1.25*v] for v in p]
+        #priors += bod_prior
+
+    solution = tm.parameterSearch(x, y, yerr, priors, tm.model2)#, initial=initial)
+    print(solution)
+
+    x1 = np.linspace(min(x), max(x), 10000)
+    plt.plot(x1, tm.model1(x1, solution[:-1]))
+    plt.errorbar(x, y, yerr=yerr, fmt=".")
+    plt.show()
+
+    sampler = tm.parameterMCMC(x, y, yerr, solution, priors=priors, model=tm.model2)
+
+    flat_samples = sampler.get_chain(discard=100, flat=True)
+    vals = ""
+    best, beste = [], []
+    labels = ["a", "mu", "e", "i", "arg", "t0"]
+    for i in range(len(solution)-1):
+        mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
+        q = np.diff(mcmc)
+        txt = "{3}_{4} = {0:.2e} - {1:.2e} + {2:.2e}"
+        txt = txt.format(mcmc[1], q[0], q[1], labels[i%6], i//6)
+        best.append(mcmc[1])
+        beste.append([q[0], q[1]])
+        print(txt)
+
+    # compute BIC for fit
+    k = len(solution)
+    n = len(x)
+    L = tm.log_like(best, x, y, yerr, tm.model2)
+    print(tm.BIC(k, n, L))
+    print(tm.BIC(k, n, tm.log_like(initial+[0], x, y, yerr, tm.model2)))
+
+    tm.plotModels(x, y, yerr, [tm.model2], best, xlim=xlim, xlimz=xlimz, fname="TTVBestFit")
+
+    # plot the errors
+    plt.errorbar(np.arange(len(best)), best, yerr=beste, fmt="o")
+    plt.scatter(np.arange(initial), initial)
+    plt.show()
 
     # fit data to models
     #tm.MCMCFit(dateAsFloat, transitdf["oc"])
-    m1pos, m1samp, m1mod, m1labels = tm.modelToMCMC(x, y, yerr, tm.model1, star, planets[0], 1)
+    '''m1pos, m1samp, m1mod, m1labels = tm.modelToMCMC(x, y, yerr, tm.model1, star, planets[0], 2)
     tm.runSampler(m1pos, m1samp, m1labels)
 
     # compute BIC
@@ -273,14 +361,13 @@ if __name__ == "__main__":
         theta.append(mcmc[1])
     L = tm.log_likelihood(tuple(theta), x, y, yerr, model=m1mod)
     print(planets[1])
-    print(theta)
+    print(tm.toSI(theta))
     print(tm.BIC(k, n, L))
 
-    plt.plot(x1, m1mod(x1, np.array(planets[1]).flatten()))
-    #plt.plot(x1, m1mod(x1, np.array(planets[1:]).flatten()))
-    #plt.plot(x1, m1mod(x1, theta))
+    plt.plot(x1, m1mod(x1, tm.fromSI(planets[1:])))
+    plt.plot(x1, m1mod(x1, theta))
     plt.errorbar(x, y, yerr=yerr, fmt=".")
-    plt.show()
+    plt.show()'''
 
     #print(m1pos, m1samp)
 
