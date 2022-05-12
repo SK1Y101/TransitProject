@@ -70,7 +70,7 @@ def modeln(t, *bodies):
 def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname="TTVModel"):
     # fetch size
     m = len(models)
-    plotnum = 1+m if m>1 else 1
+    plotnum = 1+m
     # fetch transiting body period
     p = _extraModelParam_(bodies)[1][1].to(u.d)
     # convert x to transit numbers
@@ -78,7 +78,7 @@ def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname="TTVMod
     # intermediary x
     x1 = np.linspace(min(x), max(x), 100000)
     # figure
-    plt.figure(figsize=(20, (10/3) * plotnum if plotnum > 1 else 10))
+    plt.figure(figsize=(20, (10/3) * plotnum))
     # plot everything
     plt.style.use('seaborn-colorblind')
     plt.subplot(plotnum, 1, 1)
@@ -93,22 +93,20 @@ def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname="TTVMod
     if xlim:
         plt.xlim(xlim)
     # for each model
-    if plotnum>1:
-        for i, model in enumerate(models):
-            plt.subplot(plotnum, 1, i+2)
-            plt.style.use('seaborn-colorblind')
-            # offset colour
-            for j in range(i):
-                plt.plot([-10],[0])
-                # convert transit number to time for the model to run
-            plt.plot(x1, model(x1*p, *bodies), label="Analytical TTV, {}".format(model.__name__.capitalize()))
-            plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
-            plt.legend()
-            plt.title("Zoomed Comparison for {}".format(model.__name__.capitalize()), fontsize="xx-large")
-            plt.ylabel("TTV [s]")
-            plt.xlabel("Transit number")
-            if xlimz:
-                plt.xlim(xlimz)
+    for i, model in enumerate(models):
+        plt.subplot(plotnum, 1, i+2)
+        plt.style.use('seaborn-colorblind')
+        # offset colour
+        for j in range(i):
+            plt.plot([-10],[0])
+            # convert transit number to time for the model to run
+        plt.plot(x1, model(x1*p, *bodies), label="Analytical TTV, {}".format(model.__name__.capitalize()))
+        plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
+        plt.title("Zoomed Comparison for {}".format(model.__name__.capitalize()), fontsize="xx-large")
+        plt.ylabel("TTV [s]")
+        plt.xlabel("Transit number")
+        if xlimz:
+            plt.xlim(xlimz)
     plt.tight_layout()
     plt.savefig(f"{fname}.png", transparent=False, bbox_inches='tight')
     plt.savefig(f"{fname}_transparent.png", transparent=True, bbox_inches='tight')

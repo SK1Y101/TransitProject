@@ -319,16 +319,20 @@ if __name__ == "__main__":
 
     flat_samples = sampler.get_chain(discard=100, flat=True)
     vals = ""
-    best, beste = [], []
+    best, beste, lab = [], [], []
     labels = ["a", "mu", "e", "i", "arg", "t0"]
-    for i in range(len(solution)-1):
+    for i in range(len(solution)):
         mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
         q = np.diff(mcmc)
         txt = "{3}_{4} = {0:.2e} - {1:.2e} + {2:.2e}"
         txt = txt.format(mcmc[1], q[0], q[1], labels[i%6], i//6)
         best.append(mcmc[1])
         beste.append([q[0], q[1]])
+        lab.append("{}_{}".format(labels[i%6], i//6))
         print(txt)
+    lab[-1] = "log(f)"
+
+    sampleParams = sampler.chain[:, 100:, :].reshape((-1, len(solution)))
 
     # compute BIC for fit
     k = len(solution)
@@ -337,11 +341,57 @@ if __name__ == "__main__":
     print(tm.BIC(k, n, L))
     print(tm.BIC(k, n, tm.log_like(initial+[0], x, y, yerr, tm.model2)))
 
+    ind = np.random.randint(len(sampleParams), size=100)
+    plt.figure(figsize=(20, 10))
+    p = tm._extraModelParam_(bodies)[1][1].to(u.d)
+    x0 = np.around(x/p)
+    x1 = np.linspace(min(x0), max(x0), 100000)
+    for s in sampleParams[ind]:
+        plt.plot(x1, tm.model2(x1*p, s[:-1]), c="gray", alpha=0.1)
+    plt.plot(x1, tm.model2(x1*p, best[:-1]), c="k")
+    plt.xlim([6.9, 8.1])
+    plt.show()
+
+    # parameter values
+    initial, best, beste = np.array(initial), np.array(best[:-1]), np.array(beste[:-1])
+
     tm.plotModels(x, y, yerr, [tm.model2], best, xlim=xlim, xlimz=xlimz, fname="TTVBestFit")
 
     # plot the errors
-    plt.errorbar(np.arange(len(best)), best, yerr=beste, fmt="o")
-    plt.scatter(np.arange(initial), initial)
+    import matplotlib.ticker as mtick
+    plt.figure(figsize=(20, 10))
+    # fetch values
+    r = best/initial
+    idx = np.isinf(r)|np.isnan(r)
+    yerrval = np.array([b[~idx] for b in beste.T])/initial[~idx]
+    # plot the zero points
+    plt.plot([-0.5, len(initial)+0.5], [1, 1], "--", c="k", alpha=0.3)
+    # divide up the area based on body type
+    plt.text(0, max(r[~idx]+yerrval[1])/0.99, "Central Star", va="top", fontsize="x-large")
+    plt.plot([5.5, 5.5], [0, 10], "--", c="k", alpha=0.2)
+    plt.text(6, max(r[~idx]+yerrval[1])/0.99, "Transiting Planet", va="top", fontsize="x-large")
+    plt.plot([11.5, 11.5], [0, 10], "--", c="k", alpha=0.2)
+    plt.text(12, max(r[~idx]+yerrval[1])/0.99, "Perturbing Planets", va="top", fontsize="x-large")
+    # limits
+    plt.xlim([-0.5, len(initial)+0.5])
+    plt.ylim([min(r[~idx]-yerrval[0])*0.98, max(r[~idx]+yerrval[1])/0.98])
+    # plot the relative amount
+    plt.errorbar(np.arange(len(best))[~idx], best[~idx]/initial[~idx], \
+                 yerr=yerrval, fmt="o", label="Parameters with initial values")
+    # plot anything missing
+    xval = list(np.arange(len(best))[idx])+[len(best)]
+    plt.errorbar(xval, np.ones(len(xval)), fmt="o", label="Parameters without initial values")
+    # legend
+    plt.legend(loc="lower left")
+    # labels
+    plt.ylabel("Ratio of best fit parameters to true parameters", fontsize="x-large")
+    plt.xlabel("Model Parameters", fontsize="x-large")
+    plt.title("Ratio of best fit parameters to true parameters", fontsize="xx-large")
+    # axis ticks
+    plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1.0))
+    plt.xticks(range(len(lab)), lab, size='small')
+    plt.savefig("TTVBestFitParameters.png", transparent=False, bbox_inches='tight')
+    plt.savefig("TTVBestFitParameters_transparent.png", transparent=True, bbox_inches='tight')
     plt.show()
 
     # fit data to models
