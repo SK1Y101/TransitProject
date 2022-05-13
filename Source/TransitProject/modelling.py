@@ -4,6 +4,8 @@ import matplotlib.pylab as plt
 import astropy.constants as c
 import scipy.optimize as opt
 import astropy.units as u
+from scipy import stats
+from tqdm import tqdm
 import numpy as np
 import emcee
 
@@ -49,7 +51,7 @@ def model2(t, *bodies):
     # compute the barycentre shift
     r_b = [-r * mu * np.sin(v*u.radian+arg*u.radian) for (a,mu,e,_,arg,t0),p,v,r in zip(bodies[2:], P[2:], V[2:], R[2:])]
     # compute the velocity offset due to eccentricity
-    eccoff = np.sqrt(1-bodies[1][2]**2) / np.sqrt(2 + 2*bodies[1][2]*np.cos(V[1]*u.radian+bodies[1][4]*u.radian) - (1-bodies[1][2]**2))
+    eccoff = np.sqrt(1-bodies[1][2]**2) / np.sqrt(1 + 2*bodies[1][2]*np.cos(V[1]*u.radian+bodies[1][4]*u.radian) + bodies[1][2]**2)
     # compute the TTV offset
     TTV = (P[1] / (2*np.pi * bodies[1][0])) * eccoff * sum(r_b)
     # return
@@ -65,12 +67,118 @@ def modeln(t, *bodies):
     TTV = bodies[2][1]*(1-bodies[2][2]**-1.5)/(2*np.pi*bodies[0][1])*(P[1]**2 / P[2])*(v[1]+bodies[2][2]*np.sin(v[1]*u.radian))
     return TTV / u.s
 
-''' < TTV model fitting and graphing methods > '''
+''' < Statistical programming to make the whole fitting thing work > '''
 
-def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname="TTVModel"):
+def log_like(theta, x, y, yerr, model):
+    # params and logarithm of the underestimation
+    params, log_f = theta[:-1], theta[-1]
+    # expected value
+    exp = model(x, *params)
+    # variance
+    sigma2 = yerr ** 2 + exp ** 2 * np.exp(2 * log_f)
+    # return likelihood
+    return -0.5 * np.sum((y - exp) ** 2 / sigma2 + np.log(sigma2))
+
+def log_prior(theta, priors):
+    # determine whether values are within prior bound
+    if all(p[0] <= t <= p[1] for t, p in zip(theta, priors)):
+        # return zero if they are (e**0 == 1)
+        return 0.0
+    # return minus infinity if they aren't (e**-inf == 0)
+    return -np.inf
+
+def log_prob(theta, x, y, yerr, priors, model):
+    # fetch the log prior
+    lp = log_prior(theta, priors)
+    # if the log prior is infinite
+    if not np.isfinite(lp):
+        return -np.inf
+    # return log likelihood
+    return lp + log_like(theta, x, y, yerr, model)
+
+def chooseRange(arr, choices=1, resolution=1000):
+    # ensure we have a numpy array
+    arr = np.array(arr)
+    # parameter space from upper and lower bounds
+    pSpace = np.linspace(arr[:,0], arr[:,1], resolution)
+    # ensure it is shaped correctly
+    pSpace = np.reshape(pSpace, pSpace.shape[:2])
+    # select random indices of the parameter space
+    ind = np.random.rand(*pSpace.shape).argsort(axis=0)[:choices]
+    # select the elements from the parameter space
+    return np.take_along_axis(pSpace, ind, axis=0).T
+
+def parameterSearch(x, y, yerr, priors, model, initial=None):
+    # negative log likelihood
+    def nll(*args):
+        return -log_like(*args)
+    # if we were not supplied initial parameters
+    if not isinstance(initial, (np.ndarray, list, tuple)):
+        # create parameter guesses
+        initial = chooseRange(priors)
+    # add the underestimation factor too
+    initial = np.array(list(initial)+[0])
+    priors = np.array(list(priors)+[[-100, 100]])
+    # define the progress bar for the optimisation process
+    with tqdm(total=100, smoothing=0) as bar:
+        def update(*a):
+            bar.update(1)
+        # find the solution
+        #solution = opt.minimize(nll, initial, args=(x, y, yerr, model), bounds=priors)
+        # find the global minima
+        #solution = opt.shgo(nll, priors, args=(x, y, yerr, model), callback=update)
+        solution = opt.basinhopping(nll, initial, minimizer_kwargs={"args":(x, y, yerr, model), "bounds":priors}, callback=update)
+    # return the parameters (including the underestimation factor)
+    return solution.x
+
+def parameterMCMC(x, y, yerr, sol, priors, model, samples=5000, walkers=32, poolWorkers=None):
+    # ensure we have at least 4 walkers per parameter
+    walkers = max(4*len(sol), walkers)
+    # create walkers spread around the solution
+    pos = sol + 1e-4 * np.random.randn(walkers, len(sol))
+    # fetch the shape of parameter-walker space
+    nwalk, ndim = pos.shape
+    if poolWorkers:
+        # start the multiprocessing pool
+        with Pool(poolWorkers) as pool:
+            # construct the emcee sampler
+            sampler = emcee.EnsembleSampler(nwalk, ndim, log_prob, args=(x, y, yerr, priors, model), pool=pool)
+            # and run to find parameters
+            sampler.run_mcmc(pos, samples, progress=True)
+    else:
+        # construct the emcee sampler
+        sampler = emcee.EnsembleSampler(nwalk, ndim, log_prob, args=(x, y, yerr, priors, model))
+        # and run to find parameters
+        sampler.run_mcmc(pos, samples, progress=True)
+    # return the sampler
+    return sampler
+
+''' < Graphical Outputs > '''
+
+def pSpaceToReal(theta):
+    val = theta.reshape((-1, 6))
+    # convert from AU to m, and years to days
+    val[:, 0] = val[:, 0] * (1*u.AU).to(u.m).value
+    val[:, 5] = val[:, 5] * (1*u.yr).to(u.d).value
+    return val
+
+def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname=None, reducedUnits=True):
+    ''' Plot the data and predicted output of given models. Will also show each model output on seperate subplots.
+        x, y, yerr:   The x, y, and y-error of the data.
+        models:       A list of models to compare
+        bodies:       An array of model parameters to use for the plotting.
+        xlim:         The x-limit of the combined model/data view
+        xlimz:        The x-limit of the subplots for each model individually.
+        fname:        The filename to save the final plot as. Leaving this as None will prevent the script from saving the output.
+        reducedUnits: If true, will assume AU and years. Else will assume the parameters are in metres and days.'''
     # fetch size
     m = len(models)
     plotnum = 1+m
+    # shift plot to zero
+    x -= min(x)
+    # if the units have been reduced to parameter space
+    if reducedUnits:
+        bodies = pSpaceToReal(bodies)
     # fetch transiting body period
     p = _extraModelParam_(bodies)[1][1].to(u.d)
     # convert x to transit numbers
@@ -108,91 +216,80 @@ def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname="TTVMod
         if xlimz:
             plt.xlim(xlimz)
     plt.tight_layout()
-    plt.savefig(f"{fname}.png", transparent=False, bbox_inches='tight')
-    plt.savefig(f"{fname}_transparent.png", transparent=True, bbox_inches='tight')
+    # if we were given a filename, save the plot
+    if fname:
+        plt.savefig(f"{fname}.png", transparent=False, bbox_inches='tight')
+        plt.savefig(f"{fname}_transparent.png", transparent=True, bbox_inches='tight')
     plt.show()
 
-''' < Statistical programming to make the whole fitting thing work > '''
-
-def log_like(theta, x, y, yerr, model):
-    # params and logarithm of the underestimation
-    params, log_f = theta[:-1], theta[-1]
-    # expected value
-    exp = model(x, *params)
-    # variance
-    sigma2 = yerr ** 2 + exp ** 2 * np.exp(2 * log_f)
-    # return likelihood
-    return -0.5 * np.sum((y - exp) ** 2 / sigma2 + np.log(sigma2))
-
-def log_prior(theta, priors):
-    # determine whether values are within prior bound
-    if all(p[0] <= t <= p[1] for t, p in zip(theta, priors)):
-        # return zero if they are (e**0 == 1)
-        return 0.0
-    # return minus infinity if they aren't (e**-inf == 0)
-    return -np.inf
-
-def log_prob(theta, x, y, yerr, priors, model):
-    # fetch the log prior
-    lp = log_prior(theta, priors)
-    # if the log prior is infinite
-    if not np.isfinite(lp):
-        return -np.inf
-    # return log likelihood
-    return lp + log_like(theta, x, y, yerr, model)
+''' < Model fitting and selection > '''
 
 def BIC(k, n, L):
-    ''' compute the Bayesian information criterion of the fit.
+    ''' Compute the Bayesian information criterion of the fit.
         k: Number of free parameters.
         n: Number of data points.
         L: Maximum observed value of the log_likelihood function.'''
     return k*np.log(n) - 2*L
 
-def chooseRange(arr, choices=1, resolution=1000):
-    # parameter space from upper and lower bounds
-    pSpace = np.linspace(arr[:,0], arr[:,1], resolution)
-    # ensure it is shaped correctly
-    pSpace = np.reshape(pSpace, pSpace.shape[:2])
-    # select random indices of the parameter space
-    ind = np.random.rand(*pSpace.shape).argsort(axis=0)[:choices]
-    # select the elements from the parameter space
-    return np.take_along_axis(pSpace, ind, axis=0).T
+def AIC(k, L):
+    ''' Compute the Akaike information criterion of the fit.
+        k: Number of free parameters.
+        L: Maximum observed value of the log_likelihood function.'''
+    return 2*k - 2*L
 
-def parameterSearch(x, y, yerr, priors, model, initial=None):
-    # negative log likelihood
-    def nll(*args):
-        return -log_like(*args)
-    # if we were not supplied initial parameters
-    if not isinstance(initial, (np.ndarray, list, tuple)):
-        # create parameter guesses
-        initial = chooseRange(np.array(priors))
-    # add the underestimation factor too
-    initial = np.array(list(initial)+[0])
-    priors = np.array(list(priors)+[[None, None]])
-    # fetch the solution
-    solution = opt.minimize(nll, initial, args=(x, y, yerr, model), bounds=priors)
-    #solution = opt.basinhopping(nll, initial, minimizer_kwargs={"args":(x, y, yerr, model)})
-    # return the parameters (including the underestimation factor)
-    return solution.x
+def HQC(k, n, L):
+    ''' Compute the Hannan-Quinn information criterion of the fit.
+        k: Number of free parameters.
+        n: Number of data points.
+        L: Maximum observed value of the log_likelihood function.'''
+    return 2*k*np.log(np.log(n)) - 2*L
 
-def parameterMCMC(x, y, yerr, sol, priors, model, samples=5000, walkers=32, poolWorkers=None):
-    # ensure we have at least 4 walkers per parameter
-    walkers = max(4*len(sol), walkers)
-    # create walkers spread around the solution
-    pos = sol + 1e-4 * np.random.randn(walkers, len(sol))
-    # fetch the shape of parameter-walker space
-    nwalk, ndim = pos.shape
-    if poolWorkers:
-        # start the multiprocessing pool
-        with Pool(poolWorkers) as pool:
-            # construct the emcee sampler
-            sampler = emcee.EnsembleSampler(nwalk, ndim, log_prob, args=(x, y, yerr, priors, model), pool=pool)
-            # and run to find parameters
-            sampler.run_mcmc(pos, samples, progress=True)
-    else:
-        # construct the emcee sampler
-        sampler = emcee.EnsembleSampler(nwalk, ndim, log_prob, args=(x, y, yerr, priors, model))
-        # and run to find parameters
-        sampler.run_mcmc(pos, samples, progress=True)
-    # return the sampler
-    return sampler
+def setup_model(model, system, perturbers=1):
+    ''' Setup a model with the unchanging system parameters and any number of perturbing planets.
+        model: the TTV model to setup.
+        system: the system parameters for objects that are not to be fit for (ie: transiting planet & star).
+        perturbers: the number of new perturbing planets to introduce to the system.'''
+    #define the unchanging parameters
+    initial, priors, labels = [], [], []
+    # create the parameter space for changing values
+    for p in range(perturbers):
+        # setup the standard priors
+        a  = [1e-3, 1] #AU
+        mu = [1e-6, 0.25]
+        e  = [0, 0.95]
+        t0 = [0, 200] #BJD [2400000, 2500000] in years
+        i  = [0, 0]
+        arg= [-2*np.pi, 2*np.pi]
+        # and combine
+        priors += [a, mu, e, i, arg, t0]
+        # generate randomised initial parameters
+        init = chooseRange([a, mu, e, i, arg, t0])
+        # flatten, convert to list, and append
+        initial += list(init.flatten())
+        # add labels to the output
+        labels += [f"a_{p}", f"mu_{p}", f"e_{p}", f"i_{p}", f"ω_{p}", f"t0_{p}"]
+    # define the default parameters (star & target planet)
+    default = system[:2].flatten()
+    # use default parameters with the model
+    def modelHandler(x, *theta):
+        # append the default values
+        theta = np.append(default, theta).reshape((-1, 6))
+        # convert from AU to m, and years to days
+        theta[:, 0] = theta[:, 0] * (1*u.AU).to(u.m).value
+        theta[:, 5] = theta[:, 5] * (1*u.yr).to(u.d).value
+        # return the model with the default values included
+        return model(x, *theta.flatten())
+    # return the found values and model function
+    return priors, initial, labels, modelHandler
+
+def randomError(x, y, yerr):
+    ''' Determine the likelihood that the observed TTV are due to an error of one kind or another.
+        x, y, yerr: the observed data. '''
+    # ephemerides
+    def model(x, *theta):
+        m, b = theta
+        return x*(m/u.d) + b
+    plt.show()
+    priors = [[-1000, 1000], [-1000, 1000]]
+    sol = parameterSearch(x, y, yerr, priors, model, initial=[0,0])
+    return sol, model

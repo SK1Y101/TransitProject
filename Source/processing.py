@@ -86,7 +86,7 @@ def trimToSources(df, sources):
     # return the dataframe
     return df
 
-def fetchMidTransitTimes(exoplanet):
+def fetchMidTransitTimes(exoplanet, dataSource):
     ''' fetch the midtransit times for a given exoplanet.
         exoplanet: the name of the exoplanet to search for the data of.'''
     # convert to capitalised with no space for exopclock
@@ -107,8 +107,19 @@ def fetchMidTransitTimes(exoplanet):
         print("Warning! planet only has {} mid transit points. Acuracy may be diminished.".format(len(df)))
     # assign the exoplanet to the dataframe index
     df.index.name = exoclockTarget
+    # trim to the desired sources
+    df = trimToSources(df, dataSource)
     # and return
     return df
+
+def simulateMidTransitTimes(exoplanet):
+    import simulationPipeline as simP
+    # define an arbitary start time
+    start_time, end_time = 0, 60000
+    # simulate and fetch the TTV
+    TTV, TTVl, TTVu, TT = simP.runMinimalSim(args.planet, start_time, end_time/365.25, False)
+    # convert parameters and return
+    return TT*365.25*u.d, TTV, np.average((TTVl, TTVu))
 
 def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b, bounds=(-np.inf, np.inf)):
     ''' fit a set of datapoints (with or without errors) to a function.
@@ -232,7 +243,7 @@ def plotMidtransits(transitdf, fitfunc=None, addSim=False):
     plt.show()
 
 def dfToParams(df):
-    # fetch the star params
+    # fetch the star paramsfetchPara
     star = ts.bodyParams(df)[0]
     # and the params for each planet > (a, P, mu, ecc, inc, arg, t0)
     planets = ts.planetParams(df)
@@ -243,6 +254,9 @@ def dfToParams(df):
     # convert reduced mass
     # used to be m / mTot, change to raw mass in Msun
     bodies[:, 1] = df["mass"].to_numpy()
+    # convert from m to AU, and days to years (This ensure the parameter space search is smaller)
+    bodies[:, 0] = bodies[:, 0] * (1*u.m).to(u.AU).value
+    bodies[:, 5] = bodies[:, 5] * (1*u.d).to(u.yr).value
     # return > (a, mu, ecc, inc, arg, t0)
     return bodies
 
@@ -256,92 +270,85 @@ if __name__ == "__main__":
 
     # fetch the parameters for each body in the standard format
     bodies = dfToParams(systemdf)
-    star, planets = bodies[0], bodies[1:]
 
-    # fetch the planetary data
-    #transitdf = fetchMidTransitTimes(args.planet)
+    # if we passed a real planet:
+    if ".csv" not in args.planet:
+        # fetch the planetary data
+        transitdf = fetchMidTransitTimes(args.planet, args.dataSource)
+        # convert to useful units
+        x = tp.DatetoHJD(transitdf["date"]).to_numpy() * u.d
+        y = (transitdf["oc"].to_numpy() * u.min).to(u.s).value
+        yerr = (0.5*(transitdf["ocel"]+transitdf["oceu"]).to_numpy() * u.min).to(u.s).value
+    else:
+        # compute TTV from simulation instead
+        x, y, yerr = simulateMidTransitTimes(args.planet)
 
-    # include the datasources we are using
-    #transitdf = trimToSources(transitdf, args.dataSource)
-
-    # graphing limit
-    end_time = 50000
-    xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
-    # simulate
-    import simulationPipeline as simP
-    TTV, TTVl, TTVu, TT = simP.runMinimalSim(args.planet, 0, end_time/365.25, False)
-    # convert TT to days and fetch transit numbers
-    x = TT*365.25*u.d
-    y = TTV
-    yerr = [TTVu, TTVl]
     # and plot
-    tm.plotModels(x, y, yerr, [tm.model1, tm.model2], bodies, xlim=xlim, xlimz=xlimz, fname="TTVAnalyticalNumerical")
+    #tm.plotModels(x, y, yerr, [tm.model1, tm.model2], bodies, xlim=xlim, xlimz=xlimz)#, fname="TTVAnalyticalNumerical")
 
-    # fetch the observation dates in days
-    #x = tp.DatetoHJD(transitdf["date"]).to_numpy() * u.d
-    # and the data in minutes
-    #y = (transitdf["oc"].to_numpy() * u.min).to(u.s).value
-    #yerr = (0.5*(transitdf["ocel"]+transitdf["oceu"]).to_numpy() * u.min).to(u.s).value
-    yerr = np.average(yerr)
+    priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=2)
 
-    # standard priors for an unknown body
-    bod_prior = [# SMA between 0 and 10 AU
-                 [0, 14959787070000],
-                 # mu between 0 and 0.25
-                 [0, 0.25],
-                 # eccentricity between 0 and 1
-                 [0, 1],
-                 #inc
-                 [0, 0],
-                 #arg
-                 [-2*np.pi, 2*np.pi],
-                 #t0
-                 [-1000, 1000]]
-
-    # unchanging values
-    initial = list(star) + list(planets[0])
-    priors = [[l, u] for l,u in zip(initial, initial)]
+    initial = []#list(bodies[0]) + list(bodies[1])
+    priors = []#[[l, u] for l,u in zip(initial, initial)]
     # changing values
-    for p in planets[1:]:
+    for p in bodies[2:]:
         initial += list(p)
         priors += [[0.75*v, 1.25*v] for v in p]
-        #priors += bod_prior
 
-    solution = tm.parameterSearch(x, y, yerr, priors, tm.model2)#, initial=initial)
+    solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
     print(solution)
 
     x1 = np.linspace(min(x), max(x), 10000)
-    plt.plot(x1, tm.model1(x1, solution[:-1]))
+    plt.plot(x1, modelHandler(x1, bodies[2:]), label="modelhandler with bodies")
+    plt.plot(x1, modelHandler(x1, solution[:-1]), label="modelhandler with best fit")
     plt.errorbar(x, y, yerr=yerr, fmt=".")
+    plt.legend()
     plt.show()
 
-    sampler = tm.parameterMCMC(x, y, yerr, solution, priors=priors, model=tm.model2)
+    sampler = tm.parameterMCMC(x, y, yerr, solution, priors=priors, model=modelHandler)
 
     flat_samples = sampler.get_chain(discard=100, flat=True)
     vals = ""
-    best, beste, lab = [], [], []
-    labels = ["a", "mu", "e", "i", "arg", "t0"]
+    best, beste = [], []
+    labels += ["log(f)"]
+    print(len(solution))
+    print(len(labels))
     for i in range(len(solution)):
         mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
         q = np.diff(mcmc)
-        txt = "{3}_{4} = {0:.2e} - {1:.2e} + {2:.2e}"
-        txt = txt.format(mcmc[1], q[0], q[1], labels[i%6], i//6)
+        txt = "{3} = {0:.2e} - {1:.2e} + {2:.2e}"
+        txt = txt.format(mcmc[1], q[0], q[1], labels[i])
         best.append(mcmc[1])
         beste.append([q[0], q[1]])
-        lab.append("{}_{}".format(labels[i%6], i//6))
         print(txt)
-    lab[-1] = "log(f)"
 
     sampleParams = sampler.chain[:, 100:, :].reshape((-1, len(solution)))
 
     # compute BIC for fit
     k = len(solution)
     n = len(x)
-    L = tm.log_like(best, x, y, yerr, tm.model2)
-    print(tm.BIC(k, n, L))
-    print(tm.BIC(k, n, tm.log_like(initial+[0], x, y, yerr, tm.model2)))
+    L = tm.log_like(best, x, y, yerr, modelHandler)
+    print()
+    print("BIC, best TTV:    {:0.5f} - L: {:0.5f}".format(tm.BIC(k, n, L), L))
+    print("AIC, best TTV:    {:0.5f} - L: {:0.5f}".format(tm.AIC(k, L), L))
+    print("HQC, best TTV:    {:0.5f} - L: {:0.5f}".format(tm.HQC(k, n, L), L))
+    print()
+    L = tm.log_like(initial+[0], x, y, yerr, modelHandler)
+    print("BIC, initial TTV: {:0.5f} - L: {:0.5f}".format(tm.BIC(k, n, L), L))
+    print("AIC, initial TTV: {:0.5f} - L: {:0.5f}".format(tm.AIC(k, L), L))
+    print("HQC, initial TTV: {:0.5f} - L: {:0.5f}".format(tm.HQC(k, n, L), L))
+    print()
 
-    ind = np.random.randint(len(sampleParams), size=100)
+    # data to due random noise & unknown ephemerides
+    errSoln, model = tm.randomError(x, y, yerr)
+    L = tm.log_like(errSoln, x, y, yerr, model)
+    print("BIC, No fit:      {:0.5f} - L: {:0.5f}".format(tm.BIC(len(errSoln), len(x), L), L))
+    print("AIC, No fit:      {:0.5f} - L: {:0.5f}".format(tm.AIC(len(errSoln), L), L))
+    print("HQC, No fit:      {:0.5f} - L: {:0.5f}".format(tm.HQC(len(errSoln), len(x), L), L))
+    from time import sleep
+    #sleep(1000000)
+
+    '''ind = np.random.randint(len(sampleParams), size=100)
     plt.figure(figsize=(20, 10))
     p = tm._extraModelParam_(bodies)[1][1].to(u.d)
     x0 = np.around(x/p)
@@ -350,14 +357,16 @@ if __name__ == "__main__":
         plt.plot(x1, tm.model2(x1*p, s[:-1]), c="gray", alpha=0.1)
     plt.plot(x1, tm.model2(x1*p, best[:-1]), c="k")
     plt.xlim([6.9, 8.1])
-    plt.show()
+    plt.show()'''
 
     # parameter values
     initial, best, beste = np.array(initial), np.array(best[:-1]), np.array(beste[:-1])
 
-    tm.plotModels(x, y, yerr, [tm.model2], best, xlim=xlim, xlimz=xlimz, fname="TTVBestFit")
+    xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
 
-    # plot the errors
+    tm.plotModels(x, y, yerr, [modelHandler], best, xlim=xlim, xlimz=xlimz)#, fname="TTVBestFit")
+
+    '''# plot the errors
     import matplotlib.ticker as mtick
     plt.figure(figsize=(20, 10))
     # fetch values
@@ -379,7 +388,7 @@ if __name__ == "__main__":
     plt.errorbar(np.arange(len(best))[~idx], best[~idx]/initial[~idx], \
                  yerr=yerrval, fmt="o", label="Parameters with initial values")
     # plot anything missing
-    xval = list(np.arange(len(best))[idx])+[len(best)]
+    xval = list(np.arange(len(best))[idx])+[len(tm.model2best)]
     plt.errorbar(xval, np.ones(len(xval)), fmt="o", label="Parameters without initial values")
     # legend
     plt.legend(loc="lower left")
@@ -390,9 +399,9 @@ if __name__ == "__main__":
     # axis ticks
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1.0))
     plt.xticks(range(len(lab)), lab, size='small')
-    plt.savefig("TTVBestFitParameters.png", transparent=False, bbox_inches='tight')
-    plt.savefig("TTVBestFitParameters_transparent.png", transparent=True, bbox_inches='tight')
-    plt.show()
+    #plt.savefig("TTVBestFitParameters.png", transparent=False, bbox_inches='tight')
+    #plt.savefig("TTVBestFitParameters_transparent.png", transparent=True, bbox_inches='tight')
+    plt.show()'''
 
     # fit data to models
     #tm.MCMCFit(dateAsFloat, transitdf["oc"])
