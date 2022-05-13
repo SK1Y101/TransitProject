@@ -5,9 +5,14 @@ import TransitProject.modelling as tm
 np.random.seed(123)
 
 # Choose the "true" parameters.
-m_true = -0.9594
+m_true = -2#-0.9594
 b_true = 4.294
 f_true = 0.534
+
+priors = [[-5.0, 0.5],
+         [0.0, 10.0],
+         [-10.0,1.0]]
+priors = np.array(priors)
 
 # Generate some synthetic data from the model.
 N = 50
@@ -45,11 +50,6 @@ plt.ylabel("y")
 
 def model(x, *theta):
     return theta[0]*x + theta[1]
-
-priors = [[-5.0, 0.5],
-         [0.0, 10.0],
-         [-10.0,1.0]]
-priors = np.array(priors)
 
 initial = np.array([m_true, b_true, np.log(f_true)]) + 0.5 * np.random.randn(3)
 
