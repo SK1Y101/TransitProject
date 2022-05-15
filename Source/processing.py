@@ -288,13 +288,7 @@ if __name__ == "__main__":
 
     priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=2)
 
-    initial = []#list(bodies[0]) + list(bodies[1])
-    priors = []#[[l, u] for l,u in zip(initial, initial)]
-    # changing values
-    for p in bodies[2:]:
-        initial += list(p)
-        priors += [[0.75*v, 1.25*v] for v in p]
-
+    print(initial)
     solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
     print(solution)
 
@@ -364,7 +358,9 @@ if __name__ == "__main__":
 
     xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
 
-    tm.plotModels(x, y, yerr, [modelHandler], best, xlim=xlim, xlimz=xlimz)#, fname="TTVBestFit")
+    # compute period of transiting planet
+    p = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1][1].to(u.d)
+    tm.plotModels(x, y, yerr, p, [modelHandler],  solution[:-1], xlim=xlim, xlimz=xlimz)#, fname="TTVBestFit")
 
     '''# plot the errors
     import matplotlib.ticker as mtick

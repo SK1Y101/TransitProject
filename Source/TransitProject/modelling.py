@@ -108,7 +108,29 @@ def chooseRange(arr, choices=1, resolution=1000):
     # select the elements from the parameter space
     return np.take_along_axis(pSpace, ind, axis=0).T
 
-def parameterSearch(x, y, yerr, priors, model, initial=None):
+def basin(func, p0, x, y, yerr, model, priors, niter=1000):
+    ''' Define the basin hopping method for fitting a model to data. '''
+    with tqdm(total=niter, smoothing=0, desc="Basin hopping") as bar:
+        def update(*a):
+            bar.update(1)
+        return opt.basinhopping(func, p0, minimizer_kwargs={"args":(x, y, yerr, model), "bounds":priors}, callback=update, niter=niter)
+
+def difevo(func, p0, x, y, yerr, model, priors, niter=1000):
+    ''' Define the differential evolution method for fitting a model to data. '''
+    with tqdm(total=niter, smoothing=0, desc="Differential Evolution") as bar:
+        def update(*a, convergence=0):
+            bar.set_postfix_str(f"convergence: {100*max(1,convergence):0.2f}%", refresh=False)
+            bar.update(1)
+        return opt.differential_evolution(func, priors, x0=p0, args=(x, y, yerr, model), callback=update, polish=True, maxiter=niter)
+
+def dual(func, p0, x, y, yerr, model, priors, niter=1000):
+    ''' Define the dual annealing method for fitting a model to data. '''
+    with tqdm(total=niter, smoothing=0, desc="Dual annealing") as bar:
+        def update(*a):
+            bar.update(1)
+        return opt.dual_annealing(func, priors, x0=p0, args=(x, y, yerr, model), callback=update, maxiter=niter)
+
+def parameterSearch(x, y, yerr, priors, model, initial=None, method="dual"):
     # negative log likelihood
     def nll(*args):
         return -log_like(*args)
@@ -119,15 +141,25 @@ def parameterSearch(x, y, yerr, priors, model, initial=None):
     # add the underestimation factor too
     initial = np.array(list(initial)+[0])
     priors = np.array(list(priors)+[[-100, 100]])
-    # define the progress bar for the optimisation process
-    with tqdm(total=100, smoothing=0) as bar:
-        def update(*a):
-            bar.update(1)
-        # find the solution
-        #solution = opt.minimize(nll, initial, args=(x, y, yerr, model), bounds=priors)
-        # find the global minima
-        #solution = opt.shgo(nll, priors, args=(x, y, yerr, model), callback=update)
-        solution = opt.basinhopping(nll, initial, minimizer_kwargs={"args":(x, y, yerr, model), "bounds":priors}, callback=update)
+    # choose the minimiser method
+    if method == "lsq":
+        # Least Squares Regression (Local)
+        solution = opt.least_squares(nll, initial, args=(x, y, yerr, model))
+    elif method == "basin":
+        # Basin Hopping (Global)
+        solution = basin(nll, initial, x, y, yerr, model, priors)
+    elif method == "dif":
+        # Differential Evolution (Global)
+        solution = difevo(nll, initial, x, y, yerr, model, priors)
+    elif method == "dual":
+        # Dual Annealing method (Global)
+        solution = dual(nll, initial, x, y, yerr, model, priors)
+    elif method == "shgo":
+        # Simplical Homology Global Optimisation (Global)
+        solution = opt.shgo(nll, priors, args=(x, y, yerr, model))
+    else:
+        # Standard minimiser (Local)
+        solution = opt.minimize(nll, initial, args=(x, y, yerr, model), bounds=priors)
     # return the parameters (including the underestimation factor)
     return solution.x
 
@@ -162,25 +194,20 @@ def pSpaceToReal(theta):
     val[:, 5] = val[:, 5] * (1*u.yr).to(u.d).value
     return val
 
-def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname=None, reducedUnits=True):
+def plotModels(x, y, yerr, p, models, params, xlim=None, xlimz=(0,2), fname=None):
     ''' Plot the data and predicted output of given models. Will also show each model output on seperate subplots.
         x, y, yerr:   The x, y, and y-error of the data.
+        p:            The orbital period (in days) of the transiting planet
         models:       A list of models to compare
-        bodies:       An array of model parameters to use for the plotting.
+        params:       An array of model parameters to use for the plotting.
         xlim:         The x-limit of the combined model/data view
         xlimz:        The x-limit of the subplots for each model individually.
-        fname:        The filename to save the final plot as. Leaving this as None will prevent the script from saving the output.
-        reducedUnits: If true, will assume AU and years. Else will assume the parameters are in metres and days.'''
+        fname:        The filename to save the final plot as. Leaving this as None will prevent the script from saving the output.'''
     # fetch size
     m = len(models)
     plotnum = 1+m
     # shift plot to zero
     x -= min(x)
-    # if the units have been reduced to parameter space
-    if reducedUnits:
-        bodies = pSpaceToReal(bodies)
-    # fetch transiting body period
-    p = _extraModelParam_(bodies)[1][1].to(u.d)
     # convert x to transit numbers
     x = np.around(x/p)
     # intermediary x
@@ -192,7 +219,7 @@ def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname=None, r
     plt.subplot(plotnum, 1, 1)
     for model in models:
         # convert transit number to time for the model to run
-        plt.plot(x1, model(x1*p, *bodies), label="Analytical TTV, {}".format(model.__name__.capitalize()))
+        plt.plot(x1, model(x1*p, *params), label="Analytical TTV, {}".format(model.__name__.capitalize()))
     plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
     plt.legend()
     plt.title("Comparison between Numerical and Analytical TTV methods", fontsize="xx-large")
@@ -208,7 +235,7 @@ def plotModels(x, y, yerr, models, bodies, xlim=None, xlimz=(0,2), fname=None, r
         for j in range(i):
             plt.plot([-10],[0])
             # convert transit number to time for the model to run
-        plt.plot(x1, model(x1*p, *bodies), label="Analytical TTV, {}".format(model.__name__.capitalize()))
+        plt.plot(x1, model(x1*p, *params), label="Analytical TTV, {}".format(model.__name__.capitalize()))
         plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
         plt.title("Zoomed Comparison for {}".format(model.__name__.capitalize()), fontsize="xx-large")
         plt.ylabel("TTV [s]")
@@ -254,11 +281,11 @@ def setup_model(model, system, perturbers=1):
     # create the parameter space for changing values
     for p in range(perturbers):
         # setup the standard priors
-        a  = [1e-3, 1] #AU
-        mu = [1e-6, 0.25]
+        a  = [1e-3, 10] #AU
+        mu = [1e-3, 0.25]
         e  = [0, 0.95]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
-        i  = [0, 0]
+        i  = [-1e-5, 1e-5]
         arg= [-2*np.pi, 2*np.pi]
         # and combine
         priors += [a, mu, e, i, arg, t0]
