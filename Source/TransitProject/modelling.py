@@ -119,7 +119,7 @@ def difevo(func, p0, x, y, yerr, model, priors, niter=1000):
     ''' Define the differential evolution method for fitting a model to data. '''
     with tqdm(total=niter, smoothing=0, desc="Differential Evolution") as bar:
         def update(*a, convergence=0):
-            bar.set_postfix_str(f"convergence: {100*max(1,convergence):0.2f}%", refresh=False)
+            bar.set_postfix_str(f"convergence: {100*min(1,convergence):0.2f}%", refresh=False)
             bar.update(1)
         return opt.differential_evolution(func, priors, x0=p0, args=(x, y, yerr, model), callback=update, polish=True, maxiter=niter)
 
@@ -130,7 +130,7 @@ def dual(func, p0, x, y, yerr, model, priors, niter=1000):
             bar.update(1)
         return opt.dual_annealing(func, priors, x0=p0, args=(x, y, yerr, model), callback=update, maxiter=niter)
 
-def parameterSearch(x, y, yerr, priors, model, initial=None, method="dual"):
+def parameterSearch(x, y, yerr, priors, model, initial=None, method="dif"):
     # negative log likelihood
     def nll(*args):
         return -log_like(*args)
@@ -194,7 +194,7 @@ def pSpaceToReal(theta):
     val[:, 5] = val[:, 5] * (1*u.yr).to(u.d).value
     return val
 
-def plotModels(x, y, yerr, p, models, params, xlim=None, xlimz=(0,2), fname=None):
+def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fname=None):
     ''' Plot the data and predicted output of given models. Will also show each model output on seperate subplots.
         x, y, yerr:   The x, y, and y-error of the data.
         p:            The orbital period (in days) of the transiting planet
@@ -208,10 +208,12 @@ def plotModels(x, y, yerr, p, models, params, xlim=None, xlimz=(0,2), fname=None
     plotnum = 1+m
     # shift plot to zero
     x -= min(x)
+    # fetch transiting period
+    p = periods[1]
     # convert x to transit numbers
     x = np.around(x/p)
-    # intermediary x
-    x1 = np.linspace(min(x), max(x), 100000)
+    # intermediary x, 100 values per orbit of the smallest period
+    x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # figure
     plt.figure(figsize=(20, (10/3) * plotnum))
     # plot everything
@@ -245,8 +247,8 @@ def plotModels(x, y, yerr, p, models, params, xlim=None, xlimz=(0,2), fname=None
     plt.tight_layout()
     # if we were given a filename, save the plot
     if fname:
-        plt.savefig(f"{fname}.png", transparent=False, bbox_inches='tight')
-        plt.savefig(f"{fname}_transparent.png", transparent=True, bbox_inches='tight')
+        plt.savefig(f"{fname}.svg", transparent=False, bbox_inches='tight')
+        plt.savefig(f"{fname}_transparent.svg", transparent=True, bbox_inches='tight')
     plt.show()
 
 ''' < Model fitting and selection > '''
@@ -281,8 +283,8 @@ def setup_model(model, system, perturbers=1):
     # create the parameter space for changing values
     for p in range(perturbers):
         # setup the standard priors
-        a  = [1e-3, 10] #AU
-        mu = [1e-3, 0.25]
+        a  = [0, 10] #AU
+        mu = [0, 0.25]
         e  = [0, 0.95]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
         i  = [-1e-5, 1e-5]

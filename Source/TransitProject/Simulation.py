@@ -778,6 +778,6 @@ def plotSystem(sim, df, savefig=False):
     fig.tight_layout()
     # save the figure if desired
     if savefig:
-        fig.savefig("{} layout.png".format(df.iloc[0]["name"]), transparent=True, bbox_inches='tight')
+        fig.savefig("{} layout.svg".format(df.iloc[0]["name"]), transparent=True, bbox_inches='tight')
     # show the figure
     plt.show()
