@@ -194,7 +194,7 @@ def plotLC(target, lcdata, model):
     plt.xlabel("Time (BJD)")
     plt.ylabel("Relative flux")
     plt.title("TESS Lightcurve data for {}".format(target))
-    #plt.savefig("oc.svg",transparent=True)
+    plt.savefig("oc.pdf",transparent=True)
     plt.legend()
     plt.show()
 
@@ -234,7 +234,7 @@ def plotOC(target, results, planetdf):
     plt.title("TESS TTV data for {}".format(target))
     plt.legend()
     plt.show()
-    #plt.savefig("TTV.svg",transparent=True)
+    plt.savefig("TTV.pdf",transparent=True)
 
 def plotLCOC(target, lcdata, results, planetdf):
     # fetch the transit model
@@ -310,6 +310,8 @@ def plotLCOC(target, lcdata, results, planetdf):
     ax2.set_ylabel("O-C (minutes)")
     ax2.set_xlabel("Time (BJD - {})".format(bjdo))
     ax2.legend()
+    plt.savefig(f"TESSLightcurve_{target.capitalize()}.pdf", bbox_inches="tight")
+    plt.savefig(f"TESSLightcurve_{target.capitalize()}_transparent.pdf", bbox_inches="tight", transparent=True)
     # show the plot
     plt.show()
 

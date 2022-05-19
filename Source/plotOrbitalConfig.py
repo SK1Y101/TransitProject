@@ -42,6 +42,6 @@ if __name__ == "__main__":
     plt.legend(handles = leg_elem, framealpha=0, bbox_to_anchor=(0, 1.5), loc="upper left")
     # and save
     fig.tight_layout()
-    fig.savefig("{}_layout.svg".format(df.iloc[0]["name"].replace("_","")), transparent=False, bbox_inches='tight')
-    fig.savefig("{}_transparent_layout.svg".format(df.iloc[0]["name"].replace("_","")), transparent=True, bbox_inches='tight')
+    fig.savefig("{}_layout.pdf".format(df.iloc[0]["name"].replace("_","")), transparent=False, bbox_inches='tight')
+    fig.savefig("{}_transparent_layout.pdf".format(df.iloc[0]["name"].replace("_","")), transparent=True, bbox_inches='tight')
     plt.show()

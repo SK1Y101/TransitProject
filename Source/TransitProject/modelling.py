@@ -247,8 +247,8 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     plt.tight_layout()
     # if we were given a filename, save the plot
     if fname:
-        plt.savefig(f"{fname}.svg", transparent=False, bbox_inches='tight')
-        plt.savefig(f"{fname}_transparent.svg", transparent=True, bbox_inches='tight')
+        plt.savefig(f"{fname}.pdf", transparent=False, bbox_inches='tight')
+        plt.savefig(f"{fname}_transparent.pdf", transparent=True, bbox_inches='tight')
     plt.show()
 
 ''' < Model fitting and selection > '''

@@ -121,127 +121,6 @@ def simulateMidTransitTimes(exoplanet):
     # convert parameters and return
     return TT*365.25*u.d, TTV, np.average((TTVl, TTVu))
 
-def fetchFit(x, y, err=None, f=lambda x,a,b:a*x+b, bounds=(-np.inf, np.inf)):
-    ''' fit a set of datapoints (with or without errors) to a function.
-        x, y: The individual datapoints.
-        err: The error on the y data. (We assume x data is controlled)
-        f: The function to fit. if not givem , will default to a line.'''
-    # fetch the parameters and the correlation of the optimisation
-    pars, cov = scipy.optimize.curve_fit(f, x, y, sigma=err, maxfev=1000000, bounds=bounds)
-    # return the function that fits to this curve
-    return lambda x:f(x, *pars), pars, cov
-
-def checkEphemerides(transitdf, systemdf):
-    ''' fit a line to the midtransit times to determine if the ephemerides agree with literature.
-        transitdf: the dataframe of midtransit mid-transit times.
-        systemdf: the dataframe of the system information.'''
-    # fetch the date as a float (days since 1970-01-01)
-    dateAsFloat = tp.DatetoHJD(transitdf["date"])
-    # planet orbit in days
-    period = systemdf.iloc[1]["per"] * 365.25
-    print("Planet orbital period is:         {}.".format(tp.totimestring(period)))
-    # compute the average symmetric error
-    err = 0.5*(transitdf["ocel"].to_numpy() + transitdf["oceu"].to_numpy())
-    # fit a line to the o-c data
-    linefit, lineparam, linecov = fetchFit(dateAsFloat, transitdf["oc"], err)
-    # offset per orbit in seconds
-    offset = lineparam[0] * period
-    print("Linear fit suggests it should be: {}.".format(tp.totimestring(period+offset)))
-
-def plotMidtransits(transitdf, fitfunc=None, addSim=False):
-    ''' plot the midtransit times to a nice chart. Also include the residuals to a fit for a function if given
-        transitdf: The dataframe of midtransit times.
-        fitfunc: The function of the fit model
-        addSim: Whether to include the predicted TTv times given the current system layout. '''
-    # fetch the sources list
-    sources = sorted(transitdf["source"].unique())
-
-    # ensure the transits are sorted by date
-    transitdf = transitdf.sort_values(by="date", ascending=True)
-
-    # fetch the x axis details
-    dateAsFloat = tp.DatetoHJD(transitdf["date"])
-    dateAsDate = pd.to_datetime(transitdf["date"])
-    dateminmax = [min(dateAsFloat), max(dateAsFloat)]
-    # ensure we have one datapoint per hour
-    daterange = np.arange(*dateminmax, 1/24)
-
-    # if we are including the simulation
-    if addSim:
-        print("Simulating system to fetch predicted TTV")
-        # planet name
-        planetName = transitdf.index.name
-        # start time, and years to simulate
-        startTime, endTime = min(transitdf["date"]), max(transitdf["date"])
-        simYears = (pd.to_datetime(endTime)-pd.to_datetime(startTime)).total_seconds() / 31557600
-
-        # import the simulation pipeline
-        import simulationPipeline as simP
-
-        # and run the simulation
-        TTV, TTVl, TTVu, TT = simP.runMinimalSim(planetName, startTime, simYears, False)
-
-        # Transit times are in years, convert to datestamps
-        TT = pd.to_datetime(startTime) + pd.to_timedelta(TT * 31557600, unit="s")
-
-    # plot laout
-    fig = plt.figure()
-    if fitfunc:
-        ax = fig.add_gridspec(len(fitfunc)+1 if isinstance(fitfunc, list) else 2, hspace=0).subplots(sharex=True)
-        ax1, ax2 = ax[:2]
-        # plot the zeros on the main
-        ax1.plot(dateminmax, [0, 0], "gray")
-
-        # plot the model
-        if isinstance(fitfunc, list):
-            for i, ff in enumerate(fitfunc):
-                ax1.plot(daterange, ff(daterange), label=ff.__name__)
-                ax[i+1].plot(dateminmax, [0, 0], "gray")
-        else:
-            ax1.plot(daterange, fitfunc(daterange), "b", label=fitfunc.__name__)
-    else:
-        ax1 = fig.add_subplot()
-        ax1.plot(dateminmax, [0, 0], "gray")
-        ax = [ax1]
-
-    # plot the standard deviation
-    sig = np.std(transitdf["oc"])
-    ax1.fill_between(dateminmax, [-sig, -sig], [sig, sig], color="lightgray", label="Standard deviation of data")
-
-    # plot each datapoint
-    for source in sources:
-        data = transitdf.loc[transitdf["source"]==source]
-        dateAsFloat = tp.DatetoHJD(data["date"])
-        ocerr = [data["ocel"], data["oceu"]]
-        ax1.errorbar(pd.to_datetime(data["date"]), data["oc"], yerr=ocerr, label=source, fmt="o")
-        # if we have a fit function
-        if fitfunc:
-            if isinstance(fitfunc, list):
-                for i, ff in enumerate(fitfunc):
-                    ax[i+1].errorbar(pd.to_datetime(data["date"]), data["oc"]-ff(dateAsFloat), yerr=ocerr, label=source, fmt="o")
-            else:
-                ax2.errorbar(pd.to_datetime(data["date"]), data["oc"]-fitfunc(dateAsFloat), yerr=ocerr, label=source, fmt="o")
-
-    # and plot the simulated TTV if needed
-    if addSim:
-        ax1.plot(TT, TTV / 60, label="Simulated TTV")
-
-    #dates = pd.to_datetime(df["date"])
-    #plt.plot([min(dates), max(dates)], [0,0])
-    for axs in ax:
-        axs.set_title(transitdf.index.name)
-        #axs.gcf().autofmt_xdate()
-        axs.set_ylabel("O-C (minutes)")
-        axs.set_xlabel("Date of observation")
-        axs.legend()
-    if fitfunc:
-        if isinstance(fitfunc, list):
-            for i, ff in enumerate(fitfunc):
-                ax[i+1].set_title("Residuals from {}".format(ff.__name__))
-        else:
-            ax2.set_title("Residuals from fit")
-    plt.show()
-
 def dfToParams(df):
     # fetch the star paramsfetchPara
     star = ts.bodyParams(df)[0]
@@ -286,7 +165,7 @@ if __name__ == "__main__":
     # and plot
     #tm.plotModels(x, y, yerr, [tm.model1, tm.model2], bodies, xlim=xlim, xlimz=xlimz)#, fname="TTVAnalyticalNumerical")
 
-    priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=1)
+    priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=3)
 
     print(initial)
     solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
@@ -337,19 +216,6 @@ if __name__ == "__main__":
     print("BIC, No fit:      {:0.5f} - L: {:0.5f}".format(tm.BIC(len(errSoln), len(x), L), L))
     print("AIC, No fit:      {:0.5f} - L: {:0.5f}".format(tm.AIC(len(errSoln), L), L))
     print("HQC, No fit:      {:0.5f} - L: {:0.5f}".format(tm.HQC(len(errSoln), len(x), L), L))
-    from time import sleep
-    #sleep(1000000)
-
-    '''ind = np.random.randint(len(sampleParams), size=100)
-    plt.figure(figsize=(20, 10))
-    p = tm._extraModelParam_(bodies)[1][1].to(u.d)
-    x0 = np.around(x/p)
-    x1 = np.linspace(min(x0), max(x0), 100000)
-    for s in sampleParams[ind]:
-        plt.plot(x1, tm.model2(x1*p, s[:-1]), c="gray", alpha=0.1)
-    plt.plot(x1, tm.model2(x1*p, best[:-1]), c="k")
-    plt.xlim([6.9, 8.1])
-    plt.show()'''
 
     # parameter values
     initial, best, beste = np.array(initial), np.array(best[:-1]), np.array(beste[:-1])
@@ -393,8 +259,8 @@ if __name__ == "__main__":
     # axis ticks
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1.0))
     plt.xticks(range(len(lab)), lab, size='small')
-    #plt.savefig("TTVBestFitParameters.svg", transparent=False, bbox_inches='tight')
-    #plt.savefig("TTVBestFitParameters_transparent.svg", transparent=True, bbox_inches='tight')
+    #plt.savefig("TTVBestFitParameters.pdf", transparent=False, bbox_inches='tight')
+    #plt.savefig("TTVBestFitParameters_transparent.pdf", transparent=True, bbox_inches='tight')
     plt.show()'''
 
     # fit data to models
