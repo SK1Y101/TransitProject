@@ -286,7 +286,7 @@ if __name__ == "__main__":
     # and plot
     #tm.plotModels(x, y, yerr, [tm.model1, tm.model2], bodies, xlim=xlim, xlimz=xlimz)#, fname="TTVAnalyticalNumerical")
 
-    priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=2)
+    priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=1)
 
     print(initial)
     solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
@@ -305,8 +305,6 @@ if __name__ == "__main__":
     vals = ""
     best, beste = [], []
     labels += ["log(f)"]
-    print(len(solution))
-    print(len(labels))
     for i in range(len(solution)):
         mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
         q = np.diff(mcmc)
@@ -359,7 +357,7 @@ if __name__ == "__main__":
     xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
 
     # compute period of transiting planet
-    p = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1][1].to(u.d)
+    p = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
     tm.plotModels(x, y, yerr, p, [modelHandler],  solution[:-1], xlim=xlim, xlimz=xlimz)#, fname="TTVBestFit")
 
     '''# plot the errors
@@ -395,8 +393,8 @@ if __name__ == "__main__":
     # axis ticks
     plt.gca().yaxis.set_major_formatter(mtick.PercentFormatter(xmax=1.0))
     plt.xticks(range(len(lab)), lab, size='small')
-    #plt.savefig("TTVBestFitParameters.png", transparent=False, bbox_inches='tight')
-    #plt.savefig("TTVBestFitParameters_transparent.png", transparent=True, bbox_inches='tight')
+    #plt.savefig("TTVBestFitParameters.svg", transparent=False, bbox_inches='tight')
+    #plt.savefig("TTVBestFitParameters_transparent.svg", transparent=True, bbox_inches='tight')
     plt.show()'''
 
     # fit data to models
