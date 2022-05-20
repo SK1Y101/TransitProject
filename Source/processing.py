@@ -162,21 +162,27 @@ if __name__ == "__main__":
         # compute TTV from simulation instead
         x, y, yerr = simulateMidTransitTimes(args.planet)
 
-    # and plot
-    #tm.plotModels(x, y, yerr, [tm.model1, tm.model2], bodies, xlim=xlim, xlimz=xlimz)#, fname="TTVAnalyticalNumerical")
+    # define the models used
+    models = [tm.model1, tm.model2, tm.model3]
+    # defint the number of free parameters introduced per body
+    freeParams = [3, 5, 5]
 
-    priors, initial, labels, modelHandler = tm.setup_model(tm.model2, bodies, perturbers=3)
+    # plot the initial states of the models used
+    xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
+    P = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
+    #tm.plotModels(x, y, yerr, P, models, bodies, xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
-    print(initial)
-    solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
-    print(solution)
-
-    x1 = np.linspace(min(x), max(x), 10000)
-    plt.plot(x1, modelHandler(x1, bodies[2:]), label="modelhandler with bodies")
-    plt.plot(x1, modelHandler(x1, solution[:-1]), label="modelhandler with best fit")
-    plt.errorbar(x, y, yerr=yerr, fmt=".")
-    plt.legend()
-    plt.show()
+    # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
+    solutions = tm.optimiser(x, y, yerr, models, bodies)
+    # for each model
+    for model in models:
+        # for between 1 and three new planets
+        for perturbers in range(1, 3):
+            # setup each model
+            priors, initial, labels, modelHandler = tm.setup_model(model, bodies, perturbers=perturbers)
+            # and determine some optimal solution
+            solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
+    tm.plotModels(x, y, yerr, P, [tm.model1, tm.model2, tm.model3], bodies, xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
     sampler = tm.parameterMCMC(x, y, yerr, solution, priors=priors, model=modelHandler)
 

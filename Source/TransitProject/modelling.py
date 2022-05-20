@@ -212,7 +212,7 @@ def pSpaceToReal(theta):
 def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fname=None):
     ''' Plot the data and predicted output of given models. Will also show each model output on seperate subplots.
         x, y, yerr:   The x, y, and y-error of the data.
-        p:            The orbital period (in days) of the transiting planet
+        periods:      The orbital period (in days) of all bodies
         models:       A list of models to compare
         params:       An array of model parameters to use for the plotting.
         xlim:         The x-limit of the combined model/data view
@@ -229,34 +229,53 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     x = np.around(x/p)
     # intermediary x, 100 values per orbit of the smallest period
     x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
+    # shape Nx6 for a single parameter array of N planets, or MxNx6 for M different parameter spaces
+    pshape = np.array(params).shape
+    # reshape to MxNxP
+    params = np.reshape(params, (-1, pshape[-2], pshape[-1]))
+    # if M == 1
+    if params.shape[0] == 1:
+        # repeat the parameters for each model
+        params = params.repeat(len(models), axis=0)
+    # ensure M is not mismatched
+    assert params.shape[0] == len(models)
     # figure
     plt.figure(figsize=(20, (10/3) * plotnum))
     # plot everything
     plt.style.use('seaborn-colorblind')
     plt.subplot(plotnum, 1, 1)
-    for model in models:
+    for model, param in zip(models, params):
+        print(param)
         # convert transit number to time for the model to run
-        plt.plot(x1, model(x1*p, *params), label="Analytical TTV, {}".format(model.__name__.capitalize()))
+        plt.plot(x1, model(x1*p, *param), label="Analytical TTV, {}".format(model.__name__.capitalize()))
     plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
     plt.legend()
     plt.title("Comparison between Numerical and Analytical TTV methods", fontsize="xx-large")
     plt.ylabel("TTV [s]")
     plt.xlabel("Transit number")
+    # move the x axis up slightly
+    ax = plt.gca()
+    ax.xaxis.labelpad = -2
     if xlim:
         plt.xlim(xlim)
-    # for each model
-    for i, model in enumerate(models):
+    # for each model-parameter combination
+    for i, modpar in enumerate(zip(models, params)):
+        # decompose
+        model, param = modpar
         plt.subplot(plotnum, 1, i+2)
         plt.style.use('seaborn-colorblind')
         # offset colour
         for j in range(i):
             plt.plot([-10],[0])
             # convert transit number to time for the model to run
-        plt.plot(x1, model(x1*p, *params), label="Analytical TTV, {}".format(model.__name__.capitalize()))
+        plt.plot(x1, model(x1*p, *param), label="Analytical TTV, {}".format(model.__name__.capitalize()))
         plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
         plt.title("Zoomed Comparison for {}".format(model.__name__.capitalize()), fontsize="xx-large")
         plt.ylabel("TTV [s]")
         plt.xlabel("Transit number")
+        # move the x axis up slightly
+        ax = plt.gca()
+        ax.xaxis.labelpad = -2
         if xlimz:
             plt.xlim(xlimz)
     plt.tight_layout()
@@ -337,3 +356,55 @@ def randomError(x, y, yerr):
     priors = [[-1000, 1000], [-1000, 1000]]
     sol = parameterSearch(x, y, yerr, priors, model, initial=[0,0])
     return sol, model
+
+''' < This is the main bit that is ran, where all the power comes > '''
+
+def free_params(x, model, initial):
+    ''' determine, systematically, the number of free parameters a model has.
+        x:      Some data to provide to the model
+        model:  The model to determine the free parameters of.
+        initial: A set of initial parameters to use with the model.
+    '''
+    # determine the base values of the model with all parameters given
+    base = model(x, initial)
+    k = 0
+    # for each of the parameters given
+    for i, val in enumerate(initial):
+        # construct a new parameter set with this one missing
+        param = np.copy(initial)
+        param[i] = 0
+        # increment the free parameters if changing this value gives a different result
+        if any(base != model(x, param)):
+            k += 1
+    print(k)
+    return k
+
+def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
+    ''' Run the optimisation pipeline on any number of models and perturbers.
+        x, y, yerr: The observed data.
+        models:     A list of models to fit data to.
+        system:     A list of system parameters to determine starting conditions from.
+        methods:    A list of optimisation methods to be used in finiding the global solution.
+        p:          A list, or range of the number of perturbers to introduce for each model.
+    '''
+    # output dictionary
+    solution = {"models":[], "priors":[], "labels":[], "freeParams":[], "solutions":[]}
+    # for each model/perturber combination
+    for model in models:
+        for per in list(p):
+            # setup the model
+            priors, initial, labels, modelHandler = setup_model(model, system, per)
+            # determine the number of true free-parameters, includeing the underestimation factor too
+            freeParams = free_params(x, modelHandler, initial) + 1
+            from time import sleep
+            sleep(100000000)
+            for method in methods:
+                # determine this solution
+                solution = parameterSearch(x, y, yerr, priors, modelHandler, initial=initial, method=method)
+                # append to the dictionary
+                solution["models"].append(modelHandler)
+                solution["priors"].append(priors)
+                solution["labels"].append(label)
+                solution["freeParams"].append(freeParams)
+                solution["solutions"].append(solution)
+    return solution
