@@ -120,7 +120,7 @@ def plotSimulation(TTVMinMaxAv, df, args):
     # exoplanet name
     eName = args.planet.split(",")[1] if ".csv" in args.planet else args.planet
     # title
-    plt.title("Simulated TTV for {} over a period of {}.".format(eName, tp.totimestring(args.years*365.25)))
+    plt.title("Simulated TTV for {} over a period of {}.".format(eName, tp.totimestring(args.years*365.25 + 0.5)))
 
     # ---< Axis shenanigans >---
     # fetch axis objects
@@ -148,6 +148,8 @@ def plotSimulation(TTVMinMaxAv, df, args):
     ax2.xaxis.labelpad = 0
     ax2.set_xlim([axval*orbitscale for axval in ax.get_xlim()])
 
+    plt.savefig(f"TTVSimulation_{eName}.pdf", bbox_inches="tight")
+    plt.savefig(f"TTVSimulation_{eName}_transparent.pdf", bbox_inches="tight", transparent=True)
     # show the final plot
     plt.show()
 
