@@ -553,8 +553,8 @@ def _innerTTV_(target, perturber):
         target: The transiting planet to observe for TTV of.
         perturber: The perturbing planet that will cause a TTV.'''
     # decompose variables
-    a1, p1, m1, e1, i1, arg1 = perturber
-    a2, p2, m2, e2, i2, arg2 = target
+    a1, p1, m1, e1, i1, arg1, t1 = perturber
+    a2, p2, m2, e2, i2, arg2, t2 = target
     # compute the predicted TTV
     return (p2 * m1 * a1 * np.cos(arg1) * np.sqrt(1 - e2**2)) / (2*np.pi * a2 * (1 + e2*np.sin(arg2)))
 
@@ -563,8 +563,8 @@ def _outerTTV_(target, perturber):
         target: The transiting planet to observe for TTV of.
         perturber: The perturbing planet that will cause a TTV.'''
     # decompose variables
-    a1, p1, m1, e1, i1, arg1 = target
-    a2, p2, m2, e2, i2, arg2 = perturber
+    a1, p1, m1, e1, i1, arg1, t1 = target
+    a2, p2, m2, e2, i2, arg2, t2 = perturber
     # compute the predicted TTV
     return m2 * e2 * p2 * (a1 / a2)**3
 
@@ -612,7 +612,7 @@ def _continuedToApprox_(cont, cutoff=10):
         # terms greater than the cutoff
         idx = np.where(cont>=cutoff)[0]
         # if the first term of the fraction is zero, use either the second cutoff point or the whole fraction
-        idx = idx[0] if cont[0] != 0 else idx[1] if len(idx)>1 else len(cont)
+        idx = idx[0] if idx[0] != 0 else idx[1] if len(idx)>1 else len(cont)
         # cut the continued fraction at the first of those terms
         cont = cont[:idx]
     # return the approximation if one was possible
@@ -641,10 +641,12 @@ def _resonantTTV_(target, perturber):
         target: The transiting planet to observe for TTV of.
         perturber: The perturbing planet that will cause a TTV.'''
     # decompose variables
-    a1, p1, mu1, e1, i1, arg1 = target
-    a2, p2, mu2, e2, i2, arg2 = perturber
+    a1, p1, mu1, e1, i1, arg1, t1 = target
+    a2, p2, mu2, e2, i2, arg2, t2 = perturber
     # resonance order.
     j = _resonanceOrder_(target, perturber)[1]
+    if j <= 0:
+        return 0, 0
     # compute predicted TTV
     TTV = (p1 / (4.5*j)) * (mu2 / (mu1+mu2))
     # compute the libration period
@@ -704,7 +706,7 @@ def predictGREffect(df, observationYears=4):
         df: The system data dataframe.
         observationYears: Self explanatory. '''
     # fetch the variables needed (use zero for total mass as we don't acually care about mass for this)
-    a, t, _, e, _, _ = _planetVars_(df.iloc[0], df.iloc[1], 1)
+    a, t, _, e, _, _, _ = _planetVars_(df.iloc[0], df.iloc[1], 1)
     # compute the number of transits
     Ntransits = int(np.ceil(31557600 * observationYears/t))
     # speed of light
