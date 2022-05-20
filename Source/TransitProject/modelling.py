@@ -50,6 +50,21 @@ def model2(t, *bodies):
     R = [a * (1-e**2) / (1 + e*np.cos(v*u.radian)) for (a,mu,e,_,arg,t0),v in zip(bodies, V)]
     # compute the barycentre shift
     r_b = [-r * mu * np.sin(v*u.radian+arg*u.radian) for (a,mu,e,_,arg,t0),p,v,r in zip(bodies[2:], P[2:], V[2:], R[2:])]
+    # compute the TTV offset
+    TTV = (P[1] / (2*np.pi * bodies[1][0])) * sum(r_b)
+    # return
+    return TTV / u.s
+
+# 'n' interior, coplanar, non-interacting, non-zero-eccentricity, perturbing planets, including the transiting planets eccentricity
+def model3(t, *bodies):
+    # fetch period and 2d bodies array
+    bodies, P = _extraModelParam_(*bodies)
+    # fetch true anomalies
+    V = _trueFromMean_(t, P, bodies)
+    # compute distance at current point in orbit
+    R = [a * (1-e**2) / (1 + e*np.cos(v*u.radian)) for (a,mu,e,_,arg,t0),v in zip(bodies, V)]
+    # compute the barycentre shift
+    r_b = [-r * mu * np.sin(v*u.radian+arg*u.radian) for (a,mu,e,_,arg,t0),p,v,r in zip(bodies[2:], P[2:], V[2:], R[2:])]
     # compute the velocity offset due to eccentricity
     eccoff = np.sqrt(1-bodies[1][2]**2) / np.sqrt(1 + 2*bodies[1][2]*np.cos(V[1]*u.radian+bodies[1][4]*u.radian) + bodies[1][2]**2)
     # compute the TTV offset
