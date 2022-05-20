@@ -22,7 +22,7 @@ if __name__ == "__main__":
     args = fetchArgs()
 
     # fetch the parameters for the system
-    df, params = ts.fetchParams(args.planet)
+    df, params = ts.fetchParams(args.planet, forceUse=True)
 
     # construct the simulation parameters
     simArray = ts.constructSimArray(df, params, useerror=False)
