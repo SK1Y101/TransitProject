@@ -97,13 +97,17 @@ def _intersectingHillSphere_(bodies):
 
 ''' < Statistical programming to make the whole fitting thing work > '''
 
-def log_like(theta, x, y, yerr, model):
+def log_like(theta, x, y, yerr, model, additionalCheck=lambda x: False):
     # params and logarithm of the underestimation
     params, log_f = theta[:-1], theta[-1]
     # expected value
     exp = model(x, *params)
     # variance
     sigma2 = yerr ** 2 + exp ** 2 * np.exp(2 * log_f)
+    # if we have an additional parameter check that is not a set of boundaries
+    if additionalCheck(params):
+        # (The function must return true to fail these parameters)
+        return -np.inf
     # return likelihood
     return -0.5 * np.sum((y - exp) ** 2 / sigma2 + np.log(sigma2))
 
@@ -158,10 +162,10 @@ def dual(func, p0, x, y, yerr, model, priors, niter=1000):
             bar.update(1)
         return opt.dual_annealing(func, priors, x0=p0, args=(x, y, yerr, model), callback=update, maxiter=niter)
 
-def parameterSearch(x, y, yerr, priors, model, initial=None, method="dif"):
+def parameterSearch(x, y, yerr, priors, model, initial=None, method="dif", additionalCheck=lambda x: False):
     # negative log likelihood
     def nll(*args):
-        return -log_like(*args)
+        return -log_like(*args, additionalCheck=additionalCheck)
     # if we were not supplied initial parameters
     if not isinstance(initial, (np.ndarray, list, tuple)):
         # create parameter guesses
@@ -240,6 +244,12 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     p = periods[1]
     # convert x to transit numbers
     x = np.around(x/p)
+    # remove datapoints outside of the limits if xlim is given
+    if xlim != None:
+        keep = np.where(np.logical_and(x >= np.floor(xlim[0]), x <= np.ceil(xlim[1])))[0]
+        x = x[keep]
+        y = y[keep]
+        yerr = yerr[keep]
     # intermediary x, 100 values per orbit of the smallest period
     x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # shape Nx6 for a single parameter array of N planets, or MxNx6 for M different parameter spaces
@@ -254,7 +264,7 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
         # ensure M is not mismatched
         assert params.shape[0] == len(models)
     # figure
-    plt.figure(figsize=(20, (10/3) * plotnum))
+    plt.figure(figsize=(10, (5/3) * plotnum))
     # plot everything
     plt.style.use('seaborn-colorblind')
     plt.subplot(plotnum, 1, 1)
@@ -263,7 +273,6 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
         # convert transit number to time for the model to run
         plt.plot(x1, model(x1*p, *param), label="Analytical TTV, {}".format(model.__name__.capitalize()))
     plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
-    plt.legend()
     plt.title("Comparison between Numerical and Analytical TTV methods", fontsize="xx-large")
     plt.ylabel("TTV [s]")
     plt.xlabel("Transit number")
@@ -272,6 +281,13 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     ax.xaxis.labelpad = -2
     if xlim:
         plt.xlim(xlim)
+    # remove datapoints outside of the limits if xlim is given
+    if xlimz != None:
+        keep = np.where(np.logical_and(x >= np.floor(xlimz[0]), x <= np.ceil(xlimz[1])))[0]
+        x = x[keep]
+        y = y[keep]
+        yerr = yerr[keep]
+        x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # for each model-parameter combination
     for i, modpar in enumerate(zip(models, params)):
         # decompose
@@ -415,8 +431,8 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
                 priors, initial, labels, modelHandler = setup_model(model, system, per)
                 # determine the number of true free-parameters, includeing the underestimation factor too
                 freeParams = free_params(x, modelHandler, initial) + 1
-                # determine this solution
-                solution = parameterSearch(x, y, yerr, priors, modelHandler, initial=initial, method=method)
+                # determine this solution, ensuring parameters that intersect hill spheres are dissallowed
+                solution = parameterSearch(x, y, yerr, priors, modelHandler, initial=initial, method=method)#, additionalCheck=_intersectingHillSphere_)
                 # also carry over the name
                 modelHandler.__name__ = f"{model.__name__}: {per} perturbers, {m2name[method] if method in m2name else defmethod} fitting"
                 # append to the dictionary
