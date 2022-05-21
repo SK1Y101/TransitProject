@@ -227,25 +227,28 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     p = periods[1]
     # convert x to transit numbers
     x = np.around(x/p)
+    print(params)
+    print(params[:, 1])
     # intermediary x, 100 values per orbit of the smallest period
     x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # shape Nx6 for a single parameter array of N planets, or MxNx6 for M different parameter spaces
     pshape = np.array(params).shape
-    # reshape to MxNxP
-    params = np.reshape(params, (-1, pshape[-2], pshape[-1]))
-    # if M == 1
-    if params.shape[0] == 1:
-        # repeat the parameters for each model
-        params = params.repeat(len(models), axis=0)
-    # ensure M is not mismatched
-    assert params.shape[0] == len(models)
+    if pshape[0] != len(models):
+        # reshape to MxNxP
+        params = np.reshape(params, (-1, pshape[-2], pshape[-1]))
+        # if M == 1
+        if params.shape[0] == 1:
+            # repeat the parameters for each model
+            params = params.repeat(len(models), axis=0)
+        # ensure M is not mismatched
+        assert params.shape[0] == len(models)
     # figure
     plt.figure(figsize=(20, (10/3) * plotnum))
     # plot everything
     plt.style.use('seaborn-colorblind')
     plt.subplot(plotnum, 1, 1)
     for model, param in zip(models, params):
-        print(param)
+        param = param if param.size % 6 == 0 else param[:-1]
         # convert transit number to time for the model to run
         plt.plot(x1, model(x1*p, *param), label="Analytical TTV, {}".format(model.__name__.capitalize()))
     plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
@@ -262,6 +265,7 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     for i, modpar in enumerate(zip(models, params)):
         # decompose
         model, param = modpar
+        param = param if param.size % 6 == 0 else param[:-1]
         plt.subplot(plotnum, 1, i+2)
         plt.style.use('seaborn-colorblind')
         # offset colour
@@ -317,7 +321,7 @@ def setup_model(model, system, perturbers=1):
     # create the parameter space for changing values
     for p in range(perturbers):
         # setup the standard priors
-        a  = [0, 10] #AU
+        a  = [0, 1] #AU
         mu = [0, 0.25]
         e  = [0, 0.95]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
@@ -376,7 +380,6 @@ def free_params(x, model, initial):
         # increment the free parameters if changing this value gives a different result
         if any(base != model(x, param)):
             k += 1
-    print(k)
     return k
 
 def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
@@ -387,24 +390,28 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
         methods:    A list of optimisation methods to be used in finiding the global solution.
         p:          A list, or range of the number of perturbers to introduce for each model.
     '''
+    # method names
+    m2name = {"dif":"differential evolution", "dual":"dual annealing", "lsq":"least squares regression", "basin":"basin hopping", "shgo":"simplicial homology global optimization"}
+    defmethod = "bounded limited memory Broyden–Fletcher–Goldfarb–Shanno"
     # output dictionary
-    solution = {"models":[], "priors":[], "labels":[], "freeParams":[], "solutions":[]}
+    solution_dict = {"models":[], "priors":[], "labels":[], "freeParams":[], "solutions":[]}
     # for each model/perturber combination
     for model in models:
-        for per in list(p):
-            # setup the model
-            priors, initial, labels, modelHandler = setup_model(model, system, per)
-            # determine the number of true free-parameters, includeing the underestimation factor too
-            freeParams = free_params(x, modelHandler, initial) + 1
-            from time import sleep
-            sleep(100000000)
+        print(f"\nFitting model {model.__name__}")
+        for per in p:
             for method in methods:
+                # setup the model
+                priors, initial, labels, modelHandler = setup_model(model, system, per)
+                # determine the number of true free-parameters, includeing the underestimation factor too
+                freeParams = free_params(x, modelHandler, initial) + 1
                 # determine this solution
                 solution = parameterSearch(x, y, yerr, priors, modelHandler, initial=initial, method=method)
+                # also carry over the name
+                modelHandler.__name__ = f"{model.__name__}: {per} perturbers, {m2name[method] if method in m2name else defmethod} fitting"
                 # append to the dictionary
-                solution["models"].append(modelHandler)
-                solution["priors"].append(priors)
-                solution["labels"].append(label)
-                solution["freeParams"].append(freeParams)
-                solution["solutions"].append(solution)
-    return solution
+                solution_dict["models"].append(modelHandler)
+                solution_dict["priors"].append(priors)
+                solution_dict["labels"].append(labels)
+                solution_dict["freeParams"].append(freeParams)
+                solution_dict["solutions"].append(solution)
+    return solution_dict
