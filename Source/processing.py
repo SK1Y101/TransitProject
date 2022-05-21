@@ -163,7 +163,7 @@ if __name__ == "__main__":
         x, y, yerr = simulateMidTransitTimes(args.planet)
 
     # define the models used
-    models = [tm.model1, tm.model2, tm.model3]
+    models = [tm.model1]#, tm.model2, tm.model3]
     # defint the number of free parameters introduced per body
     freeParams = [3, 5, 5]
 
@@ -172,17 +172,25 @@ if __name__ == "__main__":
     P = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
     #tm.plotModels(x, y, yerr, P, models, bodies, xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
+    print(bodies)
+    M = bodies[:, 1]
+    a = bodies[:, 0]
+    e = bodies[:, 2]
+
+    inner = a[1:] * (1-e[1:]) * (M[1:] / (3*M[0]))**(1/3)
+    outer = a[1:] * (1+e[1:]) * (M[1:] / (3*M[0]))**(1/3)
+
+    print([(np.delete(inner, i) <= body[1] <= np.delete(outer, i)) for i, body in enumerate(bodies[1:])])
+    #Rh = a(1-e)(m / 3M)^(1/3)
+
+    import time
+    time.sleep(1000000)
+
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
     solutions = tm.optimiser(x, y, yerr, models, bodies)
-    # for each model
-    for model in models:
-        # for between 1 and three new planets
-        for perturbers in range(1, 3):
-            # setup each model
-            priors, initial, labels, modelHandler = tm.setup_model(model, bodies, perturbers=perturbers)
-            # and determine some optimal solution
-            solution = tm.parameterSearch(x, y, yerr, priors, modelHandler, initial=initial)
-    tm.plotModels(x, y, yerr, P, [tm.model1, tm.model2, tm.model3], bodies, xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
+    tm.plotModels(x, y, yerr, P, solutions["models"], solutions["solutions"], xlim=xlim, xlimz=xlimz, fname="TTVTestModelFitting")
+    from time import sleep
+    sleep(100000)
 
     sampler = tm.parameterMCMC(x, y, yerr, solution, priors=priors, model=modelHandler)
 
