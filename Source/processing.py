@@ -177,7 +177,9 @@ if __name__ == "__main__":
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
     solutions = tm.optimiser(x, y, yerr, models, bodies)
     # save the solutions so they can be refered too
-    tp.saveDataFrame(pd.DataFrame.from_dict(solutions), "TTVTestModelFittingParameters")
+    solDf = pd.DataFrame.from_dict(solutions)
+    solDf["models"] = [model.__name__ for model in solDf["models"]]
+    tp.saveDataFrame(solDf, "TTVTestModelFittingParameters")
     # and graph them too
     tm.plotModels(x, y, yerr, P, solutions["models"], solutions["solutions"], xlim=xlim, xlimz=xlimz, fname="TTVTestModelFitting")
     from time import sleep
