@@ -173,28 +173,23 @@ if __name__ == "__main__":
 
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
     solutions = tm.optimiser(x, y, yerr, models, bodies, methods=["dif"])
-    # save the solutions so they can be refered too
-    solDf = pd.DataFrame.from_dict(solutions)
-    solDf["models"] = [model.__name__ for model in solDf["models"]]
-    tp.saveDataFrame(solDf, "TTVTestModelFittingParameters")
     # and graph them too
     tm.plotModels(x, y, yerr, P, solutions["models"], solutions["solutions"], xlim=xlim, xlimz=xlimz, fname="TTVTestModelFitting")
 
     # fetch the MCMC values for the models, as well as evaluating their information criterion
     MCMCVal = tm.determineUncertainties(x, y, yerr, solutions)
-    # save the samples so they can be refered too
-    mcmcDf = pd.DataFrame.from_dict(MCMCVal)
-    mcmcDf["models"] = [model.__name__ for model in mcmcDf["models"]]
-    tp.saveDataFrame(mcmcDf, "TTVTestModelFittingUncertainties")
 
-    print(MCMCVal)
     # determine which model was most likely using the computed information criterion
-    aic = mcmcDf[mcmcDf["AIC"]==mcmcDf["AIC"].min()]
-    aicc = mcmcDf[mcmcDf["AICc"]==mcmcDf["AICc"].min()]
-    bic = mcmcDf[mcmcDf["BIC"]==mcmcDf["BIC"].min()]
-    hqc = mcmcDf[mcmcDf["HQC"]==mcmcDf["HQC"].min()]
+    mcmcDf = pd.DataFrame.from_dict(output)
+    aic = np.argmin(mcmcDf["AIC"])
+    aicc = np.argmin(mcmcDf["AICc"])
+    bic = np.argmin(mcmcDf["BIC"])
+    hqc = np.argmin(mcmcDf["HQC"])
+    best = mcmcDf.iloc[np.unique([aic, aicc, bic, hqc])]
+    print(best)
+
     # create a corner plot for the best model
-    print(aic == aicc == bic == hqc)
-    print(aic)
+    import corner
+    fig = corner.corner(best["flatSamples"][:, :-1], labels=best["labels"][:, :-1])
 
     # generate a system chart for the best model

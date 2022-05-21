@@ -6,8 +6,12 @@ import scipy.optimize as opt
 import astropy.units as u
 from scipy import stats
 from tqdm import tqdm
+import pandas as pd
 import numpy as np
 import emcee
+
+# my modules
+from . import *
 
 ''' < TTV Models for the fitting step > '''
 
@@ -368,7 +372,7 @@ def setup_model(model, system, perturbers=1):
     for p in range(perturbers):
         # setup the standard priors
         a  = [r_star * 10, system[1][0]] #AU
-        mu = [1e-6, 0.05]
+        mu = [1e-10, 0.05]
         e  = [0, 0.5]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
         i  = [-1e-5, 1e-5]
@@ -461,6 +465,11 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
                 solution_dict["labels"].append(labels)
                 solution_dict["freeParams"].append(freeParams)
                 solution_dict["solutions"].append(solution)
+    # save the solutions so they can be refered too
+    solDf = pd.DataFrame.from_dict(solution_dict)
+    solDf["models"] = [model.__name__ for model in solDf["models"]]
+    saveDataFrame(solDf, "TTVTestModelFittingParameters")
+    # and return
     return solution_dict
 
 def determineUncertainties(x, y, yerr, solution):
@@ -511,4 +520,9 @@ def determineUncertainties(x, y, yerr, solution):
         output["AICc"].append(aicc)
         output["BIC"].append(bic)
         output["HQC"].append(hqc)
+    # save the samples so they can be refered too
+    mcmcDf = pd.DataFrame.from_dict(output)
+    mcmcDf["models"] = [model.__name__ for model in mcmcDf["models"]]
+    saveDataFrame(mcmcDf, "TTVTestModelFittingUncertainties")
+    # and return
     return output
