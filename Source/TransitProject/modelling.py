@@ -88,8 +88,8 @@ def _intersectingHillSphere_(bodies):
     a = bodies[:, 0]
     e = bodies[:, 2]
     # inner and outer regions of stability
-    inner = a[1:] * (1-e[1:]) * (M[1:] / (3*M[0]))**(1/3)
-    outer = a[1:] * (1+e[1:]) * (M[1:] / (3*M[0]))**(1/3)
+    inner = a[1:] * (1-e[1:]) * (1 - (M[1:] / (3*M[0]))**(1/3))
+    outer = a[1:] * (1+e[1:]) * (1 + (M[1:] / (3*M[0]))**(1/3))
     # if any planet lies within the hill sphere of another
     intersection = [np.logical_and(np.delete(inner, i) <= body[0], body[0] <= np.delete(outer, i)) for i, body in enumerate(bodies[1:])]
     # return as an array
@@ -147,7 +147,7 @@ def basin(func, p0, x, y, yerr, model, priors, niter=1000):
             bar.update(1)
         return opt.basinhopping(func, p0, minimizer_kwargs={"args":(x, y, yerr, model), "bounds":priors}, callback=update, niter=niter)
 
-def difevo(func, p0, x, y, yerr, model, priors, niter=1000):
+def difevo(func, p0, x, y, yerr, model, priors, niter=10000):
     ''' Define the differential evolution method for fitting a model to data. '''
     with tqdm(total=niter, smoothing=0, desc="Differential Evolution") as bar:
         def update(*a, convergence=0):
@@ -155,7 +155,7 @@ def difevo(func, p0, x, y, yerr, model, priors, niter=1000):
             bar.update(1)
         return opt.differential_evolution(func, priors, x0=p0, args=(x, y, yerr, model), callback=update, polish=True, maxiter=niter)
 
-def dual(func, p0, x, y, yerr, model, priors, niter=1000):
+def dual(func, p0, x, y, yerr, model, priors, niter=10000):
     ''' Define the dual annealing method for fitting a model to data. '''
     with tqdm(total=niter, smoothing=0, desc="Dual annealing") as bar:
         def update(*a):
@@ -226,7 +226,7 @@ def pSpaceToReal(theta):
     val[:, 5] = val[:, 5] * (1*u.yr).to(u.d).value
     return val
 
-def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fname=None):
+def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fname=None, showCombined=False):
     ''' Plot the data and predicted output of given models. Will also show each model output on seperate subplots.
         x, y, yerr:   The x, y, and y-error of the data.
         periods:      The orbital period (in days) of all bodies
@@ -237,7 +237,7 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
         fname:        The filename to save the final plot as. Leaving this as None will prevent the script from saving the output.'''
     # fetch size
     m = len(models)
-    plotnum = 1+m
+    plotnum = m + int(showCombined)
     # shift plot to zero
     x -= min(x)
     # fetch transiting period
@@ -249,7 +249,11 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
         keep = np.where(np.logical_and(x >= np.floor(xlim[0]), x <= np.ceil(xlim[1])))[0]
         x = x[keep]
         y = y[keep]
-        yerr = yerr[keep]
+        if isinstance(yerr, np.ndarray):
+            if yerr.shape[0] == 2:
+                yerr = [err[keep] for err in yerr]
+            else:
+                yerr = yerr[keep]
     # intermediary x, 100 values per orbit of the smallest period
     x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # shape Nx6 for a single parameter array of N planets, or MxNx6 for M different parameter spaces
@@ -267,33 +271,39 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     plt.figure(figsize=(10, (5/3) * plotnum))
     # plot everything
     plt.style.use('seaborn-colorblind')
-    plt.subplot(plotnum, 1, 1)
-    for model, param in zip(models, params):
-        param = param if param.size % 6 == 0 else param[:-1]
-        # convert transit number to time for the model to run
-        plt.plot(x1, model(x1*p, *param), label="Analytical TTV, {}".format(model.__name__.capitalize()))
-    plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
-    plt.title("Comparison between Numerical and Analytical TTV methods", fontsize="xx-large")
-    plt.ylabel("TTV [s]")
-    plt.xlabel("Transit number")
-    # move the x axis up slightly
-    ax = plt.gca()
-    ax.xaxis.labelpad = -2
-    if xlim:
-        plt.xlim(xlim)
+    # show the first plot if desired
+    if showCombined:
+        plt.subplot(plotnum, 1, 1)
+        for model, param in zip(models, params):
+            param = param if param.size % 6 == 0 else param[:-1]
+            # convert transit number to time for the model to run
+            plt.plot(x1, model(x1*p, *param), label="Analytical TTV, {}".format(model.__name__.capitalize()))
+        plt.errorbar(x, y, yerr=yerr, fmt="o", label="Simulated TTV", c="k")
+        plt.title("Comparison between Numerical and Analytical TTV methods", fontsize="xx-large")
+        plt.ylabel("TTV [s]")
+        plt.xlabel("Transit number")
+        # move the x axis up slightly
+        ax = plt.gca()
+        ax.xaxis.labelpad = -2
+        if xlim:
+            plt.xlim(xlim)
     # remove datapoints outside of the limits if xlim is given
     if xlimz != None:
         keep = np.where(np.logical_and(x >= np.floor(xlimz[0]), x <= np.ceil(xlimz[1])))[0]
         x = x[keep]
         y = y[keep]
-        yerr = yerr[keep]
+        if isinstance(yerr, np.ndarray):
+            if yerr.shape[0] == 2:
+                yerr = [err[keep] for err in yerr]
+            else:
+                yerr = yerr[keep]
         x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # for each model-parameter combination
     for i, modpar in enumerate(zip(models, params)):
         # decompose
         model, param = modpar
         param = param if param.size % 6 == 0 else param[:-1]
-        plt.subplot(plotnum, 1, i+2)
+        plt.subplot(plotnum, 1, i+1+int(showCombined))
         plt.style.use('seaborn-colorblind')
         # offset colour
         for j in range(i):
@@ -345,12 +355,14 @@ def setup_model(model, system, perturbers=1):
         perturbers: the number of new perturbing planets to introduce to the system.'''
     #define the unchanging parameters
     initial, priors, labels = [], [], []
+    # estimate the radius of the star, to define the innermost allowed orbit
+    r_star = max(system[0][1]**0.57, system[0][1]**0.8) * (695700000 / 149597870700)
     # create the parameter space for changing values
     for p in range(perturbers):
         # setup the standard priors
-        a  = [0, 1] #AU
-        mu = [0, 0.25]
-        e  = [0, 0.95]
+        a  = [r_star * 10, system[1][0] / 149597870700] #AU
+        mu = [1e-6, 0.05]
+        e  = [0, 0.5]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
         i  = [-1e-5, 1e-5]
         arg= [-2*np.pi, 2*np.pi]
@@ -358,6 +370,8 @@ def setup_model(model, system, perturbers=1):
         priors += [a, mu, e, i, arg, t0]
         # generate randomised initial parameters
         init = chooseRange([a, mu, e, i, arg, t0])
+        # start with zero eccentricity
+        init[2] = 0
         # flatten, convert to list, and append
         initial += list(init.flatten())
         # add labels to the output
@@ -442,3 +456,33 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
                 solution_dict["freeParams"].append(freeParams)
                 solution_dict["solutions"].append(solution)
     return solution_dict
+
+def determineUncertainties(x, y, yerr, solution):
+    # output dictionary
+    output = {}
+    # for each setup
+    for idx, model in enumerate(solution["models"]):
+        priors = solution["priors"][idx]
+        labels = solution["labels"][idx]
+        freeParams = solution["freeParams"][idx]
+        soln = solution["solutions"][idx]
+
+        # run MCMC analysis
+        sampler = parameterMCMC(x, y, yerr, soln, priors=priors, model=model, samples=10000)
+
+        # fetch the samples
+        flat_samples = sampler.get_chain(discard=100, flat=True)
+
+        best, besterror = [], []
+
+        # for each parameter
+        for idx, val in enumerate(solution)[:-1]:
+            mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
+            q = np.diff(mcmc)
+            best.append(mcmc[1])
+            besterror.append([[q[0], q[1]]])
+
+        print(model.__name__)
+        print(best)
+        from time import sleep as wait
+        wait(10000000)
