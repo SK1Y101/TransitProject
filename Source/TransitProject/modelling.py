@@ -82,14 +82,14 @@ def modeln(t, *bodies):
     TTV = bodies[2][1]*(1-bodies[2][2]**-1.5)/(2*np.pi*bodies[0][1])*(P[1]**2 / P[2])*(v[1]+bodies[2][2]*np.sin(v[1]*u.radian))
     return TTV / u.s
 
-def _intersectingHillSphere_(bodies):
+def _intersectingHillSphere_(bodies, nint=4):
     # mass, semi-major axis, and eccentricity
     M = bodies[:, 1]
     a = bodies[:, 0]
     e = bodies[:, 2]
     # inner and outer regions of stability
-    inner = a[1:] * (1-e[1:]) * (1 - (M[1:] / (3*M[0]))**(1/3))
-    outer = a[1:] * (1+e[1:]) * (1 + (M[1:] / (3*M[0]))**(1/3))
+    inner = a[1:] * (1-e[1:]) * (1 - nint*(M[1:] / (3*M[0]))**(1/3))
+    outer = a[1:] * (1+e[1:]) * (1 + nint*(M[1:] / (3*M[0]))**(1/3))
     # if any planet lies within the hill sphere of another
     intersection = [np.logical_and(np.delete(inner, i) <= body[0], body[0] <= np.delete(outer, i)) for i, body in enumerate(bodies[1:])]
     # return as an array
@@ -180,7 +180,7 @@ def parameterSearch(x, y, yerr, priors, model, initial=None, method="dif", addit
     elif method == "basin":
         # Basin Hopping (Global)
         solution = basin(nll, initial, x, y, yerr, model, priors)
-    elif method == "dif":
+    elif (method == "dif") or (method == "diff"):
         # Differential Evolution (Global)
         solution = difevo(nll, initial, x, y, yerr, model, priors)
     elif method == "dual":
@@ -220,7 +220,7 @@ def parameterMCMC(x, y, yerr, sol, priors, model, samples=5000, walkers=32, pool
 ''' < Graphical Outputs > '''
 
 def pSpaceToReal(theta):
-    val = theta.reshape((-1, 6))
+    val = theta.copy().reshape((-1, 6))
     # convert from AU to m, and years to days
     val[:, 0] = val[:, 0] * (1*u.AU).to(u.m).value
     val[:, 5] = val[:, 5] * (1*u.yr).to(u.d).value
@@ -341,6 +341,13 @@ def AIC(k, L):
         L: Maximum observed value of the log_likelihood function.'''
     return 2*k - 2*L
 
+def AICc(k, n, L):
+    ''' Compute the Akaike information criterion of the fit.
+        k: Number of free parameters.
+        n: Number of data points.
+        L: Maximum observed value of the log_likelihood function.'''
+    return AIC(k, L) + 2*(k**2 + k) / (n-k-1)
+
 def HQC(k, n, L):
     ''' Compute the Hannan-Quinn information criterion of the fit.
         k: Number of free parameters.
@@ -380,13 +387,12 @@ def setup_model(model, system, perturbers=1):
     default = system[:2].flatten()
     # use default parameters with the model
     def modelHandler(x, *theta):
-        # append the default values
-        theta = np.append(default, theta).reshape((-1, 6))
-        # convert from AU to m, and years to days
-        theta[:, 0] = theta[:, 0] * (1*u.AU).to(u.m).value
-        theta[:, 5] = theta[:, 5] * (1*u.yr).to(u.d).value
+        # prepend the default values
+        params = np.append(default, theta).reshape((-1, 6))
+        # convert from parameter space
+        params = pSpaceToReal(params)
         # return the model with the default values included
-        return model(x, *theta.flatten())
+        return model(x, *params.flatten())
     # return the found values and model function
     return priors, initial, labels, modelHandler
 
@@ -432,7 +438,7 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
         p:          A list, or range of the number of perturbers to introduce for each model.
     '''
     # method names
-    m2name = {"dif":"differential evolution", "dual":"dual annealing", "lsq":"least squares regression", "basin":"basin hopping", "shgo":"simplicial homology global optimization"}
+    m2name = {"dif":"differential evolution", "diff":"differential evolution", "dual":"dual annealing", "lsq":"least squares regression", "basin":"basin hopping", "shgo":"simplicial homology global optimization"}
     defmethod = "bounded limited memory Broyden–Fletcher–Goldfarb–Shanno"
     # output dictionary
     solution_dict = {"models":[], "priors":[], "labels":[], "freeParams":[], "solutions":[]}
@@ -459,7 +465,7 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
 
 def determineUncertainties(x, y, yerr, solution):
     # output dictionary
-    output = {}
+    output = {"models":[], "samplers":[], "flatSamples":[], "labels":[], "solutions":[], "solutionErrors":[], "k":[], "ln L":[], "AIC":[], "AICc":[], "BIC":[], "HQC":[]}
     # for each setup
     for idx, model in enumerate(solution["models"]):
         priors = solution["priors"][idx]
@@ -476,13 +482,33 @@ def determineUncertainties(x, y, yerr, solution):
         best, besterror = [], []
 
         # for each parameter
-        for idx, val in enumerate(solution)[:-1]:
-            mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
+        for idx, val in enumerate(soln):
+            mcmc = np.percentile(flat_samples[:, idx], [16, 50, 84])
             q = np.diff(mcmc)
             best.append(mcmc[1])
             besterror.append([[q[0], q[1]]])
 
-        print(model.__name__)
-        print(best)
-        from time import sleep as wait
-        wait(10000000)
+        # determine information criterion
+        k = freeParams
+        L = log_like(best, x, y, yerr, model)
+        n = len(x)
+
+        aic = AIC(k, L)
+        aicc = AICc(k, n, L)
+        bic = BIC(k, n, L)
+        hqc = HQC(k, n, L)
+
+        # save to output dictionary
+        output["models"].append(model)
+        output["samplers"].append(sampler)
+        output["flatSamples"].append(flat_samples)
+        output["labels"].append(labels)
+        output["solutions"].append(best)
+        output["solutionErrors"].append(besterror)
+        output["k"].append(freeParams)
+        output["ln L"].append(L)
+        output["AIC"].append(aic)
+        output["AICc"].append(aicc)
+        output["BIC"].append(bic)
+        output["HQC"].append(hqc)
+    return output
