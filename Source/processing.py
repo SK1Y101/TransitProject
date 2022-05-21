@@ -172,22 +172,13 @@ if __name__ == "__main__":
     P = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
     #tm.plotModels(x, y, yerr, P, models, bodies, xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
-    print(bodies)
-    M = bodies[:, 1]
-    a = bodies[:, 0]
-    e = bodies[:, 2]
-
-    inner = a[1:] * (1-e[1:]) * (M[1:] / (3*M[0]))**(1/3)
-    outer = a[1:] * (1+e[1:]) * (M[1:] / (3*M[0]))**(1/3)
-
-    print([(np.delete(inner, i) <= body[1] <= np.delete(outer, i)) for i, body in enumerate(bodies[1:])])
-    #Rh = a(1-e)(m / 3M)^(1/3)
-
-    import time
-    time.sleep(1000000)
+    #print(tm._intersectingHillSphere_(bodies).any())
 
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
     solutions = tm.optimiser(x, y, yerr, models, bodies)
+    # save the solutions so they can be refered too
+    tp.saveDataFrame(pd.DataFrame.from_dict(solutions), "TTVTestModelFittingParameters")
+    # and graph them too
     tm.plotModels(x, y, yerr, P, solutions["models"], solutions["solutions"], xlim=xlim, xlimz=xlimz, fname="TTVTestModelFitting")
     from time import sleep
     sleep(100000)

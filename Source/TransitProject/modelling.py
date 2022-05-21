@@ -82,6 +82,19 @@ def modeln(t, *bodies):
     TTV = bodies[2][1]*(1-bodies[2][2]**-1.5)/(2*np.pi*bodies[0][1])*(P[1]**2 / P[2])*(v[1]+bodies[2][2]*np.sin(v[1]*u.radian))
     return TTV / u.s
 
+def _intersectingHillSphere_(bodies):
+    # mass, semi-major axis, and eccentricity
+    M = bodies[:, 1]
+    a = bodies[:, 0]
+    e = bodies[:, 2]
+    # inner and outer regions of stability
+    inner = a[1:] * (1-e[1:]) * (M[1:] / (3*M[0]))**(1/3)
+    outer = a[1:] * (1+e[1:]) * (M[1:] / (3*M[0]))**(1/3)
+    # if any planet lies within the hill sphere of another
+    intersection = [np.logical_and(np.delete(inner, i) <= body[0], body[0] <= np.delete(outer, i)) for i, body in enumerate(bodies[1:])]
+    # return as an array
+    return np.array(intersection)
+
 ''' < Statistical programming to make the whole fitting thing work > '''
 
 def log_like(theta, x, y, yerr, model):
@@ -227,8 +240,6 @@ def plotModels(x, y, yerr, periods, models, params, xlim=None, xlimz=(0,2), fnam
     p = periods[1]
     # convert x to transit numbers
     x = np.around(x/p)
-    print(params)
-    print(params[:, 1])
     # intermediary x, 100 values per orbit of the smallest period
     x1 = np.arange(min(x), max(x), 0.01 * min(periods[1:]) / p)
     # shape Nx6 for a single parameter array of N planets, or MxNx6 for M different parameter spaces
