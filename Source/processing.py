@@ -172,33 +172,17 @@ if __name__ == "__main__":
     P = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
     #tm.plotModels(x, y, yerr, P, models, bodies, xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
-    #print(tm._intersectingHillSphere_(bodies).any())
-
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
-    solutions = tm.optimiser(x, y, yerr, models, bodies)
+    solutions = tm.optimiser(x, y, yerr, models, bodies, p=[1])
     # save the solutions so they can be refered too
     solDf = pd.DataFrame.from_dict(solutions)
     solDf["models"] = [model.__name__ for model in solDf["models"]]
     tp.saveDataFrame(solDf, "TTVTestModelFittingParameters")
     # and graph them too
     tm.plotModels(x, y, yerr, P, solutions["models"], solutions["solutions"], xlim=xlim, xlimz=xlimz, fname="TTVTestModelFitting")
-    from time import sleep
-    sleep(100000)
 
-    sampler = tm.parameterMCMC(x, y, yerr, solution, priors=priors, model=modelHandler)
-
-    flat_samples = sampler.get_chain(discard=100, flat=True)
-    vals = ""
-    best, beste = [], []
-    labels += ["log(f)"]
-    for i in range(len(solution)):
-        mcmc = np.percentile(flat_samples[:, i], [16, 50, 84])
-        q = np.diff(mcmc)
-        txt = "{3} = {0:.2e} - {1:.2e} + {2:.2e}"
-        txt = txt.format(mcmc[1], q[0], q[1], labels[i])
-        best.append(mcmc[1])
-        beste.append([q[0], q[1]])
-        print(txt)
+    # fetch the MCMC values for the models, as well as evaluating their information criterion
+    MCMCVal = tm.determineUncertainties(x, y, yerr, solutions)
 
     sampleParams = sampler.chain[:, 100:, :].reshape((-1, len(solution)))
 
