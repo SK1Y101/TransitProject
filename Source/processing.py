@@ -172,7 +172,7 @@ if __name__ == "__main__":
     #tm.plotModels(x, y, yerr, P, models, tm.pSpaceToReal(bodies), xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
-    solutions = tm.optimiser(x, y, yerr, models, bodies, p=[1], methods=["dif"])
+    solutions = tm.optimiser(x, y, yerr, models, bodies, methods=["dif"])
     # save the solutions so they can be refered too
     solDf = pd.DataFrame.from_dict(solutions)
     solDf["models"] = [model.__name__ for model in solDf["models"]]
@@ -189,10 +189,12 @@ if __name__ == "__main__":
 
     print(MCMCVal)
     # determine which model was most likely using the computed information criterion
-    aic = mcmcDf[df["AIC"]==mcmcDf["AIC"].min()]
-    aicc = mcmcDf[df["AICc"]==mcmcDf["AICc"].min()]
-    bic = mcmcDf[df["BIC"]==mcmcDf["BIC"].min()]
-    hqc = mcmcDf[df["HQC"]==mcmcDf["HQC"].min()]
+    aic = mcmcDf[mcmcDf["AIC"]==mcmcDf["AIC"].min()]
+    aicc = mcmcDf[mcmcDf["AICc"]==mcmcDf["AICc"].min()]
+    bic = mcmcDf[mcmcDf["BIC"]==mcmcDf["BIC"].min()]
+    hqc = mcmcDf[mcmcDf["HQC"]==mcmcDf["HQC"].min()]
     # create a corner plot for the best model
+    print(aic == aicc == bic == hqc)
+    print(aic)
 
     # generate a system chart for the best model

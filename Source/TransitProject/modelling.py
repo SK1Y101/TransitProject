@@ -367,7 +367,7 @@ def setup_model(model, system, perturbers=1):
     # create the parameter space for changing values
     for p in range(perturbers):
         # setup the standard priors
-        a  = [r_star * 10, system[1][0] / 149597870700] #AU
+        a  = [r_star * 10, system[1][0]] #AU
         mu = [1e-6, 0.05]
         e  = [0, 0.5]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
