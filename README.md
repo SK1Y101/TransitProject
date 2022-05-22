@@ -127,9 +127,9 @@ This is a general overview of the "Write Code" step above, and is of course subj
   - [x] Allow the inclusion of other factors (Ie: maybe we want to look at the Effect of GR?)
   - [x] Determine a standardised output
   - [x] Refactor code
-- [ ] Processing & Fitting
-  - [ ] Determine a simpler model that can produce the sinusoid for a given system layout
-    - [ ] Ensure this is accurate to system simulation
+- [x] Processing & Fitting
+  - [x] Determine a simpler model that can produce the sinusoid for a given system layout
+    - [x] Ensure this is accurate to system simulation
     - [x] Should be decently fast to run
     - [x] Is possible to give to an MCMC fitter
   - [x] Linear fit to the visual data
@@ -138,24 +138,25 @@ This is a general overview of the "Write Code" step above, and is of course subj
     - [x] Search through Residuals for TTV
   - [x] Use multiple fitting types, ie: Idealised Sine, Sinusoid from known parameters, simple simulation
   - [x] Fit using some extensive methodology, ie: MCMC, Simple Polyfit
-  - [ ] Refactor code
-- [ ] Analysis
-  - [ ] Determine accuracy of fit to known data.
-    - [ ] BIC Fit from bayesian analysis
-  - [ ] Run MCMC fitting using TTVFast
-  - [ ] Probably run Fourier analysis.
-  - [ ] Determine a way of pulling out key frequency terms.
+  - [x] Refactor code
+- [x] Analysis
+  - [x] Determine accuracy of fit to known data.
+    - [x] BIC Fit from bayesian analysis
+  - [x] Run MCMC fitting using TTVFast
+  - [x] Probably run Fourier analysis.
+  - [x] Determine a way of pulling out key frequency terms.
   - [x] Map key information to system parameters. ie: frequency to orbital period mapping.
-  - [ ] Determine if the known parameters of the system adequately map to the observed variation
-    - [ ] If not, determine the parameters of the perturbation.
-  - [ ] Refactor code
-- [ ] Re-simulate
-  - [ ] Use analysis to construct a range of possible system layouts (See Analysis)
+  - [x] Determine if the known parameters of the system adequately map to the observed variation
+    - [x] If not, determine the parameters of the perturbation.
+  - [x] Refactor code
+- [x] Re-simulate
+  - [x] Use analysis to construct a range of possible system layouts (See Analysis)
   - [x] Simulate each system layout (See Simulation step)
-  - [ ] Re-perform analysis of simulation, determine which, if any, simulated system layouts fit the data.
-  - [ ] Refactor code
-- [ ] Pretty outputs
+  - [x] Re-perform analysis of simulation, determine which, if any, simulated system layouts fit the data.
+  - [x] Refactor code
+- [x] Pretty outputs
   - [x] Graphical representations of all system layouts.
-  - [ ] Annotated charts of any fit data.
-  - [ ] Nice system parameter layout à la [wikipedia](https://en.wikipedia.org/wiki/Earth).
-  - [ ] Refactor code
+  - [x] Annotated charts of any fit data.
+  - [x] Nice system parameter layout à la [wikipedia](https://en.wikipedia.org/wiki/Earth).
+  - [x] Refactor code
+- [x] Code Objectives Complete
