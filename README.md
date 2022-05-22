@@ -69,8 +69,6 @@ In the `Source/` folder is all of the python scripts to be ran.
 These scripts are:
  - `determineTTVCandidates.py` - Determine which, of all exoplanets, are ideal candidates for testing TTV Models.
  - `fetchData.py` - Fetch Ephemerides and mid-transit times for exoplanets.
- - `fetchFittingParams.py` - Generates Latex tables from the model fitting parameters.
- - `plotOrbitalConfig.py` - Plot the layout for any given exoplanetary system
  - `processing.py` - Fit a transiting model to the observed data.
  - `simulationPipeline.py` - Simulate the known properties of an exoplanetary system to fetch transit times.
 
