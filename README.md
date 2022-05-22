@@ -32,9 +32,12 @@ The file structure of this repository is as follows:
 ```
 Repo/
 ├ Files/
-│ ├ Literature_Review.pdf
-│ ├ Poster.pdf
-│ └ ProjectProposal.pdf
+│ ├ Documents /
+│ │ ├ Literature_Review.pdf
+│ │ ├ Poster.pdf
+│ │ ├ ProjectPresentation.pptx
+│ │ └ ProjectProposal.pdf
+│ └ Images /                    *Contains various images generated for use in the research paper*
 ├ Source/
 │ ├ old_code /                  *Contains various bits legacy code that is kept for reference*
 │ ├ raw_data/
@@ -48,6 +51,7 @@ Repo/
 │ ├ sim_data/                   *Contains the outputs of any simulations that were run*
 │ ├ TransitProject/
 │ │ ├ __init__.py
+│ │ ├ modelling.py
 │ │ ├ Simulation.py
 │ │ ├ tesslc.py
 │ │ └ webScraping.py
@@ -65,6 +69,8 @@ In the `Source/` folder is all of the python scripts to be ran.
 These scripts are:
  - `determineTTVCandidates.py` - Determine which, of all exoplanets, are ideal candidates for testing TTV Models.
  - `fetchData.py` - Fetch Ephemerides and mid-transit times for exoplanets.
+ - `fetchFittingParams.py` - Generates Latex tables from the model fitting parameters.
+ - `plotOrbitalConfig.py` - Plot the layout for any given exoplanetary system
  - `processing.py` - Fit a transiting model to the observed data.
  - `simulationPipeline.py` - Simulate the known properties of an exoplanetary system to fetch transit times.
 
