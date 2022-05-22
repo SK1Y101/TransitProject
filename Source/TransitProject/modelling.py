@@ -540,11 +540,11 @@ def plotModelSystem(MCMCVal, bodies, names):
 
     # create a corner plot for the best model
     import corner
-    #fig = corner.corner(MCMCVal["flatSamples"][best][:, :-1], quantiles=(0.16, 0.5, 0.84), show_titles=True, \
-    #                    labels=MCMCVal["labels"][best]+["log_f"], title_fmt=".2E")
-    #plt.savefig("TTVTestModelFittingCorner.pdf", bbox_inches="tight")
-    #plt.savefig("TTVTestModelFittingCorner_transparent.pdf", bbox_inches="tight", transparent=True)
-    #plt.show()
+    fig = corner.corner(MCMCVal["flatSamples"][best][:, :-1], quantiles=(0.16, 0.5, 0.84), show_titles=True, \
+                        labels=MCMCVal["labels"][best]+["log_f"], title_fmt=".2E")
+    plt.savefig("TTVTestModelFittingCorner.pdf", bbox_inches="tight")
+    plt.savefig("TTVTestModelFittingCorner_transparent.pdf", bbox_inches="tight", transparent=True)
+    plt.show()
 
     # combine default system params and found solution
     sysParams = np.append(bodies, MCMCVal["solutions"][best][:-1]).reshape((-1, 6))
