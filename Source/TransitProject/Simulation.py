@@ -266,8 +266,12 @@ def constructSimArray(df, params=["mass", "sma", "ecc", "inc", "arg", "mean"], t
         for param in params:
             # fetch the value and errors
             val = thisobj[param]
-            er1 = val + abs(thisobj[param+"_e1"])
-            er2 = val - abs(thisobj[param+"_e2"])
+            er1 = val
+            er2 = val
+            if param+"_e1" in thisobj:
+                er1 = val + abs(thisobj[param+"_e1"])
+            if param+"_e2" in thisobj:
+                er2 = val - abs(thisobj[param+"_e2"])
             # if we are limiting errors, and this is an error to limit
             if limitError and param not in ["mass", "sma", "per"]:
                 er1, er2 = np.nan, np.nan
