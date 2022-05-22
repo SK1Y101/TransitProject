@@ -1,4 +1,5 @@
 # python modules
+from matplotlib.lines import Line2D
 from multiprocessing import Pool
 import matplotlib.pylab as plt
 import astropy.constants as c
@@ -95,7 +96,10 @@ def _intersectingHillSphere_(bodies, nint=4):
     inner = a[1:] * (1-e[1:]) * (1 - nint*(M[1:] / (3*M[0]))**(1/3))
     outer = a[1:] * (1+e[1:]) * (1 + nint*(M[1:] / (3*M[0]))**(1/3))
     # if any planet lies within the hill sphere of another
-    intersection = [np.logical_and(np.delete(inner, i) <= body[0], body[0] <= np.delete(outer, i)) for i, body in enumerate(bodies[1:])]
+    intersection = [any(np.logical_and(np.delete(inner, i) <= body[0], body[0] <= np.delete(outer, i)),\
+                        np.logical_and(np.delete(inner, i) <= body[0]*(1-body[2]), body[0]*(1-body[2]) <= np.delete(outer, i)),\
+                        np.logical_and(np.delete(inner, i) <= body[0]*(1+body[2]), body[0]*(1+body[2]) <= np.delete(outer, i)))\
+                        for i, body in enumerate(bodies[1:])]
     # return as an array
     return np.array(intersection)
 
@@ -371,8 +375,8 @@ def setup_model(model, system, perturbers=1):
     # create the parameter space for changing values
     for p in range(perturbers):
         # setup the standard priors
-        a  = [r_star * 10, system[1][0]] #AU
-        mu = [1e-10, 0.05]
+        a  = [r_star * 10, system[1][0]]
+        mu = [1e-9, 0.05]
         e  = [0, 0.5]
         t0 = [0, 200] #BJD [2400000, 2500000] in years
         i  = [-1e-5, 1e-5]
@@ -408,7 +412,7 @@ def randomError(x, y, yerr):
         m, b = theta
         return x*(m/u.d) + b
     plt.show()
-    priors = [[-1000, 1000], [-1000, 1000]]
+    priors = [[-100, 100], [-100, 100]]
     sol = parameterSearch(x, y, yerr, priors, model, initial=[0,0])
     return sol, model
 
@@ -473,6 +477,7 @@ def optimiser(x, y, yerr, models, system, methods=["dif", "dual"], p=[1, 2, 3]):
     return solution_dict
 
 def determineUncertainties(x, y, yerr, solution):
+    ''' Determine the uncertainties and best fit parameters using MCMC and information criterion. '''
     # output dictionary
     output = {"models":[], "samplers":[], "flatSamples":[], "labels":[], "solutions":[], "solutionErrors":[], "k":[], "ln L":[], "AIC":[], "AICc":[], "BIC":[], "HQC":[]}
     # for each setup
@@ -526,3 +531,50 @@ def determineUncertainties(x, y, yerr, solution):
     saveDataFrame(mcmcDf, "TTVTestModelFittingUncertainties")
     # and return
     return output
+
+def plotModelSystem(MCMCVal, bodies, names):
+    # create a dataframe of the solutions
+    mcmcDf = pd.DataFrame.from_dict(MCMCVal)
+    # determine which model was most likely using the computed information criterion
+    best = np.argmin(mcmcDf["AIC"])
+
+    # create a corner plot for the best model
+    import corner
+    #fig = corner.corner(MCMCVal["flatSamples"][best][:, :-1], quantiles=(0.16, 0.5, 0.84), show_titles=True, \
+    #                    labels=MCMCVal["labels"][best]+["log_f"], title_fmt=".2E")
+    #plt.savefig("TTVTestModelFittingCorner.pdf", bbox_inches="tight")
+    #plt.savefig("TTVTestModelFittingCorner_transparent.pdf", bbox_inches="tight", transparent=True)
+    #plt.show()
+
+    # combine default system params and found solution
+    sysParams = np.append(bodies, MCMCVal["solutions"][best][:-1]).reshape((-1, 6))
+    # construct dataframe for system
+    df = pd.DataFrame(columns=["name", "mass", "sma", "ecc", "inc", "arg"])
+    df["name"] = list(names) + [f"perturber {p+1}" for p in range(sysParams.shape[0]-2)]
+    df["mass"] = sysParams[:, 1]
+    df["sma"] = sysParams[:, 0]
+    df["ecc"] = sysParams[:, 2]
+    df["inc"] = sysParams[:, 3]
+    df["arg"] = sysParams[:, 4]
+    df["mean"] = np.zeros(sysParams.shape[0])
+    # to sim array
+    from . import Simulation as Sim
+    simArray = Sim.constructSimArray(df, useerror=False)
+    # convert to simulation
+    sim = Sim._arrayToSim_(simArray[0], list(df.columns[1:]))
+
+    # plot the simulation
+    import rebound
+    fig, ax_main, ax_top, ax_right = rebound.OrbitPlot(sim, slices=0.5, xlim=[-2.,2], ylim=[-2.,2], color=True, unitlabel="[AU]")
+    fig.suptitle(df.iloc[0]["name"].capitalize())
+    # create the legend
+    cols = [(1.,0.,0.),(0.,0.75,0.75),(0.75,0.,0.75),(0.75, 0.75, 0,),(0., 0., 0.),(0., 0., 1.),(0., 0.5, 0.)]
+    leg_elem = [Line2D([0], [0], color=cols[i], lw=1.5, label="{} Orbit".format(df.iloc[i+1]["name"].capitalize())) \
+                for i, item in enumerate(df.iloc[1:].index)]
+    # apply the legend
+    plt.legend(handles = leg_elem, framealpha=0, bbox_to_anchor=(0, 1.5), loc="upper left")
+    # and save
+    fig.tight_layout()
+    fig.savefig("{}_BestFitLayout.pdf".format(df.iloc[0]["name"].replace("_","")), transparent=False, bbox_inches='tight')
+    fig.savefig("{}_BestFitLayoutTransparent.pdf".format(df.iloc[0]["name"].replace("_","")), transparent=True, bbox_inches='tight')
+    plt.show()

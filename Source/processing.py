@@ -165,31 +165,19 @@ if __name__ == "__main__":
     P = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
 
     # define the models used
-    models = [tm.model1]#, tm.model2, tm.model3]
+    models = [tm.model1, tm.model2, tm.model3]
 
     # plot the initial states of the models used
     xlim, xlimz = [0.5, 15.5], [5.5, 10.5]
     #tm.plotModels(x, y, yerr, P, models, tm.pSpaceToReal(bodies), xlim=xlim, xlimz=xlimz, fname="TTVTestModelComparison")
 
     # determine the optimal soltion of the fit of 'n' models with 'p' parameters and combined optimisation methods.
-    solutions = tm.optimiser(x, y, yerr, models, bodies, methods=["dif"])
+    solutions = tm.optimiser(x, y, yerr, models, bodies)
     # and graph them too
     tm.plotModels(x, y, yerr, P, solutions["models"], solutions["solutions"], xlim=xlim, xlimz=xlimz, fname="TTVTestModelFitting")
 
     # fetch the MCMC values for the models, as well as evaluating their information criterion
     MCMCVal = tm.determineUncertainties(x, y, yerr, solutions)
 
-    # determine which model was most likely using the computed information criterion
-    mcmcDf = pd.DataFrame.from_dict(output)
-    aic = np.argmin(mcmcDf["AIC"])
-    aicc = np.argmin(mcmcDf["AICc"])
-    bic = np.argmin(mcmcDf["BIC"])
-    hqc = np.argmin(mcmcDf["HQC"])
-    best = mcmcDf.iloc[np.unique([aic, aicc, bic, hqc])]
-    print(best)
-
-    # create a corner plot for the best model
-    import corner
-    fig = corner.corner(best["flatSamples"][:, :-1], labels=best["labels"][:, :-1])
-
-    # generate a system chart for the best model
+    # create a corner plot and generate a system chart for the best model
+    tm.plotModelSystem(MCMCVal, bodies[:2], systemdf.iloc[:2]["name"])
