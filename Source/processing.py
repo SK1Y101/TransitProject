@@ -164,7 +164,13 @@ if __name__ == "__main__":
     # fetch the orbital periods of the bodies
     P = tm._extraModelParam_(tm.pSpaceToReal(bodies))[1].to(u.d)
 
-    # define the models used
+    # define the models used. From the paper, they are:
+    '''
+        Model 1: Eq.13, 'n' interior, coplanar, non-interacting, zero-eccentricity, perturbing planets
+        Model 2: Eq.16, 'n' interior, coplanar, weakly-interacting, non-zero-eccentricity, perturbing planets
+        Model 3: Eq.19, 'n' interior, coplanar, weakly-interacting, non-zero-eccentricity, perturbing planets, including the transiting planets eccentricity
+        Model 4: Eq.47, 'n' exterior, coplanar, non-interacting, non-zero-eccentricity, perturbing planets, with a zero eccentricity transiting planet
+    '''
     models = [tm.model1, tm.model2, tm.model3]
 
     # plot the initial states of the models used
