@@ -77,6 +77,21 @@ def model3(t, *bodies):
     # return
     return TTV / u.s
 
+# 'n' exterior, coplanar, non-interacting, non-zero-eccentricity, perturbing planets, with a zero eccentricity transiting planet
+def model4(t, *bodies):
+    # fetch period and 2d bodies array
+    bodies, P = _extraModelParam_(*bodies)
+    # fetch true anomalies
+    V = _trueFromMean_(t, P, bodies)
+    # fetch mean anomaly
+    M = [2*np.pi*(t-t0*u.d) / p.to(u.d) for (_,_,_,_,_,t0),p in zip(bodies, P)]
+    # compute the perturbation due to each body
+    pert = [(mu*((v-m)+e*np.sin(v*u.radian+arg*u.radian))*(1-e**2)**(-3/2))/p for (_,mu,e,_,arg,_),p,v,m in zip(bodies[2:], P[2:], V[2:], M[2:])]
+    # compute the TTV given perturbation
+    TTV = (P[1]**2 / (2*pi*(bodies[0][1]+bodies[1][1])))*sum(pert)
+    # return
+    return TTV / u.s
+
 def modeln(t, *bodies):
     # fetch period and 2d bodies array
     bodies, P = _extraModelParam_(*bodies)
